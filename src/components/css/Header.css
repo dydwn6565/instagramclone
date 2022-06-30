@@ -1,7 +1,21 @@
-.header{
-    display:flex;
+.header {
+    display: flex;
 }
 
 .text {
-    margin-left:50px;
+    margin-left: 50px;
+}
+
+.header-modal {
+    margin-left: 28rem;
+    margin-top: 4.5rem;
+}
+
+.header-modal-box {
+    background-color: white;
+    z-index: 1;
+}
+
+.homeIcon , .myMessage, .explore{
+    cursor: pointer;
 }
