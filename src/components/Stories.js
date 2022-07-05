@@ -4,14 +4,41 @@ import Avatar from "@mui/material/Avatar";
 function Stories() {
   return (
     <div className="stories">
-      <Avatar />
-      <Avatar />
-      <Avatar />
-      <Avatar />
-      <Avatar />
-      <Avatar />
+      <div className="stories-block">
+
+    <div className="stories-avatar">
+
+      <div>
+        <Avatar />
+        <span>name</span>
+      </div>
+      <div>
+        <Avatar />
+        <span>name</span>
+      </div>
+      <div>
+        <Avatar />
+        <span>name</span>
+      </div>
+      <div>
+        <Avatar />
+        <span>name</span>
+      </div>
+      <div>
+        <Avatar />
+        <span>name</span>
+      </div>
+      <div>
+        <Avatar />
+        <span>name</span>
+
+    </div>
+      </div>
+
+      </div>
+    
+    
     </div>
   );
 }
-
 export default Stories

@@ -7,7 +7,7 @@ import SendSharpIcon from "@mui/icons-material/SendSharp";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 import { Box, Button, ButtonGroup, Modal } from '@mui/material';
-
+import "./css/Main.css"
 const style = {
   position: 'absolute',
   top: '50%',
@@ -32,10 +32,18 @@ function Main() {
       setOpen(false);
     };
   return (
+    
     <div className="main">
-      <Avatar />
-      <span>Hyeoneee</span>
-      <MoreHorizOutlinedIcon onClick={handleOpen} />
+      <div className="main-title-container">
+        <div className="main-title">
+          <Avatar className="main-avatar" />
+          <span>Hyeoneee</span>
+          <MoreHorizOutlinedIcon
+            onClick={handleOpen}
+            className="main-horiz-oulined-icon"
+          />
+        </div>
+      </div>
       <Modal
         hideBackdrop
         open={open}
@@ -63,20 +71,20 @@ function Main() {
           </ButtonGroup>
         </Box>
       </Modal>
-      <div>
-
-      <img
-        src="https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-mont-st-michel.jpg"
-        alt="mong"
-      />
+      <div className="main-image-container">
+        <img
+          src="https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-mont-st-michel.jpg"
+          alt="mong"
+          className="main-image"
+        />
       </div>
       <FavoriteBorderOutlinedIcon />
-      <ChatBubbleOutlineSharpIcon/>
+      <ChatBubbleOutlineSharpIcon />
       <SendSharpIcon />
-      <BookmarkBorderIcon/>
+      <BookmarkBorderIcon />
       <div>
-<SentimentSatisfiedAltIcon/>
- comments
+        <SentimentSatisfiedAltIcon />
+        comments
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ function Recommand() {
   return (
     <div>Recommandations for you
 
-        <span>See all</span>
+        <span className="recommand">See all</span>
     </div>
   )
 }

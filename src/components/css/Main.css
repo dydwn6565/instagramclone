@@ -1,0 +1,39 @@
+.main-title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* width: 700px; */
+    /* margin-left: 23%; */
+}
+
+.main-title {
+    width: 550px;
+    align-items: center;
+    /* justify-content: center; */
+    padding: 1%;
+    display: flex;
+}
+
+.main-avatar {
+    margin-right: 1rem;
+}
+
+.main-horiz-oulined-icon {
+    margin-left: 400px;
+}
+
+.main-image-container {
+    padding: 1%;
+    /* text-align: center; */
+    /* align-items: center; */
+    justify-content: center;
+    padding: 1%;
+    display: flex;
+}
+
+.main-image {
+    
+    padding: 1%;
+    
+    width: 550px;
+}

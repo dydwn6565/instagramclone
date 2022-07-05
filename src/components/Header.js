@@ -29,8 +29,13 @@ const [open, setOpen] = useState(false);
   return (
     <>
       <div className="header">
-        <span>Instagrams</span>
+        <span className="instagram-title">Instagram</span>
+        <div className="header-search-bar">
+
         <form>
+          <IconButton className="search-icon" type="submit" aria-label="search">
+            <SearchIcon style={{ fill: "grey" }} />
+          </IconButton>
           <TextField
             id="search-bar"
             className="text"
@@ -39,21 +44,23 @@ const [open, setOpen] = useState(false);
             //     setSearchQuery(e.target.value);
             //   }
             // }
-            label="Enter a city name"
+
             variant="outlined"
-            placeholder="Search..."
+            placeholder="     Search..."
             size="small"
-          />
-          <IconButton type="submit" aria-label="search">
-            <SearchIcon style={{ fill: "blue" }} />
-          </IconButton>
+          ></TextField>
         </form>
+        </div>
+        <div className="icon-list">
+
+
         <HomeIcon className="homeIcon" onClick={redirectToHome} />
         <SendOutlinedIcon className="myMessage" onClick={redirectToMyMessage} />
         <AddBoxOutlinedIcon />
         <ExploreOutlinedIcon className="explore" onClick={redirectToExplore} />
         <FavoriteBorderOutlinedIcon />
         <Avatar onClick={handleOpen} />
+        </div>
         <Modal
           className="header-modal"
           hideBackdrop

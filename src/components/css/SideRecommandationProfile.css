@@ -1,0 +1,15 @@
+.side-recommandation-profile>div,
+.side-recommandation {
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+
+.side-recomandation-profile-id,
+.side-recommandation-id {
+    margin-left: 1rem;
+}
+
+.side-recommandation-profile-change,
+.side-recommandation-follow {
+    margin-left: 7rem;
+}

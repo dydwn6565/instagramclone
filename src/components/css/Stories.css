@@ -1,4 +1,31 @@
-.stories{
-    display:flex;
-    border: 1px solid black;
+.stories {
+    padding: 1%;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    border: 1px solid grey;
+    width: 550px;
+    margin-left:70px;
+}
+
+.stories-block {
+    
+    display: flex;
+    align-items: center;
+    /* margin-left: 5%; */
+    /* justify-content: center; */
+}
+
+.stories-avatar>div {
+    margin-left: 3%
+}
+
+.stories-avatar {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.storeis-last {
+    margin-right: 400px;
 }

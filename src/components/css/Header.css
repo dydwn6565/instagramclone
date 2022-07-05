@@ -1,9 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 .header {
     display: flex;
+    padding: 1%;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+}
+
+.header-search-bar {
+    display: flex;
+    
+    /* align-items: center; */
+    /* justify-content: center; */
+    
+}
+
+.instagram-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 155%;
+    
+    /* justify-content: flex-start; */
+    margin-right:13%;
+    /* margin-left:-15rem; */
+    /* width: 400px; */
 }
 
 .text {
-    margin-left: 50px;
+    /* margin-left: 50px; */
+}
+
+.icon-list {
+    width: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left:5%;
+}
+
+.search-icon {
+    position: absolute !important;
+    margin-left: -220px;
 }
 
 .header-modal {
@@ -16,6 +52,8 @@
     z-index: 1;
 }
 
-.homeIcon , .myMessage, .explore{
+.homeIcon,
+.myMessage,
+.explore {
     cursor: pointer;
 }
