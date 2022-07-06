@@ -10,18 +10,22 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 import Avatar from "@mui/material/Avatar";
 import "../components/css/Header.css"
 import { Box, Button, ButtonGroup, Modal } from '@mui/material';
-function Header() {
-const [open, setOpen] = useState(false);
-    const handleOpen = () => {
-      setOpen(true);
-    };
-    const handleClose = () => {
-      setOpen(false);
-    };
+function Header({ setBlurBackground }) {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+    setBlurBackground(true)
+  };
+  const handleClose = () => {
+    setOpen(false);
+    setBlurBackground(false)
+  };
 
-  const redirectToHome =() =>{
-     window.location.href="/";
-  }
+  const redirectToProfile =()=> window.location.href="/id"
+
+  const redirectToHome = () => {
+    window.location.href = "/";
+  };
 
   const redirectToMyMessage = () => (window.location.href = "/myMessage");
 
@@ -31,43 +35,50 @@ const [open, setOpen] = useState(false);
       <div className="header">
         <span className="instagram-title">Instagram</span>
         <div className="header-search-bar">
+          <form>
+            <IconButton
+              className="search-icon"
+              type="submit"
+              aria-label="search"
+            >
+              <SearchIcon style={{ fill: "grey" }} />
+            </IconButton>
+            <TextField
+              id="search-bar"
+              className="text"
+              //   onInput={
+              //     (e) => {
+              //     setSearchQuery(e.target.value);
+              //   }
+              // }
 
-        <form>
-          <IconButton className="search-icon" type="submit" aria-label="search">
-            <SearchIcon style={{ fill: "grey" }} />
-          </IconButton>
-          <TextField
-            id="search-bar"
-            className="text"
-            //   onInput={
-            //     (e) => {
-            //     setSearchQuery(e.target.value);
-            //   }
-            // }
-
-            variant="outlined"
-            placeholder="     Search..."
-            size="small"
-          ></TextField>
-        </form>
+              variant="outlined"
+              placeholder="     Search..."
+              size="small"
+            ></TextField>
+          </form>
         </div>
         <div className="icon-list">
-
-
-        <HomeIcon className="homeIcon" onClick={redirectToHome} />
-        <SendOutlinedIcon className="myMessage" onClick={redirectToMyMessage} />
-        <AddBoxOutlinedIcon />
-        <ExploreOutlinedIcon className="explore" onClick={redirectToExplore} />
-        <FavoriteBorderOutlinedIcon />
-        <Avatar onClick={handleOpen} />
+          <HomeIcon className="homeIcon" onClick={redirectToHome} />
+          <SendOutlinedIcon
+            className="myMessage"
+            onClick={redirectToMyMessage}
+          />
+          <AddBoxOutlinedIcon />
+          <ExploreOutlinedIcon
+            className="explore"
+            onClick={redirectToExplore}
+          />
+          <FavoriteBorderOutlinedIcon />
+          <Avatar onClick={handleOpen} />
         </div>
         <Modal
           className="header-modal"
           hideBackdrop
           open={open}
           onClose={handleClose}
-          aria-labelledby="child-modal-title"
-          aria-describedby="child-modal-description"
+          // aria-labelledby="child-modal-title"
+          // aria-describedby="child-modal-description"
         >
           <Box className="header-modal-box" sx={{ width: 200 }}>
             {/* <Button onClick={handleClose}>Close Child Modal</Button> */}
@@ -75,12 +86,12 @@ const [open, setOpen] = useState(false);
               orientation="vertical"
               aria-label="vertical outlined button group"
             >
-              <p>Profile</p>
+              <p onClick={redirectToProfile}>Profile</p>
               <p>Saved</p>
               <p>Setting</p>
               <p>Change account</p>
-
-              <Button onClick={handleClose}>Cancle</Button>
+              <div className="modal-logout"></div>
+              <div onClick={handleClose}>Log Out</div>
             </ButtonGroup>
           </Box>
         </Modal>

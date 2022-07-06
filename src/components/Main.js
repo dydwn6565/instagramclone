@@ -8,31 +8,35 @@ import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 import { Box, Button, ButtonGroup, Modal } from '@mui/material';
 import "./css/Main.css"
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  pt: 2,
-  px: 4,
-  pb: 3,
-};
+// const style = {
+//   position: 'absolute' as 'absolute',
+//   top: '50%',
+//   left: '50%',
+//   transform: 'translate(-50%, -50%)',
+//   width: 400,
+//   bgcolor: 'background.paper',
+//   border: '2px solid #000',
+//   boxShadow: 24,
+  
+//   // pt: 2,
+//   // px: 4,
+//   // pb: 3,
+// };
 
 
-function Main() {
-    const [open, setOpen] = useState(false);
-    const handleOpen = () => {
-      setOpen(true);
-    };
-    const handleClose = () => {
-      setOpen(false);
-    };
+function Main({ setBlurBackground }) {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+    setBlurBackground(true)
+  };
+  const handleClose = () => {
+    setOpen(false);
+    setBlurBackground(false)
+  };
+
+  
   return (
-    
     <div className="main">
       <div className="main-title-container">
         <div className="main-title">
@@ -48,27 +52,26 @@ function Main() {
         hideBackdrop
         open={open}
         onClose={handleClose}
-        aria-labelledby="child-modal-title"
-        aria-describedby="child-modal-description"
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
       >
-        <Box sx={{ ...style, width: 200 }}>
-          <h2 id="child-modal-title">Text in a child modal</h2>
-          <p id="child-modal-description">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          </p>
+        <Box className="main-modal">
           {/* <Button onClick={handleClose}>Close Child Modal</Button> */}
-          <ButtonGroup
-            orientation="vertical"
-            aria-label="vertical outlined button group"
-          >
-            <Button>Report</Button>
-            <Button>Un Follow</Button>
-            <Button>Move to the Board</Button>
-            <Button>Link to.. </Button>
-            <Button>Duplicate Link</Button>
-            <Button>Scoop up</Button>
-            <Button onClick={handleClose}>Cancle</Button>
-          </ButtonGroup>
+
+          <Button>Report</Button>
+          <hr />
+          <Button>Un Follow</Button>
+          <hr />
+          <Button>Move to the Board</Button>
+          <hr />
+          <Button>Link to.. </Button>
+          <hr />
+          <Button>Duplicate Link</Button>
+          <hr />
+          <Button>Scoop up</Button>
+          <hr />
+          <Button onClick={handleClose}>Cancle</Button>
+          {/* <hr /> */}
         </Box>
       </Modal>
       <div className="main-image-container">
@@ -78,11 +81,15 @@ function Main() {
           className="main-image"
         />
       </div>
-      <FavoriteBorderOutlinedIcon />
-      <ChatBubbleOutlineSharpIcon />
-      <SendSharpIcon />
-      <BookmarkBorderIcon />
-      <div>
+      <div className="main-page-icons-container">
+        <div className="main-page-icons">
+          <FavoriteBorderOutlinedIcon />
+          <ChatBubbleOutlineSharpIcon />
+          <SendSharpIcon />
+          <BookmarkBorderIcon className="main-page-bookmark-icon" />
+        </div>
+      </div>
+      <div className="main-page-comment">
         <SentimentSatisfiedAltIcon />
         comments
       </div>

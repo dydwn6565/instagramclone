@@ -1,0 +1,17 @@
+.profile-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-multiple-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-main>img {
+    transform: scale(0.8) translate(-55%, 60%);
+    
+    position: absolute;
+}

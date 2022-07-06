@@ -1,6 +1,13 @@
-.main-page-grid{
-  /* display:flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  margin-left:23%;
+.main-page-grid {
+    /* display:flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    margin-left: 23%;
+}
+
+.App {
+    background-color: #b2b2b2 ;
+    opacity: 50%;
+    
+    
 }

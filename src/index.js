@@ -6,6 +6,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import MyMessage from './components/MyMessage';
 import Explore from './components/Explore';
+import Profile from './components/Profile';
+import AccountEdit from './components/AccountEdit';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
@@ -20,6 +22,8 @@ root.render(
       {/* <Route index element={<Home />} /> */}
       <Route path="myMessage" element={<MyMessage />}></Route>
       <Route path="explore" element={<Explore />}></Route>
+      <Route path="id" element={<Profile />}></Route>
+      <Route path="account/edit" element={<AccountEdit />}></Route>
       {/* <Route path=":teamId" element={<Team />} />
           <Route path="new" element={<NewTeamForm />} />
           <Route index element={<LeagueStandings />} /> */}

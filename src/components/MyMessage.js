@@ -1,9 +1,12 @@
 import React from 'react'
+import Header from './Header';
 
-function MyMessage() {
+function MyMessage({ setBlurBackground }) {
   return (
-    <div>MyMessage</div>
-  )
+    <>
+      <Header setBlurBackground={setBlurBackground} />
+    </>
+  );
 }
 
 export default MyMessage
