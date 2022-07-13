@@ -1,5 +1,18 @@
-.account-edit{
+.account-edit {
     display: flex;
     justify-content: center;
-    align-items: center;
+}
+
+.account-edit-profile {
+    display: flex;
+    /* justify-content: flex-start; */
+}
+
+.account-edit-name {
+    display: flex;
+    padding: 1%;
+}
+
+.account-edit-user-name-more-info{
+    text-decoration: none;
 }
