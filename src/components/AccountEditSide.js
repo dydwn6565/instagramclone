@@ -3,8 +3,7 @@ import React, { useState } from 'react'
 
 import "./css/AccountEditSide.css"
 
-import Header from './Header'
-function AccountEdit() {
+function AccountEditSide() {
 const [selectedIndex, setSelectedIndex] = useState(1);
   const handleListItemClick = (event, index) => {
      
@@ -137,4 +136,4 @@ const [selectedIndex, setSelectedIndex] = useState(1);
   );
 }
 
-export default AccountEdit
+export default AccountEditSide

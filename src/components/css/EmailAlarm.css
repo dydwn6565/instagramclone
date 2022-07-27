@@ -1,0 +1,9 @@
+.email-alarm {
+    display: flex;
+    /* align-content: center; */
+    justify-content: center;
+}
+
+.email-alarm-main{
+    /* margin-left:-15%; */
+}

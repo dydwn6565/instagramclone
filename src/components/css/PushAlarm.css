@@ -1,0 +1,7 @@
+.push-alarm {
+    display: flex;
+    justify-content: center;
+}.push-alarm-like {
+    display: flex;
+    flex-direction: column;
+}

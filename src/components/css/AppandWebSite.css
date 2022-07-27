@@ -1,0 +1,16 @@
+.app-and-website {
+    display: flex;
+    justify-content: center;
+}
+
+.app-and-website-title {
+    display: flex;
+}
+
+.app-and-website-buttons>button {
+    background-color: white;
+    border: 0.5px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
