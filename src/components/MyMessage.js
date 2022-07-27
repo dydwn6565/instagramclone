@@ -5,6 +5,10 @@ function MyMessage({ setBlurBackground }) {
   return (
     <>
       <Header setBlurBackground={setBlurBackground} />
+      <div className="my-message">
+    
+
+      </div>
     </>
   );
 }

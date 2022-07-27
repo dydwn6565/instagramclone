@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import AccountEditSide from './AccountEditSide'
 import Header from './Header'
 import "../components/css/AppandWebSite.css"
+import AccountEditFooter from './AccountEditFooter';
 function AppandWebSite() {
 
     const [selectedItem, setSelectedItem] = useState("active");
@@ -99,6 +100,7 @@ function AppandWebSite() {
         </div> :""}
       </div>
       </div>
+      <AccountEditFooter />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import AccountEditFooter from "./AccountEditFooter";
 import AccountEditSide from "./AccountEditSide";
 import "./css/EmailAlarm.css"
 import Header from "./Header";
@@ -25,6 +26,7 @@ function EmailAlarm() {
           <div>See the details about Instagram's new features</div>
         </div>
       </div>
+      <AccountEditFooter />
     </div>
   );
 }

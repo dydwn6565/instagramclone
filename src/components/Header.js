@@ -9,9 +9,13 @@ import ExploreOutlinedIcon from "@mui/icons-material/ExploreOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import Avatar from "@mui/material/Avatar";
 import "../components/css/Header.css"
-import { Box, Button, ButtonGroup, Modal } from '@mui/material';
+import { Box,  ButtonGroup,Modal } from '@mui/material';
+
+import MessageModal from './UI/MessageModal';
+
 function Header({ setBlurBackground }) {
   const [open, setOpen] = useState(false);
+  const [openModal,setOpenModal] = useState(false);
   const handleOpen = () => {
     setOpen(true);
     setBlurBackground(true)
@@ -30,6 +34,12 @@ function Header({ setBlurBackground }) {
   const redirectToMyMessage = () => (window.location.href = "/myMessage");
 
   const redirectToExplore = () => (window.location.href = "/explore");
+
+  
+  const createNewPost =() =>{
+  
+        setOpenModal(prevState => !prevState)
+  }
   return (
     <>
       <div className="header">
@@ -46,12 +56,6 @@ function Header({ setBlurBackground }) {
             <TextField
               id="search-bar"
               className="text"
-              //   onInput={
-              //     (e) => {
-              //     setSearchQuery(e.target.value);
-              //   }
-              // }
-
               variant="outlined"
               placeholder="     Search..."
               size="small"
@@ -64,7 +68,8 @@ function Header({ setBlurBackground }) {
             className="myMessage"
             onClick={redirectToMyMessage}
           />
-          <AddBoxOutlinedIcon />
+          <AddBoxOutlinedIcon onClick={createNewPost} />
+
           <ExploreOutlinedIcon
             className="explore"
             onClick={redirectToExplore}
@@ -77,11 +82,10 @@ function Header({ setBlurBackground }) {
           hideBackdrop
           open={open}
           onClose={handleClose}
-          // aria-labelledby="child-modal-title"
-          // aria-describedby="child-modal-description"
+          
         >
           <Box className="header-modal-box" sx={{ width: 200 }}>
-            {/* <Button onClick={handleClose}>Close Child Modal</Button> */}
+            
             <ButtonGroup
               orientation="vertical"
               aria-label="vertical outlined button group"
@@ -95,6 +99,9 @@ function Header({ setBlurBackground }) {
             </ButtonGroup>
           </Box>
         </Modal>
+        {openModal && (
+          <MessageModal title="Create New Post" message="Drop your pitcure and videos to here" onConfirm={createNewPost} />
+        )}
       </div>
     </>
   );

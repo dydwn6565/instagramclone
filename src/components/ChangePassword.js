@@ -3,6 +3,7 @@ import Header from './Header'
 import AccountEditSide from "./AccountEditSide";
 import "../components/css/ChangePassword.css"
 import { Avatar } from '@mui/material';
+import AccountEditFooter from './AccountEditFooter';
 function ChangePassword() {
   return (
     <div>
@@ -30,6 +31,7 @@ function ChangePassword() {
           <div>Do you forget your password?</div>
         </div>
       </div>
+      <AccountEditFooter />
     </div>
   );
 }
