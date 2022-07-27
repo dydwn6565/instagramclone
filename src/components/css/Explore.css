@@ -1,0 +1,14 @@
+.explore-images {
+    width: 1000px;
+}
+
+.explore-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.explore-images img {
+    width: 300px;
+    padding: 1rem;
+}
