@@ -5,25 +5,24 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    border-bottom:0.5px lightgrey solid; 
 }
 
 .header-search-bar {
     display: flex;
-    /* align-items: center; */
-    /* justify-content: center; */
+    
 }
 
 .instagram-title {
     font-family: 'Dancing Script', cursive;
     font-size: 155%;
-    /* justify-content: flex-start; */
+    
     margin-right: 13%;
-    /* margin-left:-15rem; */
-    /* width: 400px; */
+    
 }
 
 .text {
-    /* margin-left: 50px; */
+    
 }
 
 .icon-list {
@@ -40,15 +39,14 @@
 }
 
 .header-modal {
-    /* margin-left: 28rem;
-    margin-top: 4.5rem; */
+    
     position: absolute;
     margin-top: 200px;
     margin-left: 70%;
     transform: translate(-50%, -50%);
     width: 220px;
     height: 270px;
-    /* border:2px solid #000; */
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -66,8 +64,7 @@
 }
 
 .header-modal-box {
-    /* background-color: white;
-    z-index: 1; */
+    
 }
 
 .homeIcon,

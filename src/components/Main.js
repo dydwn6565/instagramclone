@@ -13,20 +13,17 @@ import MainPageModal from './UI/MainPageModal';
 
 function Main({ setBlurBackground }) {
   const [mainPageModal, setMainPageModal] = useState(false);
-  // const [open, setOpen] = useState(false);
-  // const handleOpen = () => {
-  //   setOpen(true);
-  //   setBlurBackground(true)
-  // };
-  // const handleClose = () => {
-  //   setOpen(false);
-  //   setBlurBackground(false)
-  // };
+
+  const [extendCommentModal,setExtendCommentModal] = useState(false);
 
   const mainPageHandler = () =>{
     setMainPageModal(prevState => !prevState);
   }
   
+  const extendComment =() =>{
+    setExtendCommentModal(prevState =>!prevState);
+  }
+
   return (
     <div className="main">
       <div className="main-title-container">
@@ -39,32 +36,6 @@ function Main({ setBlurBackground }) {
           />
         </div>
       </div>
-      {/* <Modal
-        hideBackdrop
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box className="main-modal">
-          <Button onClick={handleClose}>Close Child Modal</Button>
-
-          <Button>Report</Button>
-          <hr />
-          <Button>Un Follow</Button>
-          <hr />
-          <Button>Move to the Board</Button>
-          <hr />
-          <Button>Link to.. </Button>
-          <hr />
-          <Button>Duplicate Link</Button>
-          <hr />
-          <Button>Scoop up</Button>
-          <hr />
-          <Button onClick={handleClose}>Cancle</Button>
-          <hr />
-        </Box>
-      </Modal> */}
 
       {mainPageModal && <MainPageModal mainPageHandler={mainPageHandler} />}
       <div className="main-image-container">
@@ -76,15 +47,26 @@ function Main({ setBlurBackground }) {
       </div>
       <div className="main-page-icons-container">
         <div className="main-page-icons">
-          <FavoriteBorderOutlinedIcon />
-          <ChatBubbleOutlineSharpIcon />
-          <SendSharpIcon />
+          <FavoriteBorderOutlinedIcon className="main-page-icons" />
+          <ChatBubbleOutlineSharpIcon className="main-page-icons" />
+          <SendSharpIcon className="main-page-icons" />
           <BookmarkBorderIcon className="main-page-bookmark-icon" />
         </div>
       </div>
+      <div className="main-page-info">
+
+      <div>lovely_min08 likes </div>
+      <div>
+        the0v #HondaCelebrationOfLight: #Japan jp #EnglishBay #Fireworks
+        #July2022 #Summer #GoodTimes #Vancouver #BC #Canada Ca
+      </div>
+      <div onClick={extendComment}>See comments</div>
+      </div>
+      <hr />
       <div className="main-page-comment">
         <SentimentSatisfiedAltIcon />
-        comments
+        <span> comments</span>
+        <div className="comment-button">Post</div>
       </div>
     </div>
   );

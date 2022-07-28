@@ -5,7 +5,7 @@ import { GoGear } from "react-icons/go";
 import { TbExchange } from "react-icons/tb";
 import "./HeaderProfileModal.css"
 
-function HeaderProfileModal({ mainPageModalHandler }) {
+function HeaderProfileModal({ mainPageModalHandler, redirectToProfile }) {
   return (
     <div>
       <div
@@ -13,7 +13,7 @@ function HeaderProfileModal({ mainPageModalHandler }) {
         onClick={mainPageModalHandler}
       />
       <ul className="header-profile-ul">
-        <li>
+        <li onClick={redirectToProfile}>
           <CgProfile />
           <span>Profile</span>
         </li>
@@ -33,7 +33,6 @@ function HeaderProfileModal({ mainPageModalHandler }) {
         <hr />
         <li>Logout</li>
       </ul>
-  
     </div>
   );
 }

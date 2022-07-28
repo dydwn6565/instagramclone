@@ -1,19 +1,18 @@
 .stories {
     padding: 1%;
     display: flex;
-    /* justify-content: center; */
+    margin-top: 3%;
     align-items: center;
-    border: 1px solid grey;
-    width: 550px;
-    margin-left:70px;
+    border: 0.5px solid lightgrey;
+    width: 535px;
+    
+    margin-left: 73px;
+    margin-bottom: 2%;
 }
 
 .stories-block {
-    
     display: flex;
     align-items: center;
-    /* margin-left: 5%; */
-    /* justify-content: center; */
 }
 
 .stories-avatar>div {
@@ -23,7 +22,6 @@
 .stories-avatar {
     display: flex;
     align-items: center;
-    /* justify-content: center; */
 }
 
 .storeis-last {

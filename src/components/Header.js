@@ -21,14 +21,6 @@ function Header({ setBlurBackground }) {
   const [openHeart, setOpenHeart] = useState(false);
   const [openHeaderModal,setOpenHeaderModal] = useState(false);
 
-  // const handleOpen = () => {
-  //   setOpen(true);
-  //   setBlurBackground(true)
-  // };
-  // const handleClose = () => {
-  //   setOpen(false);
-  //   setBlurBackground(false)
-  // };
 
   const redirectToProfile =()=> window.location.href="/id"
 
@@ -90,9 +82,12 @@ function Header({ setBlurBackground }) {
           <FavoriteBorderOutlinedIcon onClick={postActivity} />
           <Avatar onClick={headerModalHandler} />
         </div>
-      
+
         {openHeaderModal && (
-          <HeaderProfileModal headerModalHandler={headerModalHandler} />
+          <HeaderProfileModal
+            headerModalHandler={headerModalHandler}
+            redirectToProfile={redirectToProfile}
+          />
         )}
         {openModal && (
           <MessageModal

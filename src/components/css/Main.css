@@ -2,30 +2,33 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* width: 700px; */
-    /* margin-left: 23%; */
+    margin-top: 1%;
+}
+
+.main {
+    border: 0.5px solid lightgrey;
+    width: 550px;
+    margin-left: 10%;
 }
 
 .main-title {
     width: 550px;
     align-items: center;
-    /* justify-content: center; */
     padding: 1%;
     display: flex;
 }
 
 .main-avatar {
     margin-right: 1rem;
+    margin-left: 1rem;
 }
 
 .main-horiz-oulined-icon {
-    margin-left: 400px;
+    margin-left: 370px;
 }
 
 .main-image-container {
     padding: 1%;
-    /* text-align: center; */
-    /* align-items: center; */
     justify-content: center;
     padding: 1%;
     display: flex;
@@ -37,41 +40,38 @@
 }
 
 .main-page-icons {
-    margin-left: 16%;
-    /* display: flex; */
-    align-items: center;
+    margin-left: 1%;
 }
 
 .main-page-icons-container {
     width: 550px;
-    /* display: flex; */
     align-items: center;
 }
 
 .main-page-bookmark-icon {
     float: right;
+    margin-right: 1%;
 }
 
+.main-page-info {
+    margin-left:1%;
+
+}
 .main-page-comment {
     width: 550px;
-    margin-left: 12%;
+    padding: 1%;
+    display: flex;
 }
 
-.main-modal {
-    position: absolute;
-    margin-top: 20%;
-    margin-left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    /* border:2px solid #000; */
-    display: flex;
-    flex-direction: column;
-    box-shadow: 24px;
-    background-color: white;
-    border-radius: 10px;
+.main-page-comment>span {
+    margin-left: 1%;
+}
+
+.comment-button {
+    margin-left: 70%;
+    color: lightblue;
 }
 
 .main-modal-hr {
     border: 1px solid lightgray;
 }
-
