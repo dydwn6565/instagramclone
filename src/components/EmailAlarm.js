@@ -2,6 +2,8 @@ import React from "react";
 import AccountEditFooter from "./AccountEditFooter";
 import AccountEditSide from "./AccountEditSide";
 import "./css/EmailAlarm.css"
+import EmailAlarmComponent from "./EmailAlarmComponent";
+import EmailAlarmAlarm from "./EmailAlarmComponent";
 import Header from "./Header";
 
 function EmailAlarm() {
@@ -11,19 +13,26 @@ function EmailAlarm() {
       <div className="email-alarm">
         <AccountEditSide />
         <div className="email-alarm-main">
-          <h3> Receive: </h3>
-          <input type="checkbox" />
-          <span>Feedback E-mail</span>
-          <div>Send feedback to Instagram</div>
-          <input type="checkbox" />
-          <span>Alarm E-mail</span>
-          <div>Receive not confirmed E-mail</div>
-          <input type="checkbox" />
-          <span>Product E-mail</span>
-          <div>Check the tips about Instagram tools</div>
-          <input type="checkbox" />
-          <span>News E-mail</span>
-          <div>See the details about Instagram's new features</div>
+          <EmailAlarmComponent
+            title={"E-mail Feedback"}
+            extraInfo={"Send feedback to Instagram"}
+          />
+          <EmailAlarmComponent
+            title={"Alarm E-mail"}
+            extraInfo={" Receive not confirmed E-mail"}
+          />
+          <EmailAlarmComponent
+            title={"Product E-mailProduct E-mail"}
+            extraInfo={"Check the tips about Instagram tools"}
+          />
+          <EmailAlarmComponent
+            title={"News E-mail"}
+            extraInfo={"See the details about Instagram's new features"}
+          />
+          <EmailAlarmComponent
+            title={"Support E-mail"}
+            extraInfo={"Receive updates on reporting and violations of community guidelines"}
+          />
         </div>
       </div>
       <AccountEditFooter />

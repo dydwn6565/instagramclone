@@ -1,7 +1,7 @@
 import React from "react";
 import AccountEditSide from "./AccountEditSide";
 import Header from "./Header";
-import "./css/ManageContactNumber.css";
+import "../components/css/ManageContactNumber.css";
 function ManageContactNumber() {
   return (
     <div>

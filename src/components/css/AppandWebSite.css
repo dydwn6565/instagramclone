@@ -1,10 +1,20 @@
-.app-and-website {
+.app-and-website-container {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+    width: 1000px;
+    margin-top: 2%;
+    margin-left: 25%;
+    border: 0.5px solid lightgrey;
+}
+
+.app-and-website {
+    margin-left: -300px;
 }
 
 .app-and-website-title {
     display: flex;
+    margin-top: 50px;
+    margin-bottom: 30px;
 }
 
 .app-and-website-buttons>button {
@@ -13,4 +23,18 @@
     border-top: none;
     border-left: none;
     border-right: none;
+    font-size: 20px;
+    width: 170px;
+}
+
+.app-and-website-contents {
+    margin-top: 15px;
+}
+
+.app-and-website-extra-info {
+    margin-top:10px;
+    color:lightgrey;
+}.app-and-website-inactive {
+    color: lightgrey;
+    border-bottom: 0.5px solid lightgrey !important;
 }

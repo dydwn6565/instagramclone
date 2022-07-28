@@ -1,9 +1,22 @@
 .email-alarm {
     display: flex;
     /* align-content: center; */
-    justify-content: center;
+    /* justify-content: center; */
+    width: 1000px;
+    margin-top: 2%;
+    margin-left: 25%;
+    border: 0.5px solid lightgrey;
 }
 
-.email-alarm-main{
+.email-alarm-main {
     /* margin-left:-15%; */
+    margin-left: -250px;
+    margin-top: 20px;
+}
+
+.email-alarm-extra-info{
+    font-size: 10px;
+    color:lightgrey;
+    margin-top:10px;
+    margin-left:2px;
 }
