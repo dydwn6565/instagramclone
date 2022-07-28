@@ -12,18 +12,23 @@ import "../components/css/Header.css"
 import { Box,  ButtonGroup,Modal } from '@mui/material';
 
 import MessageModal from './UI/MessageModal';
+import LikeActivity from './LikeActivity';
+import HeaderProfileModal from './UI/HeaderProfileModal';
 
 function Header({ setBlurBackground }) {
   const [open, setOpen] = useState(false);
   const [openModal,setOpenModal] = useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-    setBlurBackground(true)
-  };
-  const handleClose = () => {
-    setOpen(false);
-    setBlurBackground(false)
-  };
+  const [openHeart, setOpenHeart] = useState(false);
+  const [openHeaderModal,setOpenHeaderModal] = useState(false);
+
+  // const handleOpen = () => {
+  //   setOpen(true);
+  //   setBlurBackground(true)
+  // };
+  // const handleClose = () => {
+  //   setOpen(false);
+  //   setBlurBackground(false)
+  // };
 
   const redirectToProfile =()=> window.location.href="/id"
 
@@ -35,11 +40,19 @@ function Header({ setBlurBackground }) {
 
   const redirectToExplore = () => (window.location.href = "/explore");
 
-  
   const createNewPost =() =>{
   
         setOpenModal(prevState => !prevState)
   }
+
+  const postActivity =() =>{
+      setOpenHeart(prevState =>!prevState)
+  }
+
+  const headerModalHandler =() =>{
+    setOpenHeaderModal(prevState => !prevState)
+  }
+
   return (
     <>
       <div className="header">
@@ -74,34 +87,22 @@ function Header({ setBlurBackground }) {
             className="explore"
             onClick={redirectToExplore}
           />
-          <FavoriteBorderOutlinedIcon />
-          <Avatar onClick={handleOpen} />
+          <FavoriteBorderOutlinedIcon onClick={postActivity} />
+          <Avatar onClick={headerModalHandler} />
         </div>
-        <Modal
-          className="header-modal"
-          hideBackdrop
-          open={open}
-          onClose={handleClose}
-          
-        >
-          <Box className="header-modal-box" sx={{ width: 200 }}>
-            
-            <ButtonGroup
-              orientation="vertical"
-              aria-label="vertical outlined button group"
-            >
-              <p onClick={redirectToProfile}>Profile</p>
-              <p>Saved</p>
-              <p>Setting</p>
-              <p>Change account</p>
-              <div className="modal-logout"></div>
-              <div onClick={handleClose}>Log Out</div>
-            </ButtonGroup>
-          </Box>
-        </Modal>
-        {openModal && (
-          <MessageModal title="Create New Post" message="Drop your pitcure and videos to here" onConfirm={createNewPost} />
+      
+        {openHeaderModal && (
+          <HeaderProfileModal headerModalHandler={headerModalHandler} />
         )}
+        {openModal && (
+          <MessageModal
+            title="Create New Post"
+            message="Drop your pitcure and videos to here"
+            onConfirm={createNewPost}
+          />
+        )}
+
+        {openHeart && <LikeActivity postActivity={postActivity} />}
       </div>
     </>
   );

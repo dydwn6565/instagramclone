@@ -7,7 +7,6 @@ import { FaPhotoVideo } from "react-icons/fa";
 const MessageModal =({title,message,onConfirm}) =>{
     return (
         <div>
-            
             <div className="modal-backdrop" onClick={onConfirm} />
                 <Card className="modal" >
                     <header className="modal-header">

@@ -1,0 +1,34 @@
+.main-page-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.main-page-div {
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0.0.26);
+    border-radius: 10px;
+    position: fixed;
+    top: 10vh;
+    left: 37%;
+    width: 20%;
+    height: 40%;
+    z-index: 100;
+    overflow: hidden;
+    
+    text-align: center;
+    
+}
+
+
+.main-page-div >div{
+    padding: 1%;   
+}
+
+.red{
+    color:red
+}

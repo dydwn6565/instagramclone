@@ -8,33 +8,24 @@ import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 import { Box, Button, ButtonGroup, Modal } from '@mui/material';
 import "./css/Main.css"
-// const style = {
-//   position: 'absolute' as 'absolute',
-//   top: '50%',
-//   left: '50%',
-//   transform: 'translate(-50%, -50%)',
-//   width: 400,
-//   bgcolor: 'background.paper',
-//   border: '2px solid #000',
-//   boxShadow: 24,
-  
-//   // pt: 2,
-//   // px: 4,
-//   // pb: 3,
-// };
+import MainPageModal from './UI/MainPageModal';
 
 
 function Main({ setBlurBackground }) {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-    setBlurBackground(true)
-  };
-  const handleClose = () => {
-    setOpen(false);
-    setBlurBackground(false)
-  };
+  const [mainPageModal, setMainPageModal] = useState(false);
+  // const [open, setOpen] = useState(false);
+  // const handleOpen = () => {
+  //   setOpen(true);
+  //   setBlurBackground(true)
+  // };
+  // const handleClose = () => {
+  //   setOpen(false);
+  //   setBlurBackground(false)
+  // };
 
+  const mainPageHandler = () =>{
+    setMainPageModal(prevState => !prevState);
+  }
   
   return (
     <div className="main">
@@ -43,12 +34,12 @@ function Main({ setBlurBackground }) {
           <Avatar className="main-avatar" />
           <span>Hyeoneee</span>
           <MoreHorizOutlinedIcon
-            onClick={handleOpen}
+            onClick={mainPageHandler}
             className="main-horiz-oulined-icon"
           />
         </div>
       </div>
-      <Modal
+      {/* <Modal
         hideBackdrop
         open={open}
         onClose={handleClose}
@@ -56,7 +47,7 @@ function Main({ setBlurBackground }) {
         aria-describedby="modal-modal-description"
       >
         <Box className="main-modal">
-          {/* <Button onClick={handleClose}>Close Child Modal</Button> */}
+          <Button onClick={handleClose}>Close Child Modal</Button>
 
           <Button>Report</Button>
           <hr />
@@ -71,9 +62,11 @@ function Main({ setBlurBackground }) {
           <Button>Scoop up</Button>
           <hr />
           <Button onClick={handleClose}>Cancle</Button>
-          {/* <hr /> */}
+          <hr />
         </Box>
-      </Modal>
+      </Modal> */}
+
+      {mainPageModal && <MainPageModal mainPageHandler={mainPageHandler} />}
       <div className="main-image-container">
         <img
           src="https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-mont-st-michel.jpg"
