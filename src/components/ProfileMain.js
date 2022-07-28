@@ -1,4 +1,4 @@
-import { Box, Button, ButtonGroup } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import React from 'react'
 import "./css/ProfileMain.css"
 function ProfileMain() {
@@ -17,7 +17,10 @@ function ProfileMain() {
             <Button onClick={redirectToTaged}>Taged</Button>
           </div>
         </Box>
-        <img src="https://media.istockphoto.com/photos/headshot-portraits-of-diverse-smiling-people-picture-id949582374?k=20&m=949582374&s=612x612&w=0&h=_sc6AeJzB4mR_4eyK9Lo4uLBkSRrh9SB7fx_8grUj3E="></img>
+        <img
+          alt="pitcure"
+          src="https://media.istockphoto.com/photos/headshot-portraits-of-diverse-smiling-people-picture-id949582374?k=20&m=949582374&s=612x612&w=0&h=_sc6AeJzB4mR_4eyK9Lo4uLBkSRrh9SB7fx_8grUj3E="
+        ></img>
       </div>
     </>
   );

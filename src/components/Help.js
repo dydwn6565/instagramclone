@@ -1,31 +1,38 @@
-import React from 'react'
-import AccountEditSide from './AccountEditSide'
-import Header from './Header'
+import React from "react";
+import AccountEditSide from "./AccountEditSide";
+import Header from "./Header";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import AccountEditFooter from './AccountEditFooter';
-
+import AccountEditFooter from "./AccountEditFooter";
+import "./css/Help.css";
 function Help() {
   return (
-    <div className="help">
+    <div>
       <Header />
-      <div>
+      <div className="help">
         <AccountEditSide />
-        <div>
-          <h3>Help</h3>
-          <div>
-            Customer Center <ArrowForwardIosIcon />{" "}
+        <div className="help-main">
+          <div className="help-main-title">Help</div>
+          <div className="help-main-content">
+            <span>Customer Center</span>
+            <a href="https://help.instagram.com">
+              <ArrowForwardIosIcon className="help-main-icon" />
+            </a>
           </div>
-          <div>
-            Private Info and Security Q&A <ArrowForwardIosIcon />{" "}
+          <div className="help-main-content">
+            <span>Private Info and Security Q&A</span>
+
+            <ArrowForwardIosIcon className="help-main-icon" />
           </div>
-          <div>
-            Support Request <ArrowForwardIosIcon />{" "}
+          <div className="help-main-content">
+            <span>Support Request</span>
+            <ArrowForwardIosIcon className="help-main-icon" />
           </div>
         </div>
       </div>
+
       <AccountEditFooter />
     </div>
   );
 }
 
-export default Help
+export default Help;

@@ -2,20 +2,35 @@ import React from 'react'
 import AccountEditSide from './AccountEditSide'
 import Header from './Header'
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import "./css/Supervision.css"
 
 function Supervision() {
   return (
-    <div className="supervision">
+    <div>
       <Header />
-      <div>
+      <div className="supervision">
         <AccountEditSide />
-        <div>
-          <h2>Maintance and Supervision</h2>
-          <div>
-            Family center <ArrowForwardIosIcon />
+        <div className="supervision-main">
+          <div className="supervision-main-title">
+            Maintance and Supervision
           </div>
-          <div>
-            Education Hub <ArrowForwardIosIcon />
+          <div className="supervision-main-content">
+            Family center
+            <a
+              alt="text"
+              href="https://familycenter.instagram.com/dashboard/?entrypoint=supersion_web"
+            >
+              <ArrowForwardIosIcon className="supervision-main-icon" />
+            </a>
+          </div>
+          <div className="supervision-main-content">
+            Education Hub
+            <a
+              alt="text"
+              href="https://familycenter.instagram.com/education"
+            >
+              <ArrowForwardIosIcon className="supervision-main-icon" />
+            </a>
           </div>
         </div>
       </div>

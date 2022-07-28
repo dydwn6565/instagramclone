@@ -9,14 +9,14 @@ import ExploreOutlinedIcon from "@mui/icons-material/ExploreOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import Avatar from "@mui/material/Avatar";
 import "../components/css/Header.css"
-import { Box,  ButtonGroup,Modal } from '@mui/material';
+
 
 import MessageModal from './UI/MessageModal';
 import LikeActivity from './LikeActivity';
 import HeaderProfileModal from './UI/HeaderProfileModal';
 
 function Header({ setBlurBackground }) {
-  const [open, setOpen] = useState(false);
+  
   const [openModal,setOpenModal] = useState(false);
   const [openHeart, setOpenHeart] = useState(false);
   const [openHeaderModal,setOpenHeaderModal] = useState(false);

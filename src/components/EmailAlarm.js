@@ -3,7 +3,7 @@ import AccountEditFooter from "./AccountEditFooter";
 import AccountEditSide from "./AccountEditSide";
 import "./css/EmailAlarm.css"
 import EmailAlarmComponent from "./EmailAlarmComponent";
-import EmailAlarmAlarm from "./EmailAlarmComponent";
+
 import Header from "./Header";
 
 function EmailAlarm() {

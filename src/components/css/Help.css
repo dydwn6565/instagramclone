@@ -1,0 +1,23 @@
+.help {
+    display: flex;
+    width: 1000px;
+    margin-top: 2%;
+    margin-left: 25%;
+    border: 0.5px solid lightgrey;
+}
+
+.help-main {
+    margin: 20px -300px;
+    width: 500px;
+}
+
+.help-main-title {
+    font-size: 20px;
+    margin: 20px 0 20px 0;
+}
+
+.help-main-content {
+    margin: 10px 0 10px 0;
+}.help-main-icon {
+    float: right;
+}

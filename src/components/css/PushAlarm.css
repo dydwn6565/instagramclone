@@ -1,7 +1,13 @@
 .push-alarm {
     display: flex;
-    justify-content: center;
-}.push-alarm-like {
+    /* justify-content: center; */
+    width: 1000px;
+    margin-top: 2%;
+    margin-left: 25%;
+    border: 0.5px solid lightgrey;
+}
+
+.push-alarm-like {
     display: flex;
     flex-direction: column;
 }

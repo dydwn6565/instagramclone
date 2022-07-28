@@ -6,7 +6,7 @@ import ChatBubbleOutlineSharpIcon from "@mui/icons-material/ChatBubbleOutlineSha
 import SendSharpIcon from "@mui/icons-material/SendSharp";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
-import { Box, Button, ButtonGroup, Modal } from '@mui/material';
+
 import "./css/Main.css"
 import MainPageModal from './UI/MainPageModal';
 
