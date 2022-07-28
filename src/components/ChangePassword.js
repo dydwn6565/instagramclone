@@ -10,25 +10,27 @@ function ChangePassword() {
       <Header />
       <div className="change-password">
         <AccountEditSide />
-        <div>
+        <div className="change-password-container">
           <div className="change-password-avatar">
             <Avatar />
             <div>ivan4334</div>
           </div>
           <div className="change-password-password">
-            <div>Previous Password</div>
+            <div className="change-password-previous-title">
+              Previous Password
+            </div>
             <input type="text" />
           </div>
           <div className="change-password-password">
-            <div>New Password</div>
+            <div className="change-password-new-password-title">New Password</div>
             <input type="text" />
           </div>
           <div className="change-password-password">
-            <div>New Password Confirm</div>
+            <div className="change-password-new-password-confirm">New Password Confirm</div>
             <input type="text" />
           </div>
-          <button>Change Password</button>
-          <div>Do you forget your password?</div>
+          <button className="change-password-button">Change Password</button>
+          <div className="change-password-link-to-change-password">Do you forget your password?</div>
         </div>
       </div>
       <AccountEditFooter />

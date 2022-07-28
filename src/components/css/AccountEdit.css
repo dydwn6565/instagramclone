@@ -1,18 +1,101 @@
 .account-edit {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+    width: 1000px;
+    margin-top: 2%;
+    margin-left: 25%;
+    border: 0.5px solid lightgrey;
+}
+
+.account-edit-profile-container {
+    margin-right: 200px;
 }
 
 .account-edit-profile {
     display: flex;
-    /* justify-content: flex-start; */
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.account-edit-profile-id {
+    margin-left: 15px;
+}
+
+.account-change-pitcure {
+    color: #10d0ff;
 }
 
 .account-edit-name {
     display: flex;
     padding: 1%;
+    margin-top: 20px;
 }
 
-.account-edit-user-name-more-info{
+.account-edit-user-name {
+    margin-right: 10px;
+}
+
+.small-size-explanation {
+    font-size: 10px;
+    margin-left: 50px;
+}
+
+.account-edit-username-username {
+    margin-right: 10px;
+    margin-left: -35px;
+}
+
+.account-edit-website {
+    margin-right: 10px;
+    margin-left: -18px;
+}
+
+.account-edit-introduce {
+    margin-right: 10px;
+    margin-left: -32px;
+}
+
+.account-edit-email {
+    margin-right: 10px;
+    margin-left: -5px;
+}
+
+.account-edit-phone-number {
+    margin-right: 10px;
+    margin-left: -73px;
+}
+
+.account-edit-gender {
+    margin-right: 10px;
+    margin-left: -20px;
+}
+
+.account-edit-recommend {
+    margin-right: 5px;
+    margin-left: -175px;
+}
+
+.account-edit-recommend-explaination {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.account-edit-user-name-more-info {
     text-decoration: none;
+}
+
+.account-edit-sumbit-button {
+    margin-right: 30px;
+    background-color: #10d0ff;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    height: 30px;
+    margin-left: 40px;
+}
+
+.account-edit-inactive-button{
+    color:#10d0ff;
+    font-size:13px;
+    margin-top:4px;
 }

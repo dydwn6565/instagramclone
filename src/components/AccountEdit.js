@@ -8,74 +8,91 @@ function AccountEdit() {
 
   return (
     <>
-      <Header />
-      <div className="account-edit">
-        <AccountEditSide />
-        <div>
-          <div className="account-edit-profile">
-            <Avatar />
-            <div>
-              <div>ivan4334</div>
-              <div>change profile picture</div>
+      <div className="profile-container">
+        <Header />
+        <div className="account-edit">
+          <AccountEditSide />
+          <div className="account-edit-profile-container">
+            <div className="account-edit-profile">
+              <Avatar />
+              <div className="account-edit-profile-id">
+                <div>ivan4334</div>
+                <div className="account-change-pitcure">
+                  change profile picture
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="account-edit-name">
-            <div>Name</div> <input type="text" value="Ivan Yongju Lee" />
-          </div>
+            <div className="account-edit-name">
+              <div className="account-edit-user-name">Name</div>{" "}
+              <input type="text" value="Ivan Yongju Lee" />
+            </div>
+            <div className="small-size-explanation">
+              <div>
+                Please help people find your account by using your
+                name,character or business name. You can modify your name by 14
+                days
+              </div>
+            </div>
+            <div className="account-edit-name">
+              <div className="account-edit-username-username">User name</div>
+              <input type="text" />
+            </div>
+            <div className="small-size-explanation">
+              Mostly, you can change your name ivan4334 for 14 days
+              <a
+                className="account-edit-user-name-more-info"
+                href="localhost:3000"
+              >
+                &nbsp;More
+              </a>
+            </div>
 
-          <div>Please help people find your account by using your name,</div>
-          <div>character or business name.</div>
-          <div>You can modify your name by 14 days</div>
-          <div className="account-edit-name">
-            <div>User name</div>
-            <input type="text" />
-          </div>
-          <div>Mostly, you can change your name ivan4334 </div>
-          <div>
-            for 14 days{" "}
-            <a
-              className="account-edit-user-name-more-info"
-              href="localhost:3000"
-            >
-              More
-            </a>
-          </div>
-          <div className="account-edit-name">
-            <div>Website</div>
-            <input type="text" />
-          </div>
-          <div className="account-edit-name">
-            <div>Introduce</div>
-            <textarea name="" id="" cols="30" rows="3"></textarea>
-          </div>
-          <div>Personal Info</div>
-          <div>Please type your personal info even though this is used</div>
-          <div>
-            for the business or your pet. This is not included in public profile
-          </div>
-          <div className="account-edit-name">
-            <div>Email</div>
-            <input type="text" value="dydwn6565@naver.com" />
-          </div>
-          <div className="account-edit-name">
-            <div>Your phone number</div>
-            <input type="text" />
-          </div>
-          <div className="account-edit-name">
-            <div>Gender</div>
-            <input type="text" />
-          </div>
-          <div className="account-edit-name">
-            <div>Recommend similar accounts</div>
-            <input type="checkbox" />
-            <div>
-              <div>Include your account when</div>
-              <div>recommending similar accounts to follow</div>
+            <div className="account-edit-name">
+              <div className="account-edit-website">Website</div>
+              <input type="text" />
             </div>
-          </div>
-          <div className="account-edit-name">
-            <button>submit</button>
-            <div>Temporary inactive my account</div>
+            <div className="account-edit-name">
+              <div className="account-edit-introduce">Introduce</div>
+              <textarea name="" id="" cols="30" rows="3"></textarea>
+            </div>
+
+            <div className="small-size-explanation">
+              <h5>Personal Info</h5>
+              <div>Please type your personal info even though this is used</div>
+              <div>
+                for the business or your pet. This is not included in public
+                profile
+              </div>
+            </div>
+
+            <div className="account-edit-name">
+              <div className="account-edit-email">Email</div>
+              <input type="text" value="dydwn6565@naver.com" />
+            </div>
+            <div className="account-edit-name">
+              <div className="account-edit-phone-number">Phone number</div>
+              <input type="text" />
+            </div>
+            <div className="account-edit-name">
+              <div className="account-edit-gender">Gender</div>
+              <input type="text" />
+            </div>
+            <div className="account-edit-name">
+              <div className="account-edit-recommend">
+                Recommend similar accounts
+              </div>
+              <input type="checkbox" />
+              <div className="account-edit-recommend-explaination">
+                <div>Include your account when</div>
+                <div>recommending similar accounts to follow</div>
+              </div>
+            </div>
+            <div className="account-edit-name">
+              <button className="account-edit-sumbit-button">submit</button>
+              <div className="account-edit-inactive-button">
+                Temporary inactive my account
+              </div>
+            </div>
           </div>
         </div>
       </div>
