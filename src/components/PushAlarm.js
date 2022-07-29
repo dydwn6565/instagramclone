@@ -1,208 +1,306 @@
-import React from "react";
+import {React, useState} from "react";
+import { styled } from "@mui/material/styles";
 import AccountEditSide from "./AccountEditSide";
 import Header from "./Header";
 import "./css/PushAlarm.css";
+import { FormControlLabel,Switch } from "@mui/material";
+import PushAlarmDetail from "./PushAlarmDetail";
 function PushAlarm() {
+
+  const [openPushAlarm, setOpenPushAlarm] = useState(true);
+  const [selectedAlarm, setSelectedAlarm] = useState("Live");
+  const IOSSwitch = styled((props) => (
+    <Switch 
+      focusVisibleClassName=".Mui-focusVisible"
+      disableRipple
+      {...props}
+    />
+  ))(({ theme }) => ({
+    width: 42,
+    height: 26,
+    padding: 0,
+    "& .MuiSwitch-switchBase": {
+      padding: 0,
+      margin: 2,
+      transitionDuration: "300ms",
+      "&.Mui-checked": {
+        transform: "translateX(16px)",
+        color: "#fff",
+        "& + .MuiSwitch-track": {
+          backgroundColor:
+            theme.palette.mode === "dark" ? "#2ECA45" : "#1E90FF",
+          opacity: 1,
+          border: 0,
+        },
+        "&.Mui-disabled + .MuiSwitch-track": {
+          opacity: 0.5,
+        },
+      },
+      "&.Mui-focusVisible .MuiSwitch-thumb": {
+        color: "#33cf4d",
+        border: "6px solid #fff",
+      },
+      "&.Mui-disabled .MuiSwitch-thumb": {
+        color:
+          theme.palette.mode === "light"
+            ? theme.palette.grey[100]
+            : theme.palette.grey[600],
+      },
+      "&.Mui-disabled + .MuiSwitch-track": {
+        opacity: theme.palette.mode === "light" ? 0.7 : 0.3,
+      },
+    },
+    "& .MuiSwitch-thumb": {
+      boxSizing: "border-box",
+      width: 22,
+      height: 22,
+    },
+    "& .MuiSwitch-track": {
+      borderRadius: 26 / 2,
+      backgroundColor: theme.palette.mode === "light" ? "#E9E9EA" : "#39393D",
+      opacity: 1,
+      transition: theme.transitions.create(["background-color"], {
+        duration: 500,
+      }),
+    },
+  }));
+
+
+const triggerEvent =() =>{
+  setOpenPushAlarm(prevState =>!prevState)
+}
+
+const setEventType =(title) =>{
+  console.log(title)
+  setSelectedAlarm(title);
+}
+
   return (
     <div>
       <Header />
       <div className="push-alarm">
         <AccountEditSide />
         <div className="push-alarm-main">
-          <div className="push-alarm-like">
-            <h3> Like </h3>
-            <div>
-              <input type="radio" name="like" />
-              <span>Clear</span>
-            </div>
-            <div>
-              <input type="radio" name="like" />
-              <span>A person who I follow</span>
-            </div>
-            <div>
-              <input type="radio" name="like" />
-              <span>EveryOne</span>
-            </div>
-            <div>johnappleseed likes your photo</div>
-            <hr />
-          </div>
-          <div className="push-alarm-comment">
-            <h3> Comment </h3>
-            <div>
-              <input type="radio" name="comment" />
-              <span>Clear</span>
-            </div>
-            <div>
-              <input type="radio" name="comment" />
-              <span>A person who I follow</span>
-            </div>
-            <div>
-              <input type="radio" name="comment" />
-              <span>EveryOne</span>
-            </div>
-            <div>johnappleseed leave a comment "This is great"</div>
-            <hr />
-          </div>
-          <div className="push-alarm-comment-like">
-            <h3>Comment Like </h3>
-            <div>
-              <input type="radio" name="comment-like" />
-              <span>Clear</span>
-            </div>
-            <div>
-              <input type="radio" name="comment-like" />
-              <span>A person who I follow</span>
-            </div>
+          {selectedAlarm === "Post" && openPushAlarm === false && (
+            <PushAlarmDetail
+              triggerEvent={triggerEvent}
+              title={"Post, Story and Comment"}
+              componentInfo={[
+                {
+                  title: "like",
+                  extraInfo: "johnappleseed likes your photo",
+                  threeItem: true,
+                },
+                {
+                  title: "Like or comment on which you are on a photo",
+                  extraInfo:
+                    " johnappleseed leaves a comment on a post where you are tagged",
+                  threeItem: true,
+                },
+                {
+                  title: "Comment",
+                  extraInfo: "johnappleseed leave a comment 'This is great'",
+                  threeItem: true,
+                },
+                {
+                  title: "Comment Like",
+                  extraInfo: "johnappleseed likes your comment 'This is great'",
+                  threeItem: true,
+                },
+                {
+                  title: "Your first post and story",
+                  extraInfo:
+                    "This is alarm for johnappleseed ' first Instagram story post",
+                  threeItem: true,
+                },
+              ]}
+            />
+          )}
+          {selectedAlarm === "Following" && openPushAlarm === false && (
+            <PushAlarmDetail
+              triggerEvent={triggerEvent}
+              title={"Following and Follower"}
+              componentInfo={[
+                {
+                  title: "New follower",
+                  extraInfo: "johnappleseed started follow you",
+                  threeItem: false,
+                },
+                {
+                  title: "Accepted Follow Request",
+                  extraInfo:
+                    " johnappleseed(@johnappleseed) accepted your follow request",
+                  threeItem: false,
+                },
+                {
+                  title: "Account recommendation",
+                  extraInfo:
+                    "johnappleseed, who you may know, is using Instagram and other similar notifications",
+                  threeItem: false,
+                },
+              ]}
+            />
+          )}
+          {selectedAlarm === "Direct" && openPushAlarm === false && (
+            <PushAlarmDetail
+              triggerEvent={triggerEvent}
+              title={"Direct message and Call"}
+              componentInfo={[
+                {
+                  title: "Message Request",
+                  extraInfo: "johnappleseed want to send a message",
+                  threeItem: false,
+                },
+                {
+                  title: "Message",
+                  extraInfo: " johnappleseed sent a message",
+                  threeItem: false,
+                },
+                {
+                  title: "Group Request",
+                  extraInfo:
+                    "johnappleseed wants to invite johnappleseed to your group",
+                  threeItem: false,
+                },
+                {
+                  title: "Rooms",
+                  extraInfo: "johnappleseed' rooms will start after 10 mins",
+                  threeItem: true,
+                },
+              ]}
+            />
+          )}
+          {selectedAlarm === "Live" && openPushAlarm === false && (
+            <PushAlarmDetail
+              triggerEvent={triggerEvent}
+              title={"Live Stream and Video"}
+              componentInfo={[
+                {
+                  title: "Message Request",
+                  extraInfo:
+                    "johnappleseed started live stream. Watch it right now",
+                  threeItem: false,
+                },
+                {
+                  title: "Video hits number",
+                  extraInfo:
+                    " Your video has been viewed more than 100,000 times",
+                  threeItem: false,
+                },
+              ]}
+            />
+          )}
+          {selectedAlarm === "Donation" && openPushAlarm === false && (
+            <PushAlarmDetail
+              triggerEvent={triggerEvent}
+              title={"Donation Campaign"}
+              componentInfo={[
+                {
+                  title: "My donation compaign",
+                  extraInfo: "johnappleseed donated to your donation campaign.",
+                  threeItem: false,
+                },
+                {
+                  title: "A donation campaign for others",
+                  extraInfo: "johnappleseed has launched a donation campaign.",
+                  threeItem: false,
+                },
+              ]}
+            />
+          )}
+          {selectedAlarm === "AlarmFromInst" && openPushAlarm === false && (
+            <PushAlarmDetail
+              triggerEvent={triggerEvent}
+              title={"Alarm from Instagram"}
+              componentInfo={[
+                {
+                  title: "Alarm",
+                  extraInfo:
+                    "Notification that guides you, such as 'You have not read the notification'",
+                  threeItem: false,
+                },
+                {
+                  title: "Product Alarm or Feedback",
+                  extraInfo: "Download Boomerang, Instagram's latest app",
+                  threeItem: false,
+                },
+                {
+                  title: "Support Request",
+                  extraInfo:
+                    "The contents of the support you requested on July 10 have been updated",
+                  threeItem: false,
+                },
+                {
+                  title: "Not confirmed Login",
+                  extraInfo:
+                    "An unverified login to Apple iPhone 11 occurred in Foster City, California, USA",
+                  threeItem: false,
+                },
+              ]}
+            />
+          )}
 
-            <div>johnappleseed likes your comment "This is great"</div>
-
-            <hr />
-          </div>
-          <div className="push-alarm-comment-like">
-            <h3> Like or comment on which you are on a photo </h3>
-            <div>
-              <input type="radio" name="comment-like" />
-              <span>Clear</span>
-            </div>
-            <div>
-              <input type="radio" name="comment-like" />
-              <span>A person who I follow</span>
-            </div>
-            <div>
-              <input type="radio" name="comment-like" />
-              <span>EveryOne</span>
-            </div>
-            <div>
-              johnappleseed leaves a comment on a post where you are tagged{" "}
-            </div>
-            <hr />
-          </div>
-          <div className="push-alarm-like">
-            <h3> Receive follow request </h3>
-            <div>
-              <input type="radio" name="like" />
-              <span>Clear</span>
-            </div>
-
-            <div>
-              <input type="radio" name="like" />
-              <span>EveryOne</span>
+          {openPushAlarm && (
+            <>
+              <h4>Push Alarm</h4>
               <div>
-                johnappleseed(@johnappleseed) accepts your follow request
+                <span>Stop Everything Temporary</span>
+                <FormControlLabel
+                  className="push-alarm-icon"
+                  control={<IOSSwitch sx={{ m: 1 }} />}
+                />
               </div>
-            </div>
-            <hr />
-          </div>
-          <div className="push-alarm-like">
-            <h3> Instagram Direct Request </h3>
-            <div>
-              <input type="radio" name="like" />
-              <span>Clear</span>
-            </div>
-
-            <div>
-              <input type="radio" name="like" />
-              <span>EveryOne</span>
-              <div>johnappleseed wants to send a message</div>
-            </div>
-            <hr />
-          </div>
-          <div className="push-alarm-like">
-            <h3> Instagram Direct </h3>
-            <div>
-              <input type="radio" name="like" />
-              <span>Clear</span>
-            </div>
-
-            <div>
-              <input type="radio" name="like" />
-              <span>EveryOne</span>
-              <div>johnappleseed sent a message</div>
-            </div>
-            <hr />
-          </div>
-          <div className="push-alarm-like">
-            <h3> Alarm </h3>
-            <div>
-              <input type="radio" name="like" />
-              <span>Clear</span>
-            </div>
-
-            <div>
-              <input type="radio" name="like" />
-              <span>EveryOne</span>
-              <div>This alarm informs "you have a unread message"</div>
-            </div>
-            <hr />
-          </div>
-          <div className="push-alarm-like">
-            <h3> Your first post and story </h3>
-            <div>
-              <input type="radio" name="like" />
-              <span>Clear</span>
-            </div>
-            <div>
-              <input type="radio" name="like" />
-              <span>A person who I follow</span>
-            </div>
-            <div>
-              <input type="radio" name="like" />
-              <span>EveryOne</span>
-              <div>
-                This alarm informs johnappleseed posts his/her first instagram
-                sotry{" "}
+              {console.log(selectedAlarm)}
+              <div
+                onClick={() => {
+                  triggerEvent();
+                  setEventType("Post");
+                }}
+              >
+                Post, Story and Comment
               </div>
-            </div>
-            <hr />
-          </div>
-          <div className="push-alarm-like">
-            <h3> Video hits </h3>
-            <div>
-              <input type="radio" name="like" />
-              <span>Clear</span>
-            </div>
-        
-            <div>
-              <input type="radio" name="like" />
-              <span>EveryOne</span>
-              <div>
-             Your Video hits are over 100,000.
+              <div
+                onClick={() => {
+                  triggerEvent();
+                  setEventType("Following");
+                }}
+              >
+                Following or Follower
               </div>
-            </div>
-            <hr />
-          </div>
-          <div className="push-alarm-like">
-            <h3> Help request </h3>
-            <div>
-              <input type="radio" name="like" />
-              <span>Clear</span>
-            </div>
-         
-            <div>
-              <input type="radio" name="like" />
-              <span>EveryOne</span>
-              <div>
-             The contents are updated when you requests a help on July 10th
+              <div
+                onClick={() => {
+                  triggerEvent();
+                  setEventType("Direct");
+                }}
+              >
+                Direct Message and Call
               </div>
-            </div>
-            <hr />
-          </div>
-          <div className="push-alarm-like">
-            <h3> Live stream </h3>
-            <div>
-              <input type="radio" name="like" />
-              <span>Clear</span>
-            </div>
-      
-            <div>
-              <input type="radio" name="like" />
-              <span>EveryOne</span>
-              <div>
-              johnappleaseed started live stream. Watch it right now.
+              <div
+                onClick={() => {
+                  triggerEvent();
+                  setEventType("Live");
+                }}
+              >
+                Live Stream and Video
               </div>
-            </div>
-            <hr />
-          </div>
+              <div
+                onClick={() => {
+                  triggerEvent();
+                  setEventType("Donation");
+                }}
+              >
+                Donation Compaign
+              </div>
+              <div
+                onClick={() => {
+                  triggerEvent();
+                  setEventType("AlarmFromInst");
+                }}
+              >
+                Alarm from Instagram
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
