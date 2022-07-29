@@ -5,12 +5,12 @@ import { GoGear } from "react-icons/go";
 import { TbExchange } from "react-icons/tb";
 import "./HeaderProfileModal.css"
 
-function HeaderProfileModal({ mainPageModalHandler, redirectToProfile }) {
+function HeaderProfileModal({ headerModalHandler, redirectToProfile }) {
   return (
     <div>
       <div
         className="header-profile-modal-backdrop"
-        onClick={mainPageModalHandler}
+        onClick={headerModalHandler}
       />
       <ul className="header-profile-ul">
         <li onClick={redirectToProfile}>

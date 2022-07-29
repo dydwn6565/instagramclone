@@ -1,4 +1,39 @@
-.tag-allowance{
+.tag-allowance {
     display: flex;
     flex-direction: column;
+}
+
+.private-info-and-security-container {
+    display: flex;
+    width: 1000px;
+    margin-top: 2%;
+    margin-left: 25%;
+    border: 0.5px solid lightgrey;
+}
+
+.private-info-and-security-main {
+    position: absolute;
+    width: 500px;
+    margin-left: 420px;
+}
+
+.private-info-and-security-main-page-space {
+    margin: 20px 0 20px 0px;
+}
+
+.private-info-and-security-main-learn-more {
+    text-decoration: none;
+}
+
+.private-info-and-security-guide {
+    display: flex;
+}
+
+.private-info-and-security-icon {
+    float: right;
+}
+
+.private-info-and-security-post-extra-info {
+    font-size: 10px;
+    color:lightgrey
 }

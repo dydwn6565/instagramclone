@@ -4,6 +4,7 @@ import React from "react";
 import AccountEditSide from "./AccountEditSide";
 import Header from "./Header";
 import "./css/PrivateInfoAndSecurity.css";
+import EmailAlarmComponent from "./EmailAlarmComponent";
 
 function PrivateInfoAndSecurity() {
   const IOSSwitch = styled((props) => (
@@ -64,34 +65,42 @@ function PrivateInfoAndSecurity() {
   return (
     <div className="private-info-and-security">
       <Header />
-      <div className="private-info-and-security-main">
+      <div className="private-info-and-security-container">
         <AccountEditSide />
-        <div>
+        <div className="private-info-and-security-main">
           <div>
             <h2>Range of account open</h2>
             <input type="checkbox" />
-            <span>private account</span>
-            <div>
+            <span>
+              <strong> private account</strong>
+            </span>
+            <div className="private-info-and-security-main-page-space">
               If your account is private, only those you approve can view your
-              photos and videos and Instagram.
+              photos and videos and Instagram. Existing followers are not
+              affected.
             </div>
-            <div> Existing followers are not affected.</div>
             <hr />
           </div>
           <div>
             <h2>Active status</h2>
             <input type="checkbox" />
-            <span>check active status</span>
-            <div>
+            <span>
+              <strong> check active status</strong>
+            </span>
+            <div className="private-info-and-security-main-page-space">
               Allow the sender of the accounts and messages you follow to check
               your last activity information or current activity status in the
-              instagram app.
-              <div>
-                Turning off this option will prevent you from viewing the
-                activity status of other accounts. Learn More
-              </div>
+              instagram app. Turning off this option will prevent you from
+              viewing the activity status of other accounts.
+              <a
+                alt="text"
+                href="http://localhost:3000/learnmore"
+                className="private-info-and-security-main-learn-more"
+              >
+                Learn More
+              </a>
             </div>
-            <div>
+            <div className="private-info-and-security-main-page-space">
               You can continue to use the service event if the activity status
               is off.
             </div>
@@ -101,84 +110,117 @@ function PrivateInfoAndSecurity() {
           <div>
             <h2>Share my story</h2>
             <input type="checkbox" />
-            <span>allow share</span>
-            <div>Allow people to share your story in messages.</div>
+            <span>
+              <strong> allow share</strong>
+            </span>
+            <div className="private-info-and-security-main-page-space">
+              Allow people to share your story in messages.
+            </div>
 
             <hr />
           </div>
           <div>
             <h2>Reply</h2>
-            <div>Fix Reply setting</div>
+            <div className="private-info-and-security-main-page-space ">
+              <a
+                className="private-info-and-security-main-learn-more"
+                alr="text"
+                href="http://localhost:3000/fixreply"
+              >
+                {" "}
+                Fix Reply setting
+              </a>
+            </div>
 
             <hr />
           </div>
           <div>
             <h2>Photo on which I am involved </h2>
             <div>
-              <input type="radio" />
+              <input type="radio" name="photo-involved" />
               <span>Added automatically</span>
             </div>
             <div>
-              <input type="radio" />
+              <input type="radio" name="photo-involved" />
               <span>Added manually</span>
             </div>
             <div>
-              Choose how you want to add your photo to your profile. Learn more
-              about your photos
+              Choose how you want to add your photo to your profile.About your
+              photos.{" "}
+              <a
+                className="private-info-and-security-main-learn-more"
+                href="http://localhost:3000/learnmore"
+              >
+                Learn more
+              </a>
             </div>
 
             <hr />
           </div>
           <div>
             <h2>Second step authentication</h2>
-            <div>Setting up second step authentication</div>
+            <div className="private-info-and-security-main-page-space">
+              <a
+                className="private-info-and-security-main-learn-more"
+                alt="text"
+                href="http://localhost:3000/secondauth"
+              >
+                Setting up second step authentication
+              </a>
+            </div>
 
             <hr />
           </div>
           <div>
             <h2>Data download</h2>
-            <div>Download request</div>
+
+            <div className="private-info-and-security-main-page-space">
+              <a
+                className="private-info-and-security-main-learn-more"
+                alt="text"
+                href="http://localhost:3000/download"
+              >
+                Download request
+              </a>
+            </div>
 
             <hr />
           </div>
           <div>
             <h2>Private Info and Security Help</h2>
-            <div>Support</div>
+            <div className="private-info-and-security-main-page-space">
+              <a
+                className="private-info-and-security-main-learn-more"
+                alt="text"
+                href="http://localhost:3000/support"
+              >
+                Support
+              </a>
+            </div>
 
             <hr />
           </div>
           <div>
             <h1>Reference</h1>
-            <div>@Reference allowance target</div>
-            <div>
-              <input type="radio" />
-              <span>Everyone</span>
+            <div className="private-info-and-security-main-page-space">
+              <EmailAlarmComponent
+                title={"@Reference allowance target"}
+                extraInfo={
+                  " Please @tell us who will allow you to link your account in stories,comments, live broadcasts, and captions. If an unauthorized person attempts to @reference you, you will be prompted that you do not allow @reference."
+                }
+                threeItem={true}
+              />
             </div>
-            <div>
-              <input type="radio" />
-              <span>A person who I follow</span>
-            </div>
-            <div>
-              <input type="radio" />
-              <span>No</span>
-            </div>
-            <div>
-              Please @tell us who will allow you to link your account in
-              stories, comments, live broadcasts, and captions.
-            </div>
-            <div>
-              If an unauthorized person attempts to @reference you, you will be
-              prompted that you do not allow @reference.
-            </div>
-            <hr />
           </div>
           <div>
             <h2>Guide</h2>
             <h5>My Post</h5>
             <div>Allow others to use my post</div>
-            <div>
-              Someone else can add your post to their guide. The appropriate
-              posts added will always include your user name.
+            <div className="private-info-and-security-guide">
+              <div className="private-info-and-security-main-page-space">
+                Someone else can add your post to their guide. The appropriate
+                posts added will always include your user name.
+              </div>
               <FormControlLabel
                 control={<IOSSwitch sx={{ m: 1 }} defaultChecked />}
               />
@@ -188,20 +230,18 @@ function PrivateInfoAndSecurity() {
           <div>
             <h2>Post</h2>
             <h5>Likes and Hits</h5>
-            <div>
-              Hide likes and hits{" "}
+            <div className="private-info-and-security-main-page-space">
+              Hide likes and hits
               <FormControlLabel
                 control={<IOSSwitch sx={{ m: 1 }} defaultChecked />}
+                className="private-info-and-security-icon"
               />
             </div>
-            <div>
+            <div className="private-info-and-security-post-extra-info">
               The total number of likes and views of posts posted by other
-              accounts is not displayed.
-            </div>
-            <div>
-              When you create a post, you can hide the number of likes in the
-              post by going to Advanced Settings and setting 'Hide the number of
-              likes and views for this post'.
+              accounts is not displayed. When you create a post, you can hide
+              the number of likes in the post by going to Advanced Settings and
+              setting 'Hide the number of likes and views for this post'.
             </div>
             <hr />
           </div>
@@ -219,23 +259,28 @@ function PrivateInfoAndSecurity() {
               <input type="radio" name="tag-allowance" />
               <span>Not allow</span>
             </div>
-            <hr />
           </div>
+          <hr />
           <div>
             <h5>Request from shop</h5>
-            <div>
-              Request allow{" "}
+            <div className="private-info-and-security-main-page-space">
+              Request allow
               <FormControlLabel
+                className="private-info-and-security-icon"
                 control={<IOSSwitch sx={{ m: 1 }} defaultChecked />}
               />
             </div>
-            <div>
+            <div className="private-info-and-security-post-extra-info">
               Allow your photos and videos to be displayed in the shop of Meta
-              Company products
-            </div>
-            <div>
-              after tagging the account that runs the shop in the post or using
-              shop-related hashtags. Learn More
+              Company products after tagging the account that runs the shop in
+              the post or using shop-related hashtags.
+              <a
+                className="private-info-and-security-main-learn-more"
+                alt="text"
+                href="http://www.localhost:3000/learnmore"
+              >
+                Learn More
+              </a>
             </div>
           </div>
         </div>

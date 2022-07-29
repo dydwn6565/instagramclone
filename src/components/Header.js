@@ -42,6 +42,7 @@ function Header({ setBlurBackground }) {
   }
 
   const headerModalHandler =() =>{
+    
     setOpenHeaderModal(prevState => !prevState)
   }
 
