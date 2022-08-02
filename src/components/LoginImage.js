@@ -10,18 +10,18 @@ function LoginImage() {
 
   const [currentPosition, setCurrentPosition] = useState(0);
 
-  // useEffect(() => {
-  //   const imageSlide = () => {
-  //     setTimeout(() => {
-  //       currentPosition === 3
-  //         ? setCurrentPosition(0)
-  //         : setCurrentPosition((prev) => prev + 1);
-  //     }, 4000);
-  //     return clearTimeout(imageSlide);
-  //   };
+  useEffect(() => {
+    const imageSlide = () => {
+      setTimeout(() => {
+        currentPosition === 3
+          ? setCurrentPosition(0)
+          : setCurrentPosition((prev) => prev + 1);
+      }, 5000);
+    };
+    // return clearTimeout(imageSlide);
 
-  //   imageSlide();
-  // }, [currentPosition]);
+    imageSlide();
+  }, [currentPosition]);
   return (
     <div>
       {console.log(currentPosition)}
@@ -30,11 +30,11 @@ function LoginImage() {
         src="https://www.iphonelife.com/sites/iphonelife.com/files/styles/screenshot_iphonexs_660_2x/public/img_3854.jpg?itok=Rfc29Kik"
         alt=""
       />
-      {/* <img
+      <img
         className="login-cellphone-slider-pitcure"
         src={imageURLList[currentPosition]}
         alt=""
-      /> */}
+      />
     </div>
   );
 }
