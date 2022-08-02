@@ -1,0 +1,118 @@
+.login-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* justify-content: center; */
+}
+
+.login {
+    border: 1px solid lightgrey;
+}
+
+.login-container {
+    width: 350px;
+    margin: auto;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.login-title {
+    font-size: 50px;
+    margin: 50px 0 20px 0;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0 40px 0;
+}
+
+.login-show-password {
+    margin-left: 150px;
+    margin-top: -30px;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.login-form>input,
+.login-form>button {
+    width: 270px;
+    height: 30px;
+    margin: 15px 0 0 0;
+}
+
+.login-button {
+    background-color: #10d0ff;
+    border: none;
+    color: white;
+    border-radius: 3px;
+}
+
+.login-with-facebook {
+    margin: 20px 0 20px 0;
+}
+
+.login {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.forget-login {
+    margin-bottom: 20px;
+}
+
+.forget-login>a,
+.login-no-account>a {
+    text-decoration: none;
+}
+
+.login-no-account {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    height: 80px;
+    margin: auto;
+    border: 1px solid lightgrey;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.hr{
+    flex-direction: row !important;
+
+}
+
+.app-store-button {
+    /* transform: scale(0.2); */
+    width: 150px;
+    height: 50px;
+}
+
+.google-store-button {
+    margin: 0 0 200px 0;
+    width: 150px;
+    height: 50px;
+    border-right: white;
+}
+
+.login-donwlaod-app-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-download-app {
+    margin-top: 20px;
+    text-align: center;
+    
+    /* margin-right: -250px; */
+}
+
+.login-images {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}

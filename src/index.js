@@ -18,6 +18,7 @@ import Supervision from './components/Supervision';
 import LoginActivity from './components/LoginActivity';
 import EmailFromInstagram from './components/EmailFromInstagram';
 import Help from './components/Help';
+import Login from './components/Login';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
@@ -53,6 +54,7 @@ root.render(
       <Route path="session/login_activity" element={<LoginActivity />}></Route>
       <Route path="emails/emails_sent" element={<EmailFromInstagram />}></Route>
       <Route path="settings/help" element={<Help />}></Route>
+      <Route path="login" element={<Login />}></Route>
       {/* <Route path=":teamId" element={<Team />} />
           <Route path="new" element={<NewTeamForm />} />
           <Route index element={<LeagueStandings />} /> */}
