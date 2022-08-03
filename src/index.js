@@ -19,6 +19,8 @@ import LoginActivity from './components/LoginActivity';
 import EmailFromInstagram from './components/EmailFromInstagram';
 import Help from './components/Help';
 import Login from './components/Login';
+import SignUp from './components/SignUp';
+import ResetPassword from './components/ResetPassword';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
@@ -30,7 +32,7 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}></Route>
-      {/* <Route index element={<Home />} /> */}
+      
       <Route path="myMessage" element={<MyMessage />}></Route>
       <Route path="explore" element={<Explore />}></Route>
       <Route path="id" element={<Profile />}></Route>
@@ -55,9 +57,9 @@ root.render(
       <Route path="emails/emails_sent" element={<EmailFromInstagram />}></Route>
       <Route path="settings/help" element={<Help />}></Route>
       <Route path="login" element={<Login />}></Route>
-      {/* <Route path=":teamId" element={<Team />} />
-          <Route path="new" element={<NewTeamForm />} />
-          <Route index element={<LeagueStandings />} /> */}
+      <Route path="/accounts/emailsignup" element={<SignUp />}></Route>
+      <Route path="/accounts/password/reset" element={<ResetPassword  />}></Route>
+      
     </Routes>
   </BrowserRouter>
 );

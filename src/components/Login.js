@@ -120,7 +120,7 @@ const passwordInputClasses = passwordInputHasError ? 'form-control invalid' : 'f
               </div>
 
               <div className="login-no-account">
-                Don't you have account ?<Link to="/signup">SignUp</Link>
+                Don't you have account ?<Link to="/accounts/emailsignup">SignUp</Link>
               </div>
 
               <div className="login-download-app">
