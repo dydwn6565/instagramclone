@@ -9,6 +9,8 @@ import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt
 
 import "./css/Main.css"
 import MainPageModal from './UI/MainPageModal';
+import ExtendedMainModal from './UI/ExtendedMainModal';
+import { ConstructionOutlined } from '@mui/icons-material';
 
 
 function Main({ setBlurBackground }) {
@@ -21,6 +23,7 @@ function Main({ setBlurBackground }) {
   }
   
   const extendComment =() =>{
+    
     setExtendCommentModal(prevState =>!prevState);
   }
 
@@ -54,13 +57,12 @@ function Main({ setBlurBackground }) {
         </div>
       </div>
       <div className="main-page-info">
-
-      <div>lovely_min08 likes </div>
-      <div>
-        the0v #HondaCelebrationOfLight: #Japan jp #EnglishBay #Fireworks
-        #July2022 #Summer #GoodTimes #Vancouver #BC #Canada Ca
-      </div>
-      <div onClick={extendComment}>See comments</div>
+        <div>lovely_min08 likes </div>
+        <div>
+          the0v #HondaCelebrationOfLight: #Japan jp #EnglishBay #Fireworks
+          #July2022 #Summer #GoodTimes #Vancouver #BC #Canada Ca
+        </div>
+        <div onClick={extendComment}>See comments</div>
       </div>
       <hr />
       <div className="main-page-comment">
@@ -68,6 +70,9 @@ function Main({ setBlurBackground }) {
         <span> comments</span>
         <div className="comment-button">Post</div>
       </div>
+      {extendCommentModal && (
+        <ExtendedMainModal extendComment={extendComment} />
+      )}
     </div>
   );
 }

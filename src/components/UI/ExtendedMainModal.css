@@ -1,0 +1,100 @@
+.extended-main-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.extended-main-modal-main {
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0.0.26);
+    border-radius: 10px;
+    position: fixed;
+    top: 10vh;
+    left: 17%;
+    width: 70vw;
+    height: 70vh;
+    z-index: 100;
+    overflow: hidden;
+    display: flex;
+    background-color: black;
+}
+
+.extended-main-modal-info {
+    background-color: white;
+    width: 35vw;
+}
+
+.extended-main-modal-main>div>img {
+    margin-top: 10vh;
+    width: 100%;
+}
+
+.extended-main-modal-title {
+    display: flex;
+    align-items: center;
+    width: 32vw;
+    padding: 10px;
+}
+
+.hr {
+    border-bottom: 0.5px solid lightgrey;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+.extended-main-modal-info-content-container {
+    display: flex;
+    margin-top: 2%;
+    /* height: 35%; */
+}
+
+.extended-main-modal-info-content {
+    display: flex;
+    width: 30vw;
+}
+
+extended-main-modal-info-content-comment .extended-main-modal-info-content>span,
+.extended-main-modal-info-content>div {
+    margin-left: 2%;
+}
+
+.extended-main-modal-book-icon {
+    float: right;
+    margin-right: 2%;
+}
+
+.extended-main-modal-info-content-comment {
+    margin-left: 2%;
+    /* position:absolute;
+    bottom:0;
+    margin-bottom:10p ; */
+}
+
+.date {
+    font-size: 12px;
+}
+
+.extended-main-modal-info-comment {
+    display: flex;
+    margin-left: 2%;
+    /* width: 35vw; */
+}
+
+.extended-main-modal-info-comment>div {
+    margin-left: 2%;
+    width: 26vw;
+}
+
+.extended-main-modal-info-bottom {
+    position:absolute;
+    bottom:0;
+    margin-bottom:1%;
+}
+
+.post-bt {
+    /* float: right !important; */
+}
