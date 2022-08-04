@@ -2,8 +2,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    /* justify-content: center; */
 }
 
 .login {
@@ -13,7 +11,7 @@
 .login-container {
     width: 350px;
     margin: auto;
-    text-align: center;
+    
     margin-top: 80px;
 }
 
@@ -40,11 +38,13 @@
     width: 270px;
     height: 30px;
     margin: 15px 0 0 0;
+    border: 0.5px solid lightgrey;
 }
 
 .login-button {
+    border:none !important;
     background-color: #10d0ff;
-    border: none;
+    
     color: white;
     border-radius: 3px;
 }
@@ -81,10 +81,6 @@
     margin-top: 10px;
 }
 
-.hr{
-    flex-direction: row !important;
-
-}
 
 .app-store-button {
     /* transform: scale(0.2); */
@@ -107,7 +103,6 @@
 .login-download-app {
     margin-top: 20px;
     text-align: center;
-    
     /* margin-right: -250px; */
 }
 
@@ -115,4 +110,9 @@
     display: flex;
     justify-content: center;
     margin-top: 20px;
+}
+
+.hr-row{
+    border-top:0.5px solid lightgrey;
+    
 }

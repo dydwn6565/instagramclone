@@ -4,9 +4,7 @@ import "./css/Login.css";
 import useInput from '../hooks/use-input.js'
 import LoginImage from "./LoginImage";
 
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Grid";
+
 import { Container, Row, Col } from "react-grid-system";
 // import { styled } from "@mui/material/styles";
 // const Item = styled(Paper)(({ theme }) => ({
@@ -63,10 +61,6 @@ const formSubmissionHandler = (e)=>{
   resetPasswordInput();
 };
 
-// const emailInputBlurHandler = (event) =>{
-//   setEnteredEmailTouched(true)
-// }
-
 
 const userInputClasses = userIdInputHasError ? 'form-control invalid' : 'form-control';
 
@@ -92,7 +86,7 @@ const passwordInputClasses = passwordInputHasError ? 'form-control invalid' : 'f
                     value={enteredUserId}
                   />
                   {userIdInputHasError && (
-                    <p className="error-text">Please enter a valid email.</p>
+                    <p className="error-text">Please check your id</p>
                   )}
                   <input
                     type="password"
@@ -100,15 +94,15 @@ const passwordInputClasses = passwordInputHasError ? 'form-control invalid' : 'f
                     onBlur={passwordBlurHandler}
                     value={enteredPassword}
                   />
-                  {passwordInputHasError && (
-                    <p className="error-text">Please enter a valid password</p>
-                  )}
                   <div className="login-show-password">
                     <strong> show password</strong>
                   </div>
+                  {passwordInputHasError && (
+                    <p className="error-text">Please check your password</p>
+                  )}
                   <button className="login-button">Login</button>
                 </form>
-                <hr className="hr" />
+                <p className="hr-row"  > ----------------------or---------------------</p>
 
                 <div className="login-with-facebook">Login with Facebook</div>
                 <div className="forget-login">
