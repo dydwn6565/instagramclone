@@ -1,0 +1,88 @@
+.my-message {
+    border: 0.5px solid lightgrey;
+    width: 50vw;
+    height: 80vh;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.my-message-id {
+    align-items: center;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.my-message-text {
+    width: 15vw;
+    height: 6vh;
+    border: 0.5px solid lightgrey;
+    display: flex;
+    border-top: none;
+    border-left: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.down-arrow-icon {
+    transform: scale(1.2);
+    margin-left: 10px;
+}
+
+.my-message-message-icon {
+    transform: scale(2.0);
+    float: right;
+    margin-left: -30px;
+}
+
+.my-message-message-page {
+    height: 74vh;
+    width: 15vw;
+    border-right: 0.5px solid lightgrey;
+}
+
+.my-message-message {
+    display: flex;
+    padding: 2%;
+}
+
+.my-message-message>div {
+    margin-left: 2%;
+}
+
+.my-message-message-content {
+    position: absolute;
+    width: 35vw;
+    height: 80vh;
+    border: 1px solid black;
+    margin-left: 15vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.my-message-circle-icon {
+    width: 110px;
+    height: 110px;
+    margin-left: -23px;
+    margin-bottom: 12px;
+}
+
+.my-message-paper-plain {
+    width: 80px;
+    height: 80px;
+    margin-left: -100px;
+    margin-bottom: 18px;
+}
+
+.my-message-my-message-btn {
+    border: none;
+    background-color:#10d0ff;
+    color:white;
+    width:100px;
+    height: 30px;
+    border-radius: 3px;
+    margin-top:20px;
+}

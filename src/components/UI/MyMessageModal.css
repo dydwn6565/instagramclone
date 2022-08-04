@@ -1,0 +1,28 @@
+.my-message-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.my-message-recommend-list {
+    display: flex;
+    align-items: center;
+}
+
+.my-message-modal-content,
+.my-message-modal-header>h2,
+.my-message-recommend,
+.my-message-recommend-id {
+    margin-left: 2%;
+}
+
+.my-message-recommend-id-radio{
+    position:absolute;
+    right:0;
+    margin-right:25px;
+    transform: scale(1.5);
+}

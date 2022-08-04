@@ -1,12 +1,10 @@
 .side-profile,
 .side-footer {
     width: 400px;
-    position: fixed;
-    /* display: flex; */
-    /* justify-content: flex-start; */
-    margin-left: -1%;
-    margin-top: 1%;
-    /* margin-right:0%; */
+    
+    margin-left: -10px;
+    margin-top: 25px;
+    
 }
 
 .side-footer{
