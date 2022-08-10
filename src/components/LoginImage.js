@@ -18,13 +18,13 @@ function LoginImage() {
           : setCurrentPosition((prev) => prev + 1);
       }, 5000);
     };
-    // return clearTimeout(imageSlide);
+    return clearTimeout(imageSlide());
 
-    imageSlide();
+    
   }, [currentPosition]);
   return (
     <div>
-      {console.log(currentPosition)}
+      
       <img
         className="login-cellphone-slider-pitcure-background"
         src="https://www.iphonelife.com/sites/iphonelife.com/files/styles/screenshot_iphonexs_660_2x/public/img_3854.jpg?itok=Rfc29Kik"

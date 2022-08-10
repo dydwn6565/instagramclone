@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Avatar from "@mui/material/Avatar";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
@@ -26,6 +26,52 @@ function Main({ setBlurBackground }) {
     
     setExtendCommentModal(prevState =>!prevState);
   }
+
+  useEffect( ()=>{
+    
+    const accessToken = localStorage.getItem("accessToken");
+    console.log(accessToken)
+    if (accessToken) {
+      
+      const userValidationCheck = async()=>{ 
+        const token= await fetch("http://localhost:8080", {
+          method: "POST",
+          // body: JSON.stringify({
+          //   accessToken: accessToken,
+          // }),
+          headers: {
+            Authorization: `Bearer ${accessToken}`
+          }
+        })
+      const data = await token.json();
+      console.log(data.message);
+      if (data.message === "jwt expired") {
+        
+        const renewToken = async () =>{
+          const refreshToken = localStorage.getItem("refreshToken");
+          const refreshedToken = await fetch("http://localhost:8080/token", {
+            method: "POST",
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+            },
+            body: JSON.stringify({
+              token: refreshToken,
+            }),
+          });
+          const refreshedData = await refreshedToken.json();
+            localStorage.setItem("accessToken",refreshedData.accessToken);
+        console.log(refreshedData);
+      }
+      renewToken();
+      }
+    }
+    userValidationCheck();
+  } else {
+      window.location.href = "/login";
+    }
+      
+  },[])
+
 
   return (
     <div className="main">

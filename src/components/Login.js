@@ -6,19 +6,11 @@ import LoginImage from "./LoginImage";
 
 
 import { Container, Row, Col } from "react-grid-system";
-// import { styled } from "@mui/material/styles";
-// const Item = styled(Paper)(({ theme }) => ({
-//   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-//   ...theme.typography.body2,
-//   padding: theme.spacing(1),
-//   textAlign: "center",
-//   color: theme.palette.text.secondary,
-// }));
-
 
 
 function Login() {
 
+  const [passwordShown , setPasswordShown] = useState(false);
 
   const {
     value: enteredUserId,
@@ -50,15 +42,37 @@ function Login() {
   // const passwordIsValid = password.trim() !== "";
   // const passwordInputIsInvalid = !userIdIsValid && userIdTouched;
 
-const formSubmissionHandler = (e)=>{
+const formSubmissionHandler = async (e)=>{
   e.preventDefault();
 
   if(!enteredUserId){
     return;
   }
+  
+  const login = await fetch("http://localhost:8080/login", {
+    
+    method: "POST",
+    body: JSON.stringify({ userid: enteredUserId, password: enteredPassword }),
+    headers: {
+      
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  });
+  if(login.status === 200){
+    const token = await login.json();
+    console.log(token.accessToken)
+    localStorage.setItem(
+      "accessToken",
+      token.accessToken
+    );
+    localStorage.setItem("refreshToken", token.refreshToken);
+    console.log(token)
+    window.location.href ="/"
 
-  resetUserIdInput();
-  resetPasswordInput();
+  };
+  // resetUserIdInput();
+  // resetPasswordInput();
+  
 };
 
 
@@ -89,13 +103,13 @@ const passwordInputClasses = passwordInputHasError ? 'form-control invalid' : 'f
                     <p className="error-text">Please check your id</p>
                   )}
                   <input
-                    type="password"
+                    type={passwordShown ? "password" :"text" }
                     onChange={passwordChangeHandler}
                     onBlur={passwordBlurHandler}
                     value={enteredPassword}
                   />
                   <div className="login-show-password">
-                    <strong> show password</strong>
+                    <strong onClick={()=>setPasswordShown((prevState)=>!prevState)}> show password</strong>
                   </div>
                   {passwordInputHasError && (
                     <p className="error-text">Please check your password</p>
