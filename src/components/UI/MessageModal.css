@@ -21,16 +21,27 @@
 
 .modal-content {
     text-align: center;
-    margin-top: 35%;
+    
 }
 
 .actions {
     padding: 1rem;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 
-.actions Button {
+.image-button-background {
+    text-align: center;
+    padding: 3%;
+    border: thin solid black;
+}
+
+.actions>input[type="file"] {
+    display: none;
+}
+
+.actions>Button {
     background-color: #0080FF;
     color: white
 }
@@ -40,5 +51,57 @@ hr {
 }
 
 .modal-photo-video {
-    transform: scale(3.8) translate(450%, 230%);
+    width:100%;
+    height:10%;
+    margin-top:20vh;
+    /* transform: scale(3.8) translate(450%, 230%); */
+}
+
+.preview-image {
+    width: 30vw;
+    height: 50vh;
+}
+
+.preview-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-preview-editor-btn,
+.image-preview-share-btn {
+    float: right;
+    color: #10d0ff;
+    margin-right: 10px;
+    margin-top: -20px;
+    cursor: pointer;
+}
+
+.image-preveiw-last-page {
+    display: flex;
+}
+
+.preview-image-content {
+    width: 100%;
+}
+
+.preview-image-textarea {
+    width: 100%;
+    height: 25vh;
+    border: none;
+    margin-top: 10px;
+}
+
+.preview-image-content-options {
+    padding: 2%;
+}
+
+.preview-image-content-avatar {
+    display: flex;
+}
+
+.image-priview-back-arrow {
+    cursor: pointer;
+    margin-bottom:-20px;
+    margin-left:10px;
 }
