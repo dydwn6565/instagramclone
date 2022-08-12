@@ -10,7 +10,7 @@ import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt
 import "./css/Main.css"
 import MainPageModal from './UI/MainPageModal';
 import ExtendedMainModal from './UI/ExtendedMainModal';
-import { ConstructionOutlined } from '@mui/icons-material';
+
 
 
 function Main({ setBlurBackground }) {

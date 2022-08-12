@@ -7,11 +7,23 @@ import { FaPhotoVideo } from "react-icons/fa";
 import { generateBase64FromImage } from "../Utils/Image";
 import LargeCard from "./LargeCard";
 import { BiArrowBack } from "react-icons/bi";
+import { IoCopyOutline } from "react-icons/io5";
+import AddImageModal from "./AddImageModal";
+import { IoIosArrowDropleftCircle } from "react-icons/io";
+import { IoIosArrowDroprightCircle } from "react-icons/io";
+import { BsDot } from "react-icons/bs";
 
 const MessageModal = ({ title, message, onConfirm }) => {
   const [imageArray, setImageArray] = useState([]);
 
   const [page, setPage] = useState(0);
+
+  const [extendImageModal, setExtendImageModal] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const extendImageModalHandler = () => {
+    setExtendImageModal((prev) => !prev);
+  };
   const hiddenFileInput = useRef(null);
 
   const handleClick = (event) => {
@@ -20,7 +32,7 @@ const MessageModal = ({ title, message, onConfirm }) => {
 
   const handleChange = (event) => {
     const fileUploaded = event.target.files[0];
-    
+
     if (fileUploaded) {
       generateBase64FromImage(fileUploaded)
         .then((b64) => {
@@ -39,9 +51,16 @@ const MessageModal = ({ title, message, onConfirm }) => {
 
   const uploadImage = () => {};
 
-  const moveToPrevPage =()=>{
-    setPage((prevPage) => prevPage -1);
-  }
+  const moveToPrevPage = () => {
+    setPage((prevPage) => prevPage - 1);
+  };
+
+  const movePrevImage = () => {
+    setCurrentPage((currentPage) => currentPage - 1);
+  };
+  const moveNextImage = () => {
+    setCurrentPage((currentPage) => currentPage + 1);
+  };
 
   const addImage = async (e) => {
     e.preventDefault();
@@ -63,7 +82,7 @@ const MessageModal = ({ title, message, onConfirm }) => {
       <div className="modal-backdrop" onClick={onConfirm} />
       {(page === 0 || page === 1) && (
         <Card className="modal">
-          <header className={page ===0 ? "modal-header":""}>
+          <header className={page === 0 ? "modal-header" : ""}>
             {page === 0 && <h2>{title}</h2>}
             {page === 1 && (
               <>
@@ -105,13 +124,53 @@ const MessageModal = ({ title, message, onConfirm }) => {
           {page === 1 && (
             <>
               {imageArray && (
-                <div className="preview-image-container">
-                  <img
-                    src={imageArray[0]}
-                    alt="uploadedImage"
-                    className="preview-image"
-                  />
-                </div>
+                <>
+                  <div className="preview-image-container">
+                    <IoIosArrowDropleftCircle
+                      className={
+                        currentPage !== 0
+                          ? "preview-image-left-icon"
+                          : "inactive-image-left-icon"
+                      }
+                      onClick={movePrevImage}
+                    />
+                    <img
+                      src={imageArray[currentPage]}
+                      alt="uploadedImage"
+                      className="preview-image"
+                    />
+                    <IoCopyOutline
+                      className="preview-image-multiple-image-icon"
+                      onClick={extendImageModalHandler}
+                    />
+                    <IoIosArrowDroprightCircle
+                      className={
+                        currentPage === imageArray.length - 1
+                          ? "inactive-image-right-icon"
+                          : "preview-image-right-icon"
+                      }
+                      onClick={moveNextImage}
+                    />
+                  </div>
+                  <div className="preview-image-dot-icons-container">
+                    {imageArray.map((dot, index) =>
+                      index === currentPage ? (
+                        <BsDot className="preview-image-dot-icon blue" />
+                      ) : (
+                        <BsDot className="preview-image-dot-icon white" />
+                      )
+                    )}
+                  </div>
+                </>
+              )}
+              {extendImageModal && (
+                <AddImageModal
+                  imageArray={imageArray}
+                  extendImageModalHandler={extendImageModalHandler}
+                  setImageArray={setImageArray}
+                  currentPage={currentPage}
+                  setCurrentPage={setCurrentPage}
+                />
               )}
             </>
           )}

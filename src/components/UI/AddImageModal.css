@@ -1,0 +1,29 @@
+.extended-image-modal-backdrop {
+    position: fixed;
+    margin-top: -15vh;
+    
+    height: 10vh;
+    border-radius: 10px;
+    z-index: 100;
+    background: rgba(49, 46, 46, 0.75);
+    opacity: 0.6;
+    display:flex;
+}
+
+.extended-small-image {
+    width: 5vw;
+    height: 9vh;
+    padding: 2%;
+}
+
+.extended-image-modal-backdrop>[type="file"] {
+    display: none;
+}
+
+.image-plus-button{
+    /* float:right; */
+    width:3vw;
+    height:3vh;
+    
+    margin-top:1vh;
+}
