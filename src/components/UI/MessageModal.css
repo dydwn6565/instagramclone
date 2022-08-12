@@ -139,18 +139,20 @@ hr {
 .preview-image-dot-icon {
     height: 2vh;
     width: 2vw;
-    margin-left:-1vw;
+    margin-left: -1vw;
 }
 
 .preview-image-dot-icons-container {
-    
-    
     margin-top: -4vh;
     display: flex;
-    
     justify-content: center;
-    
-    
+}
+
+.preview-image-dot-icons-second-page-container {
+    position: absolute;
+    margin-top: 50vh;
+    /* display: flex; */
+    /* justify-content: center; */
 }
 
 .white {
@@ -159,4 +161,11 @@ hr {
 
 .blue {
     color: #10d0ff;
+}
+
+.preview-image-map-icon,
+.preview-image-down-arrow-icon {
+    float: right;
+    width: 2vw;
+    height: 2vh;
 }

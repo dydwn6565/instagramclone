@@ -1,29 +1,74 @@
 .extended-image-modal-backdrop {
     position: fixed;
-    margin-top: -15vh;
-    
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+}
+
+.extended-image-modal {
+    position: fixed;
+    margin-top: -14vh;
     height: 10vh;
     border-radius: 10px;
     z-index: 100;
     background: rgba(49, 46, 46, 0.75);
-    opacity: 0.6;
-    display:flex;
+    display: flex;
 }
 
 .extended-small-image {
     width: 5vw;
     height: 9vh;
-    padding: 2%;
+    padding: 3%;
+    opacity: 0.6;
+    cursor: pointer;
 }
 
-.extended-image-modal-backdrop>[type="file"] {
+.extended-image-modal>[type="file"] {
     display: none;
 }
 
-.image-plus-button{
-    /* float:right; */
-    width:3vw;
-    height:3vh;
-    
-    margin-top:1vh;
+.image-plus-button {
+    width: 3vw;
+    height: 3vh;
+    margin-top: 1vh;
+    color: white;
 }
+
+.selected-image {
+    opacity: 10 !important;
+}
+
+.extended-small-image-cross-icon {
+    /* position:absolute; */
+    margin-left: -2.0vw;
+    margin-top: 1vh;
+    width: 2vw;
+    height: 2vh;
+    z-index: 101
+}
+
+.preview-small-image-right-icon {
+    position: absolute;
+    /* margin-left: 10vw; */
+    margin-top: 3.5vh;
+    width: 3vw;
+    height: 3vh;
+    /* z-index:102 */
+}
+
+.preview-small-image-left-icon {
+    margin-right: 25vw;
+    margin-top: 3.5vh;
+    position: absolute;
+    width: 3vw;
+    height: 3vh;
+    z-index: 100;
+}
+
+.inactive-small-image-left-icon,
+.inactive-small-image-right-icon {
+    display: none;
+}
+

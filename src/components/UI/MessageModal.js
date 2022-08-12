@@ -12,15 +12,17 @@ import AddImageModal from "./AddImageModal";
 import { IoIosArrowDropleftCircle } from "react-icons/io";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { BsDot } from "react-icons/bs";
+import { BiMap } from "react-icons/bi";
+import { AiOutlineDown } from "react-icons/ai";
 
 const MessageModal = ({ title, message, onConfirm }) => {
   const [imageArray, setImageArray] = useState([]);
-
+  const [renderedImage,setRenderedImage] = useState([]);
   const [page, setPage] = useState(0);
 
   const [extendImageModal, setExtendImageModal] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
-
+  const [content,setContent] = useState("");
   const extendImageModalHandler = () => {
     setExtendImageModal((prev) => !prev);
   };
@@ -32,11 +34,12 @@ const MessageModal = ({ title, message, onConfirm }) => {
 
   const handleChange = (event) => {
     const fileUploaded = event.target.files[0];
-
+    const currentDate = new Date();
+    
     if (fileUploaded) {
       generateBase64FromImage(fileUploaded)
         .then((b64) => {
-          setImageArray((current) => [...current, b64]);
+          setImageArray((current) => [...current, b64 +"uploadedCurrentDate"+ currentDate]);
           setPage((prevPage) => prevPage + 1);
         })
         .catch((e) => {
@@ -49,7 +52,21 @@ const MessageModal = ({ title, message, onConfirm }) => {
     setPage((prevPage) => prevPage + 1);
   };
 
-  const uploadImage = () => {};
+  const uploadImage = async (e) => {e.preventDefault();
+  const formData = new FormData();
+  formData.append("title", "test");
+  formData.append("content", content);
+  formData.append("image", imageArray);
+
+  const ImageData = await fetch("http://localhost:8080/post", {
+    method: "POST",
+    body: formData,
+    // headers: {
+    //   "Content-Type": "multipart/form-data",
+    // },
+  });
+  console.log(ImageData.status)
+};
 
   const moveToPrevPage = () => {
     setPage((prevPage) => prevPage - 1);
@@ -62,21 +79,25 @@ const MessageModal = ({ title, message, onConfirm }) => {
     setCurrentPage((currentPage) => currentPage + 1);
   };
 
-  const addImage = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("title", "test");
-    formData.append("content", "test-content");
-    formData.append("image", "image-test");
+  const contentsHandler =(e) =>{
+    setContent(e.target.value)
+  }
 
-    const ImageData = await fetch("http://localhost:8080/post", {
-      method: "POST",
-      body: formData,
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
-  };
+  // const addImage = async (e) => {
+  //   e.preventDefault();
+  //   const formData = new FormData();
+  //   formData.append("title", "test");
+  //   formData.append("content", "test-content");
+  //   formData.append("image", "image-test");
+
+  //   const ImageData = await fetch("http://localhost:8080/post", {
+  //     method: "POST",
+  //     body: formData,
+  //     headers: {
+  //       "Content-Type": "multipart/form-data",
+  //     },
+  //   });
+  // };
   return (
     <div>
       <div className="modal-backdrop" onClick={onConfirm} />
@@ -135,7 +156,9 @@ const MessageModal = ({ title, message, onConfirm }) => {
                       onClick={movePrevImage}
                     />
                     <img
-                      src={imageArray[currentPage]}
+                      src={
+                        imageArray[currentPage].split("uploadedCurrentDate")[0]
+                      }
                       alt="uploadedImage"
                       className="preview-image"
                     />
@@ -170,6 +193,8 @@ const MessageModal = ({ title, message, onConfirm }) => {
                   setImageArray={setImageArray}
                   currentPage={currentPage}
                   setCurrentPage={setCurrentPage}
+                  renderedImage={renderedImage}
+                  setRenderedImage={setRenderedImage}
                 />
               )}
             </>
@@ -191,11 +216,36 @@ const MessageModal = ({ title, message, onConfirm }) => {
           </header>
           <div className="image-preveiw-last-page">
             <div className="preview-image-container">
+              <IoIosArrowDropleftCircle
+                className={
+                  currentPage !== 0
+                    ? "preview-image-left-icon"
+                    : "inactive-image-left-icon"
+                }
+                onClick={movePrevImage}
+              />
               <img
-                src={imageArray[0]}
+                src={imageArray[currentPage].split("uploadedCurrentDate")[0]}
                 alt="uploadedImage"
                 className="preview-image"
               />
+              <IoIosArrowDroprightCircle
+                className={
+                  currentPage === imageArray.length - 1
+                    ? "inactive-image-right-icon"
+                    : "preview-image-right-icon"
+                }
+                onClick={moveNextImage}
+              />
+              <div className="preview-image-dot-icons-second-page-container">
+                {imageArray.map((dot, index) =>
+                  index === currentPage ? (
+                    <BsDot className="preview-image-dot-icon blue" />
+                  ) : (
+                    <BsDot className="preview-image-dot-icon white" />
+                  )
+                )}
+              </div>
             </div>
             <div className="preview-image-content">
               <div className="preview-image-content-avatar">
@@ -205,19 +255,29 @@ const MessageModal = ({ title, message, onConfirm }) => {
               <textarea
                 placeholder="type here..."
                 className="preview-image-textarea"
+                onChange={contentsHandler}
               />
               <div className="hr"></div>
-              <div className="preview-image-content-options">Add location</div>
+              <div className="preview-image-content-options">
+                Add location
+                <BiMap className="preview-image-map-icon" />
+              </div>
               <div className="hr"></div>
-              <div className="preview-image-content-options">Accessibility</div>
+              <div className="preview-image-content-options">
+                Accessibility
+                <AiOutlineDown className="preview-image-down-arrow-icon" />
+              </div>
               <div className="hr"></div>
               <div className="preview-image-content-options">
                 Advance setting
+                <AiOutlineDown className="preview-image-down-arrow-icon" />
               </div>
               <div className="hr"></div>
             </div>
+
             <div />
           </div>
+          
         </LargeCard>
       )}
     </div>
