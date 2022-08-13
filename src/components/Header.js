@@ -19,27 +19,23 @@ function Header({ setBlurBackground }) {
   const [openHeart, setOpenHeart] = useState(false);
   const [openHeaderModal, setOpenHeaderModal] = useState(false);
   const [searchedUser, setSearchedUser] = useState("");
-  const [userList,setUserList] =useState("");
-  const [hideSearchIcon,setHideSearchIncon] = useState(true);
+  const [userList, setUserList] = useState("");
+  const [hideSearchIcon, setHideSearchIncon] = useState(true);
   const ref = useRef(null);
-  useEffect( () => {
-    const getUsers = async() =>{
-    const userData = await fetch("http://localhost:8080/users"
-    , {
-      method: "Get",
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-        "Access-Control-Allow-Origin": "*",
-      },
-    }
-    );
+  useEffect(() => {
+    const getUsers = async () => {
+      const userData = await fetch("http://localhost:8080/users", {
+        method: "Get",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          "Access-Control-Allow-Origin": "*",
+        },
+      });
       const jsonData = await userData.json();
       setUserList(jsonData);
-      
-  }  
+    };
     getUsers();
-   console.log(userList)
-    
+    console.log(userList);
   }, []);
 
   const redirectToProfile = () => (window.location.href = "/id");
@@ -65,30 +61,26 @@ function Header({ setBlurBackground }) {
   };
 
   const searchUsers = (e) => {
-    console.log(e ==="")
-    if(e ===""){
-      
-      setSearchedUser("")
-    }else{
-
-      
-      const filteredUserList = userList.users.filter((user) =>{
-        return user.userid.includes(e)
-      })
-      setSearchedUser(filteredUserList)
+    console.log(e === "");
+    if (e === "") {
+      setSearchedUser("");
+    } else {
+      const filteredUserList = userList.users.filter((user) => {
+        return user.userid.includes(e);
+      });
+      setSearchedUser(filteredUserList);
     }
-    console.log(e)
+    console.log(e);
   };
 
-  const searchUserBlueHanlder = (e)=>{
-    setSearchedUser("")
+  const searchUserBlueHanlder = (e) => {
+    setSearchedUser("");
     setHideSearchIncon(true);
-  }
+  };
 
-  const hideSearchedIconHandler = ()=>{
-    
-    setHideSearchIncon((false))
-  }
+  const hideSearchedIconHandler = () => {
+    setHideSearchIncon(false);
+  };
 
   return (
     <>
@@ -111,7 +103,7 @@ function Header({ setBlurBackground }) {
               placeholder={hideSearchIcon ? "     Search..." : ""}
               size="small"
               onChange={(e) => searchUsers(e.target.value)}
-              onFocus={(e)=>hideSearchedIconHandler(e)}
+              onFocus={(e) => hideSearchedIconHandler(e)}
               // ref={ref}
               onBlur={(e) => searchUserBlueHanlder()}
             ></TextField>

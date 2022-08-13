@@ -13,6 +13,12 @@
     align-items: center;
 }
 
+.my-message-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .my-message-modal-content,
 .my-message-modal-header>h2,
 .my-message-recommend,
@@ -20,9 +26,41 @@
     margin-left: 2%;
 }
 
-.my-message-recommend-id-radio{
-    position:absolute;
-    right:0;
-    margin-right:25px;
+.my-message-modal-header>span {
+    color: #10d0ff;
+    margin-right:1vw;
+}
+
+.my-message-recommend-id-radio {
+    position: absolute;
+    right: 0;
+    margin-right: 25px;
     transform: scale(1.5);
+}
+
+.my-message-modal-content>[type="text"] {
+    border: none;
+}
+
+.my-message-modal-content>[type="text"]:focus {
+    outline-color: white;
+}
+
+.my-message-search-container {
+    width: 30vw;
+    height: 45vh;
+    margin-top: -1vh;
+    border: 1px solid black;
+    overflow: auto;
+    /* display: flex; */
+}
+
+.my-message-user-info-container {
+    display: flex;
+    padding: 5px;
+    align-items: center;
+}
+
+.my-message-user-info-id {
+    margin-left: 20px;
 }
