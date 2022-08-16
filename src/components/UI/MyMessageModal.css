@@ -26,7 +26,7 @@
     margin-left: 2%;
 }
 
-.my-message-modal-header>span {
+.my-message-create-new-chat {
     color: #10d0ff;
     margin-right: 1vw;
 }
@@ -71,14 +71,12 @@
     max-width: 50vw;
 }
 
-
 .my-message-receiver-name {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 5.5vw;
     height: 3.5vh;
-    /* padding: 2%; */
     font-size: 17px;
     padding: 5px;
     color: #10d0ff;
@@ -92,6 +90,4 @@
     height: 22px;
     margin-left: 5px;
     cursor: pointer;
-    /* width: 2vw; */
-    /* margin-left:0.5vw !important; */
 }

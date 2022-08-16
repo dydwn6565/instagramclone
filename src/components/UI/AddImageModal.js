@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, {  useRef, useState } from "react";
 import "./AddImageModal.css";
 import { BsPlusCircle } from "react-icons/bs";
 import { generateBase64FromImage } from "../Utils/Image";

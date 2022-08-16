@@ -21,7 +21,7 @@ function Header({ setBlurBackground }) {
   const [searchedUser, setSearchedUser] = useState("");
   const [userList, setUserList] = useState("");
   const [hideSearchIcon, setHideSearchIncon] = useState(true);
-  const ref = useRef(null);
+  
   useEffect(() => {
     const getUsers = async () => {
       const userData = await fetch("http://localhost:8080/users", {
@@ -93,7 +93,7 @@ function Header({ setBlurBackground }) {
               type="submit"
               aria-label="search"
             >
-              {console.log(hideSearchIcon)}
+              
               {hideSearchIcon && <SearchIcon style={{ fill: "grey" }} />}
             </IconButton>
             <TextField

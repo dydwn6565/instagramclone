@@ -1,11 +1,11 @@
-import { Avatar, Button } from "@mui/material";
+import { Avatar } from "@mui/material";
 import React, { useRef, useState } from "react";
 import { useEffect } from "react";
 import Card from "./Card";
 import "./MyMessageModal.css";
 import { v4 as uuidv4 } from "uuid";
 import { MdClose } from "react-icons/md";
-
+import { Link } from "react-router-dom";
 function MyMessageModal({ messageModalHandler }) {
   const [userList, setUserList] = useState("");
   const [filteredUserList, setFilteredUserList] = useState("");
@@ -14,6 +14,7 @@ function MyMessageModal({ messageModalHandler }) {
   const [searchedUser, setSearchedUser] = useState("");
 
   const ref = useRef(null);
+  const randomRoomNumber = uuidv4();
   useEffect(() => {
     const getUserList = async () => {
       const userListData = await fetch("http://localhost:8080/users", {
@@ -57,23 +58,19 @@ function MyMessageModal({ messageModalHandler }) {
       setfiltereUserListShow(true);
     } else {
       setFilteredUserList("");
-      ref.current.value ="";
+      ref.current.value = "";
     }
   };
 
-  const createChat = () => {
-    const randomRoomNumber = uuidv4();
-
-    window.location.href = `/myMessage/${randomRoomNumber}`;
-  };
-
-
+  // const createChat = () => {
+  //   window.location.href = `/myMessage/${randomRoomNumber}`;
+  // };
 
   const radioButtonOnchangeHandler = (e) => {
     setClickedUserList((users) => [...users, e.target.value]);
     const updatedFilteredList = filteredUserList.filter((user) => {
       if (user.userid === e.target.value) {
-        user.checked = !user.checked
+        user.checked = !user.checked;
         return user;
       } else {
         return user;
@@ -82,7 +79,7 @@ function MyMessageModal({ messageModalHandler }) {
 
     setFilteredUserList(updatedFilteredList);
     setfiltereUserListShow(false);
-    ref.current.value ="";
+    ref.current.value = "";
     // setSearchedUser("");
     // console.log(e.target.value)
   };
@@ -118,7 +115,15 @@ function MyMessageModal({ messageModalHandler }) {
         <header className="my-message-modal-header">
           <h2>New message</h2>
 
-          <span onClick={createChat}>Create</span>
+          <Link
+            to={randomRoomNumber}
+            state={{
+              randomRoomNumber: randomRoomNumber,
+              "clickedUserList": clickedUserList,
+            }}
+          >
+            <span className="my-message-create-new-chat">Create</span>
+          </Link>
         </header>
         <div className="hr"></div>
         {/* <FaPhotoVideo className="modal-photo-video" /> */}
@@ -144,7 +149,6 @@ function MyMessageModal({ messageModalHandler }) {
             type="text"
             placeholder="search"
             ref={ref}
-            
             onChange={(e) => userSearchHandler(e.target.value)}
           />
         </div>
