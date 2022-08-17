@@ -17,12 +17,13 @@ import { AiOutlineDown } from "react-icons/ai";
 
 const MessageModal = ({ title, message, onConfirm }) => {
   const [imageArray, setImageArray] = useState([]);
-  const [renderedImage,setRenderedImage] = useState([]);
+  const [renderedImage, setRenderedImage] = useState([]);
   const [page, setPage] = useState(0);
 
   const [extendImageModal, setExtendImageModal] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
-  const [content,setContent] = useState("");
+  const [content, setContent] = useState("");
+  const [location, setLocation] = useState({});
   const extendImageModalHandler = () => {
     setExtendImageModal((prev) => !prev);
   };
@@ -35,11 +36,14 @@ const MessageModal = ({ title, message, onConfirm }) => {
   const handleChange = (event) => {
     const fileUploaded = event.target.files[0];
     const currentDate = new Date();
-    
+
     if (fileUploaded) {
       generateBase64FromImage(fileUploaded)
         .then((b64) => {
-          setImageArray((current) => [...current, b64 +"uploadedCurrentDate"+ currentDate]);
+          setImageArray((current) => [
+            ...current,
+            b64 + "uploadedCurrentDate" + currentDate,
+          ]);
           setPage((prevPage) => prevPage + 1);
         })
         .catch((e) => {
@@ -47,26 +51,41 @@ const MessageModal = ({ title, message, onConfirm }) => {
         });
     }
   };
+  function getLatAndLong() {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      setLocation({
+        lat: position.coords.latitude,
+        long: position.coords.longitude,
+      });
+    });
+  }
 
   const moveToPageTwo = () => {
     setPage((prevPage) => prevPage + 1);
   };
 
-  const uploadImage = async (e) => {e.preventDefault();
-  const formData = new FormData();
-  formData.append("title", "test");
-  formData.append("content", content);
-  formData.append("image", imageArray);
+  const uploadImage = async (e) => {
+    e.preventDefault();
+    getLatAndLong();
+    
+    const formData = new FormData();
+    formData.append("title", "test");
+    formData.append("content", content);
+    formData.append("image", imageArray);
 
-  const ImageData = await fetch("http://localhost:8080/post", {
-    method: "POST",
-    body: formData,
-    // headers: {
-    //   "Content-Type": "multipart/form-data",
-    // },
-  });
-  console.log(ImageData.status)
-};
+    formData.append("lat", location.lat);
+    formData.append("long", location.long);
+
+    
+    const ImageData = await fetch("http://localhost:8080/post", {
+      method: "POST",
+      body: formData,
+      // headers: {
+      //   "Content-Type": "multipart/form-data",
+      // },
+    });
+    console.log(ImageData.status);
+  };
 
   const moveToPrevPage = () => {
     setPage((prevPage) => prevPage - 1);
@@ -79,25 +98,11 @@ const MessageModal = ({ title, message, onConfirm }) => {
     setCurrentPage((currentPage) => currentPage + 1);
   };
 
-  const contentsHandler =(e) =>{
-    setContent(e.target.value)
-  }
+  const contentsHandler = (e) => {
+    setContent(e.target.value);
+  };
 
-  // const addImage = async (e) => {
-  //   e.preventDefault();
-  //   const formData = new FormData();
-  //   formData.append("title", "test");
-  //   formData.append("content", "test-content");
-  //   formData.append("image", "image-test");
 
-  //   const ImageData = await fetch("http://localhost:8080/post", {
-  //     method: "POST",
-  //     body: formData,
-  //     headers: {
-  //       "Content-Type": "multipart/form-data",
-  //     },
-  //   });
-  // };
   return (
     <div>
       <div className="modal-backdrop" onClick={onConfirm} />
@@ -121,7 +126,7 @@ const MessageModal = ({ title, message, onConfirm }) => {
               </>
             )}
 
-            <hr />
+            <div className="image-preview-first-page-header"></div>
           </header>
           {page === 0 && (
             <>
@@ -162,10 +167,13 @@ const MessageModal = ({ title, message, onConfirm }) => {
                       alt="uploadedImage"
                       className="preview-image"
                     />
+                    <div className="copy-out-line-background">
+
                     <IoCopyOutline
                       className="preview-image-multiple-image-icon"
                       onClick={extendImageModalHandler}
                     />
+                    </div>
                     <IoIosArrowDroprightCircle
                       className={
                         currentPage === imageArray.length - 1
@@ -203,7 +211,7 @@ const MessageModal = ({ title, message, onConfirm }) => {
       )}
       {page === 2 && (
         <LargeCard>
-          <header>
+          <header className="image-preview-page-two-head">
             <BiArrowBack
               className="image-priview-back-arrow"
               onClick={moveToPrevPage}
@@ -213,6 +221,7 @@ const MessageModal = ({ title, message, onConfirm }) => {
             <span className="image-preview-share-btn" onClick={uploadImage}>
               Share
             </span>
+            {/* <span onClick={componentDidMount}>get location</span> */}
           </header>
           <div className="image-preveiw-last-page">
             <div className="preview-image-container">
@@ -277,7 +286,6 @@ const MessageModal = ({ title, message, onConfirm }) => {
 
             <div />
           </div>
-          
         </LargeCard>
       )}
     </div>

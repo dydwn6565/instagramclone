@@ -57,10 +57,13 @@ hr {
 
 .preview-image {
     width: 30vw;
-    height: 53vh;
+    height: 54vh;
 }
 
-.preview-image-container {
+.image-preview-first-page-header {
+    border: 0.5px solid lightgrey;
+    margin-top:1vh;
+}.preview-image-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,6 +93,14 @@ hr {
     margin-top: 10px;
 }
 
+.preview-image-textarea:focus {
+    outline: none;
+}
+
+.image-preview-page-two-head {
+    margin-bottom: 1.5vh
+}
+
 .preview-image-content-options {
     padding: 2%;
 }
@@ -105,17 +116,27 @@ hr {
 }
 
 .preview-image-multiple-image-icon {
-    top: 64vh;
-    right: 32vw;
+    top: 63.5vh;
+    right: 31.6vw;
+    width: 3vw;
+    height: 3vh;
     bottom: 40%;
-    width: 25px;
-    height: 25px;
     z-index: 100;
     position: fixed;
     overflow: hidden;
-    background-color: white;
-    border-radius: 10px;
+    color: lightgrey;
 }
+
+
+/* .copy-out-line-background {
+    position: fixed;
+    width: 40px;
+    top: 63vh;
+    right: 32vw;
+    height: 40px;
+    border-radius: 100px;
+    background-color: white;
+} */
 
 .preview-image-left-icon {
     margin-right: 25vw;

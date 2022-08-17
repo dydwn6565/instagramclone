@@ -120,6 +120,7 @@ function AddImageModal({
         ) : (
           <>
             <img
+            
               src={
                 imageArray[smallImageCurrentPage].split(
                   "uploadedCurrentDate"
