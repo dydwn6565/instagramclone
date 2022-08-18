@@ -28,7 +28,7 @@ function Login() {
     valueChangeHandler: passwordChangeHandler,
     inputBlurHandler: passwordBlurHandler,
     reset: resetPasswordInput,
-  } = useInput((value) => value.length > 10);
+  } = useInput((value) => value.length > 5);
 
 
   let formIsValid =false;

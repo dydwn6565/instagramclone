@@ -4,7 +4,7 @@ import { BsXCircle } from "react-icons/bs";
 import { BiCheckCircle } from "react-icons/bi";
 import useInput from '../hooks/use-input';
 function SignUp() {
-const regex = /[^A-Za-z0-9]+/;
+const regex = /[^A-Za-z0-9 ]+/;
 
 const {
   value: enteredUserId,
@@ -13,7 +13,13 @@ const {
   valueChangeHandler: UserIdChangeHandler,
   inputBlurHandler: UserIdBlurHandler,
   reset: resetUserIdInput,
-} = useInput((value) => value.length === 10 );
+} = useInput(
+  (value) =>
+    value.trim().includes("@") ||
+    (
+    Number.isInteger(Number(value.trim())) === true &&
+    value.trim().length ===10)
+);
 
 const {
   value: enteredName,
@@ -22,7 +28,7 @@ const {
   valueChangeHandler: enteredNameChangeHandler,
   inputBlurHandler: enteredNameBlurHandler,
   reset: resetEnteredName,
-} = useInput((value) => value.length > 0);
+} = useInput((value) => value.trim().length > 0);
 
 const {
   value: enteredUserName,
@@ -31,7 +37,7 @@ const {
   valueChangeHandler: enteredUserNameChangeHandler,
   inputBlurHandler: enteredUserNameBlurHandler,
   reset: resetEnteredUserName,
-} = useInput((value) => !regex.test(value));
+} = useInput((value) => !regex.test(value.trim()));
 
 const {
   value: enteredPassword,
@@ -40,7 +46,7 @@ const {
   valueChangeHandler: passwordChangeHandler,
   inputBlurHandler: passwordBlurHandler,
   reset: resetPasswordInput,
-} = useInput((value) => value.length > 5);
+} = useInput((value) => value.trim().length > 5);
 
 
   let formIsValid = false;
@@ -60,13 +66,27 @@ const formSubmissionHandler = (e) => {
   if (!enteredUserId) {
     return;
   }
-
+createUser();
   resetUserIdInput();
   resetEnteredName();
   resetEnteredUserName();
   resetPasswordInput();
   
 };
+
+const createUser=async ()=>{
+  const dataForm = new FormData();
+    dataForm.append("userid", enteredUserId);
+    dataForm.append("name", enteredName);
+    dataForm.append("password", enteredPassword);
+    dataForm.append("username", enteredUserName);
+    
+    
+    await fetch("http://localhost:8080/users", {
+      method: "POST",
+      body: dataForm,
+    });
+}
 
   return (
     <div className="sign-up">
@@ -92,7 +112,10 @@ const formSubmissionHandler = (e) => {
             value={enteredUserId}
           />
           {UserIdInputHasError ? (
+            <>
             <BsXCircle className="x-circle red" />
+            
+            </>
           ) : (
             <BiCheckCircle className="x-circle" />
           )}
@@ -142,7 +165,7 @@ const formSubmissionHandler = (e) => {
             By signing up, you agree to the terms and conditions, the privacy
             policy, and the cookie policy
           </div>
-          {console.log(formIsValid)}
+          
           {formIsValid ? (
             <button className="sign-up-bt" onClick={formSubmissionHandler}>
               Sign up

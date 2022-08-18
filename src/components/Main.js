@@ -11,13 +11,16 @@ import "./css/Main.css"
 import MainPageModal from './UI/MainPageModal';
 import ExtendedMainModal from './UI/ExtendedMainModal';
 
-
+// import video from "./video.mp4";
 
 function Main({ setBlurBackground }) {
   const [mainPageModal, setMainPageModal] = useState(false);
 
   const [extendCommentModal,setExtendCommentModal] = useState(false);
 
+
+  const [testFile,setTestFile] = useState("");
+  const [testimage,setTestImage]= useState("");
   const mainPageHandler = () =>{
     setMainPageModal(prevState => !prevState);
   }
@@ -72,6 +75,39 @@ function Main({ setBlurBackground }) {
       
   },[])
 
+  // const sendingFile = async(e) =>{
+  //   setTestFile(e.target.files[0])
+  //   console.log(e.target);
+  //   console.log(testFile)
+  //   const dataForm = new FormData();
+  //   dataForm.append("file", e.target.files[0]);
+  //   dataForm.append("content", "hihi");
+  //   dataForm.append("lat", 49.26356);
+  //   dataForm.append("long", -123.18681);
+  //   dataForm.append("userid", 2);
+
+  //   await fetch("http://localhost:8080/post",{
+  //     method:"POST",
+  //     body:dataForm,
+  // })
+  // }
+
+  //  const receivingFile = async(e) =>{
+    
+  //   // const dataForm = new FormData();
+    
+  //   // dataForm.append("userid", 2);
+
+  //   const receivedImages = await fetch("http://localhost:8080/retriev/images/2",{
+  //     method:"GET",
+  //     // body:dataForm,
+  // })
+  // const jsonData = await receivedImages.json();
+  // // const jsonData = await receivedImages.json();
+  // setTestImage(jsonData);
+  // console.log(jsonData)
+  // // console.log("line 105 in main" + jsonData);
+  // }
 
   return (
     <div className="main">
@@ -85,7 +121,31 @@ function Main({ setBlurBackground }) {
           />
         </div>
       </div>
-
+      {/* <input type="file" onClick={(e) => sendingFile(e)} />
+      <button onClick={receivingFile}>get images</button> */}
+      {/* {testimage && <img src={`data:image/png;base64,`+testimage} />} */}
+      {/* {testimage && (
+        <video
+          style={{
+            width: "100%",
+            // height: 500,
+            marginTop: "10%",
+            marginLeft: "22%",
+            border: "1px solid black",
+          }}
+          controls
+          // autoPlay
+          // loop
+          // muted
+        >
+          <source
+            type="video/mp4"
+            
+            src={video}
+            
+          ></source>
+        </video>
+      )} */}
       {mainPageModal && <MainPageModal mainPageHandler={mainPageHandler} />}
       <div className="main-image-container">
         <img
