@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, userCallback } from "react";
 import "./css/Login.css";
-import useInput from '../hooks/use-input.js'
+import useInput from "../hooks/use-input.js";
 import LoginImage from "./LoginImage";
-
+import { useDispatch, useSelector } from "react-redux";
+import { userActions } from "../store/index";
 
 import { Container, Row, Col } from "react-grid-system";
 
-
 function Login() {
-
-  const [passwordShown , setPasswordShown] = useState(false);
-
+  const dispatch = useDispatch();
+  const [passwordShown, setPasswordShown] = useState(false);
+  const state = useSelector((state) => state);
   const {
     value: enteredUserId,
     isValue: userIdIsValid,
@@ -30,10 +30,9 @@ function Login() {
     reset: resetPasswordInput,
   } = useInput((value) => value.length > 5);
 
+  let formIsValid = false;
 
-  let formIsValid =false;
-
-  if(userIdIsValid &&enteredPasswordIsValid ){
+  if (userIdIsValid && enteredPasswordIsValid) {
     formIsValid = true;
   }
   // const userIdIsValid = enteredUserId.trim() !== "";
@@ -42,43 +41,74 @@ function Login() {
   // const passwordIsValid = password.trim() !== "";
   // const passwordInputIsInvalid = !userIdIsValid && userIdTouched;
 
-const formSubmissionHandler = async (e)=>{
-  e.preventDefault();
+  const formSubmissionHandler = async (e) => {
+    e.preventDefault();
 
-  if(!enteredUserId){
-    return;
-  }
-  
-  const login = await fetch("http://localhost:8080/login", {
-    
-    method: "POST",
-    body: JSON.stringify({ userid: enteredUserId, password: enteredPassword }),
-    headers: {
-      
-      "Content-type": "application/json; charset=UTF-8",
-    },
-  });
-  if(login.status === 200){
-    const token = await login.json();
-    console.log(token.accessToken)
-    localStorage.setItem(
-      "accessToken",
-      token.accessToken
-    );
-    localStorage.setItem("refreshToken", token.refreshToken);
-    console.log(token)
-    window.location.href ="/"
+    if (!enteredUserId) {
+      return;
+    }
+    try {
+      const login = await fetch("http://localhost:8080/login", {
+        method: "POST",
+        body: JSON.stringify({
+          userid: enteredUserId,
+          password: enteredPassword,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      });
+      if (login.status === 200) {
+        const token = await login.json();
+        console.log(token.accessToken);
 
+        localStorage.setItem("accessToken", token.accessToken);
+        localStorage.setItem("refreshToken", token.refreshToken);
+        const getUserInfo = await fetch(
+          `http://localhost:8080/users/${enteredUserId}`,
+          {
+            method: "GET",
+          }
+        );
+        const jsonUser = await getUserInfo.json();
+        console.log(jsonUser.userid);
+
+        dispatch(
+          userActions.updateUser({
+            userid: jsonUser.userid,
+            name: jsonUser.name,
+            username: jsonUser.username,
+          })
+        );
+
+        // dispatch(userActions.increase);
+
+        // console.log(userid)
+        console.log(jsonUser);
+
+        console.log(token);
+        setTimeout(() => {
+          console.log(state)
+          window.location.href = "/";
+        }, 5000);
+
+        // console.log(userid);
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+
+    // resetUserIdInput();
+    // resetPasswordInput();
   };
-  // resetUserIdInput();
-  // resetPasswordInput();
-  
-};
 
+  const userInputClasses = userIdInputHasError
+    ? "form-control invalid"
+    : "form-control";
 
-const userInputClasses = userIdInputHasError ? 'form-control invalid' : 'form-control';
-
-const passwordInputClasses = passwordInputHasError ? 'form-control invalid' : 'form-control';
+  const passwordInputClasses = passwordInputHasError
+    ? "form-control invalid"
+    : "form-control";
 
   return (
     <>
@@ -103,20 +133,30 @@ const passwordInputClasses = passwordInputHasError ? 'form-control invalid' : 'f
                     <p className="error-text">Please check your id</p>
                   )}
                   <input
-                    type={passwordShown ? "password" :"text" }
+                    type={passwordShown ? "password" : "text"}
                     onChange={passwordChangeHandler}
                     onBlur={passwordBlurHandler}
                     value={enteredPassword}
                   />
                   <div className="login-show-password">
-                    <strong onClick={()=>setPasswordShown((prevState)=>!prevState)}> show password</strong>
+                    <strong
+                      onClick={() =>
+                        setPasswordShown((prevState) => !prevState)
+                      }
+                    >
+                      {" "}
+                      show password
+                    </strong>
                   </div>
                   {passwordInputHasError && (
                     <p className="error-text">Please check your password</p>
                   )}
                   <button className="login-button">Login</button>
                 </form>
-                <p className="hr-row"  > ----------------------or---------------------</p>
+                <p className="hr-row">
+                  {" "}
+                  ----------------------or---------------------
+                </p>
 
                 <div className="login-with-facebook">Login with Facebook</div>
                 <div className="forget-login">
@@ -128,7 +168,8 @@ const passwordInputClasses = passwordInputHasError ? 'form-control invalid' : 'f
               </div>
 
               <div className="login-no-account">
-                Don't you have account ?<Link to="/accounts/emailsignup">SignUp</Link>
+                Don't you have account ?
+                <Link to="/accounts/emailsignup">SignUp</Link>
               </div>
 
               <div className="login-download-app">

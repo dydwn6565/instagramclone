@@ -6,7 +6,7 @@ import ChatBubbleOutlineSharpIcon from "@mui/icons-material/ChatBubbleOutlineSha
 import SendSharpIcon from "@mui/icons-material/SendSharp";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
-
+import { useDispatch, useSelector } from "react-redux";
 import "./css/Main.css"
 import MainPageModal from './UI/MainPageModal';
 import ExtendedMainModal from './UI/ExtendedMainModal';
@@ -17,10 +17,11 @@ function Main({ setBlurBackground }) {
   const [mainPageModal, setMainPageModal] = useState(false);
 
   const [extendCommentModal,setExtendCommentModal] = useState(false);
+  // const dispatch = useDispatch();
 
 
-  const [testFile,setTestFile] = useState("");
-  const [testimage,setTestImage]= useState("");
+  // const [testFile,setTestFile] = useState("");
+  // const [testimage,setTestImage]= useState("");
   const mainPageHandler = () =>{
     setMainPageModal(prevState => !prevState);
   }
@@ -33,15 +34,14 @@ function Main({ setBlurBackground }) {
   useEffect( ()=>{
     
     const accessToken = localStorage.getItem("accessToken");
+    
     console.log(accessToken)
     if (accessToken) {
       
       const userValidationCheck = async()=>{ 
         const token= await fetch("http://localhost:8080", {
           method: "POST",
-          // body: JSON.stringify({
-          //   accessToken: accessToken,
-          // }),
+          
           headers: {
             Authorization: `Bearer ${accessToken}`
           }
@@ -74,6 +74,7 @@ function Main({ setBlurBackground }) {
     }
       
   },[])
+  const userid = useSelector((state) => state);
 
   // const sendingFile = async(e) =>{
   //   setTestFile(e.target.files[0])
@@ -120,6 +121,7 @@ function Main({ setBlurBackground }) {
             className="main-horiz-oulined-icon"
           />
         </div>
+        {console.log(userid)}
       </div>
       {/* <input type="file" onClick={(e) => sendingFile(e)} />
       <button onClick={receivingFile}>get images</button> */}

@@ -23,6 +23,8 @@ import SignUp from './components/SignUp';
 import ResetPassword from './components/ResetPassword';
 import Chat from './components/Chat';
 
+import store from './store/index'
+import {Provider} from 'react-redux'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
 //   <React.StrictMode>
@@ -30,41 +32,57 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 //   </React.StrictMode>
 // );
 root.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />}></Route>
-      
-      <Route path="/myMessage" element={<MyMessage />}></Route>
-      <Route path="/myMessage/:room" element={<Chat />}></Route>
-      <Route path="/explore" element={<Explore />}></Route>
-      <Route path="/id" element={<Profile />}></Route>
-      <Route path="/accounts/edit" element={<AccountEdit />}></Route>
-      <Route
-        path="/accounts/password/change"
-        element={<ChangePassword />}
-      ></Route>
-      <Route path="/accounts/manage_access" element={<AppandWebSite />}></Route>
-      <Route path="/emails/settings" element={<EmailAlarm />}></Route>
-      <Route path="/push/web/settings" element={<PushAlarm />}></Route>
-      <Route
-        path="/accounts/contact_history"
-        element={<ManageContactNumber />}
-      ></Route>
-      <Route
-        path="/accounts/privacy_and_security"
-        element={<PrivateInfoAndSecurity />}
-      ></Route>
-      <Route path="/accounts/supervision" element={<Supervision />}></Route>
-      <Route path="/session/login_activity" element={<LoginActivity />}></Route>
-      <Route path="/emails/emails_sent" element={<EmailFromInstagram />}></Route>
-      <Route path="/settings/help" element={<Help />}></Route>
-      <Route path="/login" element={<Login />}></Route>
-      <Route path="/accounts/emailsignup" element={<SignUp />}></Route>
-      <Route path="/accounts/password/reset" element={<ResetPassword  />}></Route>
-      <Route path="/accounts/password/reset" element={<ResetPassword  />}></Route>
-      
-    </Routes>
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />}></Route>
+
+        <Route path="/myMessage" element={<MyMessage />}></Route>
+        <Route path="/myMessage/:room" element={<Chat />}></Route>
+        <Route path="/explore" element={<Explore />}></Route>
+        <Route path="/id" element={<Profile />}></Route>
+        <Route path="/accounts/edit" element={<AccountEdit />}></Route>
+        <Route
+          path="/accounts/password/change"
+          element={<ChangePassword />}
+        ></Route>
+        <Route
+          path="/accounts/manage_access"
+          element={<AppandWebSite />}
+        ></Route>
+        <Route path="/emails/settings" element={<EmailAlarm />}></Route>
+        <Route path="/push/web/settings" element={<PushAlarm />}></Route>
+        <Route
+          path="/accounts/contact_history"
+          element={<ManageContactNumber />}
+        ></Route>
+        <Route
+          path="/accounts/privacy_and_security"
+          element={<PrivateInfoAndSecurity />}
+        ></Route>
+        <Route path="/accounts/supervision" element={<Supervision />}></Route>
+        <Route
+          path="/session/login_activity"
+          element={<LoginActivity />}
+        ></Route>
+        <Route
+          path="/emails/emails_sent"
+          element={<EmailFromInstagram />}
+        ></Route>
+        <Route path="/settings/help" element={<Help />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/accounts/emailsignup" element={<SignUp />}></Route>
+        <Route
+          path="/accounts/password/reset"
+          element={<ResetPassword />}
+        ></Route>
+        <Route
+          path="/accounts/password/reset"
+          element={<ResetPassword />}
+        ></Route>
+      </Routes>
+    </BrowserRouter>
+  </Provider>
 );
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

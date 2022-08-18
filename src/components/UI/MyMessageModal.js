@@ -119,14 +119,15 @@ function MyMessageModal({ messageModalHandler }) {
             to={randomRoomNumber}
             state={{
               randomRoomNumber: randomRoomNumber,
-              "clickedUserList": clickedUserList,
+              clickedUserList: clickedUserList,
             }}
+            className="my-message-create-new-chat"
           >
-            <span className="my-message-create-new-chat">Create</span>
+            <span>Create</span>
           </Link>
         </header>
         <div className="hr"></div>
-        {/* <FaPhotoVideo className="modal-photo-video" /> */}
+        
         <div className="my-message-modal-content">
           <p>
             <strong> Receiver:</strong>
@@ -155,7 +156,7 @@ function MyMessageModal({ messageModalHandler }) {
         <div className="hr"></div>
 
         <div className="my-message-search-container">
-          {/* {console.log(clickedUserList)} */}
+          
           {filteredUserList &&
             filteredUserListShow &&
             filteredUserList.map((user) => (
