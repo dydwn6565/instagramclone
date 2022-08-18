@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import React, { useState, userCallback } from "react";
+import React, { useState, userCallback, useRef } from "react";
 import "./css/Login.css";
 import useInput from "../hooks/use-input.js";
 import LoginImage from "./LoginImage";
@@ -11,7 +11,8 @@ import { Container, Row, Col } from "react-grid-system";
 function Login() {
   const dispatch = useDispatch();
   const [passwordShown, setPasswordShown] = useState(false);
-  const state = useSelector((state) => state);
+  
+  const linkToMain = useRef();
   const {
     value: enteredUserId,
     isValue: userIdIsValid,
@@ -72,27 +73,21 @@ function Login() {
         );
         const jsonUser = await getUserInfo.json();
         console.log(jsonUser.userid);
+        
+        const userid = jsonUser.userid;
+        const name = jsonUser.name;
+        const username = jsonUser.username;
 
         dispatch(
           userActions.updateUser({
-            userid: jsonUser.userid,
-            name: jsonUser.name,
-            username: jsonUser.username,
+            userid: userid,
+            name: name,
+            username: username,
           })
         );
+   
+        linkToMain.current.click();
 
-        // dispatch(userActions.increase);
-
-        // console.log(userid)
-        console.log(jsonUser);
-
-        console.log(token);
-        setTimeout(() => {
-          console.log(state)
-          window.location.href = "/";
-        }, 5000);
-
-        // console.log(userid);
       }
     } catch (error) {
       alert(error.message);
@@ -112,7 +107,7 @@ function Login() {
 
   return (
     <>
-      {/* <div className="login-page-container"> */}
+      
       <Container>
         <Row>
           <Col sm={5}>
@@ -188,6 +183,9 @@ function Login() {
                 />
               </div>
             </div>
+            <Link ref={linkToMain} to="/" hidden>
+              s
+            </Link>
           </Col>
         </Row>
       </Container>

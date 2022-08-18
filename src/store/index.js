@@ -15,6 +15,7 @@ const userSlice = createSlice({
             console.log(state.userid);
             state.name = action.payload.name;
             state.username = action.payload.username;
+            
         },
         deleteUser(state){
             state.userid ="user";

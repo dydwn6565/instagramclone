@@ -2,8 +2,9 @@ import { Avatar } from "@mui/material";
 import React from "react";
 import "./css/ProfileTitle.css";
 import BrightnessLowRoundedIcon from "@mui/icons-material/BrightnessLowRounded";
+import { Link } from "react-router-dom";
 function ProfileTitle() {
-  const redirectToEditProfile = () => (window.location.href = "/accounts/edit");
+  
   return (
     <>
       <div className="profile-title">
@@ -12,7 +13,9 @@ function ProfileTitle() {
           <div>
             <span>ivan4334 </span>
             <span>
-              <button onClick={redirectToEditProfile}> edit profile </button>
+              <Link to="/accounts/edit">
+                <button > edit profile </button>
+              </Link>
             </span>
             <span>
               <BrightnessLowRoundedIcon />

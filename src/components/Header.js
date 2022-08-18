@@ -13,6 +13,7 @@ import "../components/css/Header.css";
 import MessageModal from "./UI/MessageModal";
 import LikeActivity from "./LikeActivity";
 import HeaderProfileModal from "./UI/HeaderProfileModal";
+import { Link } from "react-router-dom";
 
 function Header({ setBlurBackground }) {
   const [openModal, setOpenModal] = useState(false);
@@ -38,15 +39,6 @@ function Header({ setBlurBackground }) {
     console.log(userList);
   }, []);
 
-  const redirectToProfile = () => (window.location.href = "/id");
-
-  const redirectToHome = () => {
-    window.location.href = "/";
-  };
-
-  const redirectToMyMessage = () => (window.location.href = "/myMessage");
-
-  const redirectToExplore = () => (window.location.href = "/explore");
 
   const createNewPost = () => {
     setOpenModal((prevState) => !prevState);
@@ -85,7 +77,10 @@ function Header({ setBlurBackground }) {
   return (
     <>
       <div className="header">
-        <span className="instagram-title">Instagram</span>
+        <span className="instagram-title">
+          
+          <Link to="/" style={{textDecoration:"none"}}>Instagram</Link>
+        </span>
         <div className="header-search-bar">
           <form>
             <IconButton
@@ -93,7 +88,6 @@ function Header({ setBlurBackground }) {
               type="submit"
               aria-label="search"
             >
-              
               {hideSearchIcon && <SearchIcon style={{ fill: "grey" }} />}
             </IconButton>
             <TextField
@@ -126,26 +120,29 @@ function Header({ setBlurBackground }) {
           </form>
         </div>
         <div className="icon-list">
-          <HomeIcon className="homeIcon" onClick={redirectToHome} />
-          <SendOutlinedIcon
-            className="myMessage"
-            onClick={redirectToMyMessage}
-          />
+          <Link to="/">
+            <HomeIcon className="homeIcon" />
+          </Link>
+          <Link to="/myMessage">
+            <SendOutlinedIcon className="myMessage" />
+          </Link>
+
           <AddBoxOutlinedIcon onClick={createNewPost} />
 
-          <ExploreOutlinedIcon
-            className="explore"
-            onClick={redirectToExplore}
-          />
+          <Link to="/explore">
+            <ExploreOutlinedIcon className="explore" />
+          </Link>
+
           <FavoriteBorderOutlinedIcon onClick={postActivity} />
           <Avatar onClick={headerModalHandler} />
         </div>
 
         {openHeaderModal && (
-          <HeaderProfileModal
-            headerModalHandler={headerModalHandler}
-            redirectToProfile={redirectToProfile}
-          />
+          <>
+            <Link to="/id">
+              <HeaderProfileModal headerModalHandler={headerModalHandler} />
+            </Link>
+          </>
         )}
         {openModal && (
           <MessageModal
