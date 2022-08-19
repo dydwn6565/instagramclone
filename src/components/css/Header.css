@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+.link-text-no-decoration{
+    text-decoration: none;
+}
+
 .header {
     display: flex;
     padding: 1%;

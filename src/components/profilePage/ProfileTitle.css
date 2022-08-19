@@ -1,0 +1,49 @@
+.profile-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-avatar {
+    transform: scale(3.5) translate(-100%, 20%);
+    background-color: lightgrey;
+}
+
+.profile-title-info {
+    margin-right: 50px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    justify-content: space-evenly;
+}
+
+.profile-name {
+    font-size: 35px;
+    font-weight: bold;
+    margin-left:-0.5vw;
+}
+
+.profile-title-info-upper-container {
+    display: flex;
+    align-items: center;
+    padding: 2%;
+}
+
+.profile-edit-btn {
+    width: 5vw;
+    height: 3vh;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    background-color: rgb(245, 241, 241);
+    border-color: rgb(235, 238, 240);
+    border-radius: 5px;
+}
+
+.profile-title-user-info>span {
+    margin-right: 1vw;
+}
+
+.profile-title-user-name{
+    font-weight: bold;
+}

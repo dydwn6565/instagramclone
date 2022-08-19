@@ -79,7 +79,7 @@ function Header({ setBlurBackground }) {
       <div className="header">
         <span className="instagram-title">
           
-          <Link to="/" style={{textDecoration:"none"}}>Instagram</Link>
+          <Link to="/" className="link-text-no-decoration">Instagram</Link>
         </span>
         <div className="header-search-bar">
           <form>
@@ -139,9 +139,9 @@ function Header({ setBlurBackground }) {
 
         {openHeaderModal && (
           <>
-            <Link to="/id">
+            {/* <Link to="/id"> */}
               <HeaderProfileModal headerModalHandler={headerModalHandler} />
-            </Link>
+            {/* </Link> */}
           </>
         )}
         {openModal && (

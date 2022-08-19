@@ -1,12 +1,11 @@
 .like-activity {
     background: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0.0.26);
-    /* border-radius: 10px; */
     position: fixed;
-    top: 10vh;
-    right: 23%;
-    width: 20%;
-    height: 20%;
+    top: 6vh;
+    right: 23vw;
+    width: 20vw;
+    height: 16vh;
     z-index: 100;
     overflow: hidden;
 }
@@ -18,15 +17,19 @@
     width: 100%;
     height: 100vh;
     z-index: 10;
-    /* background: rgba(0, 0, 0, 0.75); */
+    
 }
 
 .heart-icon {
-    transform: scale(4.5) translate(260%, 70%)
+    width:7vw;
+    height:7vh;
+    margin-left:6.5vw;
+    margin-top:2vh;
+    
 }
 
 .like-activity-comment {
-    margin-top: 20%;
+    
     font-size: 13px;
     justify-content: center;
     text-align: center;

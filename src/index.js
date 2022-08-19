@@ -6,7 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import MyMessage from './components/MyMessage';
 import Explore from './components/Explore';
-import Profile from './components/Profile';
+import Profile from './components/profilePage/Profile';
 import AccountEdit from './components/AccountEdit';
 import ChangePassword from './components/ChangePassword';
 import AppandWebSite from './components/AppandWebSite';
@@ -41,6 +41,8 @@ root.render(
         <Route path="/myMessage/:room" element={<Chat />}></Route>
         <Route path="/explore" element={<Explore />}></Route>
         <Route path="/id" element={<Profile />}></Route>
+        <Route path="/id/saved" element={<Profile />}></Route>
+        <Route path="/id/taged" element={<Profile />}></Route>
         <Route path="/accounts/edit" element={<AccountEdit />}></Route>
         <Route
           path="/accounts/password/change"

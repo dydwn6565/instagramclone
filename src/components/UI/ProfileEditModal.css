@@ -1,4 +1,4 @@
-.main-page-modal-backdrop {
+.my-profile-modal-backdrop {
     position: fixed;
     top: 0;
     left: 0;
@@ -8,27 +8,21 @@
     background: rgba(0, 0, 0, 0.75);
 }
 
-.main-page-div {
+.profile-edit-modal-container {
     background: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0.0.26);
     border-radius: 10px;
     position: fixed;
-    top: 30vh;
-    left: 37%;
-    width: 20vw;
-    height: 35vh;
+    top: 20vh;
+    left: 40vw;
+    width: 25vw;
+    height: 55vh;
     z-index: 100;
     overflow: hidden;
-    
     text-align: center;
-    
 }
 
-
-.main-page-div >div{
-    padding: 1%;   
-}
-
-.red{
-    color:red
+.profile-edit-modal-container>div {
+    margin-top: 1.2vh;
+    margin-bottom: 1.2vh;
 }

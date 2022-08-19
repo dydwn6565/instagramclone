@@ -14,12 +14,13 @@
     border-radius: 10px;
     position: fixed;
     /* top: 10vh; */
-    top: 5%;
-    right: 23%;
-    width: 10%;
-    height: 20%;
+    top: 4vh;
+    right: 22vw;
+    width: 10vw;
+    height: 20vh;
     z-index: 100;
     overflow: hidden;
+    padding:1%;
 }
 
 ul {

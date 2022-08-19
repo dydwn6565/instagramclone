@@ -1,5 +1,5 @@
 import React from 'react'
-import "./css/ProfileFooter.css"
+import "../profilePage/ProfileFooter.css"
 function ProfileFooter() {
   return (
     <>
