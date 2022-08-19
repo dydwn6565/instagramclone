@@ -1,16 +1,16 @@
 .manage-contact-number {
     display: flex;
-    
     width: 1000px;
-    margin-top: 2%;
-    margin-left: 25%;
+    height: 800px;
     border: 0.5px solid lightgrey;
+    margin-top: 20px;
+    margin-left: 400px;
 }
 
 .manage-contact-number-main {
-    margin-left: -200px;
-    width: 450px;
-    margin-top: 20px;
+    width: 800px;
+    margin-left: -120px;
+    padding: 2%;
 }
 
 .manage-contact-number-main-second-div {
@@ -43,4 +43,3 @@
     border-radius: 3px;
     padding: 5px;
 }
-

@@ -1,7 +1,8 @@
 import React from "react";
 import AccountEditSide from "./AccountEditSide";
-import Header from "./Header";
-import "../components/css/ManageContactNumber.css";
+import Header from "../Header";
+import "./ManageContactNumber.css";
+import ProfileFooter from "../profilePage/ProfileFooter";
 function ManageContactNumber() {
   return (
     <div>
@@ -32,15 +33,18 @@ function ManageContactNumber() {
               Delete
             </a>
           </div>
-          <hr />
+          <div className="hr" />
           <div className="manage-contact-number-main-contact-contents">
             If the contact number is uploaded, it will be displayed in here
           </div>
-          <hr />
+          <div className="hr" />
           <button className="manage-contact-number-main-contact-bt">
             Delete All
           </button>
         </div>
+      </div>
+      <div className="resize-footer">
+        <ProfileFooter />
       </div>
     </div>
   );

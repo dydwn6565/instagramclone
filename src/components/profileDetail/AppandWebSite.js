@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import AccountEditSide from './AccountEditSide'
-import Header from './Header'
-import "../components/css/AppandWebSite.css"
-import AccountEditFooter from './AccountEditFooter';
+import Header from '../Header'
+import "./AppandWebSite.css"
+
+import ProfileFooter from '../profilePage/ProfileFooter';
 function AppandWebSite() {
 
     const [selectedItem, setSelectedItem] = useState("active");
@@ -134,7 +135,9 @@ function AppandWebSite() {
           )}
         </div>
       </div>
-      <AccountEditFooter />
+      <div className="resize-footer">
+        <ProfileFooter />
+      </div>
     </div>
   );
 }

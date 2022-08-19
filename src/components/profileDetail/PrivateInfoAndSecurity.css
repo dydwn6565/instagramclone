@@ -6,15 +6,16 @@
 .private-info-and-security-container {
     display: flex;
     width: 1000px;
-    margin-top: 2%;
-    margin-left: 25%;
+    height: 800px;
     border: 0.5px solid lightgrey;
+    margin-top: 20px;
+    margin-left: 400px;
 }
 
 .private-info-and-security-main {
-    position: absolute;
-    width: 500px;
-    margin-left: 420px;
+    width: 800px;
+    margin-left: -120px;
+    padding:2%;
 }
 
 .private-info-and-security-main-page-space {
@@ -35,5 +36,5 @@
 
 .private-info-and-security-post-extra-info {
     font-size: 10px;
-    color:lightgrey
+    color: lightgrey
 }

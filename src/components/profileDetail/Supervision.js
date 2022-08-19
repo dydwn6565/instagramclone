@@ -1,8 +1,9 @@
 import React from 'react'
 import AccountEditSide from './AccountEditSide'
-import Header from './Header'
+import Header from '../Header'
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import "./css/Supervision.css"
+import "./Supervision.css"
+import ProfileFooter from '../profilePage/ProfileFooter';
 
 function Supervision() {
   return (
@@ -25,14 +26,14 @@ function Supervision() {
           </div>
           <div className="supervision-main-content">
             Education Hub
-            <a
-              alt="text"
-              href="https://familycenter.instagram.com/education"
-            >
+            <a alt="text" href="https://familycenter.instagram.com/education">
               <ArrowForwardIosIcon className="supervision-main-icon" />
             </a>
           </div>
         </div>
+      </div>
+      <div className="resize-footer">
+        <ProfileFooter />
       </div>
     </div>
   );

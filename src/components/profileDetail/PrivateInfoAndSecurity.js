@@ -2,9 +2,10 @@ import { FormControlLabel, Switch } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React from "react";
 import AccountEditSide from "./AccountEditSide";
-import Header from "./Header";
-import "./css/PrivateInfoAndSecurity.css";
+import Header from "../Header";
+import "./PrivateInfoAndSecurity.css";
 import EmailAlarmComponent from "./EmailAlarmComponent";
+import ProfileFooter from "../profilePage/ProfileFooter";
 
 function PrivateInfoAndSecurity() {
   const IOSSwitch = styled((props) => (
@@ -105,7 +106,7 @@ function PrivateInfoAndSecurity() {
               is off.
             </div>
 
-            <hr />
+            <div className="hr"></div>
           </div>
           <div>
             <h2>Share my story</h2>
@@ -117,7 +118,7 @@ function PrivateInfoAndSecurity() {
               Allow people to share your story in messages.
             </div>
 
-            <hr />
+            <div className="hr"></div>
           </div>
           <div>
             <h2>Reply</h2>
@@ -132,7 +133,7 @@ function PrivateInfoAndSecurity() {
               </a>
             </div>
 
-            <hr />
+            <div className="hr"></div>
           </div>
           <div>
             <h2>Photo on which I am involved </h2>
@@ -155,7 +156,7 @@ function PrivateInfoAndSecurity() {
               </a>
             </div>
 
-            <hr />
+            <div className="hr"></div>
           </div>
           <div>
             <h2>Second step authentication</h2>
@@ -169,7 +170,7 @@ function PrivateInfoAndSecurity() {
               </a>
             </div>
 
-            <hr />
+            <div className="hr"></div>
           </div>
           <div>
             <h2>Data download</h2>
@@ -184,7 +185,7 @@ function PrivateInfoAndSecurity() {
               </a>
             </div>
 
-            <hr />
+            <div className="hr"></div>
           </div>
           <div>
             <h2>Private Info and Security Help</h2>
@@ -198,7 +199,7 @@ function PrivateInfoAndSecurity() {
               </a>
             </div>
 
-            <hr />
+            <div className="hr"></div>
           </div>
           <div>
             <h1>Reference</h1>
@@ -225,7 +226,7 @@ function PrivateInfoAndSecurity() {
                 control={<IOSSwitch sx={{ m: 1 }} defaultChecked />}
               />
             </div>
-            <hr />
+            <div className="hr"></div>
           </div>
           <div>
             <h2>Post</h2>
@@ -243,7 +244,7 @@ function PrivateInfoAndSecurity() {
               the number of likes in the post by going to Advanced Settings and
               setting 'Hide the number of likes and views for this post'.
             </div>
-            <hr />
+            <div className="hr"></div>
           </div>
           <div className="tag-allowance">
             <div>
@@ -260,7 +261,7 @@ function PrivateInfoAndSecurity() {
               <span>Not allow</span>
             </div>
           </div>
-          <hr />
+          <div className="hr"></div>
           <div>
             <h5>Request from shop</h5>
             <div className="private-info-and-security-main-page-space">
@@ -284,6 +285,9 @@ function PrivateInfoAndSecurity() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="resize-footer">
+        <ProfileFooter />
       </div>
     </div>
   );

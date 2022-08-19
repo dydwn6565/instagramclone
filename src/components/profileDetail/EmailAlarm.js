@@ -1,10 +1,11 @@
 import React from "react";
-import AccountEditFooter from "./AccountEditFooter";
+
 import AccountEditSide from "./AccountEditSide";
-import "./css/EmailAlarm.css"
+import "./EmailAlarm.css"
 import EmailAlarmComponent from "./EmailAlarmComponent";
 
-import Header from "./Header";
+import Header from "../Header";
+import ProfileFooter from "../profilePage/ProfileFooter";
 
 function EmailAlarm() {
   return (
@@ -31,11 +32,15 @@ function EmailAlarm() {
           />
           <EmailAlarmComponent
             title={"Support E-mail"}
-            extraInfo={"Receive updates on reporting and violations of community guidelines"}
+            extraInfo={
+              "Receive updates on reporting and violations of community guidelines"
+            }
           />
         </div>
       </div>
-      <AccountEditFooter />
+      <div className="resize-footer">
+        <ProfileFooter />
+      </div>
     </div>
   );
 }

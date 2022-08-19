@@ -1,15 +1,17 @@
 .supervision {
     display: flex;
     width: 1000px;
-    margin-top: 2%;
-    margin-left: 25%;
+    height: 800px;
     border: 0.5px solid lightgrey;
+    margin-top: 20px;
+    margin-left: 400px;
 }
 
 .supervision-main {
-    margin: 10px 0px 10px 0;
-    margin-left: -300px;
-    width: 500px;
+    width: 800px;
+    margin-top: 20px;
+    padding: 2%;
+    margin-left: -80px;
 }
 
 .supervision-main-title {
@@ -18,9 +20,9 @@
 }
 
 .supervision-main-content {
-
-    margin:10px 0px 10px 0px;
+    margin: 10px 0px 10px 0px;
 }
+
 .supervision-main-icon {
     float: right;
 }

@@ -7,35 +7,34 @@ function EmailAlarmComponent({title,extraInfo,threeItem}) {
       {threeItem ? (
         <>
           <div>
-            <input type="radio" />
+            <input type="radio" name={title} />
             <span>Inactive</span>
           </div>
           <div>
-            <input type="radio" />
+            <input type="radio" name={title} />
             <span>A person who I follow</span>
           </div>
           <div>
-            <input type="radio" />
+            <input type="radio" name={title} />
             <span>Everyone</span>
           </div>
         </>
       ) : (
         <>
           <div>
-            <input type="radio" />
+            <input type="radio" name={title} />
             <span>Inactive</span>
           </div>
           <div>
-            <input type="radio" />
+            <input type="radio" name={title} />
             <span>Active</span>
           </div>
         </>
       )}
-     
 
       <div className="email-alarm-extra-info">{extraInfo}</div>
 
-      <hr />
+      <div className="hr"></div>
     </>
   );
 }

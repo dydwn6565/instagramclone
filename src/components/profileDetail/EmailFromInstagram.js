@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import AccountEditFooter from "./AccountEditFooter";
+
 import AccountEditSide from "./AccountEditSide";
-import Header from "./Header";
-import "./css/EmailFromInstagram.css";
+import Header from "../Header";
+import "./EmailFromInstagram.css";
+import ProfileFooter from "../profilePage/ProfileFooter";
 function EmailFromInstagram() {
   const [selectedItem, setSelectedItem] = useState("secure");
   return (
@@ -70,7 +71,9 @@ function EmailFromInstagram() {
           )}
         </div>
       </div>
-      <AccountEditFooter />
+      <div className="resize-footer">
+        <ProfileFooter />
+      </div>
     </div>
   );
 }

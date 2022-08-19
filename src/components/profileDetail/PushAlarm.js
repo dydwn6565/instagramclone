@@ -1,10 +1,11 @@
 import {React, useState} from "react";
 import { styled } from "@mui/material/styles";
 import AccountEditSide from "./AccountEditSide";
-import Header from "./Header";
-import "./css/PushAlarm.css";
+import Header from "../Header";
+import "./PushAlarm.css";
 import { FormControlLabel,Switch } from "@mui/material";
 import PushAlarmDetail from "./PushAlarmDetail";
+import ProfileFooter from "../profilePage/ProfileFooter";
 function PushAlarm() {
 
   const [openPushAlarm, setOpenPushAlarm] = useState(true);
@@ -302,6 +303,9 @@ const setEventType =(title) =>{
             </>
           )}
         </div>
+      </div>
+      <div className="resize-footer">
+        <ProfileFooter />
       </div>
     </div>
   );

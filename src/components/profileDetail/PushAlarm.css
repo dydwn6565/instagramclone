@@ -1,20 +1,22 @@
 .push-alarm {
     display: flex;
-    
     width: 1000px;
-    margin-top: 2%;
-    margin-left: 25%;
+    height: 800px;
     border: 0.5px solid lightgrey;
+    margin-top: 20px;
+    margin-left: 400px;
 }
 
 .push-alarm-main {
-    margin-left: -300px;
-    width: 600px;
+    width: 800px;
+    margin-left: -80px;
 }
 
-.push-alarm-main > div {
+.push-alarm-main>div {
     margin: 30px 0 30px 0px;
+    cursor: pointer;
 }
+
 .push-alarm-icon {
     float: right;
 }

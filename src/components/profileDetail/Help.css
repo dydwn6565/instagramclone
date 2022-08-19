@@ -1,14 +1,16 @@
 .help {
     display: flex;
     width: 1000px;
-    margin-top: 2%;
-    margin-left: 25%;
+    height: 800px;
     border: 0.5px solid lightgrey;
+    margin-top: 20px;
+    margin-left: 400px;
 }
 
 .help-main {
-    margin: 20px -300px;
-    width: 500px;
+    width: 800px;
+    margin-left: -120px;
+    padding:2%;
 }
 
 .help-main-title {
@@ -18,6 +20,8 @@
 
 .help-main-content {
     margin: 10px 0 10px 0;
-}.help-main-icon {
+}
+
+.help-main-icon {
     float: right;
 }

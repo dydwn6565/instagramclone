@@ -1,9 +1,10 @@
 
 import React from 'react'
 import AccountEditSide from "./AccountEditSide";
-import "../components/css/AccountEdit.css"
-import Header from './Header';
+import "./AccountEdit.css"
+import Header from '../Header';
 import { Avatar } from '@mui/material';
+import ProfileFooter from '../profilePage/ProfileFooter';
 function AccountEdit() {
 
   return (
@@ -94,6 +95,9 @@ function AccountEdit() {
               </div>
             </div>
           </div>
+        </div>
+        <div className="resize-footer">
+          <ProfileFooter />
         </div>
       </div>
     </>

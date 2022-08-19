@@ -1,14 +1,15 @@
 .app-and-website-container {
     display: flex;
-    /* justify-content: center; */
     width: 1000px;
-    margin-top: 2%;
-    margin-left: 25%;
+    height: 800px;
     border: 0.5px solid lightgrey;
+    margin-top: 20px;
+    margin-left: 400px;
 }
 
 .app-and-website {
-    margin-left: -300px;
+    width: 800px;
+    margin-left:-80px;
 }
 
 .app-and-website-title {
@@ -32,9 +33,11 @@
 }
 
 .app-and-website-extra-info {
-    margin-top:10px;
-    color:lightgrey;
-}.app-and-website-inactive {
+    margin-top: 10px;
+    color: lightgrey;
+}
+
+.app-and-website-inactive {
     color: lightgrey;
     border-bottom: 0.5px solid lightgrey !important;
 }

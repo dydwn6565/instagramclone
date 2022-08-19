@@ -1,22 +1,24 @@
 .email-from-instagram {
     display: flex;
-    /* justify-content: center; */
     width: 1000px;
-    margin-top: 2%;
-    margin-left: 25%;
+    height: 800px;
     border: 0.5px solid lightgrey;
+    margin-top: 20px;
+    margin-left: 400px;
 }
 
 .email-from-instagram-main {
-    margin-left: -250px;
-    width: 500px;
+    width: 800px;
+    margin-left: -120px;
+    padding:2%;
 }
 
 .email-from-instagram-main-title {
     margin: 20px 0 20px 0;
-    font-size:20px;
-    
-}.email-from-instagram-main-buttons>button {
+    font-size: 20px;
+}
+
+.email-from-instagram-main-buttons>button {
     background-color: white;
     border: 0.5px solid black;
     border-top: none;

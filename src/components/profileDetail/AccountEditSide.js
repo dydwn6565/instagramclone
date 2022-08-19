@@ -2,7 +2,7 @@ import { Box, List, ListItemButton, ListItemText } from "@mui/material";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import "./css/AccountEditSide.css";
+import "./AccountEditSide.css";
 
 function AccountEditSide() {
   const [selectedIndex, setSelectedIndex] = useState(1);
@@ -17,7 +17,7 @@ function AccountEditSide() {
       <div className="account-edit-side">
         <Box sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
           <List component="nav" aria-label="secondary mailbox folder">
-            <Link to="/accounts/edit">
+            <Link to="/accounts/edit" className="link-text-no-decoration">
               <ListItemButton
                 selected={selectedIndex === 2}
                 onClick={(event) => {
@@ -28,117 +28,125 @@ function AccountEditSide() {
               </ListItemButton>
             </Link>
 
-            <Link to="/accounts/password/change">
+            <Link
+              to="/accounts/password/change"
+              className="link-text-no-decoration"
+            >
               <ListItemButton
                 selected={selectedIndex === 3}
                 onClick={(event) => {
                   handleListItemClick(event, 3);
-                  
                 }}
               >
                 <ListItemText primary="Change password" />
               </ListItemButton>
             </Link>
 
-            <Link to="/accounts/manage_access">
+            <Link
+              to="/accounts/manage_access"
+              className="link-text-no-decoration"
+            >
               <ListItemButton
                 selected={selectedIndex === 4}
                 onClick={(event) => {
                   handleListItemClick(event, 4);
-                  
                 }}
               >
                 <ListItemText primary="App and Web site" />
               </ListItemButton>
             </Link>
 
-            <Link to="/emails/settings">
+            <Link to="/emails/settings" className="link-text-no-decoration">
               <ListItemButton
                 selected={selectedIndex === 5}
                 onClick={(event) => {
                   handleListItemClick(event, 3);
-                  
                 }}
               >
                 <ListItemText primary="Email Alarm" />
               </ListItemButton>
             </Link>
 
-            <Link to="/push/web/settings">
+            <Link to="/push/web/settings" className="link-text-no-decoration">
               <ListItemButton
                 selected={selectedIndex === 6}
                 onClick={(event) => {
                   handleListItemClick(event, 6);
-                  
                 }}
               >
                 <ListItemText primary="Push Alarm" />
               </ListItemButton>
             </Link>
 
-            <Link to="/accounts/contact_history">
+            <Link
+              to="/accounts/contact_history"
+              className="link-text-no-decoration"
+            >
               <ListItemButton
                 selected={selectedIndex === 7}
                 onClick={(event) => {
                   handleListItemClick(event, 7);
-                  
                 }}
               >
                 <ListItemText primary="Manage Contact Number" />
               </ListItemButton>
             </Link>
 
-            <Link to="/accounts/privacy_and_security">
+            <Link
+              to="/accounts/privacy_and_security"
+              className="link-text-no-decoration"
+            >
               <ListItemButton
                 selected={selectedIndex === 8}
                 onClick={(event) => {
                   handleListItemClick(event, 8);
-                  
                 }}
               >
                 <ListItemText primary="Private Info and Security" />
               </ListItemButton>
             </Link>
-            <Link to="/accounts/supervision">
+            <Link
+              to="/accounts/supervision"
+              className="link-text-no-decoration"
+            >
               <ListItemButton
                 selected={selectedIndex === 9}
                 onClick={(event) => {
                   handleListItemClick(event, 9);
-                  
                 }}
               >
                 <ListItemText primary="Supervision" />
               </ListItemButton>
             </Link>
-            <Link to="/session/login_activity">
+            <Link
+              to="/session/login_activity"
+              className="link-text-no-decoration"
+            >
               <ListItemButton
                 selected={selectedIndex === 10}
                 onClick={(event) => {
                   handleListItemClick(event, 10);
-                  
                 }}
               >
                 <ListItemText primary="Login Activity" />
               </ListItemButton>
             </Link>
 
-            <Link to="/emails/emails_sent">
+            <Link to="/emails/emails_sent" className="link-text-no-decoration">
               <ListItemButton
                 selected={selectedIndex === 11}
                 onClick={(event) => {
                   handleListItemClick(event, 11);
-                  
                 }}
               >
                 <ListItemText primary="E-mail from Instagram" />
               </ListItemButton>
             </Link>
-            <Link to="/settings/help">
+            <Link to="/settings/help" className="link-text-no-decoration">
               <ListItemButton
                 selected={selectedIndex === 12}
                 onClick={(event) => {
                   handleListItemClick(event, 12);
-                  
                 }}
               >
                 <ListItemText primary="Help" />
@@ -148,7 +156,6 @@ function AccountEditSide() {
               selected={selectedIndex === 13}
               onClick={(event) => {
                 handleListItemClick(event, 13);
-                
               }}
             >
               <ListItemText
