@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
-import io from "socket.io-client"
+import io from "socket.io-client";
 
 import "./css/MyMessage.css";
 import { BsChevronDown } from "react-icons/bs";
@@ -11,49 +11,75 @@ import { IoPaperPlaneOutline } from "react-icons/io5";
 import { Avatar } from "@mui/material";
 import MyMessageModal from "./UI/MyMessageModal";
 import { CollectionsBookmarkOutlined, SoupKitchen } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 const socket = io.connect("http://localhost:8080");
 
 function MyMessage({ setBlurBackground }) {
-  const [sendMessage,setSendMessage] = useState(false);
-  const [message,setMessage]= useState("");
+  const [sendMessage, setSendMessage] = useState(false);
+  const [message, setMessage] = useState("");
   const [messageRecevied, setMessageReceived] = useState("");
-  const [room,setRoom] = useState("");
+  const [roomList, setRoomList] = useState([]);
 
   const [selectedUserList, setSelectedUserList] = useState([]);
 
-
-  const messageModalHandler =()=>{
+  const messageModalHandler = () => {
     setSendMessage((prevState) => !prevState);
-  }
+  };
 
-  const sendMessages = () =>{
-    console.log("clicked")
-    socket.emit("send_message",{message,room})
-  }
+  // const sendMessages = () =>{
+  //   console.log("clicked")
+  //   socket.emit("send_message",{message,room})
+  // }
 
+  // const messageHandler =(oneMessage)=>{
+  //   console.log(oneMessage)
+  //   setMessage(oneMessage)
+  //   console.log(message)
+  // }
 
+  // const joinRoom = () =>{
+  //   if(room !== ""){
+  //     socket.emit("join_room",room)
+  //   }
+  // }
 
-  const messageHandler =(oneMessage)=>{
-    console.log(oneMessage)
-    setMessage(oneMessage)
-    console.log(message)
-  }
+  // useEffect(()=>{
+  //   socket.on("receive_message",(data)=>{
+  //     setMessageReceived(data.message)
+  //   })
+  // },[socket])
 
-  const joinRoom = () =>{
-    if(room !== ""){
-      socket.emit("join_room",room)
+  useEffect(() => {
+    try {
+      const chatRoomList = async () => {
+        const roomListData = await fetch(
+          "http://localhost:8080/chat/getUserRoom/yong",
+          {
+            method: "GET",
+          }
+        );
+        // console.log(roomListData);
+        if (roomListData.status === 200) {
+          const roomJson = await roomListData.json();
+          // console.log(roomJson);
+
+          // const roomUserList = roomJson.map((userInfo) => {
+          //   return userInfo.room;
+          // });
+          
+          setRoomList(roomJson);
+        }
+      };
+      chatRoomList();
+    } catch (error) {
+      alert(error);
     }
-  }
-
-  useEffect(()=>{
-    socket.on("receive_message",(data)=>{
-      setMessageReceived(data.message)
-    })
-  },[socket])
+  }, []);
 
   return (
     <>
+      {/* {console.log(roomList)} */}
       <Header setBlurBackground={setBlurBackground} />
       <div className="my-message">
         <div>
@@ -85,10 +111,7 @@ function MyMessage({ setBlurBackground }) {
           <div className="my-message-id">
             <div className="my-message-text">
               <strong>ivan4334</strong>{" "}
-              <BsChevronDown
-                className="down-arrow-icon"
-                
-              />
+              <BsChevronDown className="down-arrow-icon" />
             </div>
 
             <HiOutlinePencilAlt
@@ -97,13 +120,28 @@ function MyMessage({ setBlurBackground }) {
             />
           </div>
           <div className="my-message-message-page">
-            <div className="my-message-message">
-              <Avatar></Avatar>
-              <div>
-                <div>Yongju Lee</div>
-                <div>1 1week</div>
-              </div>
-            </div>
+            {roomList &&
+              roomList.map((chatRoom) => (
+                <>
+                  {/* {console.log(chatRoom)} */}
+                  <div className="my-message-message">
+                    <Avatar></Avatar>
+                    <div>
+                      <Link
+                        state={{
+                          socketId: chatRoom.id,
+                          randomRoomNumber: chatRoom.room,
+                          clickedUserList: ["yong"],
+                          newChat: false,
+                        }}
+                        to={`/myMessage/${chatRoom.room}`}
+                      >
+                        {chatRoom.room}
+                      </Link>
+                    </div>
+                  </div>
+                </>
+              ))}
           </div>
         </div>
         {sendMessage && (

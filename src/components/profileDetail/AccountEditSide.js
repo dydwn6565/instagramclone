@@ -163,13 +163,23 @@ function AccountEditSide() {
                 style={{ color: "blue" }}
               />
             </ListItemButton>
-            <hr />
-            <h3>Meta</h3>
-            <div>Account Center</div>
-            <div>Manage setting for environments connected </div>
-            <div>
-              between Instagram, Facebook apps, and Messenger, such as sharing
-              stories and posts, and loggin in.
+            <div className="hr" />
+            <div className="meta-info-page">
+              <div className="meta-icon-with-meta-text">
+
+              <img
+                alt="meta-icon"
+                
+                src="https://cdn.dribbble.com/users/2973/screenshots/16757947/media/c56c56d24f8c591ff753faa15ea4a033.png?compress=1&resize=64x48"
+              />
+              <h3>Meta</h3>
+              </div>
+              <div className="color-blue">Account Center</div>
+              <div className="meta-info">
+                Manage setting for environments connected between Instagram,
+                Facebook apps, and Messenger, such as sharing stories and posts,
+                and loggin in.
+              </div>
             </div>
           </List>
         </Box>

@@ -21,10 +21,12 @@ import Help from '../src/components/profileDetail/Help';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import ResetPassword from './components/ResetPassword';
-import Chat from './components/Chat';
+
 
 import store from './store/index'
 import {Provider} from 'react-redux'
+
+import Chat from './components/Chat';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
 //   <React.StrictMode>
@@ -38,7 +40,7 @@ root.render(
         <Route path="/" element={<App />}></Route>
 
         <Route path="/myMessage" element={<MyMessage />}></Route>
-        <Route path="/myMessage/:room" element={<Chat />}></Route>
+        <Route path="/myMessage/:room" element={<Chat  />}></Route>
         <Route path="/explore" element={<Explore />}></Route>
         <Route path="/id" element={<Profile />}></Route>
         <Route path="/id/saved" element={<Profile />}></Route>

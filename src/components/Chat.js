@@ -16,35 +16,53 @@ import { generateBase64FromImage } from "./Utils/Image";
 let socket;
 function Chat({ setBlurBackground }) {
   const [nameList, setNameList] = useState([]);
+  const [currentSocketId, setCurrentSocketId] = useState("");
   const [room, setRoom] = useState("");
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const [chosenEmoji, setChosenEmoji] = useState(null);
   const [emojiPicker, setEmojiPicker] = useState(false);
-  const [images,setImages] = useState("");
+  const [images, setImages] = useState("");
   const location = useLocation();
   const ENDPOINT = "localhost:8080";
   const hiddenFileInput = useRef(null);
-  // console.log(data);
+  
 
   useEffect(() => {
-    // const chatRoomAndUserList = async () => {
+    
+    socket = io(ENDPOINT);
     const data = location.state;
-    const { randomRoomNumber, clickedUserList } = data;
+    
+    const { socketId, randomRoomNumber, clickedUserList, newChat } = data;
+   
     setRoom(randomRoomNumber);
     setNameList(clickedUserList);
-    socket = io(ENDPOINT);
+    console.log(clickedUserList)
+    setCurrentSocketId(socketId);
+    
+    // console.log(data);
+    // console.log(room);
+    if (newChat) {
+      console.log("line46" + socket.id);
+      socket.emit(
+        "join",
+        {socketId, clickedUserList, randomRoomNumber },
+        ({ error }) => {}
+      );
+    } else {
+     
+      console.log(socketId);
+      socket.emit("rejoin", { socketId, currentRoomNumber: randomRoomNumber });
+    }
+      
+    // console.log("hit");
+    // console.log(socket.id);
+    // setCurrentSocketId(socket.id);
 
-    console.log(data);
-    console.log(room);
-
-    socket.emit("join", { clickedUserList, randomRoomNumber }, ({ error }) => {
-      // alert(error);
-    });
     // return () => {
-      // socket.emit("disconnect");
-      // socket.disconnect();
-      // socket.off();
+    // socket.emit("disconnect");
+    // socket.disconnect();
+    // socket.off();
     // };
 
     // }
@@ -52,19 +70,50 @@ function Chat({ setBlurBackground }) {
   }, [ENDPOINT, location]);
 
   useEffect(() => {
+    // console.log("line77"+currentSocketId)
+    // if(!currentSocketId){
+    //   setCurrentSocketId(socket.id);
+
+    // }
     socket.on("message", (message) => {
-      console.log("line47" + message);
+      // console.log(message.message);
       setMessages([...messages, message]);
+      
+    });
+  }, [messages]);
+
+
+  useEffect(() => {
+    // console.log("line77"+currentSocketId)
+    // if(!currentSocketId){
+    //   setCurrentSocketId(socket.id);
+
+    // }
+    socket.on("rejoinMessage", (message) => {
+      // console.log(message.message);
+      setMessages([...message]);
     });
   }, [messages]);
 
   const sendMessage = (event) => {
     event.preventDefault();
-    console.log("message hit hit ")
+    // console.log("message hit hit ");
+    // console.log(typeof(socket.id));
+    // console.log(currentSocketId);
+    
+    
     if (message) {
-      socket.emit("sendMessage", message, () => setMessage(""));
+      // if (currentSocketId !==undefined) {
+        // console.log("hit no socket")
+        socket.emit(
+          "sendMessage",
+           currentSocketId,
+          message,
+          () => setMessage("")
+        );
+      }
     }
-  };
+  
 
   const onEmojiClick = (event, emojiObject) => {
     setChosenEmoji(emojiObject);
@@ -79,30 +128,28 @@ function Chat({ setBlurBackground }) {
     setEmojiPicker(false);
   };
 
-    const handleClick = (event) => {
-      hiddenFileInput.current.click();
-    };
-    const handleChange = (event) => {
-      const fileUploaded = event.target.files[0];
-      
-      if (fileUploaded) {
-        generateBase64FromImage(fileUploaded)
-          .then((b64) => {
-              socket.emit("sendMessage", b64, () => setMessage(""));
-            // setMessage((current) => [...current, b64]);
-          })
-          .catch((e) => {
-            console.log(e);
-          });
-      }
-    };
+  const handleClick = (event) => {
+    hiddenFileInput.current.click();
+  };
+  const handleChange = (event) => {
+    const fileUploaded = event.target.files[0];
 
+    if (fileUploaded) {
+      generateBase64FromImage(fileUploaded)
+        .then((b64) => {
+          socket.emit("sendMessage",currentSocketId, b64, () => setMessage(""));
+          // setMessage((current) => [...current, b64]);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }
+  };
 
-
-// console.log(images[0]);
-//   console.log(nameList)
-//   console.log(messages);
-//   console.log(message);
+  // console.log(images[0]);
+  //   console.log(nameList)
+  //   console.log(messages);
+  //   console.log(message);
   return (
     <div>
       {message && emojiPicker && chosenEmoji && (
@@ -111,7 +158,8 @@ function Chat({ setBlurBackground }) {
         </>
       )}
       <Header setBlurBackground={setBlurBackground} />
-
+      {console.log(messages[0])}
+      {console.log(messages)}
       <div className="my-message">
         <div>
           <div className="my-message-message-chat-content">
@@ -127,37 +175,44 @@ function Chat({ setBlurBackground }) {
             </div>
             <FiInfo className="info-icon" />
             <div className="my-message-chat-container">
-              {messages.map((item) => (
-                <>
-                  {item.user === "admin" ? (
-                    <div className="my-message-chat-send">
-                      <div>
-                        <div className="my-message-chat-message">
-                          {item.user}
-                        </div>
+              {messages &&
+                messages.map((item) => (
+                  <>
+                    {item.name === "admin" ? (
+                      <div className="my-message-chat-send">
+                        <div>
+                          <div className="my-message-chat-message">
+                            {item.name}
+                          </div>
 
-                        <div className="my-message-chat-message">
-                          {item.text}
+                          <div className="my-message-chat-message">
+                            {item.text}
+                          </div>
+                        </div>
+                        <Avatar />
+                      </div>
+                    ) : (
+                      <div className="my-message-chat-receive">
+                        <Avatar />
+                        <div>
+                          {console.log(item.name)}
+                          {console.log(item.text)}
+                          <div>{item.name}</div>
+                          {item.text.split(",")[0] ===
+                          "data:image/jpeg;base64" ? (
+                            <img
+                              src={item.text}
+                              alt=""
+                              className="my-message-chat-image"
+                            />
+                          ) : (
+                            <div>{item.text}</div>
+                          )}
                         </div>
                       </div>
-                      <Avatar />
-                    </div>
-                  ) : (
-                    <div className="my-message-chat-receive">
-                      <Avatar />
-                      <div>
-                        <div>{item.user}</div>
-                        {item.text.split(",")[0] ===
-                        "data:image/jpeg;base64" ? (
-                          <img src={item.text} alt="" className="my-message-chat-image" />
-                        ) : (
-                          <div>{item.text}</div>
-                        )}
-                      </div>
-                    </div>
-                  )}
-                </>
-              ))}
+                    )}
+                  </>
+                ))}
             </div>
             <div className="my-message-chat-footer">
               <BsEmojiSmile className="emoji-picker" onClick={emojiHanlder} />

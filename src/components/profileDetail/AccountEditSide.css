@@ -1,8 +1,26 @@
-.account-edit-side{
+.account-edit-side {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right:10vw;
+    margin-right: 10vw;
     border-right: 0.5px solid lightgrey;
-    
+}
+
+.meta-info-page {
+    width: 260px;
+    height: 180px;
+    margin-left: 20px;
+}
+
+.color-blue {
+    color: #54c1f1;
+}
+
+.meta-info {
+    font-size: 12px;
+}
+
+.meta-icon-with-meta-text{
+    display:flex;
+    align-items: center;
 }

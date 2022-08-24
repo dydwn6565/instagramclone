@@ -36,7 +36,7 @@ function Header({ setBlurBackground }) {
       setUserList(jsonData);
     };
     getUsers();
-    console.log(userList);
+    // console.log(userList);
   }, []);
 
 

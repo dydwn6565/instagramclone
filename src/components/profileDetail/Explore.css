@@ -5,7 +5,7 @@
 .explore-container {
     display: flex;
     justify-content: center;
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
 }
 
 .explore-images img {

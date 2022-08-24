@@ -1,12 +1,12 @@
 .stories {
-    padding: 1%;
+    /* padding: 1%; */
     display: flex;
-    margin-top: 3%;
+    margin-top: 15px;
     align-items: center;
     border: 0.5px solid lightgrey;
-    width: 535px;
+    width: 548px;
     
-    margin-left: 73px;
+    margin-left: 65px;
     margin-bottom: 2%;
 }
 

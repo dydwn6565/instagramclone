@@ -6,6 +6,10 @@ import "./MyMessageModal.css";
 import { v4 as uuidv4 } from "uuid";
 import { MdClose } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { io } from "socket.io-client";
+// import io from "socket.io-client";
+let socket;
 function MyMessageModal({ messageModalHandler }) {
   const [userList, setUserList] = useState("");
   const [filteredUserList, setFilteredUserList] = useState("");
@@ -13,22 +17,30 @@ function MyMessageModal({ messageModalHandler }) {
   const [filteredUserListShow, setfiltereUserListShow] = useState(false);
   const [searchedUser, setSearchedUser] = useState("");
 
+  const userInfo = useSelector((state) => state);
+  const ENDPOINT = "localhost:8080";
+  const linkToChat = useRef(null);
   const ref = useRef(null);
   const randomRoomNumber = uuidv4();
   useEffect(() => {
+    socket = io(ENDPOINT);
     const getUserList = async () => {
-      const userListData = await fetch("http://localhost:8080/users", {
-        method: "Get",
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-          "Access-Control-Allow-Origin": "*",
-        },
-      });
+      try {
+        const userListData = await fetch("http://localhost:8080/users", {
+          method: "Get",
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            "Access-Control-Allow-Origin": "*",
+          },
+        });
 
-      if (userListData.status === 201) {
-        const userListJson = await userListData.json();
-        setUserList(userListJson);
-        userList && addCheckedInAPI(userList);
+        if (userListData.status === 201) {
+          const userListJson = await userListData.json();
+          setUserList(userListJson);
+          userList && addCheckedInAPI(userList);
+        }
+      } catch (error) {
+        alert(error);
       }
     };
 
@@ -49,7 +61,7 @@ function MyMessageModal({ messageModalHandler }) {
 
     if (targetValue !== "") {
       const filteredUserLIst = userList.users.filter((user) => {
-        return user.userid.includes(targetValue);
+        return user.name.includes(targetValue);
       });
       // addCheckedInAPI(filteredUserLIst)
 
@@ -61,10 +73,6 @@ function MyMessageModal({ messageModalHandler }) {
       ref.current.value = "";
     }
   };
-
-  // const createChat = () => {
-  //   window.location.href = `/myMessage/${randomRoomNumber}`;
-  // };
 
   const radioButtonOnchangeHandler = (e) => {
     setClickedUserList((users) => [...users, e.target.value]);
@@ -105,8 +113,18 @@ function MyMessageModal({ messageModalHandler }) {
     setFilteredUserList(updatedFilteredList);
   };
 
+  const joinChatRoom = () => {
+    
+    // socket.emit("join", { clickedUserList, randomRoomNumber }, ({ error }) => {
+    //   // alert(error);
+      
+    // });
+    linkToChat.current.click();
+  };
+
   return (
     <>
+      {console.log(socket)}
       <div
         className="my-message-modal-backdrop"
         onClick={messageModalHandler}
@@ -115,19 +133,28 @@ function MyMessageModal({ messageModalHandler }) {
         <header className="my-message-modal-header">
           <h2>New message</h2>
 
-          <Link
-            to={randomRoomNumber}
-            state={{
-              randomRoomNumber: randomRoomNumber,
-              clickedUserList: clickedUserList,
-            }}
-            className="my-message-create-new-chat"
-          >
-            <span>Create</span>
-          </Link>
+          {socket !== undefined &&  (
+            <Link
+              to={randomRoomNumber}
+              state={{
+                socketId: socket.id,
+                randomRoomNumber: randomRoomNumber,
+                clickedUserList: clickedUserList,
+                newChat: true,
+              }}
+              className="my-message-create-new-chat"
+            >
+              <span
+                className="my-message-create-new-chat"
+                onClick={joinChatRoom}
+              >
+                Create
+              </span>
+            </Link>
+           )} 
         </header>
         <div className="hr"></div>
-        
+
         <div className="my-message-modal-content">
           <p>
             <strong> Receiver:</strong>
@@ -135,6 +162,7 @@ function MyMessageModal({ messageModalHandler }) {
           <div className="my-message-receiver">
             {clickedUserList.map((clickedUser) => (
               <>
+                {console.log(clickedUser)}
                 <div className="my-message-receiver-name">
                   <div>{clickedUser}</div>
                   <MdClose
@@ -156,20 +184,19 @@ function MyMessageModal({ messageModalHandler }) {
         <div className="hr"></div>
 
         <div className="my-message-search-container">
-          
           {filteredUserList &&
             filteredUserListShow &&
             filteredUserList.map((user) => (
               <div className="my-message-user-info-container" key={user.userid}>
                 <Avatar></Avatar>
                 <div className="my-message-user-info-id">
-                  <div>{user.userid}</div>
+                  <div>{user.name}</div>
                   <div>{user.username}</div>
                 </div>
                 <input
                   type="radio"
                   className="my-message-recommend-id-radio"
-                  value={user.userid}
+                  value={user.name}
                   checked={user.checked}
                   readOnly
                   // onClick={(e) => radioButtonHandler(e)}
