@@ -40,8 +40,7 @@ function Chat({ setBlurBackground }) {
     console.log(clickedUserList)
     setCurrentSocketId(socketId);
     
-    // console.log(data);
-    // console.log(room);
+
     if (newChat) {
       console.log("line46" + socket.id);
       socket.emit(
@@ -55,9 +54,6 @@ function Chat({ setBlurBackground }) {
       socket.emit("rejoin", { socketId, currentRoomNumber: randomRoomNumber });
     }
       
-    // console.log("hit");
-    // console.log(socket.id);
-    // setCurrentSocketId(socket.id);
 
     // return () => {
     // socket.emit("disconnect");
@@ -70,13 +66,9 @@ function Chat({ setBlurBackground }) {
   }, [ENDPOINT, location]);
 
   useEffect(() => {
-    // console.log("line77"+currentSocketId)
-    // if(!currentSocketId){
-    //   setCurrentSocketId(socket.id);
 
-    // }
     socket.on("message", (message) => {
-      // console.log(message.message);
+      
       setMessages([...messages, message]);
       
     });
@@ -84,27 +76,19 @@ function Chat({ setBlurBackground }) {
 
 
   useEffect(() => {
-    // console.log("line77"+currentSocketId)
-    // if(!currentSocketId){
-    //   setCurrentSocketId(socket.id);
 
-    // }
     socket.on("rejoinMessage", (message) => {
-      // console.log(message.message);
+      
       setMessages([...message]);
     });
   }, [messages]);
 
   const sendMessage = (event) => {
     event.preventDefault();
-    // console.log("message hit hit ");
-    // console.log(typeof(socket.id));
-    // console.log(currentSocketId);
-    
+  
     
     if (message) {
-      // if (currentSocketId !==undefined) {
-        // console.log("hit no socket")
+      
         socket.emit(
           "sendMessage",
            currentSocketId,
@@ -146,10 +130,6 @@ function Chat({ setBlurBackground }) {
     }
   };
 
-  // console.log(images[0]);
-  //   console.log(nameList)
-  //   console.log(messages);
-  //   console.log(message);
   return (
     <div>
       {message && emojiPicker && chosenEmoji && (

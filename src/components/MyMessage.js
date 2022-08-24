@@ -27,28 +27,7 @@ function MyMessage({ setBlurBackground }) {
     setSendMessage((prevState) => !prevState);
   };
 
-  // const sendMessages = () =>{
-  //   console.log("clicked")
-  //   socket.emit("send_message",{message,room})
-  // }
 
-  // const messageHandler =(oneMessage)=>{
-  //   console.log(oneMessage)
-  //   setMessage(oneMessage)
-  //   console.log(message)
-  // }
-
-  // const joinRoom = () =>{
-  //   if(room !== ""){
-  //     socket.emit("join_room",room)
-  //   }
-  // }
-
-  // useEffect(()=>{
-  //   socket.on("receive_message",(data)=>{
-  //     setMessageReceived(data.message)
-  //   })
-  // },[socket])
 
   useEffect(() => {
     try {
@@ -59,15 +38,10 @@ function MyMessage({ setBlurBackground }) {
             method: "GET",
           }
         );
-        // console.log(roomListData);
+        
         if (roomListData.status === 200) {
           const roomJson = await roomListData.json();
-          // console.log(roomJson);
-
-          // const roomUserList = roomJson.map((userInfo) => {
-          //   return userInfo.room;
-          // });
-          
+       
           setRoomList(roomJson);
         }
       };
@@ -79,7 +53,7 @@ function MyMessage({ setBlurBackground }) {
 
   return (
     <>
-      {/* {console.log(roomList)} */}
+      
       <Header setBlurBackground={setBlurBackground} />
       <div className="my-message">
         <div>
@@ -99,13 +73,7 @@ function MyMessage({ setBlurBackground }) {
               >
                 send message
               </button>
-              {/* <p>room</p>
-              <input type="text" onChange={(e)=>setRoom(e.target.value)}/>
-              <button onClick={joinRoom}>join Room</button>
-              <p>chat</p>
-              <input type="text" onChange={(e)=>messageHandler(e.target.value)} />
-              <h1>Message:</h1>
-              {messageRecevied} */}
+       
             </div>
           </div>
           <div className="my-message-id">
@@ -123,7 +91,7 @@ function MyMessage({ setBlurBackground }) {
             {roomList &&
               roomList.map((chatRoom) => (
                 <>
-                  {/* {console.log(chatRoom)} */}
+                  
                   <div className="my-message-message">
                     <Avatar></Avatar>
                     <div>

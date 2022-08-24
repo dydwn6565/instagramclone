@@ -21,6 +21,7 @@ import Help from '../src/components/profileDetail/Help';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import ResetPassword from './components/ResetPassword';
+import InstaStory from "../src/components/InstaStory"
 
 
 import store from './store/index'
@@ -40,7 +41,8 @@ root.render(
         <Route path="/" element={<App />}></Route>
 
         <Route path="/myMessage" element={<MyMessage />}></Route>
-        <Route path="/myMessage/:room" element={<Chat  />}></Route>
+        <Route path="/myMessage/:room" element={<Chat />}></Route>
+        <Route path="/instaStoryTester" element={<InstaStory  />}></Route>
         <Route path="/explore" element={<Explore />}></Route>
         <Route path="/id" element={<Profile />}></Route>
         <Route path="/id/saved" element={<Profile />}></Route>

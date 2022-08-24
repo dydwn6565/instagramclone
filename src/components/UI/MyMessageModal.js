@@ -89,7 +89,7 @@ function MyMessageModal({ messageModalHandler }) {
     setfiltereUserListShow(false);
     ref.current.value = "";
     // setSearchedUser("");
-    // console.log(e.target.value)
+    
   };
 
   const deleteReceiver = (id) => {
@@ -115,10 +115,7 @@ function MyMessageModal({ messageModalHandler }) {
 
   const joinChatRoom = () => {
     
-    // socket.emit("join", { clickedUserList, randomRoomNumber }, ({ error }) => {
-    //   // alert(error);
-      
-    // });
+
     linkToChat.current.click();
   };
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
@@ -6,74 +6,68 @@ import ChatBubbleOutlineSharpIcon from "@mui/icons-material/ChatBubbleOutlineSha
 import SendSharpIcon from "@mui/icons-material/SendSharp";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
-import { useDispatch, useSelector } from "react-redux";
-import "./css/Main.css"
-import MainPageModal from './UI/MainPageModal';
-import ExtendedMainModal from './UI/ExtendedMainModal';
+import {  useSelector } from "react-redux";
+import "./css/Main.css";
+import MainPageModal from "./UI/MainPageModal";
+import ExtendedMainModal from "./UI/ExtendedMainModal";
 
 // import video from "./video.mp4";
 
 function Main({ setBlurBackground }) {
   const [mainPageModal, setMainPageModal] = useState(false);
 
-  const [extendCommentModal,setExtendCommentModal] = useState(false);
-  // const dispatch = useDispatch();
-
-
-  // const [testFile,setTestFile] = useState("");
-  // const [testimage,setTestImage]= useState("");
-  const mainPageHandler = () =>{
-    setMainPageModal(prevState => !prevState);
-  }
+  const [extendCommentModal, setExtendCommentModal] = useState(false);
   
-  const extendComment =() =>{
-    
-    setExtendCommentModal(prevState =>!prevState);
-  }
 
-  useEffect( ()=>{
-    
+  const mainPageHandler = () => {
+    setMainPageModal((prevState) => !prevState);
+  };
+
+  const extendComment = () => {
+    setExtendCommentModal((prevState) => !prevState);
+  };
+
+  useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
-    
-    console.log(accessToken)
+
+    console.log(accessToken);
     if (accessToken) {
-      
-      const userValidationCheck = async()=>{ 
-        const token= await fetch("http://localhost:8080", {
+      const userValidationCheck = async () => {
+        const token = await fetch("http://localhost:8080", {
           method: "POST",
-          
+
           headers: {
-            Authorization: `Bearer ${accessToken}`
-          }
-        })
-      const data = await token.json();
-      console.log(data.message);
-      if (data.message === "jwt expired") {
-        
-        const renewToken = async () =>{
-          const refreshToken = localStorage.getItem("refreshToken");
-          const refreshedToken = await fetch("http://localhost:8080/token", {
-            method: "POST",
-            headers: {
-              "Content-type": "application/json; charset=UTF-8",
-            },
-            body: JSON.stringify({
-              token: refreshToken,
-            }),
-          });
-          const refreshedData = await refreshedToken.json();
-            localStorage.setItem("accessToken",refreshedData.accessToken);
-        console.log(refreshedData);
-      }
-      renewToken();
-      }
-    }
-    userValidationCheck();
-  } else {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        const data = await token.json();
+        console.log(data.message);
+        if (data.message === "jwt expired") {
+          const renewToken = async () => {
+            const refreshToken = localStorage.getItem("refreshToken");
+            const refreshedToken = await fetch("http://localhost:8080/token", {
+              method: "POST",
+              headers: {
+                "Content-type": "application/json; charset=UTF-8",
+              },
+              body: JSON.stringify({
+                token: refreshToken,
+              }),
+            });
+            const refreshedData = await refreshedToken.json();
+            localStorage.setItem("accessToken", refreshedData.accessToken);
+            console.log(refreshedData);
+          };
+          renewToken();
+        }
+      };
+      userValidationCheck();
+    } else {
       window.location.href = "/login";
     }
-      
-  },[])
+  }, []);
+
+
   const userid = useSelector((state) => state);
 
   // const sendingFile = async(e) =>{
@@ -94,9 +88,9 @@ function Main({ setBlurBackground }) {
   // }
 
   //  const receivingFile = async(e) =>{
-    
+
   //   // const dataForm = new FormData();
-    
+
   //   // dataForm.append("userid", 2);
 
   //   const receivedImages = await fetch("http://localhost:8080/retriev/images/2",{
@@ -112,6 +106,7 @@ function Main({ setBlurBackground }) {
 
   return (
     <div className="main">
+      
       <div className="main-title-container">
         <div className="main-title">
           <Avatar className="main-avatar" />
@@ -185,4 +180,4 @@ function Main({ setBlurBackground }) {
   );
 }
 
-export default Main
+export default Main;
