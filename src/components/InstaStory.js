@@ -116,18 +116,22 @@ function InstaStory() {
 
   return (
     <div>
-      <ReactInstaStories
-        stories={stories}
-        defaultInterval={1500}
-        width={432}
-        height={768}
-      />
       {/* <ReactInstaStories
         stories={stories}
         defaultInterval={1500}
         width={432}
         height={768}
       /> */}
+      {/* <ReactInstaStories
+        stories={stories}
+        defaultInterval={1500}
+        width={432}
+        height={768}
+      /> */}
+      <video>
+        
+        <source src={'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4'} />
+      </video>
     </div>
   );
 }

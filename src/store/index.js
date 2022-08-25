@@ -25,11 +25,32 @@ const userSlice = createSlice({
 
 
 
+
+
+const initialStoryState = {
+  stories:""
+};
+
+const storySlice = createSlice({
+  name: "story",
+  initialState:initialStoryState,
+  reducers: {
+    updateStory(state, action) {
+      
+      state.stories = action.payload;
+      
+    },
+    deleteStory(state) {
+      state.stories = [];
+    },
+  },
+});
+
 const store = configureStore({
-    reducer:userSlice.reducer 
-    
+  reducer:{ user:userSlice.reducer, story: storySlice.reducer},
 });
 
 export const userActions = userSlice.actions;
+export const storyActions = storySlice.actions;
 
 export default store;

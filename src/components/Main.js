@@ -68,7 +68,7 @@ function Main({ setBlurBackground }) {
   }, []);
 
 
-  const userid = useSelector((state) => state);
+  const userid = useSelector((state) => state.user);
 
   // const sendingFile = async(e) =>{
   //   setTestFile(e.target.files[0])

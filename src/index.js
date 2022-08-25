@@ -28,6 +28,7 @@ import store from './store/index'
 import {Provider} from 'react-redux'
 
 import Chat from './components/Chat';
+import StoryModal from './components/UI/StoryModal';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
 //   <React.StrictMode>
@@ -42,7 +43,8 @@ root.render(
 
         <Route path="/myMessage" element={<MyMessage />}></Route>
         <Route path="/myMessage/:room" element={<Chat />}></Route>
-        <Route path="/instaStoryTester" element={<InstaStory  />}></Route>
+        <Route path="/story/:userid" element={<StoryModal />}></Route>
+        <Route path="/instaStoryTester" element={<InstaStory />}></Route>
         <Route path="/explore" element={<Explore />}></Route>
         <Route path="/id" element={<Profile />}></Route>
         <Route path="/id/saved" element={<Profile />}></Route>
