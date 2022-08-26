@@ -114,8 +114,8 @@ function StoriesActivity() {
         <div className="stories-avatar">
           {stories &&
             stories.map((story) => (
-              <div>
-                {console.log(story)}
+              <div key={story.userid}>
+                {/* {console.log(story)} */}
                 <Link
                   state={{ story: story }}
                   key={story.id}

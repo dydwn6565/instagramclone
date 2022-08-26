@@ -7,11 +7,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { userActions } from "../store/index";
 
 import { Container, Row, Col } from "react-grid-system";
+import { useEffect } from "react";
 
 function Login() {
   const dispatch = useDispatch();
   const [passwordShown, setPasswordShown] = useState(false);
-  
+  const [userLocation, setUserLocation] = useState({});
   const linkToMain = useRef();
   const {
     value: enteredUserId,
@@ -41,6 +42,18 @@ function Login() {
 
   // const passwordIsValid = password.trim() !== "";
   // const passwordInputIsInvalid = !userIdIsValid && userIdTouched;
+
+  useEffect(() => {
+    const getLatAndLong = () => {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        setUserLocation({
+          lat: position.coords.latitude,
+          long: position.coords.longitude,
+        });
+      });
+    };
+    getLatAndLong();
+  }, []);
 
   const formSubmissionHandler = async (e) => {
     e.preventDefault();
@@ -72,8 +85,8 @@ function Login() {
           }
         );
         const jsonUser = await getUserInfo.json();
-        console.log(jsonUser.userid);
-        
+        console.log(jsonUser);
+
         const userid = jsonUser.userid;
         const name = jsonUser.name;
         const username = jsonUser.username;
@@ -85,9 +98,9 @@ function Login() {
             username: username,
           })
         );
-   
-        linkToMain.current.click();
 
+        insertUserLocation(jsonUser.id);
+        // linkToMain.current.click();
       }
     } catch (error) {
       alert(error.message);
@@ -97,17 +110,39 @@ function Login() {
     // resetPasswordInput();
   };
 
-  const userInputClasses = userIdInputHasError
-    ? "form-control invalid"
-    : "form-control";
+  const insertUserLocation = async (userId) => {
+    const userLocationResult = await fetch(
+      "http://localhost:8080/insert/login/activity",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          userLocation,
+          userId,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      }
+    );
+    if (userLocationResult.status === 201) {
+      console.log("success");
+    }
+    //     setUserLocation({
+    //       lat: position.coords.latitude,
+    //       long: position.coords.longitude,
+    //     });
+    // });
+  };
+  // const userInputClasses = userIdInputHasError
+  //   ? "form-control invalid"
+  //   : "form-control";
 
-  const passwordInputClasses = passwordInputHasError
-    ? "form-control invalid"
-    : "form-control";
+  // const passwordInputClasses = passwordInputHasError
+  //   ? "form-control invalid"
+  //   : "form-control";
 
   return (
     <>
-      
       <Container>
         <Row>
           <Col sm={5}>

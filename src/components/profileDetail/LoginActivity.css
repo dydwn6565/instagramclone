@@ -1,0 +1,19 @@
+.login-activity {
+    display: flex;
+    width: 1000px;
+    height: 800px;
+    border: 0.5px solid lightgrey;
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+.login-activity-main {
+    width: 800px;
+    margin-left: -120px;
+    padding: 2%;
+}
+
+.map-container {
+    width: 600px;
+    height: 250px;
+}

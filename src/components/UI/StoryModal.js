@@ -16,21 +16,21 @@ function StoryModal() {
   const [prevVideo, setPrevVideo] = useState(false);
   const [currentIndex,setCurrentIndex] = useState(0);
   useEffect(() => {
+      const firstIndex = 0;
+      const lastIndex = stories.stories.stories.length - 1;
     const setUpUserStory = () => {
-      const filteredStories = stories.stories.stories.map((story) =>
-        story.filter((detail) => {
-          return detail.userid === parseInt(currentUserId);
-        })
-      );
+      resetUrlAndVideo();
 
+      const filteredStories = filterStory(stories);
+
+   
       const findIndex = filteredStories.findIndex(
         (story) =>
           // console.log(story)
           story[0] !== undefined
       );
       setCurrentIndex(findIndex);
-      const firstIndex = 0;
-      const lastIndex = stories.stories.stories.length - 1;
+    
       if (findIndex === firstIndex && findIndex === lastIndex) {
         setCurrentUrl(stories.stories.stories[findIndex]);
       } else if (findIndex === firstIndex && findIndex !== lastIndex) {
@@ -73,6 +73,23 @@ function StoryModal() {
     setUpUserStory();
   }, [ location]);
 
+  const filterStory = (stories)=>{
+    const filteredData =stories.stories.stories.map((story) =>
+      story.filter((detail) => {
+        return detail.userid === parseInt(currentUserId);
+      })
+    );
+    return filteredData;
+  }
+
+
+  const resetUrlAndVideo =() =>{
+
+      setNextVideo(false);
+      setPrevVideo(false);
+      setPrevStoryUrl("");
+      setNextStoryUrl("");
+  }
 
   const checkVideo =(url)=>{
   const lastSegment = url.split(".").pop();
@@ -85,37 +102,9 @@ function StoryModal() {
     ) {
     return true;
   }
-  console.log(lastSegment);
+  
   }
-  // console.log(stories.stories.stories[findIndex-1][0].url);
-  // console.log(stories.stories.stories[findIndex + 1][0].url);
-
-  // const nextStoryUrl = stories.stories.stories[findIndex + 1][0].url;
-
-  // const prevStoryUrl = stories.stories.stories[findIndex - 1][0].url;
-
-  // console.log(filteredStories.findIndex((story)=>(
-  //   // console.log(story)
-  //       story[0] !==undefined
-
-  // ))
-  //   )
-  // console.log(detail)
-  // )))
-
-  // ((story) =>
-  //   story.filter((detail) => {
-  //     return detail.userid === parseInt(currentUserId);
-  //     // console.log(detail)
-  //   })
-  // )
-
-  // const location = useLocation();
-  // const { story } = location.state;
-
- const clickedCheck =(e) =>{
-  console.log("clicked")
- }
+  
 
   return (
     <>
@@ -138,7 +127,7 @@ function StoryModal() {
       )}
       {prevStoryUrl &&
         (prevVideo
-          ? prevStoryUrl && (
+          ?  (
               <>
                 <Link
                   to={`/story/${
@@ -153,7 +142,7 @@ function StoryModal() {
                 </Link>
               </>
             )
-          : prevStoryUrl && (
+          :  (
               <Link
                 to={`/story/${
                   stories.stories.stories[currentIndex - 1][0].userid
@@ -169,7 +158,7 @@ function StoryModal() {
             ))}
       {nextStoryUrl &&
         (nextVideo
-          ? nextStoryUrl && (
+          ?  (
               <>
                 <Link
                   to={`/story/${
@@ -185,7 +174,7 @@ function StoryModal() {
                 </Link>
               </>
             )
-          : nextStoryUrl && (
+          :  (
               <Link
                 to={`/story/${
                   stories.stories.stories[currentIndex + 1][0].userid
