@@ -17,6 +17,7 @@ import { AiOutlineDown } from "react-icons/ai";
 
 const MessageModal = ({ title, message, onConfirm }) => {
   const [imageArray, setImageArray] = useState([]);
+  const [fileArray, setFileArray] = useState([]);
   const [renderedImage, setRenderedImage] = useState([]);
   const [page, setPage] = useState(0);
 
@@ -35,6 +36,7 @@ const MessageModal = ({ title, message, onConfirm }) => {
 
   const handleChange = (event) => {
     const fileUploaded = event.target.files[0];
+    setFileArray(fileUploaded)
     const currentDate = new Date();
 
     if (fileUploaded) {
@@ -71,11 +73,18 @@ const MessageModal = ({ title, message, onConfirm }) => {
     const formData = new FormData();
     formData.append("title", "test");
     formData.append("content", content);
-    formData.append("image", imageArray);
+    console.log(fileArray.length)
+    if(fileArray.length ===undefined){
+      formData.append("file",fileArray)
+    }else{
+
+      fileArray.map((file, index) => formData.append("file", file));
+    }
 
     formData.append("lat", location.lat);
     formData.append("long", location.long);
-
+    formData.append("userid", 2);
+    console.log(formData)
     
     const ImageData = await fetch("http://localhost:8080/post", {
       method: "POST",
@@ -105,6 +114,7 @@ const MessageModal = ({ title, message, onConfirm }) => {
 
   return (
     <div>
+      {console.log(fileArray)}
       <div className="modal-backdrop" onClick={onConfirm} />
       {(page === 0 || page === 1) && (
         <Card className="modal">
@@ -168,11 +178,10 @@ const MessageModal = ({ title, message, onConfirm }) => {
                       className="preview-image"
                     />
                     <div className="copy-out-line-background">
-
-                    <IoCopyOutline
-                      className="preview-image-multiple-image-icon"
-                      onClick={extendImageModalHandler}
-                    />
+                      <IoCopyOutline
+                        className="preview-image-multiple-image-icon"
+                        onClick={extendImageModalHandler}
+                      />
                     </div>
                     <IoIosArrowDroprightCircle
                       className={
@@ -199,6 +208,7 @@ const MessageModal = ({ title, message, onConfirm }) => {
                   imageArray={imageArray}
                   extendImageModalHandler={extendImageModalHandler}
                   setImageArray={setImageArray}
+                  setFileArray={setFileArray}
                   currentPage={currentPage}
                   setCurrentPage={setCurrentPage}
                   renderedImage={renderedImage}

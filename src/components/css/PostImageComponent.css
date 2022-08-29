@@ -1,0 +1,43 @@
+.main-page-image-right-icon {
+    width: 3vw;
+    height: 3vh;
+    position: absolute;
+    /* display: flex;
+    justify-content: center; */
+    /* align-items: center; */
+    flex-direction: column;
+    margin-left: 18vw;
+    margin-top: 18vh;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.main-page-image-left-icon {
+    width: 3vw;
+    height: 3vh;
+    position: absolute;
+    float: left;
+    margin-left: -230px;
+    margin-top: 200px;
+    cursor: pointer;
+    
+    z-index: 100;
+    
+}
+
+.inactive-main-image-right-icon,
+.inactive-main-page-image-left-icon {
+    display: none;
+}
+
+.main-image-dot-icon {
+    width: 3vw;
+    height: 3vh;
+    margin-top: -4vh;
+    margin-left: -0.5vw;
+}
+
+.image-dot-container {
+    display: flex;
+    justify-content: center;
+}

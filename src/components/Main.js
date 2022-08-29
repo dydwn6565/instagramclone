@@ -10,6 +10,7 @@ import {  useSelector } from "react-redux";
 import "./css/Main.css";
 import MainPageModal from "./UI/MainPageModal";
 import ExtendedMainModal from "./UI/ExtendedMainModal";
+import PostImageComponent from "./PostImageComponent";
 
 // import video from "./video.mp4";
 
@@ -17,7 +18,7 @@ function Main({ setBlurBackground }) {
   const [mainPageModal, setMainPageModal] = useState(false);
 
   const [extendCommentModal, setExtendCommentModal] = useState(false);
-  
+  const [posts,setPosts] = useState([]);
 
   const mainPageHandler = () => {
     setMainPageModal((prevState) => !prevState);
@@ -67,6 +68,24 @@ function Main({ setBlurBackground }) {
     }
   }, []);
 
+  useEffect(()=>{
+    const getPosts =async ()=>{
+      try{
+
+        const postsData = await fetch("http://localhost:8080/retriev/posts",{
+          method:"GET"
+        })
+        if (postsData.status === 201) {
+          const postsJson = await postsData.json();
+          // console.log(postsJson);
+          setPosts(postsJson);
+        }
+      }catch(error){
+          alert(error.message)
+      }
+    }
+    getPosts();
+  },[])
 
   const userid = useSelector((state) => state.user);
 
@@ -105,78 +124,61 @@ function Main({ setBlurBackground }) {
   // }
 
   return (
-    <div className="main">
-      
-      <div className="main-title-container">
-        <div className="main-title">
-          <Avatar className="main-avatar" />
-          <span>Hyeoneee</span>
-          <MoreHorizOutlinedIcon
-            onClick={mainPageHandler}
-            className="main-horiz-oulined-icon"
-          />
-        </div>
-        {console.log(userid)}
-      </div>
-      {/* <input type="file" onClick={(e) => sendingFile(e)} />
-      <button onClick={receivingFile}>get images</button> */}
-      {/* {testimage && <img src={`data:image/png;base64,`+testimage} />} */}
-      {/* {testimage && (
-        <video
-          style={{
-            width: "100%",
-            // height: 500,
-            marginTop: "10%",
-            marginLeft: "22%",
-            border: "1px solid black",
-          }}
-          controls
-          // autoPlay
-          // loop
-          // muted
-        >
-          <source
-            type="video/mp4"
-            
-            src={video}
-            
-          ></source>
-        </video>
-      )} */}
-      {mainPageModal && <MainPageModal mainPageHandler={mainPageHandler} />}
-      <div className="main-image-container">
-        <img
-          src="https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-mont-st-michel.jpg"
-          alt="mong"
-          className="main-image"
-        />
-      </div>
-      <div className="main-page-icons-container">
-        <div className="main-page-icons">
-          <FavoriteBorderOutlinedIcon className="main-page-icons" />
-          <ChatBubbleOutlineSharpIcon className="main-page-icons" />
-          <SendSharpIcon className="main-page-icons" />
-          <BookmarkBorderIcon className="main-page-bookmark-icon" />
-        </div>
-      </div>
-      <div className="main-page-info">
-        <div>lovely_min08 likes </div>
-        <div>
-          the0v #HondaCelebrationOfLight: #Japan jp #EnglishBay #Fireworks
-          #July2022 #Summer #GoodTimes #Vancouver #BC #Canada Ca
-        </div>
-        <div onClick={extendComment}>See comments</div>
-      </div>
-      <hr />
-      <div className="main-page-comment">
-        <SentimentSatisfiedAltIcon />
-        <span> comments</span>
-        <div className="comment-button">Post</div>
-      </div>
-      {extendCommentModal && (
-        <ExtendedMainModal extendComment={extendComment} />
-      )}
-    </div>
+    <>
+      {posts &&
+        posts.map((post) => (
+          <>
+            {console.log(post.url)}
+            <div key={post.id} className="main">
+              <div className="main-title-container">
+                <div className="main-title">
+                  <Avatar className="main-avatar" />
+                  <span>Hyeoneee</span>
+                  <MoreHorizOutlinedIcon
+                    onClick={mainPageHandler}
+                    className="main-horiz-oulined-icon"
+                  />
+                  {mainPageModal && (
+                    <MainPageModal mainPageHandler={mainPageHandler} />
+                  )}
+                </div>
+              </div>
+              <div className="main-image-container">
+                {/* {post.url.map((image)=>( */}
+                  <PostImageComponent images={post.url}/>
+        
+                </div>
+        
+              <div className="main-page-icons-container">
+                <div className="main-page-icons">
+                  <FavoriteBorderOutlinedIcon className="main-page-icons" />
+                  <ChatBubbleOutlineSharpIcon className="main-page-icons" />
+                  <SendSharpIcon className="main-page-icons" />
+                  <BookmarkBorderIcon className="main-page-bookmark-icon" />
+                </div>
+              </div>
+              <div className="main-page-info">
+                <div>lovely_min08 likes </div>
+                <div>
+                  the0v #HondaCelebrationOfLight: #Japan jp #EnglishBay
+                  #Fireworks #July2022 #Summer #GoodTimes #Vancouver #BC #Canada
+                  Ca
+                </div>
+                <div onClick={extendComment}>See comments</div>
+              </div>
+              <hr />
+              <div className="main-page-comment">
+                <SentimentSatisfiedAltIcon />
+                <span> comments</span>
+                <div className="comment-button">Post</div>
+              </div>
+              {extendCommentModal && (
+                <ExtendedMainModal extendComment={extendComment} />
+              )}
+            </div>
+          </>
+        ))}
+    </>
   );
 }
 

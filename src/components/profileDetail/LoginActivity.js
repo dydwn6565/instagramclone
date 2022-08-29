@@ -1,7 +1,6 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import Map from "react-map-gl";
-import ReactMapGL from "react-map-gl";
-// import { Markers } from "./Markers";
+import React, { useEffect, useRef, useState } from "react";
+
+
 import Header from "../Header";
 import ProfileFooter from "../profilePage/ProfileFooter";
 import AccountEditSide from "./AccountEditSide";
@@ -12,11 +11,7 @@ mapboxgl.accessToken =
   "pk.eyJ1IjoiZHlkd242NTY1IiwiYSI6ImNrdnZ4b3kxdDAyeWwyb3FiaXF0czE3dncifQ.wy2-3OucP_ZeU3bxWiDIUA";
 function LoginActivity() {
   const [latAndLong, setLatAndLong] = useState({});
-  const [viewport, setViewport] = useState({
-    latitude: 37.7577,
-    longitude: -122.4376,
-    zoom: 8,
-  });
+
  const map = useRef(null);
  const mapContainer = useRef(null);
   // if you are happy with Geocoder default settings, you can just use handleViewportChange directly

@@ -1,4 +1,4 @@
-import React, {  useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import "./AddImageModal.css";
 import { BsPlusCircle } from "react-icons/bs";
 import { generateBase64FromImage } from "../Utils/Image";
@@ -12,6 +12,7 @@ function AddImageModal({
   extendImageModalHandler,
   imageArray,
   setImageArray,
+  setFileArray,
   setCurrentPage,
   currentPage,
   renderedImage,
@@ -20,10 +21,9 @@ function AddImageModal({
   const hiddenFileInput = useRef(null);
 
   const [smallImageCurrentPage, setSmallImageCurrentPage] = useState(0);
-  const [smallImageArray, setSmallImageArray] = useState([]);
+
   const imageHandler = () => {
     if (imageArray.length < 4) {
-      
       for (let image of imageArray) {
         setRenderedImage((current) => [...current, image]);
       }
@@ -39,13 +39,9 @@ function AddImageModal({
   }, [smallImageCurrentPage]);
 
   const deleteImageFromArray = (index) => {
-    
-
-    const filteredImage = imageArray.filter((image) =>{
-      
+    const filteredImage = imageArray.filter((image) => {
       return imageArray.indexOf(image) !== index;
-
-    })
+    });
     setImageArray(filteredImage);
   };
 
@@ -54,7 +50,7 @@ function AddImageModal({
   };
   const handleChange = (event) => {
     const fileUploaded = event.target.files[0];
-
+    setFileArray((current) => [current, fileUploaded]);
     if (fileUploaded) {
       generateBase64FromImage(fileUploaded)
         .then((b64) => {
@@ -64,13 +60,6 @@ function AddImageModal({
           console.log(e);
         });
     }
-  };
-
-  const smallImageMovetoRight = () => {
-    console.log("click");
-    setSmallImageCurrentPage((current) => current + 1);
-    imageHandler();
-    console.log(smallImageCurrentPage);
   };
 
   return (
@@ -120,7 +109,6 @@ function AddImageModal({
         ) : (
           <>
             <img
-            
               src={
                 imageArray[smallImageCurrentPage].split(
                   "uploadedCurrentDate"
@@ -149,7 +137,7 @@ function AddImageModal({
               }
               alt="smallImage"
               className={
-                imageArray.indexOf(imageArray[smallImageCurrentPage+1]) ===
+                imageArray.indexOf(imageArray[smallImageCurrentPage + 1]) ===
                 smallImageCurrentPage
                   ? "extended-small-image selected-image"
                   : "extended-small-image"
@@ -170,7 +158,7 @@ function AddImageModal({
               }
               alt="smallImage"
               className={
-                imageArray.indexOf(imageArray[smallImageCurrentPage+2]) ===
+                imageArray.indexOf(imageArray[smallImageCurrentPage + 2]) ===
                 smallImageCurrentPage
                   ? "extended-small-image selected-image"
                   : "extended-small-image"
@@ -191,7 +179,7 @@ function AddImageModal({
               }
               alt="smallImage"
               className={
-                imageArray.indexOf(imageArray[smallImageCurrentPage+3]) ===
+                imageArray.indexOf(imageArray[smallImageCurrentPage + 3]) ===
                 smallImageCurrentPage
                   ? "extended-small-image selected-image"
                   : "extended-small-image"

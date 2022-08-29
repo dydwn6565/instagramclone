@@ -3,12 +3,14 @@
     align-items: center;
     justify-content: center;
     margin-top: 1%;
+    
 }
 
 .main {
     border: 0.5px solid lightgrey;
     width: 550px;
     margin-left: 10%;
+    margin-top:0.1px;
 }
 
 .main-title {
@@ -35,7 +37,7 @@
 }
 
 .main-image {
-    padding: 1%;
+    /* padding: 1%; */
     width: 550px;
 }
 
@@ -54,9 +56,9 @@
 }
 
 .main-page-info {
-    margin-left:1%;
-
+    margin-left: 1%;
 }
+
 .main-page-comment {
     width: 550px;
     padding: 1%;
