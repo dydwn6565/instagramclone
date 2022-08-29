@@ -126,16 +126,11 @@ function StoriesActivity() {
                 <span>name</span>
               </div>
             ))}
-          {/* {storiesIndexs && storiesIndexs.map((story) => (
-            <div onClick={() => setStoryActivity(true)}>
-              <Avatar />
-              <span>name</span>
-            </div>
-          ))} */}
+         
         </div>
       </div>
 
-      {/* {storyActivity && <StoryModal storyModalActivity={storyModalActivity} />} */}
+      
     </div>
   );
 }
