@@ -1,20 +1,14 @@
 import React, { useEffect, useState } from "react";
 
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import "./css/Main.css";
-
 
 import PostImageComponent from "./PostImageComponent";
 
 // import video from "./video.mp4";
 
 function Main({ setBlurBackground }) {
- 
-
-  
-  const [posts,setPosts] = useState([]);
-  
-
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
@@ -56,28 +50,26 @@ function Main({ setBlurBackground }) {
     }
   }, []);
 
-  useEffect(()=>{
-    const getPosts =async ()=>{
-      try{
-
-        const postsData = await fetch("http://localhost:8080/retriev/posts",{
-          method:"GET"
-        })
+  useEffect(() => {
+    const getPosts = async () => {
+      try {
+        const postsData = await fetch("http://localhost:8080/retriev/posts", {
+          method: "GET",
+        });
         if (postsData.status === 201) {
           const postsJson = await postsData.json();
-          
+
           setPosts(postsJson);
         }
-      }catch(error){
-          alert(error.message)
+      } catch (error) {
+        alert(error.message);
       }
-    }
+    };
     getPosts();
-  },[])
+  }, []);
 
   const userid = useSelector((state) => state.user);
 
- 
   // const sendingFile = async(e) =>{
   //   setTestFile(e.target.files[0])
   //   console.log(e.target);
@@ -118,12 +110,14 @@ function Main({ setBlurBackground }) {
       {posts &&
         posts.map((post) => (
           <>
-          
-              <div className="main-image-container">
-                
-                <PostImageComponent images={post.url} content={post.content} id={post.id} postid={post.postid}/>
-              </div>
-
+            <div className="main-image-container">
+              <PostImageComponent
+                images={post.url}
+                content={post.content}
+                id={post.id}
+                postid={post.postid}
+              />
+            </div>
           </>
         ))}
     </>

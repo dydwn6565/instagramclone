@@ -1,91 +1,101 @@
-import React, { useState } from "react";
-import { BsDot } from "react-icons/bs";
-import {
-  IoIosArrowDropleftCircle,
-  IoIosArrowDroprightCircle,
-} from "react-icons/io";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-import ChatBubbleOutlineSharpIcon from "@mui/icons-material/ChatBubbleOutlineSharp";
-import SendSharpIcon from "@mui/icons-material/SendSharp";
-import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
-import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
+import React, { useEffect, useState } from "react";
+
+
 import Avatar from "@mui/material/Avatar";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 
-import ExtendedMainModal from "./UI/ExtendedMainModal";
-
-import FavoriteIcon from "@mui/icons-material/Favorite";
+import ExtendedMainModal from "./Modals/ExtendedMainModal";
+import MainPageModal from "./Modals/MainPageModal"
 import "./css/PostImageComponent.css";
+import Icons from "./Icons";
+import ImageHander from "./ImageHander";
+import CommentHandler from "./CommentHandler";
 function PostImageComponent({ images, content, id, postid }) {
-  const [imageIndex, setImageIndex] = useState(0);
+  // const [imageIndex, setImageIndex] = useState(0);
   const [extendCommentModal, setExtendCommentModal] = useState(false);
-  const [comment, setComment] = useState("");
+  const [commentList, setCommentList] = useState("");
   const [mainPageModal, setMainPageModal] = useState(false);
   const [like, setLike] = useState(true);
-  const lastIndex = images.length - 1;
-  const moveToNextpage = () => {
-    setImageIndex((prev) => prev + 1);
-  };
-  const moveToPrevpage = () => {
-    setImageIndex((prev) => prev - 1);
-  };
-
+  // const lastIndex = images.length - 1;
+  // const moveToNextpage = () => {
+  //   setImageIndex((prev) => prev + 1);
+  // };
+  // const moveToPrevpage = () => {
+  //   setImageIndex((prev) => prev - 1);
+  // };
+  useEffect(() => {
+    const getPostComment = async () => {
+      const fetchedData = await fetch(
+        `http://localhost:8080/get/postcomment/${postid}`,
+        {
+          method: "GET",
+        }
+      );
+      if (fetchedData.status === 201) {
+        const commentsList = await fetchedData.json();
+        // console.log(commentsList);
+        setCommentList(commentsList);
+      }
+    };
+    getPostComment();
+  }, []);
   const extendComment = () => {
     setExtendCommentModal((prevState) => !prevState);
   };
-  const commentHandler = (e) => {
-    setComment(e);
-  };
+  // const commentHandler = (e) => {
+  //   setComment(e);
+  // };
 
   const mainPageHandler = () => {
     setMainPageModal((prevState) => !prevState);
   };
 
-  const addComment = () => {
-    console.log(comment);
-    try {
-      fetch("http://localhost:8080/add/postcomment", {
-        method: "POST",
-        body: JSON.stringify({ comment: comment, userid: 3, postid: postid }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      });
-    } catch (error) {
-      alert(error);
-    }
-  };
+  // const addComment = () => {
+  //   // console.log(comment);
+  //   try {
+  //     fetch("http://localhost:8080/add/postcomment", {
+  //       method: "POST",
+  //       body: JSON.stringify({ comment: comment, userid: 3, postid: postid }),
+  //       headers: {
+  //         "Content-type": "application/json; charset=UTF-8",
+  //       },
+  //     });
+  //   } catch (error) {
+  //     alert(error);
+  //   }
+  // };
 
   const addlikeButtonhandler = () => {
     setLike((prev) => !prev);
     try {
-      fetch("http://localhost:8080/add/postlike",{
-        method:"POST",
-        body:JSON.stringify({
-          userid:3,postid:postid
+      fetch("http://localhost:8080/add/postlike", {
+        method: "POST",
+        body: JSON.stringify({
+          userid: 3,
+          postid: postid,
         }),
-        headers:{
-          "Content-type": "application/json; charset=UTF-8"
-        }
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
       });
     } catch (error) {}
   };
 
-    const deletelikeButtonhandler = () => {
-      setLike((prev) => !prev);
-      try {
-        fetch("http://localhost:8080/delete/postlike", {
-          method: "DELETE",
-          body: JSON.stringify({
-            userid: 3,
-            postid: postid,
-          }),
-          headers: {
-            "Content-type": "application/json; charset=UTF-8",
-          },
-        });
-      } catch (error) {}
-    };
+  const deletelikeButtonhandler = () => {
+    setLike((prev) => !prev);
+    try {
+      fetch("http://localhost:8080/delete/postlike", {
+        method: "DELETE",
+        body: JSON.stringify({
+          userid: 3,
+          postid: postid,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      });
+    } catch (error) {}
+  };
   return (
     <>
       {/* {console.log(like)} */}
@@ -99,11 +109,12 @@ function PostImageComponent({ images, content, id, postid }) {
               className="main-horiz-oulined-icon"
             />
             {mainPageModal && (
-              <mainPageModal mainPageHandler={mainPageHandler} />
+              <MainPageModal mainPageHandler={mainPageHandler} />
             )}
           </div>
         </div>
-        <div>
+        <ImageHander images={images} />
+        {/* <div>
           <div className="main-image-and-icons">
             <img
               src={"data:image/png;base64," + images[imageIndex]}
@@ -141,25 +152,15 @@ function PostImageComponent({ images, content, id, postid }) {
               onClick={moveToNextpage}
             />
           </div>
-        </div>
+        </div> */}
 
         <div className="main-page-icons-container">
           <div className="main-page-icons">
-            {like ? (
-              <FavoriteBorderOutlinedIcon
-                className="main-page-icons"
-                onClick={addlikeButtonhandler}
-              />
-            ) : (
-              <FavoriteIcon
-                className="main-page-heart-icon"
-                onClick={deletelikeButtonhandler}
-              />
-            )}
-
-            <ChatBubbleOutlineSharpIcon className="main-page-icons" />
-            <SendSharpIcon className="main-page-icons" />
-            <BookmarkBorderIcon className="main-page-bookmark-icon" />
+            <Icons
+              like={like}
+              addlikeButtonhandler={addlikeButtonhandler}
+              deletelikeButtonhandler={deletelikeButtonhandler}
+            />
           </div>
         </div>
         <div className="main-page-info">
@@ -168,9 +169,10 @@ function PostImageComponent({ images, content, id, postid }) {
           <div onClick={extendComment}>See comments</div>
         </div>
         <hr />
-        <div className="main-page-comment">
-          <SentimentSatisfiedAltIcon />
-          {/* <span> comments</span> */}
+        {/* <div className="main-page-comment"> */}
+        <CommentHandler postid={postid} />
+        {/* <SentimentSatisfiedAltIcon />
+          <span> comments</span>
           <input
             type="text"
             placeholder="commnets"
@@ -185,10 +187,19 @@ function PostImageComponent({ images, content, id, postid }) {
             <div className={"comment-button-active"} onClick={addComment}>
               Post
             </div>
-          )}
-        </div>
+          )} */}
+        {/* </div> */}
         {extendCommentModal && (
-          <ExtendedMainModal extendComment={extendComment} />
+          <ExtendedMainModal
+            extendComment={extendComment}
+            like={like}
+            addlikeButtonhandler={addlikeButtonhandler}
+            deletelikeButtonhandler={deletelikeButtonhandler}
+            images={images}
+            content={content}
+            postid={postid}
+            commentList={commentList}
+          />
         )}
       </div>
     </>

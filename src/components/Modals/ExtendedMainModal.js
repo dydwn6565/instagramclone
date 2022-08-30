@@ -4,28 +4,39 @@ import "./ExtendedMainModal.css"
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsDot } from "react-icons/bs";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-import ChatBubbleOutlineSharpIcon from "@mui/icons-material/ChatBubbleOutlineSharp";
-import SendSharpIcon from "@mui/icons-material/SendSharp";
-import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
-import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
-function ExtendedMainModal({ extendComment }) {
+
+
+import Icons from '../Icons';
+import ImageHander from '../ImageHander';
+import CommentHandler from '../CommentHandler';
+function ExtendedMainModal({
+  extendComment,
+  like,
+  addlikeButtonhandler,
+  deletelikeButtonhandler,
+  images,
+  content,
+  postid,
+  commentList,
+}) {
   return (
     <div>
+      {console.log(commentList)}
       <div className="extended-main-modal-backdrop" onClick={extendComment} />
       <div>
         <div className="extended-main-modal-main">
-          <div className="extended-main-modal-img">
+          <ImageHander images={images} />
+          {/* <div className="extended-main-modal-img">
             <img
               src="https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-mont-st-michel.jpg"
               alt="mong"
             />
-          </div>
+          </div> */}
 
           <div className="extended-main-modal-info">
             <div className="extended-main-modal-title">
               <Avatar></Avatar>
-              <div>Hyeoneee</div>
+              <div className="extended-main-modal-title-name">Hyeoneee</div>
               <div className="extended-main-modal-title">
                 <BsDot />
                 Following
@@ -37,20 +48,22 @@ function ExtendedMainModal({ extendComment }) {
               <div className="extended-main-modal-info-content">
                 <Avatar></Avatar>
                 <div>
-                  <span>Hyeonee</span>
-                  <span>
-                    the0v #HondaCelebrationOfLight: #Japan jp #EnglishBay
-                    #Fireworks #July2022 #Summer #GoodTimes #Vancouver #BC
-                    #Canada Ca
+                  <span> Hyeonee</span>
+                  <span className="extended-main-modal-info-content-content">
+                    {content}
                   </span>
                 </div>
               </div>
             </div>
             <div className="extended-main-modal-info-content-container">
               <div className="extended-main-modal-info-content">
-                <Avatar></Avatar>
-                <span>anabeatrix.x</span>
-                <span>It was amazinggg</span>
+                {commentList.map((comment, index) => (
+                  <>
+                    <Avatar></Avatar>
+                    <span key={comment.userid + index}>{comment.username}</span>
+                    <span>{comment.comment}</span>
+                  </>
+                ))}
               </div>
               <AiOutlineHeart className="extended-main-modal-info-heart-icon" />
             </div>
@@ -58,10 +71,11 @@ function ExtendedMainModal({ extendComment }) {
               <div className="hr"></div>
               <div className="main-page-icons-container">
                 <div className="main-page-icons">
-                  <FavoriteBorderOutlinedIcon className="main-page-icons" />
-                  <ChatBubbleOutlineSharpIcon className="main-page-icons" />
-                  <SendSharpIcon className="main-page-icons" />
-                  <BookmarkBorderIcon className="extended-main-modal-book-icon" />
+                  <Icons
+                    like={like}
+                    addlikeButtonhandler={addlikeButtonhandler}
+                    deletelikeButtonhandler={deletelikeButtonhandler}
+                  />
                 </div>
               </div>
               <div className="extended-main-modal-info-content-comment">
@@ -73,9 +87,7 @@ function ExtendedMainModal({ extendComment }) {
               </div>
               <div className="hr"></div>
               <div className="extended-main-modal-info-comment">
-                <SentimentSatisfiedAltIcon />
-                <div> comments</div>
-                <span className="post-bt">post</span>
+                <CommentHandler postid={postid} />
               </div>
             </div>
           </div>

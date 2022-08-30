@@ -28,7 +28,7 @@ import store from './store/index'
 import {Provider} from 'react-redux'
 
 import Chat from './components/Chat';
-import StoryModal from './components/UI/StoryModal';
+import StoryModal from './components/Modals/StoryModal';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
 //   <React.StrictMode>

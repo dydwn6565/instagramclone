@@ -54,12 +54,18 @@
 
 .extended-main-modal-info-content {
     display: flex;
+    align-items: center;
     width: 30vw;
 }
 
-extended-main-modal-info-content-comment .extended-main-modal-info-content>span,
+.extended-main-modal-info-content>span,
 .extended-main-modal-info-content>div {
     margin-left: 2%;
+}
+
+.extended-main-modal-info-content-content,
+.extended-main-modal-title-name {
+    margin-left: 10px;
 }
 
 .extended-main-modal-book-icon {
@@ -90,9 +96,9 @@ extended-main-modal-info-content-comment .extended-main-modal-info-content>span,
 }
 
 .extended-main-modal-info-bottom {
-    position:absolute;
-    bottom:0;
-    margin-bottom:1%;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 1%;
 }
 
 .post-bt {
