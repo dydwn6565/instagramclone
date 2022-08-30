@@ -13,14 +13,16 @@ import Avatar from "@mui/material/Avatar";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 
 import ExtendedMainModal from "./UI/ExtendedMainModal";
+
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import "./css/PostImageComponent.css";
-function PostImageComponent({ images, content, id,postid }) {
+function PostImageComponent({ images, content, id, postid }) {
   const [imageIndex, setImageIndex] = useState(0);
   const [extendCommentModal, setExtendCommentModal] = useState(false);
   const [comment, setComment] = useState("");
   const [mainPageModal, setMainPageModal] = useState(false);
+  const [like, setLike] = useState(true);
   const lastIndex = images.length - 1;
-
   const moveToNextpage = () => {
     setImageIndex((prev) => prev + 1);
   };
@@ -39,7 +41,7 @@ function PostImageComponent({ images, content, id,postid }) {
     setMainPageModal((prevState) => !prevState);
   };
 
-  const addComment =() =>{
+  const addComment = () => {
     console.log(comment);
     try {
       fetch("http://localhost:8080/add/postcomment", {
@@ -50,11 +52,43 @@ function PostImageComponent({ images, content, id,postid }) {
         },
       });
     } catch (error) {
-      alert(error)
+      alert(error);
     }
-  }
+  };
+
+  const addlikeButtonhandler = () => {
+    setLike((prev) => !prev);
+    try {
+      fetch("http://localhost:8080/add/postlike",{
+        method:"POST",
+        body:JSON.stringify({
+          userid:3,postid:postid
+        }),
+        headers:{
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      });
+    } catch (error) {}
+  };
+
+    const deletelikeButtonhandler = () => {
+      setLike((prev) => !prev);
+      try {
+        fetch("http://localhost:8080/delete/postlike", {
+          method: "DELETE",
+          body: JSON.stringify({
+            userid: 3,
+            postid: postid,
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        });
+      } catch (error) {}
+    };
   return (
     <>
+      {/* {console.log(like)} */}
       <div key={id} className="main">
         <div className="main-title-container">
           <div className="main-title">
@@ -111,7 +145,18 @@ function PostImageComponent({ images, content, id,postid }) {
 
         <div className="main-page-icons-container">
           <div className="main-page-icons">
-            <FavoriteBorderOutlinedIcon className="main-page-icons" />
+            {like ? (
+              <FavoriteBorderOutlinedIcon
+                className="main-page-icons"
+                onClick={addlikeButtonhandler}
+              />
+            ) : (
+              <FavoriteIcon
+                className="main-page-heart-icon"
+                onClick={deletelikeButtonhandler}
+              />
+            )}
+
             <ChatBubbleOutlineSharpIcon className="main-page-icons" />
             <SendSharpIcon className="main-page-icons" />
             <BookmarkBorderIcon className="main-page-bookmark-icon" />
@@ -132,11 +177,15 @@ function PostImageComponent({ images, content, id,postid }) {
             className="main-page-comment"
             onChange={(e) => commentHandler(e.target.value)}
           />
-          {comment ==="" ?  <div className={ "comment-button-inactive"}  disabled>Post</div> :
-          <div className={"comment-button-active"} onClick={addComment}>Post</div>
-          }
-          
-          
+          {comment === "" ? (
+            <div className={"comment-button-inactive"} disabled>
+              Post
+            </div>
+          ) : (
+            <div className={"comment-button-active"} onClick={addComment}>
+              Post
+            </div>
+          )}
         </div>
         {extendCommentModal && (
           <ExtendedMainModal extendComment={extendComment} />
