@@ -39,10 +39,12 @@ function AddImageModal({
   }, [smallImageCurrentPage]);
 
   const deleteImageFromArray = (index) => {
+
     const filteredImage = imageArray.filter((image) => {
       return imageArray.indexOf(image) !== index;
     });
     setImageArray(filteredImage);
+    setFileArray(filteredImage);
   };
 
   const handleClick = (event) => {

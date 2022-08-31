@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../components/css/Stories.css";
+import "../components/css/StoriesActivity.css";
 import Avatar from "@mui/material/Avatar";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -111,26 +111,29 @@ function StoriesActivity() {
   return (
     <div className="stories">
       <div className="stories-block">
-        <div className="stories-avatar">
+        <div className="stories-avatar-list">
           {stories &&
             stories.map((story) => (
-              <div key={story.userid}>
-                {/* {console.log(story)} */}
+              <div className="stories-avatar" key={story.userid}>
+                
                 <Link
                   state={{ story: story }}
                   key={story.id}
                   to={`/story/${story[0].userid}`}
                 >
-                  <Avatar />
+                  <Avatar
+                    src={
+                      story[0].header !== undefined
+                        ? `${story[0].header.profileImage}`
+                        : ""
+                    }
+                  />
                 </Link>
-                <span>name</span>
+                <span>{story[0].header.heading}</span>
               </div>
             ))}
-         
         </div>
       </div>
-
-      
     </div>
   );
 }

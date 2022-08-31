@@ -3,6 +3,7 @@ import "./css/SignUp.css"
 import { BsXCircle } from "react-icons/bs";
 import { BiCheckCircle } from "react-icons/bi";
 import useInput from '../hooks/use-input';
+import { Link } from "react-router-dom";
 function SignUp() {
 const regex = /[^A-Za-z0-9 ]+/;
 
@@ -103,82 +104,87 @@ const createUser=async ()=>{
           Login with Facebook
         </button>
         <div className="hr"></div>
-        
-          <input
-            type="text"
-            placeholder="cellphone number or E-mail address"
-            onChange={UserIdChangeHandler}
-            onBlur={UserIdBlurHandler}
-            value={enteredUserId}
-          />
-          {UserIdInputHasError ? (
-            <>
-            <BsXCircle className="x-circle red" />
-            
-            </>
-          ) : (
-            <BiCheckCircle className="x-circle" />
-          )}
-          <input
-            type="text"
-            placeholder="name"
-            onChange={enteredNameChangeHandler}
-            onBlur={enteredNameBlurHandler}
-            value={enteredName}
-          />
-          {enteredNameHasError ? (
-            <BsXCircle className="x-circle red" />
-          ) : (
-            <BiCheckCircle className="x-circle" />
-          )}
-          <input
-            type="text"
-            placeholder="user name"
-            onChange={enteredUserNameChangeHandler}
-            onBlur={enteredUserNameBlurHandler}
-            value={enteredUserName}
-          />
-          {enteredUserNameHasError ? (
-            <BsXCircle className="x-circle red" />
-          ) : (
-            <BiCheckCircle className="x-circle" />
-          )}
 
-          <input
-            type="password"
-            placeholder="password"
-            onChange={passwordChangeHandler}
-            onBlur={passwordBlurHandler}
-            value={enteredPassword}
-          />
-          {passwordInputHasError ? (
+        <input
+          type="text"
+          placeholder="cellphone number or E-mail address"
+          onChange={UserIdChangeHandler}
+          onBlur={UserIdBlurHandler}
+          value={enteredUserId}
+        />
+        {UserIdInputHasError ? (
+          <>
             <BsXCircle className="x-circle red" />
-          ) : (
-            <BiCheckCircle className="x-circle" />
-          )}
+            <div>Please type 10 numbers or email</div>
+          </>
+        ) : (
+          <BiCheckCircle className="x-circle" />
+        )}
+        <input
+          type="text"
+          placeholder="name"
+          onChange={enteredNameChangeHandler}
+          onBlur={enteredNameBlurHandler}
+          value={enteredName}
+        />
+        {enteredNameHasError ? (
+          <>
+            <BsXCircle className="x-circle red" />
+            <div>Please check name</div>
+          </>
+        ) : (
+          <BiCheckCircle className="x-circle" />
+        )}
+        <input
+          type="text"
+          placeholder="user name"
+          onChange={enteredUserNameChangeHandler}
+          onBlur={enteredUserNameBlurHandler}
+          value={enteredUserName}
+        />
+        {enteredUserNameHasError ? (
+          <>
+            <BsXCircle className="x-circle red" />
+            <div>Please check your name</div>
+          </>
+        ) : (
+          <BiCheckCircle className="x-circle" />
+        )}
 
-          <div className="sign-up-term">
-            The person using the service may have uploaded your contact
-            information to Instagram <a href="/learn/more">Learn more</a>
-          </div>
-          <div className="sign-up-term">
-            By signing up, you agree to the terms and conditions, the privacy
-            policy, and the cookie policy
-          </div>
-          
-          {formIsValid ? (
-            <button className="sign-up-bt" onClick={formSubmissionHandler}>
-              Sign up
-            </button>
-          ) : (
-            <button className="sign-up-bt disabled">Sign up</button>
-          )}
-        
+        <input
+          type="password"
+          placeholder="password"
+          onChange={passwordChangeHandler}
+          onBlur={passwordBlurHandler}
+          value={enteredPassword}
+        />
+        {passwordInputHasError ? (
+          <BsXCircle className="x-circle red" />
+        ) : (
+          <BiCheckCircle className="x-circle" />
+        )}
+
+        <div className="sign-up-term">
+          The person using the service may have uploaded your contact
+          information to Instagram <a href="/learn/more">Learn more</a>
+        </div>
+        <div className="sign-up-term">
+          By signing up, you agree to the terms and conditions, the privacy
+          policy, and the cookie policy
+        </div>
+
+        {formIsValid ? (
+          <button className="sign-up-bt" onClick={formSubmissionHandler}>
+            Sign up
+          </button>
+        ) : (
+          <button className="sign-up-bt disabled">Sign up</button>
+        )}
       </div>
       <div className="sign-up-login">
         Do you have an account?{" "}
         <a href="/login" alt="text">
-          Login
+          <Link to="/login">Login</Link>
         </a>
       </div>
       <div className="sign-up-please-download-title">Please download app</div>

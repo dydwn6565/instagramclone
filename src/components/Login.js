@@ -11,7 +11,7 @@ import { useEffect } from "react";
 
 function Login() {
   const dispatch = useDispatch();
-  const [passwordShown, setPasswordShown] = useState(false);
+  const [passwordShown, setPasswordShown] = useState(true);
   const [userLocation, setUserLocation] = useState({});
   const linkToMain = useRef();
   const {
@@ -127,19 +127,9 @@ function Login() {
     if (userLocationResult.status === 201) {
       console.log("success");
     }
-    //     setUserLocation({
-    //       lat: position.coords.latitude,
-    //       long: position.coords.longitude,
-    //     });
-    // });
+    
   };
-  // const userInputClasses = userIdInputHasError
-  //   ? "form-control invalid"
-  //   : "form-control";
 
-  // const passwordInputClasses = passwordInputHasError
-  //   ? "form-control invalid"
-  //   : "form-control";
 
   return (
     <>

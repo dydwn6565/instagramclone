@@ -33,16 +33,21 @@ function StoryModal() {
     
       if (findIndex === firstIndex && findIndex === lastIndex) {
         setCurrentUrl(stories.stories.stories[findIndex]);
+        console.log("hit 1")
       } else if (findIndex === firstIndex && findIndex !== lastIndex) {
+        console.log("hit 2")
         setCurrentUrl(stories.stories.stories[findIndex]);
         setNextStoryUrl(stories.stories.stories[findIndex + 1][0].url);
         const resultCheckVideoNext = checkVideo(
+          
           stories.stories.stories[findIndex + 1][0].url
         );
         if (resultCheckVideoNext) {
+          console.log("hit 3");
           setNextVideo(true);
         }
       } else if (findIndex !== firstIndex && findIndex !== lastIndex) {
+        console.log("hit 4");
         setPrevStoryUrl(stories.stories.stories[findIndex - 1][0].url);
         setCurrentUrl(stories.stories.stories[findIndex]);
         setNextStoryUrl(stories.stories.stories[findIndex + 1][0].url);
@@ -92,27 +97,42 @@ function StoryModal() {
   }
 
   const checkVideo =(url)=>{
-  const lastSegment = url.split(".").pop();
-  if (
-    lastSegment === "mp4" ||
-    lastSegment === "mov" ||
-    lastSegment === "wmv" ||
-    lastSegment === "avi" ||
-    lastSegment === "avchd" 
-    ) {
-    return true;
-  }
+    const videoFileExtension = [".mp4",".mov",".wmv",".avi",".avchd"]
+    let videoIsTrue = false;
+    console.log(url)
+    videoFileExtension.map((extenstion)=>{
+      
+      const containExtenstion = url.includes(extenstion);
+      if(containExtenstion){
+        
+        videoIsTrue =true
+      }
+    })
+    return videoIsTrue;
+  
+  // const lastSegment = url.includes(videoFileExtension[0]);
+  
+  // if (
+  //   lastSegment === "mp4" ||
+  //   lastSegment === "mov" ||
+  //   lastSegment === "wmv" ||
+  //   lastSegment === "avi" ||
+  //   lastSegment === "avchd" 
+  //   ) {
+  //     console.log("hit6")
+  //   return true;
+  // }
   
   }
   
 
   return (
     <>
-      {console.log(currentUrl)}
+      {/* {console.log(currentUrl)}
       {console.log(prevStoryUrl)}
       {console.log(nextStoryUrl)}
-      {console.log(prevVideo)}
-      {console.log(nextVideo)}
+      {console.log("hit114"+prevVideo)}
+      {console.log("hit115"+nextVideo)} */}
 
       <div className="story-modal-backdrop" />
       {currentUrl && (

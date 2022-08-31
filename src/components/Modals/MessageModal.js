@@ -1,19 +1,14 @@
-import { Avatar, Button } from "@mui/material";
 import React, { useRef, useState } from "react";
-
 import Card from "./Card";
 import "./MessageModal.css";
-import { FaPhotoVideo } from "react-icons/fa";
+
 import { generateBase64FromImage } from "../Utils/Image";
-import LargeCard from "./LargeCard";
 import { BiArrowBack } from "react-icons/bi";
-import { IoCopyOutline } from "react-icons/io5";
 import AddImageModal from "./AddImageModal";
-import { IoIosArrowDropleftCircle } from "react-icons/io";
-import { IoIosArrowDroprightCircle } from "react-icons/io";
-import { BsDot } from "react-icons/bs";
-import { BiMap } from "react-icons/bi";
-import { AiOutlineDown } from "react-icons/ai";
+
+import MessageModalFirstPage from "./MessageModalFirstPage";
+import MessageModalSecondPage from "./MessageModalSecondPage";
+import MessageModalLastPage from "./MessageModalLastPage";
 
 const MessageModal = ({ title, message, onConfirm }) => {
   const [imageArray, setImageArray] = useState([]);
@@ -139,70 +134,23 @@ const MessageModal = ({ title, message, onConfirm }) => {
             <div className="image-preview-first-page-header"></div>
           </header>
           {page === 0 && (
-            <>
-              <FaPhotoVideo className="modal-photo-video" />
-              <div className="modal-content">
-                <p>{message}</p>
-              </div>
-              <footer className="actions">
-                <Button onClick={handleClick}>Select From Computer</Button>
-
-                <input
-                  ref={hiddenFileInput}
-                  type="file"
-                  onChange={handleChange}
-                  name="image"
-                  accept="image/png, image/jpg, image/gif, image/jpeg"
-                />
-              </footer>
-            </>
+            <MessageModalFirstPage
+              message={message}
+              handleClick={handleClick}
+              hiddenFileInput={hiddenFileInput}
+              handleChange={handleChange}
+            />
           )}
           {page === 1 && (
             <>
-              {imageArray && (
-                <>
-                  <div className="preview-image-container">
-                    <IoIosArrowDropleftCircle
-                      className={
-                        currentPage !== 0
-                          ? "preview-image-left-icon"
-                          : "inactive-image-left-icon"
-                      }
-                      onClick={movePrevImage}
-                    />
-                    <img
-                      src={
-                        imageArray[currentPage].split("uploadedCurrentDate")[0]
-                      }
-                      alt="uploadedImage"
-                      className="preview-image"
-                    />
-                    <div className="copy-out-line-background">
-                      <IoCopyOutline
-                        className="preview-image-multiple-image-icon"
-                        onClick={extendImageModalHandler}
-                      />
-                    </div>
-                    <IoIosArrowDroprightCircle
-                      className={
-                        currentPage === imageArray.length - 1
-                          ? "inactive-image-right-icon"
-                          : "preview-image-right-icon"
-                      }
-                      onClick={moveNextImage}
-                    />
-                  </div>
-                  <div className="preview-image-dot-icons-container">
-                    {imageArray.map((dot, index) =>
-                      index === currentPage ? (
-                        <BsDot className="preview-image-dot-icon blue" />
-                      ) : (
-                        <BsDot className="preview-image-dot-icon white" />
-                      )
-                    )}
-                  </div>
-                </>
-              )}
+              <MessageModalSecondPage
+                imageArray={imageArray}
+                currentPage={currentPage}
+                movePrevImage={movePrevImage}
+                extendImageModalHandler={extendImageModalHandler}
+                moveNextImage={moveNextImage}
+              />
+
               {extendImageModal && (
                 <AddImageModal
                   imageArray={imageArray}
@@ -219,84 +167,18 @@ const MessageModal = ({ title, message, onConfirm }) => {
           )}
         </Card>
       )}
+      
       {page === 2 && (
-        <LargeCard>
-          <header className="image-preview-page-two-head">
-            <BiArrowBack
-              className="image-priview-back-arrow"
-              onClick={moveToPrevPage}
-            />
-
-            <h2>Create new post</h2>
-            <span className="image-preview-share-btn" onClick={uploadImage}>
-              Share
-            </span>
-            {/* <span onClick={componentDidMount}>get location</span> */}
-          </header>
-          <div className="image-preveiw-last-page">
-            <div className="preview-image-container">
-              <IoIosArrowDropleftCircle
-                className={
-                  currentPage !== 0
-                    ? "preview-image-left-icon"
-                    : "inactive-image-left-icon"
-                }
-                onClick={movePrevImage}
-              />
-              <img
-                src={imageArray[currentPage].split("uploadedCurrentDate")[0]}
-                alt="uploadedImage"
-                className="preview-image"
-              />
-              <IoIosArrowDroprightCircle
-                className={
-                  currentPage === imageArray.length - 1
-                    ? "inactive-image-right-icon"
-                    : "preview-image-right-icon"
-                }
-                onClick={moveNextImage}
-              />
-              <div className="preview-image-dot-icons-second-page-container">
-                {imageArray.map((dot, index) =>
-                  index === currentPage ? (
-                    <BsDot className="preview-image-dot-icon blue" />
-                  ) : (
-                    <BsDot className="preview-image-dot-icon white" />
-                  )
-                )}
-              </div>
-            </div>
-            <div className="preview-image-content">
-              <div className="preview-image-content-avatar">
-                <Avatar />
-                <span className="preview-image-content-options">ivan4334</span>
-              </div>
-              <textarea
-                placeholder="type here..."
-                className="preview-image-textarea"
-                onChange={contentsHandler}
-              />
-              <div className="hr"></div>
-              <div className="preview-image-content-options">
-                Add location
-                <BiMap className="preview-image-map-icon" />
-              </div>
-              <div className="hr"></div>
-              <div className="preview-image-content-options">
-                Accessibility
-                <AiOutlineDown className="preview-image-down-arrow-icon" />
-              </div>
-              <div className="hr"></div>
-              <div className="preview-image-content-options">
-                Advance setting
-                <AiOutlineDown className="preview-image-down-arrow-icon" />
-              </div>
-              <div className="hr"></div>
-            </div>
-
-            <div />
-          </div>
-        </LargeCard>
+        <MessageModalLastPage
+          moveToPrevPage={moveToPrevPage}
+          uploadImage={uploadImage}
+          currentPage={currentPage}
+          movePrevImage={movePrevImage}
+          imageArray={imageArray}
+          moveNextImage={moveNextImage}
+          contentsHandler={contentsHandler}
+        />
+        
       )}
     </div>
   );

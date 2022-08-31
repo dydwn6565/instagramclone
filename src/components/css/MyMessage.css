@@ -36,7 +36,7 @@
 }
 
 .my-message-message-page {
-    height: 74vh;
+    /* height: 74vh; */
     width: 15vw;
     border-right: 0.5px solid lightgrey;
 }
