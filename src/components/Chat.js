@@ -26,6 +26,8 @@ function Chat({ setBlurBackground }) {
   const location = useLocation();
   const ENDPOINT = "localhost:8080";
   const hiddenFileInput = useRef(null);
+  const userid =2;
+  const username = "yong";
   
 
   useEffect(() => {
@@ -33,25 +35,26 @@ function Chat({ setBlurBackground }) {
     socket = io(ENDPOINT);
     const data = location.state;
     
-    const { socketId, randomRoomNumber, clickedUserList, newChat } = data;
+    const { roomtableid, randomRoomNumber, clickedUserList, newChat } = data;
    
     setRoom(randomRoomNumber);
     setNameList(clickedUserList);
     console.log(clickedUserList)
-    setCurrentSocketId(socketId);
-    
+    // setCurrentSocketId(socketId);
 
     if (newChat) {
       console.log("line46" + socket.id);
       socket.emit(
         "join",
-        {socketId, clickedUserList, randomRoomNumber },
+        { userid, clickedUserList, randomRoomNumber },
         ({ error }) => {}
       );
+
     } else {
      
-      console.log(socketId);
-      socket.emit("rejoin", { socketId, currentRoomNumber: randomRoomNumber });
+      // console.log(socketId);
+      console.log(roomtableid);
+      socket.emit("rejoin", { roomtableid, randomRoomNumber });
     }
       
 
@@ -79,9 +82,9 @@ function Chat({ setBlurBackground }) {
 
     socket.on("rejoinMessage", (message) => {
       
-      setMessages([...message]);
+      setMessages([...messages,...message]);
     });
-  }, [messages]);
+  }, []);
 
   const sendMessage = (event) => {
     event.preventDefault();
@@ -89,12 +92,7 @@ function Chat({ setBlurBackground }) {
     
     if (message) {
       
-        socket.emit(
-          "sendMessage",
-           currentSocketId,
-          message,
-          () => setMessage("")
-        );
+        socket.emit("sendMessage", {room,userid, message}, () => setMessage(""));
       }
     }
   
@@ -119,9 +117,11 @@ function Chat({ setBlurBackground }) {
     const fileUploaded = event.target.files[0];
 
     if (fileUploaded) {
+      
       generateBase64FromImage(fileUploaded)
         .then((b64) => {
-          socket.emit("sendMessage",currentSocketId, b64, () => setMessage(""));
+          // let message= b64;
+          socket.emit("sendImage", { room, userid, b64 }, () => setMessage(""));
           // setMessage((current) => [...current, b64]);
         })
         .catch((e) => {
@@ -138,13 +138,13 @@ function Chat({ setBlurBackground }) {
         </>
       )}
       <Header setBlurBackground={setBlurBackground} />
-      {console.log(messages[0])}
-      {console.log(messages)}
+
       <div className="my-message">
         <div>
           <div className="my-message-message-chat-content">
             <div className="my-message-chat-head">
               <Avatar className="my-message-chat-head-avatar" />
+              {console.log(nameList)}
               {nameList.map((user) => (
                 <>
                   <div key={user.id} className="my-message-chat-head-id">
@@ -158,15 +158,24 @@ function Chat({ setBlurBackground }) {
               {messages &&
                 messages.map((item) => (
                   <>
-                    {item.name === "admin" ? (
+                    {item.username === username ? (
                       <div className="my-message-chat-send">
                         <div>
                           <div className="my-message-chat-message">
-                            {item.name}
+                            {item.username}
                           </div>
 
-                          <div className="my-message-chat-message">
-                            {item.text}
+                          <div className="my-message-chat-message-text">
+                            {item.text.split(",")[0] ===
+                            "data:image/jpeg;base64" ? (
+                              <img
+                                src={item.text}
+                                alt=""
+                                className="my-message-chat-image"
+                              />
+                            ) : (
+                              <div>{item.text}</div>
+                            )}
                           </div>
                         </div>
                         <Avatar />
@@ -177,7 +186,7 @@ function Chat({ setBlurBackground }) {
                         <div>
                           {console.log(item.name)}
                           {console.log(item.text)}
-                          <div>{item.name}</div>
+                          <div>{item.username}</div>
                           {item.text.split(",")[0] ===
                           "data:image/jpeg;base64" ? (
                             <img

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
@@ -10,9 +10,9 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 import Avatar from "@mui/material/Avatar";
 import "../components/css/Header.css";
 
-import MessageModal from "./UI/MessageModal";
+import MessageModal from "./Modals/MessageModal";
 import LikeActivity from "./LikeActivity";
-import HeaderProfileModal from "./UI/HeaderProfileModal";
+import HeaderProfileModal from "./Modals/HeaderProfileModal";
 import { Link } from "react-router-dom";
 
 function Header({ setBlurBackground }) {

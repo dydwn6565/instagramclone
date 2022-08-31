@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "../profilePage/ProfileTitle.css";
 import BrightnessLowRoundedIcon from "@mui/icons-material/BrightnessLowRounded";
 import { Link } from "react-router-dom";
-import ProfileEditModal from "../UI/ProfileEditModal";
+import ProfileEditModal from "../Modals/ProfileEditModal";
 function ProfileTitle() {
   const [profileEditModal,setProfileEditModal] = useState(false);
 

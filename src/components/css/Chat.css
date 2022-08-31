@@ -72,6 +72,7 @@
 
 .my-message-chat-receive {
     display: flex;
+    align-items: center;
     padding: 2%;
 }
 
@@ -81,8 +82,10 @@
 
 .my-message-chat-send {
     display: flex;
-    margin-left: 16vw;
-    /* float: right; */
+    margin-left: 23vw;
+    align-items: center;
+    margin-top:1vh;
+    float: right;
     padding: 2%;
 }
 
@@ -102,14 +105,13 @@
     display: none;
 }
 
-.image-picture-icon{
-    width:2vw;
+.image-picture-icon {
+    width: 2vw;
     height: 3vh;
-    margin-top:1vh;
-
+    margin-top: 1vh;
 }
 
-.my-message-chat-image{
-    width:10vw;
-    height:15vh;
+.my-message-chat-image {
+    width: 10vw;
+    height: 15vh;
 }

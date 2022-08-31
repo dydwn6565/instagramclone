@@ -41,7 +41,7 @@
 }
 
 .extended-small-image-cross-icon {
-    /* position:absolute; */
+    
     margin-left: -2.0vw;
     margin-top: 1vh;
     width: 2vw;
@@ -51,11 +51,11 @@
 
 .preview-small-image-right-icon {
     position: absolute;
-    /* margin-left: 10vw; */
+    
     margin-top: 3.5vh;
     width: 3vw;
     height: 3vh;
-    /* z-index:102 */
+    
 }
 
 .preview-small-image-left-icon {

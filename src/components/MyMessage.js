@@ -9,8 +9,8 @@ import { GiCircle } from "react-icons/gi";
 import { IoPaperPlaneOutline } from "react-icons/io5";
 
 import { Avatar } from "@mui/material";
-import MyMessageModal from "./UI/MyMessageModal";
-import { CollectionsBookmarkOutlined, SoupKitchen } from "@mui/icons-material";
+import MyMessageModal from "./Modals/MyMessageModal";
+
 import { Link } from "react-router-dom";
 
 const socket = io.connect("http://localhost:8080");
@@ -18,11 +18,11 @@ const socket = io.connect("http://localhost:8080");
 function MyMessage({ setBlurBackground }) {
   const [sendMessage, setSendMessage] = useState(false);
   const [message, setMessage] = useState("");
-  const [messageRecevied, setMessageReceived] = useState("");
+  // const [messageRecevied, setMessageReceived] = useState("");
   const [roomList, setRoomList] = useState([]);
 
-  const [selectedUserList, setSelectedUserList] = useState([]);
-
+  // const [selectedUserList, setSelectedUserList] = useState([]);
+const userid=2;
   const messageModalHandler = () => {
     setSendMessage((prevState) => !prevState);
   };
@@ -33,15 +33,15 @@ function MyMessage({ setBlurBackground }) {
     try {
       const chatRoomList = async () => {
         const roomListData = await fetch(
-          "http://localhost:8080/chat/getUserRoom/yong",
+          `http://localhost:8080/chat/getUserRoom/${userid}`,
           {
             method: "GET",
           }
         );
         
-        if (roomListData.status === 200) {
+        if (roomListData.status === 201) {
           const roomJson = await roomListData.json();
-       
+          console.log(roomJson)
           setRoomList(roomJson);
         }
       };
@@ -91,20 +91,20 @@ function MyMessage({ setBlurBackground }) {
             {roomList &&
               roomList.map((chatRoom) => (
                 <>
-                  
+                  {console.log(chatRoom.id)}
                   <div className="my-message-message">
                     <Avatar></Avatar>
                     <div>
                       <Link
                         state={{
-                          socketId: chatRoom.id,
-                          randomRoomNumber: chatRoom.room,
-                          clickedUserList: ["yong"],
+                          roomtableid: chatRoom.id,
+                          randomRoomNumber: chatRoom.roomnumber,
+                          clickedUserList: [chatRoom.username],
                           newChat: false,
                         }}
-                        to={`/myMessage/${chatRoom.room}`}
+                        to={`/myMessage/${chatRoom.roomnumber}`}
                       >
-                        {chatRoom.room}
+                        {chatRoom.roomnumber}
                       </Link>
                     </div>
                   </div>

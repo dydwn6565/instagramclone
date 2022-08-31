@@ -8,7 +8,7 @@ import { MdClose } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { io } from "socket.io-client";
-// import io from "socket.io-client";
+
 let socket;
 function MyMessageModal({ messageModalHandler }) {
   const [userList, setUserList] = useState("");
@@ -121,7 +121,7 @@ function MyMessageModal({ messageModalHandler }) {
 
   return (
     <>
-      {console.log(socket)}
+      
       <div
         className="my-message-modal-backdrop"
         onClick={messageModalHandler}

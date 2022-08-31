@@ -100,7 +100,7 @@ function Login() {
         );
 
         insertUserLocation(jsonUser.id);
-        // linkToMain.current.click();
+        linkToMain.current.click();
       }
     } catch (error) {
       alert(error.message);
