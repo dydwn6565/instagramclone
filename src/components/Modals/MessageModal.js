@@ -21,11 +21,15 @@ const MessageModal = ({ title, message, onConfirm }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [content, setContent] = useState("");
   const [location, setLocation] = useState({});
+
+
+  
   const extendImageModalHandler = () => {
     setExtendImageModal((prev) => !prev);
   };
   const hiddenFileInput = useRef(null);
   const clicktoMain = useRef(null);
+  const resetImages = useRef(null);
 
   const handleClick = (event) => {
     hiddenFileInput.current.click();
@@ -59,6 +63,10 @@ const MessageModal = ({ title, message, onConfirm }) => {
     });
   }
 
+  const resetArrayes=()=>{
+  setImageArray([]);
+  setFileArray([]);
+  }
   const moveToPageTwo = () => {
     setPage((prevPage) => prevPage + 1);
   };
@@ -96,6 +104,10 @@ const MessageModal = ({ title, message, onConfirm }) => {
 
   const moveToPrevPage = () => {
     setPage((prevPage) => prevPage - 1);
+    if(page ===1){
+      resetArrayes();
+    }
+   console.log(page)
   };
 
   const movePrevImage = () => {
@@ -112,7 +124,9 @@ const MessageModal = ({ title, message, onConfirm }) => {
 
   return (
     <div>
-      {console.log(fileArray)}
+      {console.log(page)}
+      {/* {console.log(fileArray)} */}
+      {/* {page === 0 && <div ref={resetImages} onClick={resetArrayes}></div>} */}
       <div className="modal-backdrop" onClick={onConfirm} />
       <Link ref={clicktoMain} to="/" />
       {(page === 0 || page === 1) && (
