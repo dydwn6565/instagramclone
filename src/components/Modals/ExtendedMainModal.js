@@ -26,12 +26,6 @@ function ExtendedMainModal({
       <div>
         <div className="extended-main-modal-main">
           <ImageHander images={images} />
-          {/* <div className="extended-main-modal-img">
-            <img
-              src="https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-mont-st-michel.jpg"
-              alt="mong"
-            />
-          </div> */}
 
           <div className="extended-main-modal-info">
             <div className="extended-main-modal-title">
@@ -56,16 +50,25 @@ function ExtendedMainModal({
               </div>
             </div>
             <div className="extended-main-modal-info-content-container">
-              <div className="extended-main-modal-info-content">
+              <div className="extended-main-modal-info-content-comment">
                 {commentList.map((comment, index) => (
                   <>
-                    <Avatar></Avatar>
-                    <span key={comment.userid + index}>{comment.username}</span>
-                    <span>{comment.comment}</span>
+                    <div className="extended-main-modal-info-content-comment-inside">
+                      <Avatar></Avatar>
+                      <div>
+                        <span
+                          className="extended-main-modal-info-content-comment-inside-id "
+                          key={comment.userid + index}
+                        >
+                          {comment.username}
+                        </span>
+                        <span>{comment.comment}</span>
+                      </div>
+                    </div>
                   </>
                 ))}
               </div>
-              <AiOutlineHeart className="extended-main-modal-info-heart-icon" />
+              {/* <AiOutlineHeart className="extended-main-modal-info-heart-icon" /> */}
             </div>
             <div className="extended-main-modal-info-bottom">
               <div className="hr"></div>

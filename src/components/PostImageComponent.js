@@ -166,7 +166,7 @@ function PostImageComponent({ images, content, id, postid }) {
         <div className="main-page-info">
           <div>lovely_min08 likes </div>
           <div>{content}</div>
-          <div onClick={extendComment}>See comments</div>
+          <div className="see-comments" onClick={extendComment}>See comments</div>
         </div>
         <hr />
         {/* <div className="main-page-comment"> */}

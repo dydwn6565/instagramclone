@@ -9,6 +9,7 @@ import AddImageModal from "./AddImageModal";
 import MessageModalFirstPage from "./MessageModalFirstPage";
 import MessageModalSecondPage from "./MessageModalSecondPage";
 import MessageModalLastPage from "./MessageModalLastPage";
+import { Link } from "react-router-dom";
 
 const MessageModal = ({ title, message, onConfirm }) => {
   const [imageArray, setImageArray] = useState([]);
@@ -24,6 +25,7 @@ const MessageModal = ({ title, message, onConfirm }) => {
     setExtendImageModal((prev) => !prev);
   };
   const hiddenFileInput = useRef(null);
+  const clicktoMain = useRef(null);
 
   const handleClick = (event) => {
     hiddenFileInput.current.click();
@@ -88,6 +90,7 @@ const MessageModal = ({ title, message, onConfirm }) => {
       //   "Content-Type": "multipart/form-data",
       // },
     });
+    clicktoMain.current.click();
     console.log(ImageData.status);
   };
 
@@ -111,6 +114,7 @@ const MessageModal = ({ title, message, onConfirm }) => {
     <div>
       {console.log(fileArray)}
       <div className="modal-backdrop" onClick={onConfirm} />
+      <Link ref={clicktoMain} to="/" />
       {(page === 0 || page === 1) && (
         <Card className="modal">
           <header className={page === 0 ? "modal-header" : ""}>
@@ -167,7 +171,7 @@ const MessageModal = ({ title, message, onConfirm }) => {
           )}
         </Card>
       )}
-      
+
       {page === 2 && (
         <MessageModalLastPage
           moveToPrevPage={moveToPrevPage}
@@ -178,7 +182,6 @@ const MessageModal = ({ title, message, onConfirm }) => {
           moveNextImage={moveNextImage}
           contentsHandler={contentsHandler}
         />
-        
       )}
     </div>
   );

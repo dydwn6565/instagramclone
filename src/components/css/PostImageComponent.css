@@ -39,7 +39,7 @@
     margin-left: -250px;
     margin-top: -220px;
     cursor: pointer;
-    z-index: 100;
+    /* z-index: 100; */
 }
 
 .main-page-image-right-icon {
@@ -51,7 +51,7 @@
     /* margin-left: 18vw; */
     /* margin-top: 18vh; */
     cursor: pointer;
-    z-index: 100;
+    /* z-index: 100; */
 }
 
 .inactive-main-image-right-icon,
@@ -81,7 +81,6 @@
 }
 
 .main-page-heart-icon {
-    
     margin-left: 1%;
     color: red
 }
@@ -101,7 +100,9 @@
     display: flex;
 }
 
-.comment-button-inactive {
+.see-comments {
+    cursor:pointer
+}.comment-button-inactive {
     margin-right: 20px;
     color: lightblue;
 }

@@ -33,9 +33,9 @@ function StoryModal() {
     
       if (findIndex === firstIndex && findIndex === lastIndex) {
         setCurrentUrl(stories.stories.stories[findIndex]);
-        console.log("hit 1")
+        
       } else if (findIndex === firstIndex && findIndex !== lastIndex) {
-        console.log("hit 2")
+        
         setCurrentUrl(stories.stories.stories[findIndex]);
         setNextStoryUrl(stories.stories.stories[findIndex + 1][0].url);
         const resultCheckVideoNext = checkVideo(
@@ -43,11 +43,11 @@ function StoryModal() {
           stories.stories.stories[findIndex + 1][0].url
         );
         if (resultCheckVideoNext) {
-          console.log("hit 3");
+          
           setNextVideo(true);
         }
       } else if (findIndex !== firstIndex && findIndex !== lastIndex) {
-        console.log("hit 4");
+        
         setPrevStoryUrl(stories.stories.stories[findIndex - 1][0].url);
         setCurrentUrl(stories.stories.stories[findIndex]);
         setNextStoryUrl(stories.stories.stories[findIndex + 1][0].url);

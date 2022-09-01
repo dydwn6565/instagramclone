@@ -183,9 +183,9 @@ const createUser=async ()=>{
       </div>
       <div className="sign-up-login">
         Do you have an account?{" "}
-        <a href="/login" alt="text">
+        {/* <a href="/login" alt="text"> */}
           <Link to="/login">Login</Link>
-        </a>
+        {/* </a> */}
       </div>
       <div className="sign-up-please-download-title">Please download app</div>
       <div className="login-images">
