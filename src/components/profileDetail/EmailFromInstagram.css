@@ -1,0 +1,57 @@
+.email-from-instagram {
+    display: flex;
+    width: 1000px;
+    height: 800px;
+    border: 0.5px solid lightgrey;
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+.email-from-instagram-main {
+    width: 800px;
+    margin-left: -120px;
+    padding:2%;
+}
+
+.email-from-instagram-main-title {
+    margin: 20px 0 20px 0;
+    font-size: 20px;
+}
+
+.email-from-instagram-main-buttons>button {
+    background-color: white;
+    border: 0.5px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 20px;
+    width: 250px;
+    margin-bottom: 30px;
+}
+
+.email-from-instagram-main-content {
+    margin-bottom: 20px;
+}
+
+.email-from-instagram-main-content>a {
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.email-from-instagram-main-content-login {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.email-from-instagram-main-content-login-time {
+    font-size: 13px;
+}
+
+.email-from-instagram-main-content-email-from {
+    font-size: 12px;
+}
+
+.inactive {
+    color: lightgrey;
+    border-bottom: 0.5px solid lightgrey !important;
+}

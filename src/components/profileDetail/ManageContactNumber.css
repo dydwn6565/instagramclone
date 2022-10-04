@@ -1,0 +1,45 @@
+.manage-contact-number {
+    display: flex;
+    width: 1000px;
+    height: 800px;
+    border: 0.5px solid lightgrey;
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+.manage-contact-number-main {
+    width: 800px;
+    margin-left: -120px;
+    padding: 2%;
+}
+
+.manage-contact-number-main-second-div {
+    margin-top: 20px;
+}
+
+.manage-contact-number-main-contact-title {
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+.manage-contact-number-main-contact-title>span {
+    font-weight: bold;
+}
+
+.manage-contact-number-delete-bt {
+    float: right;
+    text-decoration: none;
+}
+
+.manage-contact-number-main-contact-contents {
+    margin: 20px 0 20px 0px;
+}
+
+.manage-contact-number-main-contact-bt {
+    margin-top: 10px;
+    color: white;
+    background-color: #54c1f1;
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+}

@@ -1,0 +1,117 @@
+.main-title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1%;
+}
+
+.main-horiz-oulined-icon {
+    margin-left: 370px;
+}
+
+.main-image {
+    width: 550px;
+}
+
+.main-title {
+    width: 550px;
+    align-items: center;
+    padding: 1%;
+    display: flex;
+}
+
+.main-avatar {
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+.main {
+    border: 0.5px solid lightgrey;
+    width: 550px;
+    margin-left: -10%;
+    margin-top: 0.1px;
+}
+
+.main-page-image-left-icon {
+    width: 3vw;
+    height: 3vh;
+    position: absolute;
+    margin-left: -250px;
+    margin-top: -220px;
+    cursor: pointer;
+    /* z-index: 100; */
+}
+
+.main-page-image-right-icon {
+    width: 3vw;
+    height: 3vh;
+    position: absolute;
+    margin-left: 250px;
+    margin-top: -220px;
+    /* margin-left: 18vw; */
+    /* margin-top: 18vh; */
+    cursor: pointer;
+    /* z-index: 100; */
+}
+
+.inactive-main-image-right-icon,
+.inactive-main-page-image-left-icon {
+    display: none;
+}
+
+.main-image-dot-icon {
+    width: 3vw;
+    height: 3vh;
+    margin-top: -4vh;
+    margin-left: -0.5vw;
+}
+
+.image-dot-container {
+    display: flex;
+    justify-content: center;
+}
+
+.main-page-icons-container {
+    width: 550px;
+    align-items: center;
+}
+
+.main-page-icons {
+    margin-left: 1%;
+}
+
+.main-page-heart-icon {
+    margin-left: 1%;
+    color: red
+}
+
+.main-page-bookmark-icon {
+    float: right;
+    margin-right: 1%;
+}
+
+.main-page-info {
+    margin-left: 1%;
+}
+
+.main-page-comment {
+    width: 550px;
+    padding: 1%;
+    display: flex;
+}
+
+.see-comments {
+    cursor:pointer
+}.comment-button-inactive {
+    margin-right: 20px;
+    color: lightblue;
+}
+
+.comment-button-active {
+    color: #10d0ff;
+    margin-right: 20px;
+}
+
+.main-page-comment>span {
+    margin-left: 1%;
+}

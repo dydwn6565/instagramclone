@@ -1,16 +1,30 @@
+import { Box, Grid } from '@mui/material';
+import { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Main from './components/Main';
 import Side from './components/Side';
-import Stories from './components/Stories';
+import StoriesActivity from "./components/StoriesActivity";
 
 function App() {
+  const [blurBackground,setBlurBackground] = useState(false);
   return (
-    <div className="App">
-      <Header />
-      <Stories />
-      <Main />
-      <Side />
+    <div className={blurBackground ? "App" : ""}>
+      <Header setBlurBackground={setBlurBackground} />
+
+      <div className="main-page-grid">
+        <Box>
+          <Grid container>
+            <Grid item xs={6} md={6}>
+              <StoriesActivity />
+              <Main setBlurBackground={setBlurBackground} />
+            </Grid>
+            <Grid item xs={4} sm={4} md={4}>
+              <Side />
+            </Grid>
+          </Grid>
+        </Box>
+      </div>
     </div>
   );
 }

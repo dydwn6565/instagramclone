@@ -1,0 +1,11 @@
+.profile-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-footer > div{
+    margin-left: 5px;
+}.first {
+    margin-top: 55vh;
+}

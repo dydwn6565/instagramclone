@@ -1,0 +1,111 @@
+.account-edit {
+    display: flex;
+    width: 1000px;
+    height: 800px;
+    border: 0.5px solid lightgrey;
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+.account-edit-profile-container {
+    width: 800px;
+}
+
+.account-edit-profile {
+    display: flex;
+    margin-top: 15px;
+}
+
+.account-edit-profile-id {
+    margin-left: 15px;
+}
+
+.account-change-pitcure {
+    color: #10d0ff;
+}
+
+.account-edit-name {
+    display: flex;
+    padding: 1%;
+    margin-top: 15px;
+}
+
+.account-edit-user-name {
+    margin-right: 10px;
+}
+
+.small-size-explanation {
+    font-size: 10px;
+    margin-left: 3.5vw;
+    width: 10vw;
+}
+
+.account-edit-username-username {
+    margin-right: 10px;
+    margin-left: -35px;
+}
+
+.account-edit-website {
+    margin-right: 10px;
+    margin-left: -18px;
+}
+
+.account-edit-introduce {
+    margin-right: 10px;
+    margin-left: -32px;
+}
+
+.account-edit-email {
+    margin-right: 10px;
+    margin-left: -5px;
+}
+
+.account-edit-phone-number {
+    margin-right: 10px;
+    margin-left: -73px;
+}
+
+.account-edit-gender {
+    margin-right: 10px;
+    margin-left: -20px;
+}
+
+.account-edit-recommend {
+    margin-right: 5px;
+    margin-left: -175px;
+}
+
+.account-edit-recommend-explaination {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.account-edit-user-name-more-info {
+    text-decoration: none;
+}
+
+.account-edit-sumbit-button {
+    margin-right: 30px;
+    background-color: #10d0ff;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    height: 30px;
+    margin-left: 40px;
+}
+
+.account-edit-inactive-button {
+    color: #10d0ff;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.account-edit-name>input[type="text"] {
+    width: 400px;
+    height: 20px;
+}
+
+.account-edit-name>textarea {
+    width: 400px
+}
+

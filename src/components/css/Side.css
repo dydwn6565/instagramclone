@@ -1,0 +1,12 @@
+.side-profile,
+.side-footer {
+    width: 400px;
+    
+    margin-left: -10px;
+    margin-top: 25px;
+    
+}
+
+.side-footer{
+    margin-top: 12%;
+}

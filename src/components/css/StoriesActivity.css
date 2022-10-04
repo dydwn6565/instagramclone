@@ -1,0 +1,34 @@
+.stories {
+    display: flex;
+    margin-top: 15px;
+    align-items: center;
+    border: 0.5px solid lightgrey;
+    width: 550px;
+    margin-left: 4.3vw;
+    margin-bottom: 2%;
+}
+
+.stories-block {
+    display: flex;
+    align-items: center;
+}
+
+.stories-avatar>div {
+    margin-left: 3%
+}
+
+.stories-avatar-list {
+    display: flex;
+    align-items: center;
+}
+
+.storeis-last {
+    margin-right: 400px;
+}
+
+.stories-avatar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:10px 10px 0px 10px;
+}

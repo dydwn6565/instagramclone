@@ -1,0 +1,27 @@
+.push-alarm {
+    display: flex;
+    width: 1000px;
+    height: 800px;
+    border: 0.5px solid lightgrey;
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+.push-alarm-main {
+    width: 800px;
+    margin-left: -80px;
+}
+
+.push-alarm-main>div {
+    margin: 30px 0 30px 0px;
+    cursor: pointer;
+}
+
+.push-alarm-icon {
+    float: right;
+}
+
+.push-alarm-like {
+    display: flex;
+    flex-direction: column;
+}

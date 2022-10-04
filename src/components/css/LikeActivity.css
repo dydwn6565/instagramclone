@@ -1,0 +1,42 @@
+.like-activity {
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0.0.26);
+    position: fixed;
+    top: 6vh;
+    right: 23vw;
+    width: 20vw;
+    height: 16vh;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.like-backdrop-activity {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    
+}
+
+.heart-icon {
+    width:7vw;
+    height:7vh;
+    margin-left:6.5vw;
+    margin-top:2vh;
+    
+}
+
+.like-activity-comment {
+    
+    font-size: 13px;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.like-activity-comment>div {
+    padding: 1px;
+}

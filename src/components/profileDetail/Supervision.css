@@ -1,0 +1,28 @@
+.supervision {
+    display: flex;
+    width: 1000px;
+    height: 800px;
+    border: 0.5px solid lightgrey;
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+.supervision-main {
+    width: 800px;
+    margin-top: 20px;
+    padding: 2%;
+    margin-left: -80px;
+}
+
+.supervision-main-title {
+    margin: 10px 0px 20px 0;
+    font-size: 20px;
+}
+
+.supervision-main-content {
+    margin: 10px 0px 10px 0px;
+}
+
+.supervision-main-icon {
+    float: right;
+}

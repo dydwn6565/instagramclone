@@ -1,85 +1,127 @@
-import React, { useState } from 'react'
-import Avatar from "@mui/material/Avatar";
-import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-import ChatBubbleOutlineSharpIcon from "@mui/icons-material/ChatBubbleOutlineSharp";
-import SendSharpIcon from "@mui/icons-material/SendSharp";
-import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
-import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
-import { Box, Button, ButtonGroup, Modal } from '@mui/material';
+import React, { useEffect, useState } from "react";
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  pt: 2,
-  px: 4,
-  pb: 3,
-};
+import { useSelector } from "react-redux";
+import "./css/Main.css";
 
+import PostImageComponent from "./PostImageComponent";
 
-function Main() {
-    const [open, setOpen] = useState(false);
-    const handleOpen = () => {
-      setOpen(true);
+// import video from "./video.mp4";
+
+function Main({ setBlurBackground }) {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+
+    // console.log(accessToken);
+    if (accessToken) {
+      const userValidationCheck = async () => {
+        const token = await fetch("http://localhost:8080", {
+          method: "POST",
+
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        const data = await token.json();
+        console.log(data.message);
+        if (data.message === "jwt expired") {
+          const renewToken = async () => {
+            const refreshToken = localStorage.getItem("refreshToken");
+            const refreshedToken = await fetch("http://localhost:8080/token", {
+              method: "POST",
+              headers: {
+                "Content-type": "application/json; charset=UTF-8",
+              },
+              body: JSON.stringify({
+                token: refreshToken,
+              }),
+            });
+            const refreshedData = await refreshedToken.json();
+            localStorage.setItem("accessToken", refreshedData.accessToken);
+            console.log(refreshedData);
+          };
+          renewToken();
+        }
+      };
+      userValidationCheck();
+    } else {
+      window.location.href = "/login";
+    }
+  }, []);
+
+  useEffect(() => {
+    const getPosts = async () => {
+      try {
+        const postsData = await fetch("http://localhost:8080/retriev/posts", {
+          method: "GET",
+        });
+        if (postsData.status === 201) {
+          const postsJson = await postsData.json();
+
+          setPosts(postsJson);
+        }
+      } catch (error) {
+        alert(error.message);
+      }
     };
-    const handleClose = () => {
-      setOpen(false);
-    };
+    getPosts();
+  }, []);
+
+  const userid = useSelector((state) => state.user);
+
+  // const sendingFile = async(e) =>{
+  //   setTestFile(e.target.files[0])
+  //   console.log(e.target);
+  //   console.log(testFile)
+  //   const dataForm = new FormData();
+  //   dataForm.append("file", e.target.files[0]);
+  //   dataForm.append("content", "hihi");
+  //   dataForm.append("lat", 49.26356);
+  //   dataForm.append("long", -123.18681);
+  //   dataForm.append("userid", 2);
+
+  //   await fetch("http://localhost:8080/post",{
+  //     method:"POST",
+  //     body:dataForm,
+  // })
+  // }
+
+  //  const receivingFile = async(e) =>{
+
+  //   // const dataForm = new FormData();
+
+  //   // dataForm.append("userid", 2);
+
+  //   const receivedImages = await fetch("http://localhost:8080/retriev/images/2",{
+  //     method:"GET",
+  //     // body:dataForm,
+  // })
+  // const jsonData = await receivedImages.json();
+  // // const jsonData = await receivedImages.json();
+  // setTestImage(jsonData);
+  // console.log(jsonData)
+  // // console.log("line 105 in main" + jsonData);
+  // }
+
   return (
-    <div className="main">
-      <Avatar />
-      <span>Hyeoneee</span>
-      <MoreHorizOutlinedIcon onClick={handleOpen} />
-      <Modal
-        hideBackdrop
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="child-modal-title"
-        aria-describedby="child-modal-description"
-      >
-        <Box sx={{ ...style, width: 200 }}>
-          <h2 id="child-modal-title">Text in a child modal</h2>
-          <p id="child-modal-description">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          </p>
-          {/* <Button onClick={handleClose}>Close Child Modal</Button> */}
-          <ButtonGroup
-            orientation="vertical"
-            aria-label="vertical outlined button group"
-          >
-            <Button>Report</Button>
-            <Button>Un Follow</Button>
-            <Button>Move to the Board</Button>
-            <Button>Link to.. </Button>
-            <Button>Duplicate Link</Button>
-            <Button>Scoop up</Button>
-            <Button onClick={handleClose}>Cancle</Button>
-          </ButtonGroup>
-        </Box>
-      </Modal>
-      <div>
-
-      <img
-        src="https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-mont-st-michel.jpg"
-        alt="mong"
-      />
-      </div>
-      <FavoriteBorderOutlinedIcon />
-      <ChatBubbleOutlineSharpIcon/>
-      <SendSharpIcon />
-      <BookmarkBorderIcon/>
-      <div>
-<SentimentSatisfiedAltIcon/>
- comments
-      </div>
-    </div>
+    <>
+      {console.log(posts)}
+      {posts &&
+        posts.map((post) => (
+          <>
+            <div className="main-image-container">
+              <PostImageComponent
+                images={post.url}
+                content={post.content}
+                id={post.id}
+                postid={post.postid}
+              />
+            </div>
+          </>
+        ))}
+    </>
   );
 }
 
-export default Main
+export default Main;
