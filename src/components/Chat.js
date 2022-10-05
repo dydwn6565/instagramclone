@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import Header from "./Header";
-import { BsChevronDown, BsPlusCircle } from "react-icons/bs";
+import { BsChevronDown } from "react-icons/bs";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 
 import { Avatar } from "@mui/material";
@@ -16,13 +16,13 @@ import { generateBase64FromImage } from "./Utils/Image";
 let socket;
 function Chat({ setBlurBackground }) {
   const [nameList, setNameList] = useState([]);
-  const [currentSocketId, setCurrentSocketId] = useState("");
+  
   const [room, setRoom] = useState("");
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const [chosenEmoji, setChosenEmoji] = useState(null);
   const [emojiPicker, setEmojiPicker] = useState(false);
-  const [images, setImages] = useState("");
+  
   const location = useLocation();
   const ENDPOINT = "localhost:8080";
   const hiddenFileInput = useRef(null);
@@ -39,7 +39,7 @@ function Chat({ setBlurBackground }) {
    
     setRoom(randomRoomNumber);
     setNameList(clickedUserList);
-    console.log(clickedUserList)
+    
     // setCurrentSocketId(socketId);
 
     if (newChat) {
@@ -53,7 +53,7 @@ function Chat({ setBlurBackground }) {
     } else {
      
       // console.log(socketId);
-      console.log(roomtableid);
+      
       socket.emit("rejoin", { roomtableid, randomRoomNumber });
     }
       
@@ -184,8 +184,7 @@ function Chat({ setBlurBackground }) {
                       <div className="my-message-chat-receive">
                         <Avatar />
                         <div>
-                          {console.log(item.name)}
-                          {console.log(item.text)}
+                          
                           <div>{item.username}</div>
                           {item.text.split(",")[0] ===
                           "data:image/jpeg;base64" ? (

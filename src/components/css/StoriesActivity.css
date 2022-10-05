@@ -1,20 +1,13 @@
 .stories {
-    display: flex;
     margin-top: 15px;
-    align-items: center;
     border: 0.5px solid lightgrey;
-    width: 550px;
-    margin-left: 4.3vw;
-    margin-bottom: 2%;
+    width: 552px;
+    margin-bottom: 15px;
 }
 
 .stories-block {
     display: flex;
     align-items: center;
-}
-
-.stories-avatar>div {
-    margin-left: 3%
 }
 
 .stories-avatar-list {
@@ -26,9 +19,9 @@
     margin-right: 400px;
 }
 
-.stories-avatar{
+.stories-avatar {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin:10px 10px 0px 10px;
+    margin: 10px 10px 0px 10px;
 }

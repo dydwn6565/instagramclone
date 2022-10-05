@@ -1,12 +1,6 @@
-.main-title-container {
+.main-avatar-container {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-top: 1%;
-}
-
-.main-horiz-oulined-icon {
-    margin-left: 370px;
 }
 
 .main-image {
@@ -18,8 +12,12 @@
     align-items: center;
     padding: 1%;
     display: flex;
+    justify-content: space-between;
 }
 
+.main-horiz-oulined-icon {
+    margin-right: 1rem;
+}
 .main-avatar {
     margin-right: 1rem;
     margin-left: 1rem;
@@ -28,7 +26,7 @@
 .main {
     border: 0.5px solid lightgrey;
     width: 550px;
-    margin-left: -10%;
+    
     margin-top: 0.1px;
 }
 
@@ -39,7 +37,6 @@
     margin-left: -250px;
     margin-top: -220px;
     cursor: pointer;
-    /* z-index: 100; */
 }
 
 .main-page-image-right-icon {
@@ -48,10 +45,7 @@
     position: absolute;
     margin-left: 250px;
     margin-top: -220px;
-    /* margin-left: 18vw; */
-    /* margin-top: 18vh; */
     cursor: pointer;
-    /* z-index: 100; */
 }
 
 .inactive-main-image-right-icon,
@@ -101,8 +95,10 @@
 }
 
 .see-comments {
-    cursor:pointer
-}.comment-button-inactive {
+    cursor: pointer
+}
+
+.comment-button-inactive {
     margin-right: 20px;
     color: lightblue;
 }

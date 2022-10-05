@@ -67,7 +67,7 @@ function StoriesActivity() {
   };
 
   const createNewArray = (storiesJson, userIndex) => {
-    // userIndex.map((userDex)=>{
+    
     let storyArray = [];
     userIndex.map((userIn) => {
       const sortedStories = storiesJson.filter((story) => {

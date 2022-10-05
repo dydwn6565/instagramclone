@@ -1,13 +1,18 @@
 .main-page-grid {
-    /* display:flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    margin-left: 23%;
+    display: flex;
+    justify-content: center;
+    min-width: 670px;
 }
 
-.App {
-    background-color: #b2b2b2 ;
-    opacity: 50%;
-    
-    
+
+.main-page-side {
+    margin-left: 5rem;
 }
+
+@media screen and (max-width: 1000px) {
+    .main-page-side {
+        display: none
+    }
+}
+
+

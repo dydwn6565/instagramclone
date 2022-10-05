@@ -29,7 +29,7 @@ const MessageModal = ({ title, message, onConfirm }) => {
   };
   const hiddenFileInput = useRef(null);
   const clicktoMain = useRef(null);
-  const resetImages = useRef(null);
+  
 
   const handleClick = (event) => {
     hiddenFileInput.current.click();

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
-import io from "socket.io-client";
 
 import "./css/MyMessage.css";
 import { BsChevronDown } from "react-icons/bs";
@@ -13,21 +12,15 @@ import MyMessageModal from "./Modals/MyMessageModal";
 
 import { Link } from "react-router-dom";
 
-const socket = io.connect("http://localhost:8080");
-
 function MyMessage({ setBlurBackground }) {
   const [sendMessage, setSendMessage] = useState(false);
-  const [message, setMessage] = useState("");
-  // const [messageRecevied, setMessageReceived] = useState("");
+
   const [roomList, setRoomList] = useState([]);
 
-  // const [selectedUserList, setSelectedUserList] = useState([]);
-const userid=2;
+  const userid = 2;
   const messageModalHandler = () => {
     setSendMessage((prevState) => !prevState);
   };
-
-
 
   useEffect(() => {
     try {
@@ -38,10 +31,10 @@ const userid=2;
             method: "GET",
           }
         );
-        
+
         if (roomListData.status === 201) {
           const roomJson = await roomListData.json();
-          console.log(roomJson)
+          console.log(roomJson);
           setRoomList(roomJson);
         }
       };
@@ -53,7 +46,6 @@ const userid=2;
 
   return (
     <>
-      
       <Header setBlurBackground={setBlurBackground} />
       <div className="my-message">
         <div>
@@ -73,7 +65,6 @@ const userid=2;
               >
                 send message
               </button>
-       
             </div>
           </div>
           <div className="my-message-id">

@@ -6,7 +6,7 @@ import "./MyMessageModal.css";
 import { v4 as uuidv4 } from "uuid";
 import { MdClose } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+
 import { io } from "socket.io-client";
 
 let socket;
@@ -17,7 +17,7 @@ function MyMessageModal({ messageModalHandler }) {
   const [filteredUserListShow, setfiltereUserListShow] = useState(false);
   const [searchedUser, setSearchedUser] = useState("");
 
-  const userInfo = useSelector((state) => state);
+  
   const ENDPOINT = "localhost:8080";
   const linkToChat = useRef(null);
   const ref = useRef(null);
@@ -56,14 +56,13 @@ function MyMessageModal({ messageModalHandler }) {
   }, []);
 
   const userSearchHandler = (targetValue) => {
-    console.log(targetValue);
-    console.log(ref.current.value);
+    
 
     if (targetValue !== "") {
       const filteredUserLIst = userList.users.filter((user) => {
         return user.name.includes(targetValue);
       });
-      // addCheckedInAPI(filteredUserLIst)
+      
 
       setSearchedUser(targetValue);
       setFilteredUserList(filteredUserLIst);
@@ -88,7 +87,7 @@ function MyMessageModal({ messageModalHandler }) {
     setFilteredUserList(updatedFilteredList);
     setfiltereUserListShow(false);
     ref.current.value = "";
-    // setSearchedUser("");
+    
     
   };
 

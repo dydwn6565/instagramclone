@@ -51,13 +51,10 @@ function LoginActivity() {
     };
     getLoginLocation();
   }, []);
-  // useEffect(() => {
-   
-  //   const marker = new mapboxgl.Marker().setLngLat([30.5, 50.5]).addTo(map);
-  // });
+
   return (
     <div>
-      {/* {console.log(typeof latAndLong[0].lat)} */}
+      
       <Header />
       <div className="login-activity">
         <AccountEditSide />

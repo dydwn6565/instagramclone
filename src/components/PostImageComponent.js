@@ -11,7 +11,7 @@ import Icons from "./Icons";
 import ImageHander from "./ImageHander";
 import CommentHandler from "./CommentHandler";
 function PostImageComponent({ images, content, id, postid }) {
-  // const [imageIndex, setImageIndex] = useState(0);
+  
   const [extendCommentModal, setExtendCommentModal] = useState(false);
   const [commentList, setCommentList] = useState("");
   const [mainPageModal, setMainPageModal] = useState(false);
@@ -42,9 +42,7 @@ function PostImageComponent({ images, content, id, postid }) {
   const extendComment = () => {
     setExtendCommentModal((prevState) => !prevState);
   };
-  // const commentHandler = (e) => {
-  //   setComment(e);
-  // };
+
 
   const mainPageHandler = () => {
     setMainPageModal((prevState) => !prevState);
@@ -98,16 +96,22 @@ function PostImageComponent({ images, content, id, postid }) {
   };
   return (
     <>
-      {/* {console.log(like)} */}
+      
       <div key={id} className="main">
         <div className="main-title-container">
           <div className="main-title">
+            <div className="main-avatar-container">
+
             <Avatar className="main-avatar" />
             <span>Hyeoneee</span>
+            </div>
+            <div>
+
             <MoreHorizOutlinedIcon
               onClick={mainPageHandler}
               className="main-horiz-oulined-icon"
             />
+            </div>
             {mainPageModal && (
               <MainPageModal mainPageHandler={mainPageHandler} />
             )}

@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react";
 import Avatar from "@mui/material/Avatar";
-import "./css/SideRecommandationProfile.css"
+import "./css/SideRecommandationProfile.css";
 function SideRecommandationProfile() {
   return (
     <div className="side-recommandation-profile">
       <div>
         <div>
-          <Avatar />
+          <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiGcFYBKGruads8sUVAfUBlX8orSdEwuSSTg&usqp=CAU" className="main-page-profile-avatar"/>
         </div>
         <div className="side-recomandation-profile-id">
           <div>id</div>
@@ -16,12 +16,15 @@ function SideRecommandationProfile() {
           <div>change</div>
         </div>
       </div>
-      <div>
-        Recommandation for you <span>See all</span>
+      <div className="side-recommandation-profile-see-all">
+        <div className="side-recommandation-profile-see-all-front">
+          Recommandation for you
+        </div>{" "}
+        <div className="side-recommandation-profile-see-all-back">See all</div>
       </div>
 
       <div className="side-recommandation">
-        <Avatar />
+        <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRqRyIiwYCq4s-fZi1zdmyfSuIPUvg9EyZ_Q&usqp=CAU" />
         <div className="side-recommandation-id">
           <div>id</div>
           <div>follow</div>
@@ -34,4 +37,4 @@ function SideRecommandationProfile() {
   );
 }
 
-export default SideRecommandationProfile
+export default SideRecommandationProfile;

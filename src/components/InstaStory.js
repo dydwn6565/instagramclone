@@ -3,7 +3,7 @@ import "./InstagStory.css";
 // import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 
 import mapboxgl from "mapbox-gl";
-import { MapsUgcTwoTone } from "@mui/icons-material";
+
 // import "./Map.css";
 // import geoJson from "./chicago-parks.json";
 
@@ -15,7 +15,7 @@ function InstaStory() {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const mapContainerTwo = useRef(null);
-  const mapTwo = useRef(null);
+  
   const [lng, setLng] = useState(-120.18718);
 
   const [lat, setLat] = useState(47.26321);

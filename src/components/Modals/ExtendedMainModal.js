@@ -2,7 +2,7 @@ import { Avatar } from '@mui/material';
 import React from 'react'
 import "./ExtendedMainModal.css"
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
-import { AiOutlineHeart } from "react-icons/ai";
+
 import { BsDot } from "react-icons/bs";
 
 

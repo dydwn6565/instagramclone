@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import React, { useState, userCallback, useRef } from "react";
+import React, { useState, useRef } from "react";
 import "./css/Login.css";
 import useInput from "../hooks/use-input.js";
 import LoginImage from "./LoginImage";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { userActions } from "../store/index";
 
 import { Container, Row, Col } from "react-grid-system";
@@ -20,7 +20,7 @@ function Login() {
     hasError: userIdInputHasError,
     valueChangeHandler: userIdChangedHandler,
     inputBlurHandler: userIdBlurHandler,
-    reset: resetUserIdInput,
+    // reset: resetUserIdInput,
   } = useInput((value) => value.trim() !== "");
 
   const {
@@ -29,7 +29,7 @@ function Login() {
     hasError: passwordInputHasError,
     valueChangeHandler: passwordChangeHandler,
     inputBlurHandler: passwordBlurHandler,
-    reset: resetPasswordInput,
+    // reset: resetPasswordInput,
   } = useInput((value) => value.length > 5);
 
   let formIsValid = false;

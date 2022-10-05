@@ -2,6 +2,12 @@
 .side-recommandation {
     display: flex;
     margin-bottom: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main-page-profile-avatar {
+    transform: scale(1.5);
 }
 
 .side-recomandation-profile-id,
@@ -12,4 +18,20 @@
 .side-recommandation-profile-change,
 .side-recommandation-follow {
     margin-left: 7rem;
+    color: #0095F6;
+    cursor: pointer
+}
+
+.side-recommandation-profile-see-all {
+    display: flex;
+    justify-content: space-between;
+}
+
+.side-recommandation-profile-see-all-front {
+    color: gray
+}
+
+.side-recommandation-profile-see-all-back {
+    font-weight: bold;
+    cursor: pointer;
 }
