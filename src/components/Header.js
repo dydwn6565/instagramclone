@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
-import TextField from "@mui/material/TextField";
+
 import HomeIcon from "@mui/icons-material/Home";
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 import AddBoxOutlinedIcon from "@mui/icons-material/AddBoxOutlined";
@@ -15,14 +15,14 @@ import LikeActivity from "./LikeActivity";
 import HeaderProfileModal from "./Modals/HeaderProfileModal";
 import { Link } from "react-router-dom";
 
-function Header({ setBlurBackground }) {
+function Header() {
   const [openModal, setOpenModal] = useState(false);
   const [openHeart, setOpenHeart] = useState(false);
   const [openHeaderModal, setOpenHeaderModal] = useState(false);
   const [searchedUser, setSearchedUser] = useState("");
   const [userList, setUserList] = useState("");
   const [hideSearchIcon, setHideSearchIncon] = useState(true);
-  
+
   useEffect(() => {
     const getUsers = async () => {
       const userData = await fetch("http://localhost:8080/users", {
@@ -36,9 +36,7 @@ function Header({ setBlurBackground }) {
       setUserList(jsonData);
     };
     getUsers();
-    // console.log(userList);
   }, []);
-
 
   const createNewPost = () => {
     setOpenModal((prevState) => !prevState);
@@ -53,7 +51,6 @@ function Header({ setBlurBackground }) {
   };
 
   const searchUsers = (e) => {
-    console.log(e === "");
     if (e === "") {
       setSearchedUser("");
     } else {
@@ -78,32 +75,29 @@ function Header({ setBlurBackground }) {
     <>
       <div className="header">
         <span className="instagram-title">
-          
-          <Link to="/" className="link-text-no-decoration">Instagram</Link>
+          <Link to="/" className="link-text-no-decoration">
+            Instagram
+          </Link>
         </span>
         <div className="header-search-bar">
           <form>
-            <IconButton
-              className="search-icon"
-              type="submit"
-              aria-label="search"
-            >
-              {hideSearchIcon && <SearchIcon style={{ fill: "grey" }} />}
-            </IconButton>
-            <TextField
-              id="search-bar"
-              className="text"
-              variant="outlined"
-              placeholder={hideSearchIcon ? "     Search..." : ""}
-              size="small"
-              onChange={(e) => searchUsers(e.target.value)}
-              onFocus={(e) => hideSearchedIconHandler(e)}
-              // ref={ref}
-              onBlur={(e) => searchUserBlueHanlder()}
-            ></TextField>
+            <div className="search-icon">
+              <IconButton aria-label="search">
+                {hideSearchIcon && <SearchIcon style={{ fill: "grey" }} />}
+              </IconButton>
+            </div>
+            <div>
+              <input
+                // id="search-bar"
+                className="header-search-bar-input"
+                placeholder={hideSearchIcon ? "     Search..." : ""}
+                onChange={(e) => searchUsers(e.target.value)}
+                onFocus={(e) => hideSearchedIconHandler(e)}
+                onBlur={(e) => searchUserBlueHanlder()}
+              />
             {searchedUser && (
               <>
-                <div className="diamond"></div>
+                {/* <div className="diamond"></div> */}
                 <div className="searched-users-list">
                   {searchedUser.map((user) => (
                     <div key={user.userid} className="searched-user-container">
@@ -117,6 +111,7 @@ function Header({ setBlurBackground }) {
                 </div>
               </>
             )}
+            </div>
           </form>
         </div>
         <div className="icon-list">
@@ -132,18 +127,25 @@ function Header({ setBlurBackground }) {
           <Link to="/explore">
             <ExploreOutlinedIcon className="explore" />
           </Link>
+          <div>
+            <FavoriteBorderOutlinedIcon onClick={postActivity} />
+            {openHeart && <LikeActivity postActivity={postActivity} />}
+          </div>
 
-          <FavoriteBorderOutlinedIcon onClick={postActivity} />
-          <Avatar onClick={headerModalHandler} />
+          <div>
+            <Avatar
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiGcFYBKGruads8sUVAfUBlX8orSdEwuSSTg&usqp=CAU"
+              onClick={headerModalHandler}
+            />
+
+            {openHeaderModal && (
+              <>
+                <HeaderProfileModal headerModalHandler={headerModalHandler} />
+              </>
+            )}
+          </div>
         </div>
 
-        {openHeaderModal && (
-          <>
-            {/* <Link to="/id"> */}
-              <HeaderProfileModal headerModalHandler={headerModalHandler} />
-            {/* </Link> */}
-          </>
-        )}
         {openModal && (
           <MessageModal
             title="Create New Post"
@@ -151,8 +153,6 @@ function Header({ setBlurBackground }) {
             onConfirm={createNewPost}
           />
         )}
-
-        {openHeart && <LikeActivity postActivity={postActivity} />}
       </div>
     </>
   );

@@ -8,30 +8,20 @@
 }
 
 .header-profile-ul {
-    background: white;
+    background-color: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0.0.26);
     border-radius: 10px;
+    margin-left: -110px;
+    width: 200px;
     position: fixed;
-    /* top: 10vh; */
-    top: 4vh;
-    right: 22vw;
-    width: 10vw;
-    height: 20vh;
-    z-index: 100;
-    overflow: hidden;
-    padding: 1%;
+    padding: 5px;
 }
 
-ul {
-    list-style-type: none;
-}
-
-li {
-    padding: 3%;
-}
-
-li>span {
-    padding: 3%;
+.header-profile-ul>div {
+    margin-top:10px;
+    margin-bottom:10px;
+}.header-profile-ul>div>span {
+    padding: 10px;
 }
 
 .exchange-icon {

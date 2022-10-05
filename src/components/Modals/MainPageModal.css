@@ -12,18 +12,18 @@
     background: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0.0.26);
     border-radius: 10px;
-    position: fixed;
-    top: 30vh;
-    left: 37%;
-    width: 20vw;
-    height: 35vh;
-    z-index: 100;
-    overflow: hidden;
+    position: absolute;
+    width: 350px;
+    z-index: 11;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
 }
 
 .main-page-div>div {
     padding: 1%;
+    margin-top: 5px;
 }
 
 .red {

@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
-
-.link-text-no-decoration{
+.link-text-no-decoration {
     text-decoration: none;
-    color:black
+    color: black
 }
 
 .header {
@@ -12,10 +11,38 @@
     justify-content: center;
     width: 100%;
     border-bottom: 0.5px lightgrey solid;
+    min-width: 670px;
+}
+
+.header-search-bar {
+    width: 250px;
+    height: 35px;
+    border-radius: 8px;
+    /* outline-color: white; */
+    background-color: rgb(234, 230, 230);
+    border: none
+}
+
+.header-search-bar:focus {
+    outline-color: rgb(234, 230, 230);
+    background-color: rgb(234, 230, 230);
+    border: none;
+}
+
+.header-search-bar-input {
+    margin-left: 20px;
+    /* outline-color: rgb(234, 230, 230); */
+    border: none;
+    background-color: rgb(234, 230, 230);
+}
+
+.header-search-bar-input:focus {
+    outline: none;
 }
 
 .header-search-bar {
     display: flex;
+    align-items: center;
 }
 
 .instagram-title {
@@ -34,30 +61,7 @@
 
 .search-icon {
     position: absolute !important;
-    margin-left: -220px;
-}
-
-.header-modal {
-    position: absolute;
-    margin-top: 200px;
-    margin-left: 70%;
-    transform: translate(-50%, -50%);
-    width: 220px;
-    height: 270px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 24px;
-    background-color: white;
-    border-radius: 10px;
-}
-
-.modal-logout {
-    width: 220px;
-    margin-left: -10px;
-    border-top: 1px solid lightgray;
-    padding: 1%;
+    margin-top: -6px;
 }
 
 .homeIcon,
@@ -68,31 +72,41 @@
 
 .searched-users-list {
     position: absolute;
-    margin-left: -5vw;
-    margin-top: 1.5vh;
-    width: 25vw;
-    height: 10vh;
+    margin-left: -75px;
+    margin-top: 10px;
+    width: 400px;
+    min-height: 150px;
     z-index: 1;
     border: 0.5px lightgrey solid;
-}
-
-.searched-user-container {
-    /* border: 1px solid black; */
-    padding: 10px;
-    display: flex;
     background-color: white;
 }
 
 .searched-users-id-and-username {
-    margin-left:1vw;
+    padding:5px;
+    
+}
+.searched-user-container {
+    padding: 10px;
+    display: flex;
+    align-items: center;
 }
 
+
+/* 
 .diamond {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: rgb(240, 225, 225);
+    width: 600px;
+    height: 600px;
+    background-color: black;
+    z-index: 2;
     transform: rotate(45deg);
     margin-left: 7vw;
-    margin-top: 1vh;
+    margin-top: 180px;
+    
+} */
+
+@media screen and (max-width: 650px) {
+    .header-search-bar {
+        display: none;
+    }
 }

@@ -106,7 +106,7 @@ function Main({ setBlurBackground }) {
 
   return (
     <>
-      {console.log(posts)}
+      
       {posts &&
         posts.map((post) => (
           <>

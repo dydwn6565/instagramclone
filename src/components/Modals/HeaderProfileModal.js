@@ -13,33 +13,33 @@ function HeaderProfileModal({ headerModalHandler, redirectToProfile }) {
         className="header-profile-modal-backdrop"
         onClick={headerModalHandler}
       />
-      <ul className="header-profile-ul">
+      <div className="header-profile-ul">
         
-          <li onClick={redirectToProfile}>
+          <div onClick={redirectToProfile}>
             <CgProfile />
             <span>
               <Link to="/id" className="link-text-no-decoration">
               Profile
               </Link>
               </span>
-          </li>
+          </div>
         
-        <li>
+        <div>
           <VscBookmark />
           <span>Saved</span>
-        </li>
-        <li>
+        </div>
+        <div>
           <GoGear />
 
           <span>Setting</span>
-        </li>
-        <li>
+        </div>
+        <div>
           <TbExchange className="exchange-icon" />
           <span>Change account</span>
-        </li>
+        </div>
         <div className="hr"></div>
-        <li>Logout</li>
-      </ul>
+        <div>Logout</div>
+      </div>
     </div>
   );
 }

@@ -21,7 +21,7 @@ function ExtendedMainModal({
 }) {
   return (
     <div>
-      {console.log(commentList)}
+      
       <div className="extended-main-modal-backdrop" onClick={extendComment} />
       <div>
         <div className="extended-main-modal-main">

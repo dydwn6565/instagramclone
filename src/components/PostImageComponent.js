@@ -96,27 +96,25 @@ function PostImageComponent({ images, content, id, postid }) {
   };
   return (
     <>
-      
       <div key={id} className="main">
         <div className="main-title-container">
           <div className="main-title">
             <div className="main-avatar-container">
-
-            <Avatar className="main-avatar" />
-            <span>Hyeoneee</span>
+              <Avatar
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiGcFYBKGruads8sUVAfUBlX8orSdEwuSSTg&usqp=CAU"
+                className="main-avatar"
+              />
+              <span>Hyeoneee</span>
             </div>
             <div>
-
-            <MoreHorizOutlinedIcon
-              onClick={mainPageHandler}
-              className="main-horiz-oulined-icon"
-            />
+              <MoreHorizOutlinedIcon
+                onClick={mainPageHandler}
+                className="main-horiz-oulined-icon"
+              />
             </div>
-            {mainPageModal && (
-              <MainPageModal mainPageHandler={mainPageHandler} />
-            )}
           </div>
         </div>
+        {mainPageModal && <MainPageModal mainPageHandler={mainPageHandler} />}
         <ImageHander images={images} />
         {/* <div>
           <div className="main-image-and-icons">
@@ -170,7 +168,9 @@ function PostImageComponent({ images, content, id, postid }) {
         <div className="main-page-info">
           <div>lovely_min08 likes </div>
           <div>{content}</div>
-          <div className="see-comments" onClick={extendComment}>See comments</div>
+          <div className="see-comments" onClick={extendComment}>
+            See comments
+          </div>
         </div>
         <hr />
         {/* <div className="main-page-comment"> */}
