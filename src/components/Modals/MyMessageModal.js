@@ -125,6 +125,7 @@ function MyMessageModal({ messageModalHandler }) {
         className="my-message-modal-backdrop"
         onClick={messageModalHandler}
       />
+     
       <Card className="my-message-modal">
         <header className="my-message-modal-header">
           <h2>New message</h2>
@@ -217,6 +218,7 @@ function MyMessageModal({ messageModalHandler }) {
           </div>
         </div>
       </Card>
+
     </>
   );
 }

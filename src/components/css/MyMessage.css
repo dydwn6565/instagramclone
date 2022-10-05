@@ -1,21 +1,27 @@
 .my-message {
     border: 0.5px solid lightgrey;
     width: 50vw;
-    height: 80vh;
+    min-width: 750px;
     margin: auto;
+    min-height: 900px;
     margin-top: 30px;
 }
 
-.my-message-id {
-    align-items: center;
-    display: flex;
-    justify-content: start;
-    align-items: center;
+.my-message-username {
+    margin-left:8px;
+    color: black;
+    
 }
 
-.my-message-text {
-    width: 15vw;
-    height: 6vh;
+
+.my-message-id {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}.my-message-text {
+    width: 250px;
+    min-width: 250px;
+    height: 70px;
     border: 0.5px solid lightgrey;
     display: flex;
     border-top: none;
@@ -32,34 +38,38 @@
 .my-message-message-icon {
     transform: scale(2.0);
     float: right;
-    margin-left: -30px;
+    margin-right: -60px;
 }
 
 .my-message-message-page {
-    /* height: 74vh; */
-    width: 15vw;
+    width: 250px;
     border-right: 0.5px solid lightgrey;
+    display: inline-block;
 }
 
 .my-message-message {
     display: flex;
-    padding: 2%;
+    padding: 3%;
+    align-items: center;
 }
 
 .my-message-message>div {
     margin-left: 2%;
 }
 
-.my-message-message-content {
-    position: absolute;
-    width: 35vw;
-    height: 80vh;
-    
-    margin-left: 15vw;
+.my-message-right-side {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin: auto;
+}
+
+.my-message-message-content {
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     text-align: center;
 }
 
@@ -79,10 +89,10 @@
 
 .my-message-my-message-btn {
     border: none;
-    background-color:#10d0ff;
-    color:white;
-    width:100px;
+    background-color: #10d0ff;
+    color: white;
+    width: 100px;
     height: 30px;
     border-radius: 3px;
-    margin-top:20px;
+    margin-top: 20px;
 }

@@ -124,28 +124,31 @@ const MessageModal = ({ title, message, onConfirm }) => {
 
   return (
     <div>
-      {console.log(page)}
-      {/* {console.log(fileArray)} */}
+      
+      
       {/* {page === 0 && <div ref={resetImages} onClick={resetArrayes}></div>} */}
       <div className="modal-backdrop" onClick={onConfirm} />
       <Link ref={clicktoMain} to="/" />
       {(page === 0 || page === 1) && (
-        <Card className="modal">
+        <div className="post-modal">
           <header className={page === 0 ? "modal-header" : ""}>
-            {page === 0 && <h2>{title}</h2>}
+            {page === 0 && <div>{title}</div>}
             {page === 1 && (
               <>
+              <div className="modal-second-page-header">
+
                 <BiArrowBack
                   className="image-priview-back-arrow"
                   onClick={moveToPrevPage}
                 />
-                <h2>Cutting</h2>
-                <span
+                <div>Cutting</div>
+                <div
                   className="image-preview-editor-btn"
                   onClick={moveToPageTwo}
                 >
                   Next
-                </span>
+                </div>
+              </div>
               </>
             )}
 
@@ -183,7 +186,7 @@ const MessageModal = ({ title, message, onConfirm }) => {
               )}
             </>
           )}
-        </Card>
+        </div>
       )}
 
       {page === 2 && (

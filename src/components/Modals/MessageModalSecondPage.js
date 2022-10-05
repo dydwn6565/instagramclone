@@ -9,6 +9,9 @@ function MessageModalSecondPage({ imageArray ,currentPage,movePrevImage,extendIm
       {imageArray[currentPage] !==undefined && (
         <>
           <div className="preview-image-container">
+            <div>
+              
+            </div>
             <IoIosArrowDropleftCircle
               className={
                 currentPage !== 0

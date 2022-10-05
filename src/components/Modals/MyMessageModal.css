@@ -8,6 +8,10 @@
     background: rgba(0, 0, 0, 0.75);
 }
 
+.my-message-modal {
+    width: 474px;
+}
+
 .my-message-recommend-list {
     display: flex;
     align-items: center;
@@ -90,4 +94,17 @@
     height: 22px;
     margin-left: 5px;
     cursor: pointer;
+}
+
+@media screen and (max-width: 380px) {
+    .my-message-user-info-id {
+        font-size: 12px;
+    }
+    .my-message-user-info-container {
+        
+        margin-top:5px;
+    }
+    .my-message-search-container{
+            min-width: 178px;
+    }
 }

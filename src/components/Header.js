@@ -146,14 +146,14 @@ function Header() {
           </div>
         </div>
 
+      </div>
         {openModal && (
           <MessageModal
             title="Create New Post"
-            message="Drop your pitcure and videos to here"
+            message="Please Select your pitcure or videos "
             onConfirm={createNewPost}
           />
         )}
-      </div>
     </>
   );
 }

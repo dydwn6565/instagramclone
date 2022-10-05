@@ -21,7 +21,7 @@ function MessageModalLastPage({moveToPrevPage,uploadImage,currentPage,movePrevIm
           <span className="image-preview-share-btn" onClick={uploadImage}>
             Share
           </span>
-          {/* <span onClick={componentDidMount}>get location</span> */}
+          
         </header>
         <div className="image-preveiw-last-page">
           <div className="preview-image-container">
