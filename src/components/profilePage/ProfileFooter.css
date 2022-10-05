@@ -2,10 +2,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 13px;
+    color:grey
 }
 
-.profile-footer > div{
-    margin-left: 5px;
-}.first {
-    margin-top: 55vh;
+.first {
+    margin-top: 600px;
 }
+

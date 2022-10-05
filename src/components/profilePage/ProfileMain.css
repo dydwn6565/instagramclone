@@ -6,23 +6,33 @@
 
 .profile-multiple-buttons>div {
     display: flex;
-    
     align-items: center;
 }
 
-.profile-multiple-buttons>div >div{
-    margin-left: 2vw;
-}.profile-main>img {
-    transform: scale(0.8) translate(-35%, 60%);
+.profile-multiple-buttons>div>div {
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.profile-main>img {
+    width: 400px;
+    height: 400px;
+    margin-top: 300px;
     position: absolute;
 }
 
 .profile-middle-line {
     border: 0.5px solid lightgrey;
-    width: 50vw;
+    width: 800px;
     margin: auto;
 }
 
 .profile-btn-border-top {
     border-top: 1px solid black !important
+}
+
+@media screen and (max-width: 670px) {
+    .profile-main{
+        min-width: 430px;
+    }
 }

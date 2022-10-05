@@ -30,7 +30,7 @@ function ProfileMain() {
             </div>
           </div>
         </Box>
-        <img
+        <img className="profile-main-image"
           alt="pitcure"
           src="https://media.istockphoto.com/photos/headshot-portraits-of-diverse-smiling-people-picture-id949582374?k=20&m=949582374&s=612x612&w=0&h=_sc6AeJzB4mR_4eyK9Lo4uLBkSRrh9SB7fx_8grUj3E="
         ></img>

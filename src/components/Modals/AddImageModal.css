@@ -8,19 +8,23 @@
 }
 
 .extended-image-modal {
-    position: fixed;
-    margin-top: -14vh;
-    height: 10vh;
+    position: absolute;
+    margin-top: -170px;
+    right: 0;
+    
+    
+    height: 120px;
     border-radius: 10px;
     z-index: 100;
+    margin-right: 30px;
     background: rgba(49, 46, 46, 0.75);
     display: flex;
 }
 
 .extended-small-image {
-    width: 5vw;
-    height: 9vh;
-    padding: 3%;
+    width: 90px;
+    height: 100px;
+    padding: 10px;
     opacity: 0.6;
     cursor: pointer;
 }
@@ -30,9 +34,10 @@
 }
 
 .image-plus-button {
-    width: 3vw;
-    height: 3vh;
-    margin-top: 1vh;
+    width: 35px;
+    height: 35px;
+    margin-top: 10px;
+    margin-right: 10px;
     color: white;
 }
 
@@ -41,26 +46,28 @@
 }
 
 .extended-small-image-cross-icon {
-    margin-left: -2.0vw;
-    margin-top: 1vh;
-    width: 2vw;
-    height: 2vh;
+    margin-left: -30px;
+    margin-top: 10px;
+    width: 20px;
+    height: 20px;
     z-index: 101
 }
 
 .preview-small-image-right-icon {
     position: absolute;
-    margin-top: 3.5vh;
-    width: 3vw;
-    height: 3vh;
+    margin-top: 45px;
+    right:0;
+    margin-right:45px;
+    width: 25px;
+    height: 25px;
 }
 
 .preview-small-image-left-icon {
-    margin-right: 25vw;
-    margin-top: 3.5vh;
+    margin-left:9px;
+    margin-top: 45px;
     position: absolute;
-    width: 3vw;
-    height: 3vh;
+    width: 25px;
+    height: 25px;
     z-index: 100;
 }
 

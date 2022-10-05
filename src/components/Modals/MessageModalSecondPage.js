@@ -24,6 +24,7 @@ function MessageModalSecondPage({ imageArray ,currentPage,movePrevImage,extendIm
               src={imageArray[currentPage].split("uploadedCurrentDate")[0]}
               alt="uploadedImage"
               className="preview-image"
+              
             />
             <div className="copy-out-line-background">
               <IoCopyOutline

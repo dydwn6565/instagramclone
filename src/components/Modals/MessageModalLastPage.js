@@ -17,18 +17,19 @@ function MessageModalLastPage({moveToPrevPage,uploadImage,currentPage,movePrevIm
             onClick={moveToPrevPage}
           />
 
-          <h2>Create new post</h2>
+          <div>Create new post</div>
+
           <span className="image-preview-share-btn" onClick={uploadImage}>
             Share
           </span>
-          
         </header>
+        <div className="image-preview-first-page-header" />
         <div className="image-preveiw-last-page">
           <div className="preview-image-container">
             <IoIosArrowDropleftCircle
               className={
                 currentPage !== 0
-                  ? "preview-image-left-icon"
+                  ? "last-preview-image-left-icon"
                   : "inactive-image-left-icon"
               }
               onClick={movePrevImage}
@@ -36,13 +37,13 @@ function MessageModalLastPage({moveToPrevPage,uploadImage,currentPage,movePrevIm
             <img
               src={imageArray[currentPage].split("uploadedCurrentDate")[0]}
               alt="uploadedImage"
-              className="preview-image"
+              className="preview-lastpage-image"
             />
             <IoIosArrowDroprightCircle
               className={
                 currentPage === imageArray.length - 1
                   ? "inactive-image-right-icon"
-                  : "preview-image-right-icon"
+                  : "last-preview-image-right-icon"
               }
               onClick={moveNextImage}
             />
@@ -58,7 +59,7 @@ function MessageModalLastPage({moveToPrevPage,uploadImage,currentPage,movePrevIm
           </div>
           <div className="preview-image-content">
             <div className="preview-image-content-avatar">
-              <Avatar />
+              <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiGcFYBKGruads8sUVAfUBlX8orSdEwuSSTg&usqp=CAU"/>
               <span className="preview-image-content-options">ivan4334</span>
             </div>
             <textarea

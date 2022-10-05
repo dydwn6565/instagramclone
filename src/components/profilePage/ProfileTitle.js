@@ -22,7 +22,7 @@ function ProfileTitle() {
                 <button className="profile-edit-btn"> edit profile </button>
               </Link>
             </span>
-            <span>
+            <span className="profile-title-rounded-icon">
               <BrightnessLowRoundedIcon onClick={eventProfileEditModal} />
             </span>
           </div>

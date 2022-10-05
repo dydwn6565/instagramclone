@@ -152,7 +152,7 @@ const MessageModal = ({ title, message, onConfirm }) => {
               </>
             )}
 
-            <div className="image-preview-first-page-header"></div>
+            <div className="image-preview-first-page-header"/>
           </header>
           {page === 0 && (
             <MessageModalFirstPage

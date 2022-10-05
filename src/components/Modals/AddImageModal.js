@@ -73,11 +73,7 @@ function AddImageModal({
 
       <div
         className="extended-image-modal"
-        style={{
-          maxWidth: `25vw`,
-          marginLeft:
-            imageArray.length < 4 ? `${20 - imageArray.length * 3.5}%` : "5%",
-        }}
+        
       >
         <IoIosArrowDropleftCircle
           className={
