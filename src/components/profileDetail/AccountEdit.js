@@ -9,13 +9,13 @@ function AccountEdit() {
 
   return (
     <>
-      <div className="profile-container">
+      <div className="account-edit-container">
         <Header />
         <div className="account-edit">
           <AccountEditSide />
           <div className="account-edit-profile-container">
             <div className="account-edit-profile">
-              <Avatar />
+              <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiGcFYBKGruads8sUVAfUBlX8orSdEwuSSTg&usqp=CAU" />
               <div className="account-edit-profile-id">
                 <div>ivan4334</div>
                 <div className="account-change-pitcure">
@@ -96,9 +96,10 @@ function AccountEdit() {
             </div>
           </div>
         </div>
-        <div className="resize-footer">
-          <ProfileFooter />
-        </div>
+
+        
+          <ProfileFooter position={"account"} />
+        
       </div>
     </>
   );

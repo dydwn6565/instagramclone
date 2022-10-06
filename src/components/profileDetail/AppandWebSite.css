@@ -4,12 +4,15 @@
     height: 800px;
     border: 0.5px solid lightgrey;
     margin-top: 20px;
-    margin-left: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .app-and-website {
     width: 800px;
-    margin-left:-80px;
+    margin-left: -80px;
 }
 
 .app-and-website-title {
@@ -40,4 +43,21 @@
 .app-and-website-inactive {
     color: lightgrey;
     border-bottom: 0.5px solid lightgrey !important;
+}
+
+@media screen and (max-width: 1000px) {
+    .app-and-website-container {
+        top: unset;
+        left: unset;
+        transform: unset;
+        width: 98%;
+        margin-top: 100px;
+        min-width: 550px;
+        margin-left:10px;
+        justify-content: center;
+        
+    }
+    .app-and-website{
+        margin-left:10px;
+    }
 }

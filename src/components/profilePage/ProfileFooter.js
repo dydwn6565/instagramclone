@@ -1,9 +1,9 @@
 import React from "react";
 import "../profilePage/ProfileFooter.css";
-function ProfileFooter() {
+function ProfileFooter({position}) {
   return (
     <>
-      <div className="profile-footer first">
+      <div className={`profile-footer ${position}`}>
         Meta Introduce Blog hiring Info Q&A API Personal Info Term Popular
         account Hash tag Location instagram Lite Account upload & none user
       </div>

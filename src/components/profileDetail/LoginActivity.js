@@ -54,7 +54,6 @@ function LoginActivity() {
 
   return (
     <div>
-      
       <Header />
       <div className="login-activity">
         <AccountEditSide />
@@ -65,9 +64,8 @@ function LoginActivity() {
           <div ref={mapContainer} className="map-container" />
         </div>
       </div>
-      <div className="resize-footer">
-        <ProfileFooter />
-      </div>
+
+      <ProfileFooter position={"account"} />
     </div>
   );
 }

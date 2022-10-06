@@ -10,7 +10,7 @@ function Profile() {
     <Header />
     <ProfileTitle />
     <ProfileMain />
-    <ProfileFooter />
+    <ProfileFooter position={"first"} />
     </>
   )
 }

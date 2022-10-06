@@ -38,9 +38,8 @@ function EmailAlarm() {
           />
         </div>
       </div>
-      <div className="resize-footer">
-        <ProfileFooter />
-      </div>
+
+      <ProfileFooter position={"account"} />
     </div>
   );
 }

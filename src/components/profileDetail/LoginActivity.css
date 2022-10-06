@@ -4,16 +4,35 @@
     height: 800px;
     border: 0.5px solid lightgrey;
     margin-top: 20px;
-    margin-left: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .login-activity-main {
     width: 800px;
-    margin-left: -120px;
+    margin-left: -150px;
     padding: 2%;
 }
 
 .map-container {
     width: 600px;
     height: 250px;
+}
+
+@media screen and (max-width: 1000px) {
+    .login-activity {
+        top: unset;
+        left: unset;
+        transform: unset;
+        width: 98%;
+        margin-top: 100px;
+        min-width: 750px;
+        margin-left: 10px;
+        justify-content: center;
+    }
+    .login-activity-main {
+        margin-left: 10px;
+    }
 }

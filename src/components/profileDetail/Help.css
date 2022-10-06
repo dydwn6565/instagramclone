@@ -4,13 +4,16 @@
     height: 800px;
     border: 0.5px solid lightgrey;
     margin-top: 20px;
-    margin-left: 400px;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .help-main {
     width: 800px;
     margin-left: -120px;
-    padding:2%;
+    padding: 2%;
 }
 
 .help-main-title {
@@ -24,4 +27,20 @@
 
 .help-main-icon {
     float: right;
+}
+
+@media screen and (max-width: 1000px) {
+    .help {
+        top: unset;
+        left: unset;
+        transform: unset;
+        width: 98%;
+        margin-top: 100px;
+        min-width: 550px;
+        margin-left: 10px;
+        justify-content: center;
+    }
+    .help-main {
+        margin-left: 10px;
+    }
 }

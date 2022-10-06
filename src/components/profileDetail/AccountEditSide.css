@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 10vw;
+    margin-right: 200px;
     border-right: 0.5px solid lightgrey;
 }
 
@@ -20,7 +20,13 @@
     font-size: 12px;
 }
 
-.meta-icon-with-meta-text{
-    display:flex;
+.meta-icon-with-meta-text {
+    display: flex;
     align-items: center;
+}
+
+@media screen and (max-width: 1000px) {
+    .account-edit-side{
+        display: none;
+    }
 }
