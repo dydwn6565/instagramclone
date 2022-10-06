@@ -139,7 +139,27 @@ function Chat({ setBlurBackground }) {
       )}
       <Header setBlurBackground={setBlurBackground} />
 
-      <div className="my-message">
+      <div className="chat">
+        <div>
+          <div className="my-chat-id">
+            <div className="my-chat-text">
+              <strong>ivan4334</strong>{" "}
+              <BsChevronDown className="down-arrow-icon" />
+            </div>
+          </div>
+          <HiOutlinePencilAlt className="my-chat-message-icon" />
+          <div className="my-chat-message-page">
+            <div className="my-chat-message">
+              <Avatar className="my-chat-message-avatar" />
+              <div>
+                {nameList.map((user) => (
+                  <span key={user.id}>{user}</span>
+                ))}
+                <div>1 1week</div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div>
           <div className="my-message-message-chat-content">
             <div className="my-message-chat-head">
@@ -184,7 +204,6 @@ function Chat({ setBlurBackground }) {
                       <div className="my-message-chat-receive">
                         <Avatar />
                         <div>
-                          
                           <div>{item.username}</div>
                           {item.text.split(",")[0] ===
                           "data:image/jpeg;base64" ? (
@@ -232,26 +251,8 @@ function Chat({ setBlurBackground }) {
               {emojiPicker && <Picker onEmojiClick={onEmojiClick} />}
             </div>
           </div>
-          <div className="my-message-id">
-            <div className="my-message-text">
-              <strong>ivan4334</strong>{" "}
-              <BsChevronDown className="down-arrow-icon" />
-            </div>
-
-            <HiOutlinePencilAlt className="my-message-message-icon" />
-          </div>
-          <div className="my-message-message-page">
-            <div className="my-message-message">
-              <Avatar></Avatar>
-              <div>
-                {nameList.map((user) => (
-                  <span key={user.id}>{user}</span>
-                ))}
-                <div>1 1week</div>
-              </div>
-            </div>
-          </div>
         </div>
+
         {/* {sendMessage && (
           <MyMessageModal messageModalHandler={messageModalHandler} />
         )} */}

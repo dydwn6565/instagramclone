@@ -67,7 +67,9 @@ function PrivateInfoAndSecurity() {
     <div className="private-info-and-security">
       <Header />
       <div className="private-info-and-security-container">
-        <AccountEditSide />
+        <AccountEditSide
+          specialSize={"large-space-for-pricate-info-and-security"}
+        />
         <div className="private-info-and-security-main">
           <div>
             <h2>Range of account open</h2>
@@ -286,9 +288,8 @@ function PrivateInfoAndSecurity() {
           </div>
         </div>
       </div>
-      <div className="resize-footer">
-        <ProfileFooter />
-      </div>
+
+      <ProfileFooter position={"account-private"} />
     </div>
   );
 }

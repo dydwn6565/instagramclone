@@ -25,8 +25,11 @@
     align-items: center;
 }
 
+.large-space-for-pricate-info-and-security {
+    height:1400px;
+}
 @media screen and (max-width: 1000px) {
-    .account-edit-side{
+    .account-edit-side {
         display: none;
     }
 }

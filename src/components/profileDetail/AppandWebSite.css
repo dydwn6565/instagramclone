@@ -3,11 +3,10 @@
     width: 1000px;
     height: 800px;
     border: 0.5px solid lightgrey;
-    margin-top: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
 }
 
 .app-and-website {
@@ -53,11 +52,10 @@
         width: 98%;
         margin-top: 100px;
         min-width: 550px;
-        margin-left:10px;
+        margin-left: 10px;
         justify-content: center;
-        
     }
-    .app-and-website{
-        margin-left:10px;
+    .app-and-website {
+        margin-left: 10px;
     }
 }

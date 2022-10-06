@@ -3,13 +3,17 @@
     justify-content: center;
     align-items: center;
     font-size: 13px;
-    color:grey
+    color: grey
 }
 
 .first {
-    margin-top: 600px;
+    margin-top: 50px;
 }
 
-.account{
-    margin-top: 950px;
+.account {
+    margin-top: 50px;
+}
+
+.account-private {
+    margin-top: 50px;
 }

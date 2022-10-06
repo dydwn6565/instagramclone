@@ -6,16 +6,16 @@
 .private-info-and-security-container {
     display: flex;
     width: 1000px;
-    height: 800px;
     border: 0.5px solid lightgrey;
-    margin-top: 20px;
-    margin-left: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
 }
 
 .private-info-and-security-main {
     width: 800px;
     margin-left: -120px;
-    padding:2%;
+    padding: 2%;
 }
 
 .private-info-and-security-main-page-space {
@@ -37,4 +37,17 @@
 .private-info-and-security-post-extra-info {
     font-size: 10px;
     color: lightgrey
+}
+
+@media screen and (max-width: 1000px) {
+    .private-info-and-security-container {
+        width: 98%;
+        margin-top: 100px;
+        min-width: 550px;
+        margin-left: 10px;
+        justify-content: center;
+    }
+    .private-info-and-security-main {
+        margin-left: 10px;
+    }
 }

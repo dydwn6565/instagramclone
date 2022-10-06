@@ -4,7 +4,8 @@ import {
   IoIosArrowDroprightCircle,
 } from "react-icons/io";
 import { BsDot } from "react-icons/bs";
-function ImageHander({ images }) {
+import "./css/ImageHander.css"
+function ImageHander({ images,extendedIconsSize }) {
     const [imageIndex, setImageIndex] = useState(0);
     const lastIndex = images.length - 1;
       const moveToNextpage = () => {
@@ -24,15 +25,27 @@ function ImageHander({ images }) {
             className="main-image"
           />
         </div>
+
         <div className="image-dot-container">
-          <IoIosArrowDropleftCircle
-            className={
-              imageIndex !== 0
-                ? "main-page-image-left-icon"
-                : "inactive-main-page-image-left-icon"
-            }
-            onClick={moveToPrevpage}
-          />
+          {extendedIconsSize === true ? (
+            <IoIosArrowDropleftCircle
+              className={
+                imageIndex !== 0
+                  ? "main-extended-page-image-left-icon"
+                  : "inactive-main-page-image-left-icon"
+              }
+              onClick={moveToPrevpage}
+            />
+          ) : (
+            <IoIosArrowDropleftCircle
+              className={
+                imageIndex !== 0
+                  ? "main-page-image-left-icon"
+                  : "inactive-main-page-image-left-icon"
+              }
+              onClick={moveToPrevpage}
+            />
+          )}
           {images &&
             images.map((image, index) => (
               <BsDot
@@ -44,15 +57,26 @@ function ImageHander({ images }) {
                 }
               />
             ))}
-          <IoIosArrowDroprightCircle
-            className={
-              imageIndex === lastIndex
-                ? "inactive-main-image-right-icon"
-                : "main-page-image-right-icon"
-            }
-            // style={{ marginTop: `${images[imageIndex].offsetHeight * 0.5}px` }}
-            onClick={moveToNextpage}
-          />
+
+          {extendedIconsSize === true ? (
+            <IoIosArrowDroprightCircle
+              className={
+                imageIndex === lastIndex
+                  ? "inactive-main-image-right-icon"
+                  : "main-extended-page-image-right-icon"
+              }
+              onClick={moveToNextpage}
+            />
+          ) : (
+            <IoIosArrowDroprightCircle
+              className={
+                imageIndex === lastIndex
+                  ? "inactive-main-image-right-icon"
+                  : "main-page-image-right-icon"
+              }
+              onClick={moveToNextpage}
+            />
+          )}
         </div>
       </div>
     </div>

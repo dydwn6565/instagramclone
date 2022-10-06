@@ -13,30 +13,32 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0.0.26);
     border-radius: 10px;
     position: fixed;
-    top: 10vh;
-    left: 17%;
-    width: 70vw;
-    height: 70vh;
+    top: 100px;
+    /* width: 70vw; */
+    height: 700px;
     z-index: 100;
     overflow: hidden;
     display: flex;
     background-color: black;
 }
 
+.extended-main-image {
+    margin:auto;
+}
 .extended-main-modal-info {
     background-color: white;
-    width: 35vw;
+    
 }
 
 .extended-main-modal-main>div>img {
-    margin-top: 10vh;
+    
     width: 100%;
 }
 
 .extended-main-modal-title {
     display: flex;
     align-items: center;
-    width: 32vw;
+    width: 250px;
     padding: 10px;
 }
 
@@ -55,19 +57,19 @@
 .extended-main-modal-info-content {
     display: flex;
     align-items: center;
-    width: 30vw;
+    width: 580px;
     /* flex-direction: column; */
 }
 
 .extended-main-modal-info-content-comment-inside {
     display: flex;
     align-items: center;
-    margin-top: 1vh;
+    margin-top: 10px;
 }
 
 .extended-main-modal-info-content-comment-inside-id {
     /* margin-left:3%; */
-    margin-right: 1vw;
+    margin-right: 10px;
     margin-left: 0.5vw;
 }
 
@@ -105,15 +107,16 @@
 
 .extended-main-modal-info-comment>div {
     margin-left: 2%;
-    width: 26vw;
+    
 }
 
 .extended-main-modal-info-bottom {
     position: absolute;
     bottom: 0;
-    margin-bottom: 1%;
+    /* margin-bottom: 10px; */
+    width:580px
 }
 
-.post-bt {
-    /* float: right !important; */
-}
+/* .post-bt {
+    float: right !important;
+} */

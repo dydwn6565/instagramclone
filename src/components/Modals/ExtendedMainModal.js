@@ -21,11 +21,12 @@ function ExtendedMainModal({
 }) {
   return (
     <div>
-      
       <div className="extended-main-modal-backdrop" onClick={extendComment} />
       <div>
         <div className="extended-main-modal-main">
-          <ImageHander images={images} />
+          <div className="extended-main-image">
+            <ImageHander images={images} extendedIconsSize={true} />
+          </div>
 
           <div className="extended-main-modal-info">
             <div className="extended-main-modal-title">
@@ -89,6 +90,7 @@ function ExtendedMainModal({
                 July 25
               </div>
               <div className="hr"></div>
+              
               <div className="extended-main-modal-info-comment">
                 <CommentHandler postid={postid} />
               </div>
