@@ -14,7 +14,6 @@
     border-radius: 10px;
     position: fixed;
     top: 100px;
-    /* width: 70vw; */
     height: 700px;
     z-index: 100;
     overflow: hidden;
@@ -23,15 +22,14 @@
 }
 
 .extended-main-image {
-    margin:auto;
+    margin: auto;
 }
+
 .extended-main-modal-info {
     background-color: white;
-    
 }
 
 .extended-main-modal-main>div>img {
-    
     width: 100%;
 }
 
@@ -48,17 +46,19 @@
     margin-top: 2%;
 }
 
-.extended-main-modal-info-content-container {
+.extended-main-modal-container {
+    height: 450px;
+    
+    overflow: auto;
+}.extended-main-modal-info-content-container {
     display: flex;
     margin-top: 2%;
-    /* height: 35%; */
 }
 
 .extended-main-modal-info-content {
     display: flex;
     align-items: center;
     width: 580px;
-    /* flex-direction: column; */
 }
 
 .extended-main-modal-info-content-comment-inside {
@@ -68,7 +68,6 @@
 }
 
 .extended-main-modal-info-content-comment-inside-id {
-    /* margin-left:3%; */
     margin-right: 10px;
     margin-left: 0.5vw;
 }
@@ -90,9 +89,7 @@
 
 .extended-main-modal-info-content-comment {
     margin-left: 2%;
-    /* position:absolute;
-    bottom:0;
-    margin-bottom:10p ; */
+
 }
 
 .date {
@@ -102,21 +99,14 @@
 .extended-main-modal-info-comment {
     display: flex;
     margin-left: 2%;
-    /* width: 35vw; */
 }
 
 .extended-main-modal-info-comment>div {
     margin-left: 2%;
-    
 }
 
 .extended-main-modal-info-bottom {
     position: absolute;
     bottom: 0;
-    /* margin-bottom: 10px; */
-    width:580px
+    width: 580px
 }
-
-/* .post-bt {
-    float: right !important;
-} */

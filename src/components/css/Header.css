@@ -12,13 +12,16 @@
     width: 100%;
     border-bottom: 0.5px lightgrey solid;
     min-width: 670px;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 100;
 }
 
 .header-search-bar {
     width: 250px;
     height: 35px;
     border-radius: 8px;
-    /* outline-color: white; */
     background-color: rgb(234, 230, 230);
     border: none
 }
@@ -31,7 +34,6 @@
 
 .header-search-bar-input {
     margin-left: 20px;
-    /* outline-color: rgb(234, 230, 230); */
     border: none;
     background-color: rgb(234, 230, 230);
 }
@@ -59,6 +61,11 @@
     margin-left: 5%;
 }
 
+.favorite-icon,
+.head-avatar {
+    cursor: pointer;
+}
+
 .search-icon {
     position: absolute !important;
     margin-top: -6px;
@@ -82,9 +89,9 @@
 }
 
 .searched-users-id-and-username {
-    padding:5px;
-    
+    padding: 5px;
 }
+
 .searched-user-container {
     padding: 10px;
     display: flex;

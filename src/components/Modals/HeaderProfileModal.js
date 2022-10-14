@@ -38,7 +38,7 @@ function HeaderProfileModal({ headerModalHandler, redirectToProfile }) {
           <span>Change account</span>
         </div>
         <div className="hr"></div>
-        <div>Logout</div>
+        <div >Logout</div>
       </div>
     </div>
   );

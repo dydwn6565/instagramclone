@@ -11,12 +11,12 @@ import { Avatar } from "@mui/material";
 import MyMessageModal from "./Modals/MyMessageModal";
 
 import { Link } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 function MyMessage({ setBlurBackground }) {
   const [sendMessage, setSendMessage] = useState(false);
 
   const [roomList, setRoomList] = useState([]);
-
+const userids = useSelector((state) => state.user);
   const userid = 2;
   const messageModalHandler = () => {
     setSendMessage((prevState) => !prevState);
@@ -43,7 +43,7 @@ function MyMessage({ setBlurBackground }) {
       alert(error);
     }
   }, []);
-
+console.log(userids);
   return (
     <>
       <Header setBlurBackground={setBlurBackground} />

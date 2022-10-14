@@ -23,19 +23,22 @@ function LoginImage() {
     
   }, [currentPosition]);
   return (
-    <div>
-      
-      <img
-        className="login-cellphone-slider-pitcure-background"
-        src="https://www.iphonelife.com/sites/iphonelife.com/files/styles/screenshot_iphonexs_660_2x/public/img_3854.jpg?itok=Rfc29Kik"
-        alt=""
-      />
-      <img
-        className="login-cellphone-slider-pitcure"
-        src={imageURLList[currentPosition]}
-        alt=""
-      />
-    </div>
+    <>
+     <div className="login-cellphone-container">
+
+        <img
+          className="login-cellphone-slider-pitcure-background"
+          src="https://www.iphonelife.com/sites/iphonelife.com/files/styles/screenshot_iphonexs_660_2x/public/img_3854.jpg?itok=Rfc29Kik"
+          alt=""
+        />
+        <img
+          className="login-cellphone-slider-pitcure"
+          src={imageURLList[currentPosition]}
+          alt=""
+        />
+     </div>
+      </>
+
   );
 }
 

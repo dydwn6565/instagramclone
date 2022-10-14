@@ -16,13 +16,7 @@ function PostImageComponent({ images, content, id, postid }) {
   const [commentList, setCommentList] = useState("");
   const [mainPageModal, setMainPageModal] = useState(false);
   const [like, setLike] = useState(true);
-  // const lastIndex = images.length - 1;
-  // const moveToNextpage = () => {
-  //   setImageIndex((prev) => prev + 1);
-  // };
-  // const moveToPrevpage = () => {
-  //   setImageIndex((prev) => prev - 1);
-  // };
+ 
   useEffect(() => {
     const getPostComment = async () => {
       const fetchedData = await fetch(
@@ -33,7 +27,7 @@ function PostImageComponent({ images, content, id, postid }) {
       );
       if (fetchedData.status === 201) {
         const commentsList = await fetchedData.json();
-        // console.log(commentsList);
+        
         setCommentList(commentsList);
       }
     };
@@ -173,26 +167,9 @@ function PostImageComponent({ images, content, id, postid }) {
           </div>
         </div>
         <hr />
-        {/* <div className="main-page-comment"> */}
+        
         <CommentHandler postid={postid} />
-        {/* <SentimentSatisfiedAltIcon />
-          <span> comments</span>
-          <input
-            type="text"
-            placeholder="commnets"
-            className="main-page-comment"
-            onChange={(e) => commentHandler(e.target.value)}
-          />
-          {comment === "" ? (
-            <div className={"comment-button-inactive"} disabled>
-              Post
-            </div>
-          ) : (
-            <div className={"comment-button-active"} onClick={addComment}>
-              Post
-            </div>
-          )} */}
-        {/* </div> */}
+        
         {extendCommentModal && (
           <ExtendedMainModal
             extendComment={extendComment}

@@ -127,13 +127,14 @@ function Header() {
           <Link to="/explore">
             <ExploreOutlinedIcon className="explore" />
           </Link>
-          <div>
+          <div className="favorite-icon">
             <FavoriteBorderOutlinedIcon onClick={postActivity} />
             {openHeart && <LikeActivity postActivity={postActivity} />}
           </div>
 
           <div>
             <Avatar
+            className="head-avatar"
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiGcFYBKGruads8sUVAfUBlX8orSdEwuSSTg&usqp=CAU"
               onClick={headerModalHandler}
             />

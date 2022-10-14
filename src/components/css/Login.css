@@ -8,12 +8,15 @@
     border: 1px solid lightgrey;
 }
 
-
-
-.login-container {
-    width: 350px;
-    margin: auto;
+.login-outside-container {
     
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 720px;
+}.login-container {
+    width: 350px;
+    margin-left:100px;
     margin-top: 80px;
 }
 
@@ -33,7 +36,7 @@
     margin-top: -30px;
     margin-bottom: 6px;
     font-size: 14px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .login-form>input,
@@ -45,9 +48,8 @@
 }
 
 .login-button {
-    border:none !important;
+    border: none !important;
     background-color: #10d0ff;
-    
     color: white;
     border-radius: 3px;
 }
@@ -84,7 +86,6 @@
     margin-top: 10px;
 }
 
-
 .app-store-button {
     /* transform: scale(0.2); */
     width: 150px;
@@ -115,7 +116,6 @@
     margin-top: 20px;
 }
 
-.hr-row{
-    border-top:0.5px solid lightgrey;
-    
+.hr-row {
+    border-top: 0.5px solid lightgrey;
 }

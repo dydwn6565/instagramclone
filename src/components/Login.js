@@ -87,20 +87,22 @@ function Login() {
         const jsonUser = await getUserInfo.json();
         console.log(jsonUser);
 
-        const userid = jsonUser.userid;
-        const name = jsonUser.name;
-        const username = jsonUser.username;
+        // const userid = jsonUser.userid;
+        // const name = jsonUser.name;
+        // const username = jsonUser.username;
 
-        dispatch(
-          userActions.updateUser({
-            userid: userid,
-            name: name,
-            username: username,
-          })
-        );
-
+        // dispatch(
+        //   userActions.updateUser({
+        //     userid: userid,
+        //     name: name,
+        //     username: username,
+        //   })
+        // );
+        const userInfo = {id:jsonUser.id, userid:jsonUser.userid, username:jsonUser.username,name:jsonUser.name}
+          localStorage.setItem("userInfo", JSON.stringify(userInfo));
         insertUserLocation(jsonUser.id);
-        linkToMain.current.click();
+        
+        
       }
     } catch (error) {
       alert(error.message);
@@ -133,12 +135,9 @@ function Login() {
 
   return (
     <>
-      <Container>
-        <Row>
-          <Col sm={5}>
+      <div className="login-outside-container">
+
             <LoginImage />
-          </Col>
-          <Col sm={5}>
             <div className="login-container">
               <div className="login">
                 <div className="login-title">Instagram</div>
@@ -211,9 +210,8 @@ function Login() {
             <Link ref={linkToMain} to="/" hidden>
               s
             </Link>
-          </Col>
-        </Row>
-      </Container>
+        </div>
+          
     </>
   );
 }

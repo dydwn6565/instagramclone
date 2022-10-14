@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .profile-multiple-buttons>div {
@@ -17,8 +18,8 @@
 .profile-main>img {
     width: 400px;
     height: 400px;
-    margin-top: 300px;
-    position: absolute;
+    margin-top: 50px;
+    /* position: absolute; */
 }
 
 .profile-middle-line {

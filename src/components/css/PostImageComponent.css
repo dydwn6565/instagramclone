@@ -31,8 +31,8 @@
 }
 
 .main-page-image-left-icon {
-    width: 3vw;
-    height: 3vh;
+    width: 30px;
+    height: 30px;
     position: absolute;
     margin-left: -250px;
     margin-top: -220px;
@@ -40,18 +40,18 @@
 }
 
 .main-extended-page-image-left-icon {
-    width: 3vw;
-    height: 3vh;
+    width: 30px;
+    height: 30px;
     position: absolute;
     left: 0;
     top: 0;
-    margin-top: 350px;
+    margin-top: 30%;
     cursor: pointer;
 }
 
 .main-page-image-right-icon {
-    width: 3vw;
-    height: 3vh;
+    width: 30px;
+    height: 30px;
     position: absolute;
     margin-left: 250px;
     margin-top: -220px;
@@ -59,13 +59,13 @@
 }
 
 .main-extended-page-image-right-icon {
-    width: 3vw;
-    height: 3vh;
+    width: 30px;
+    height: 30px;
     position: absolute;
     right: 0;
     top: 0;
-    margin-top: 350px;
-    margin-right:580px;
+    margin-top: 30%;
+    margin-right:600px;
     cursor: pointer;
 }
 
@@ -127,6 +127,7 @@
 .comment-button-active {
     color: #10d0ff;
     margin-right: 20px;
+    cursor: pointer;
 }
 
 .main-page-comment>span {
