@@ -16,47 +16,45 @@ import { generateBase64FromImage } from "./Utils/Image";
 let socket;
 function Chat({ setBlurBackground }) {
   const [nameList, setNameList] = useState([]);
-  
+
   const [room, setRoom] = useState("");
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const [chosenEmoji, setChosenEmoji] = useState(null);
   const [emojiPicker, setEmojiPicker] = useState(false);
-  
+  const [loginUserInfo, setLoginUserInfo] = useState();
   const location = useLocation();
   const ENDPOINT = "localhost:8080";
   const hiddenFileInput = useRef(null);
-  const userid =2;
-  const username = "yong";
-  
+
+  // const username = "yong";
 
   useEffect(() => {
-    
     socket = io(ENDPOINT);
     const data = location.state;
-    
+
     const { roomtableid, randomRoomNumber, clickedUserList, newChat } = data;
-   
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    
+    setLoginUserInfo(userInfo)
     setRoom(randomRoomNumber);
     setNameList(clickedUserList);
-    
+
     // setCurrentSocketId(socketId);
 
     if (newChat) {
-      console.log("line46" + socket.id);
+      // console.log("line46" + socket.id);
+      const userid = userInfo?.id;
       socket.emit(
         "join",
         { userid, clickedUserList, randomRoomNumber },
         ({ error }) => {}
       );
-
     } else {
-     
       // console.log(socketId);
-      
+
       socket.emit("rejoin", { roomtableid, randomRoomNumber });
     }
-      
 
     // return () => {
     // socket.emit("disconnect");
@@ -69,33 +67,28 @@ function Chat({ setBlurBackground }) {
   }, [ENDPOINT, location]);
 
   useEffect(() => {
-
     socket.on("message", (message) => {
-      
       setMessages([...messages, message]);
-      
     });
   }, [messages]);
 
-
   useEffect(() => {
-
     socket.on("rejoinMessage", (message) => {
-      
-      setMessages([...messages,...message]);
+      setMessages([...messages, ...message]);
     });
   }, []);
 
   const sendMessage = (event) => {
     event.preventDefault();
-  
-    
+    const userid = loginUserInfo?.id;
+      console.log("line 84 " +userid)
+      console.log("line 84 " + room);
     if (message) {
-      
-        socket.emit("sendMessage", {room,userid, message}, () => setMessage(""));
-      }
+      socket.emit("sendMessage", { room, userid, message }, () =>
+        setMessage("")
+      );
     }
-  
+  };
 
   const onEmojiClick = (event, emojiObject) => {
     setChosenEmoji(emojiObject);
@@ -115,9 +108,8 @@ function Chat({ setBlurBackground }) {
   };
   const handleChange = (event) => {
     const fileUploaded = event.target.files[0];
-
+    const userid = loginUserInfo?.id;
     if (fileUploaded) {
-      
       generateBase64FromImage(fileUploaded)
         .then((b64) => {
           // let message= b64;
@@ -175,14 +167,15 @@ function Chat({ setBlurBackground }) {
             </div>
             <FiInfo className="info-icon" />
             <div className="my-message-chat-container">
+              {console.log(loginUserInfo)}
               {messages &&
                 messages.map((item) => (
                   <>
-                    {item.username === username ? (
+                    {item.userid === loginUserInfo?.id ? (
                       <div className="my-message-chat-send">
                         <div>
                           <div className="my-message-chat-message">
-                            {item.username}
+                            {loginUserInfo.name}
                           </div>
 
                           <div className="my-message-chat-message-text">

@@ -1,5 +1,5 @@
 import { Avatar } from '@mui/material';
-import React from 'react'
+import React, { useState } from 'react'
 import "./ExtendedMainModal.css"
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 
@@ -9,6 +9,7 @@ import { BsDot } from "react-icons/bs";
 import Icons from '../Icons';
 import ImageHander from '../ImageHander';
 import CommentHandler from '../CommentHandler';
+import { useEffect } from 'react';
 function ExtendedMainModal({
   extendComment,
   like,
@@ -18,7 +19,19 @@ function ExtendedMainModal({
   content,
   postid,
   commentList,
-}) {
+  postUser,
+}) 
+
+{
+  const [userInformation, setUserInformation] = useState();
+  useEffect(()=>{
+    if(localStorage.getItem("userInfo")){
+
+      const userInfo = localStorage.getItem("userInfo")
+      setUserInformation(JSON.parse(userInfo))
+    }
+  },[])
+  console.log(userInformation)
   return (
     <div>
       <div className="extended-main-modal-backdrop" onClick={extendComment} />
@@ -31,7 +44,9 @@ function ExtendedMainModal({
           <div className="extended-main-modal-info">
             <div className="extended-main-modal-title">
               <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiGcFYBKGruads8sUVAfUBlX8orSdEwuSSTg&usqp=CAU" />
-              <div className="extended-main-modal-title-name">Hyeoneee</div>
+              <div className="extended-main-modal-title-name">
+                {postUser.username}
+              </div>
               <div className="extended-main-modal-title">
                 <BsDot />
                 Following
@@ -39,11 +54,11 @@ function ExtendedMainModal({
               <MoreHorizOutlinedIcon className="extended-main-modal-dotdotdot-icon" />
             </div>
             <div className="hr"></div>
-            <div className='extended-main-modal-container'>
+            <div className="extended-main-modal-container">
               <div className="extended-main-modal-info-content">
                 <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiGcFYBKGruads8sUVAfUBlX8orSdEwuSSTg&usqp=CAU" />
                 <div>
-                  <span> Hyeonee</span>
+                  <span> {postUser.username}</span>
                   <span className="extended-main-modal-info-content-content">
                     {content}
                   </span>
@@ -70,7 +85,6 @@ function ExtendedMainModal({
                   ))}
                 </div>
               </div>
-              
             </div>
             <div className="extended-main-modal-info-bottom">
               <div className="hr"></div>
@@ -93,7 +107,7 @@ function ExtendedMainModal({
               <div className="hr"></div>
 
               <div className="extended-main-modal-info-comment">
-                <CommentHandler postid={postid} />
+                <CommentHandler postid={postid} userid={userInformation?.id} />
               </div>
             </div>
           </div>

@@ -17,16 +17,17 @@ function MyMessage({ setBlurBackground }) {
 
   const [roomList, setRoomList] = useState([]);
 const userids = useSelector((state) => state.user);
-  const userid = 2;
+  // const userid = 2;
   const messageModalHandler = () => {
     setSendMessage((prevState) => !prevState);
   };
 
   useEffect(() => {
+    const userid = JSON.parse(localStorage.getItem("userInfo"))
     try {
       const chatRoomList = async () => {
         const roomListData = await fetch(
-          `http://localhost:8080/chat/getUserRoom/${userid}`,
+          `http://localhost:8080/chat/getUserRoom/${userid.id}`,
           {
             method: "GET",
           }
@@ -67,7 +68,7 @@ console.log(userids);
               {roomList &&
                 roomList.map((chatRoom) => (
                   <>
-                    {console.log(chatRoom)}
+                    {/* {console.log(chatRoom)} */}
                     <div key={chatRoom.id} className="my-message-message">
                       <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRqRyIiwYCq4s-fZi1zdmyfSuIPUvg9EyZ_Q&usqp=CAU" />
                       <div>

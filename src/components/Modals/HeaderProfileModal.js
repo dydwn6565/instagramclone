@@ -7,6 +7,13 @@ import "./HeaderProfileModal.css"
 import { Link } from 'react-router-dom';
 
 function HeaderProfileModal({ headerModalHandler, redirectToProfile }) {
+
+  const logoutActivity=()=>{
+    localStorage.removeItem("userInfo");
+    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("accessToken")
+    window.location.href="/login"
+  }
   return (
     <div>
       <div
@@ -38,7 +45,7 @@ function HeaderProfileModal({ headerModalHandler, redirectToProfile }) {
           <span>Change account</span>
         </div>
         <div className="hr"></div>
-        <div >Logout</div>
+        <div onClick={logoutActivity}>Logout</div>
       </div>
     </div>
   );

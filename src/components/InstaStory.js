@@ -28,53 +28,11 @@ function InstaStory() {
       center: [lng, lat],
       zoom: 12,
     });
-    //  mapTwo.current = new mapboxgl.Map({
-    //    container: mapContainerTwo.current,
-    //    style: "mapbox://styles/mapbox/streets-v11",
-    //    center: [lng, lat],
-    //    zoom: 12,
-    //  });
-    // new mapboxgl.Marker().setLngLat({ lng, lat }).addTo(map.current);
-    // const marker = new mapboxgl.Marker()
-    //   .setLngLat([49.26321, -113.18718])
-    //   .addTo(map);
-    // geoJson.features.map((feature) =>
-    //   new mapboxgl.Marker().setLngLat(feature.geometry.coordinates).addTo(map)
-    // );
-
-    // Add navigation control (the +/- zoom buttons)
-    // map.addControl(new mapboxgl.NavigationControl(), "top-right");
-
-    // Clean up on unmount
-    // return () => map.remove();
+  
   }, []);
   return (
     <div>
-      {/* {console.log(process.env.REACT_APP_MAP_KEY)}
-      <h1>Mapbox tutorial</h1>
-      <Map
-        mapboxAccessToken={
-          "pk.eyJ1IjoiZHlkd242NTY1IiwiYSI6ImNrdnZ4b3kxdDAyeWwyb3FiaXF0czE3dncifQ.wy2-3OucP_ZeU3bxWiDIUA"
-        }
-        style={{
-          width: "50vw",
-          height: "20vh",
-          borderRadius: "15px",
-          border: "2px solid red",
-        }}
-        initialViewState={{
-          longitude: lng,
-          latitude: lat,
-          zoom: 10,
-        }}
-        mapStyle="mapbox://styles/mapbox/streets-v9"
-      >
-        <Marker longitude={lng} latitude={lat} />
-        <NavigationControl position="bottom-right" />
-        <FullscreenControl />
-
-        <GeolocateControl />
-      </Map> */}
+  
       <div className="map-container" ref={mapContainer} />
       <div className="map-container" ref={mapContainerTwo} />
     </div>

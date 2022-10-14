@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
-function CommentHandler({postid}) {
+function CommentHandler({postid,userid}) {
     const [comment, setComment] = useState("");
     const commentHandler = (e) => {
       setComment(e);
@@ -10,7 +10,11 @@ function CommentHandler({postid}) {
     try {
       fetch("http://localhost:8080/add/postcomment", {
         method: "POST",
-        body: JSON.stringify({ comment: comment, userid: 3, postid: postid }),
+        body: JSON.stringify({
+          comment: comment,
+          userid: userid,
+          postid: postid,
+        }),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },

@@ -78,14 +78,15 @@ function Login() {
 
         localStorage.setItem("accessToken", token.accessToken);
         localStorage.setItem("refreshToken", token.refreshToken);
+        console.log(enteredUserId)
         const getUserInfo = await fetch(
-          `http://localhost:8080/users/${enteredUserId}`,
+          `http://localhost:8080/usersByUserId/${enteredUserId}`,
           {
             method: "GET",
           }
         );
         const jsonUser = await getUserInfo.json();
-        console.log(jsonUser);
+        console.log(getUserInfo);
 
         // const userid = jsonUser.userid;
         // const name = jsonUser.name;
@@ -101,7 +102,7 @@ function Login() {
         const userInfo = {id:jsonUser.id, userid:jsonUser.userid, username:jsonUser.username,name:jsonUser.name}
           localStorage.setItem("userInfo", JSON.stringify(userInfo));
         insertUserLocation(jsonUser.id);
-        
+        linkToMain.current.click();
         
       }
     } catch (error) {

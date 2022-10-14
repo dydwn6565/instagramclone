@@ -10,11 +10,12 @@ import "./css/PostImageComponent.css";
 import Icons from "./Icons";
 import ImageHander from "./ImageHander";
 import CommentHandler from "./CommentHandler";
-function PostImageComponent({ images, content, id, postid }) {
+function PostImageComponent({ images, content,userid, id, postid }) {
   
   const [extendCommentModal, setExtendCommentModal] = useState(false);
   const [commentList, setCommentList] = useState("");
   const [mainPageModal, setMainPageModal] = useState(false);
+  const [postUser,setPostUser]= useState();
   const [like, setLike] = useState(true);
  
   useEffect(() => {
@@ -33,6 +34,25 @@ function PostImageComponent({ images, content, id, postid }) {
     };
     getPostComment();
   }, []);
+
+  useEffect(()=>{
+    console.log("hit")
+    const getPostUser = async () => {
+       const fetchedData = await fetch(
+         `http://localhost:8080/users/${id}`,
+         {
+           method: "GET",
+         }
+       );
+       if (fetchedData.status === 200) {
+         const postUserInfo = await fetchedData.json();
+          
+         setPostUser(postUserInfo);
+       }
+     };
+     getPostUser();
+  },[id])
+
   const extendComment = () => {
     setExtendCommentModal((prevState) => !prevState);
   };
@@ -42,20 +62,6 @@ function PostImageComponent({ images, content, id, postid }) {
     setMainPageModal((prevState) => !prevState);
   };
 
-  // const addComment = () => {
-  //   // console.log(comment);
-  //   try {
-  //     fetch("http://localhost:8080/add/postcomment", {
-  //       method: "POST",
-  //       body: JSON.stringify({ comment: comment, userid: 3, postid: postid }),
-  //       headers: {
-  //         "Content-type": "application/json; charset=UTF-8",
-  //       },
-  //     });
-  //   } catch (error) {
-  //     alert(error);
-  //   }
-  // };
 
   const addlikeButtonhandler = () => {
     setLike((prev) => !prev);
@@ -88,6 +94,7 @@ function PostImageComponent({ images, content, id, postid }) {
       });
     } catch (error) {}
   };
+  console.log(id)
   return (
     <>
       <div key={id} className="main">
@@ -98,7 +105,7 @@ function PostImageComponent({ images, content, id, postid }) {
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiGcFYBKGruads8sUVAfUBlX8orSdEwuSSTg&usqp=CAU"
                 className="main-avatar"
               />
-              <span>Hyeoneee</span>
+              <span>{postUser?.username}</span>
             </div>
             <div>
               <MoreHorizOutlinedIcon
@@ -110,45 +117,6 @@ function PostImageComponent({ images, content, id, postid }) {
         </div>
         {mainPageModal && <MainPageModal mainPageHandler={mainPageHandler} />}
         <ImageHander images={images} />
-        {/* <div>
-          <div className="main-image-and-icons">
-            <img
-              src={"data:image/png;base64," + images[imageIndex]}
-              alt="mong"
-              className="main-image"
-            />
-          </div>
-          <div className="image-dot-container">
-            <IoIosArrowDropleftCircle
-              className={
-                imageIndex !== 0
-                  ? "main-page-image-left-icon"
-                  : "inactive-main-page-image-left-icon"
-              }
-              onClick={moveToPrevpage}
-            />
-            {images &&
-              images.map((image, index) => (
-                <BsDot
-                  key={image}
-                  className={
-                    index === imageIndex
-                      ? "main-image-dot-icon blue"
-                      : "main-image-dot-icon white"
-                  }
-                />
-              ))}
-            <IoIosArrowDroprightCircle
-              className={
-                imageIndex === lastIndex
-                  ? "inactive-main-image-right-icon"
-                  : "main-page-image-right-icon"
-              }
-              // style={{ marginTop: `${images[imageIndex].offsetHeight * 0.5}px` }}
-              onClick={moveToNextpage}
-            />
-          </div>
-        </div> */}
 
         <div className="main-page-icons-container">
           <div className="main-page-icons">
@@ -167,9 +135,9 @@ function PostImageComponent({ images, content, id, postid }) {
           </div>
         </div>
         <hr />
-        
+
         <CommentHandler postid={postid} />
-        
+
         {extendCommentModal && (
           <ExtendedMainModal
             extendComment={extendComment}
@@ -179,6 +147,7 @@ function PostImageComponent({ images, content, id, postid }) {
             images={images}
             content={content}
             postid={postid}
+            postUser={postUser}
             commentList={commentList}
           />
         )}

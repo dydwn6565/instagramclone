@@ -11,7 +11,7 @@ function Main({ setBlurBackground }) {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    const accessToken = localStorage.getItem("accessToken");
+    const accessToken = localStorage?.getItem("accessToken");
 
     // console.log(accessToken);
     if (accessToken) {
@@ -62,47 +62,14 @@ function Main({ setBlurBackground }) {
           setPosts(postsJson);
         }
       } catch (error) {
-        alert(error.message);
+        console.log(error.message);
       }
     };
     getPosts();
   }, []);
 
-  const userid = useSelector((state) => state.user);
+  
 
-  // const sendingFile = async(e) =>{
-  //   setTestFile(e.target.files[0])
-  //   console.log(e.target);
-  //   console.log(testFile)
-  //   const dataForm = new FormData();
-  //   dataForm.append("file", e.target.files[0]);
-  //   dataForm.append("content", "hihi");
-  //   dataForm.append("lat", 49.26356);
-  //   dataForm.append("long", -123.18681);
-  //   dataForm.append("userid", 2);
-
-  //   await fetch("http://localhost:8080/post",{
-  //     method:"POST",
-  //     body:dataForm,
-  // })
-  // }
-
-  //  const receivingFile = async(e) =>{
-
-  //   // const dataForm = new FormData();
-
-  //   // dataForm.append("userid", 2);
-
-  //   const receivedImages = await fetch("http://localhost:8080/retriev/images/2",{
-  //     method:"GET",
-  //     // body:dataForm,
-  // })
-  // const jsonData = await receivedImages.json();
-  // // const jsonData = await receivedImages.json();
-  // setTestImage(jsonData);
-  // console.log(jsonData)
-  // // console.log("line 105 in main" + jsonData);
-  // }
 
   return (
     <>
@@ -110,11 +77,13 @@ function Main({ setBlurBackground }) {
       {posts &&
         posts.map((post) => (
           <>
+          {console.log(post)}
             <div className="main-image-container">
               <PostImageComponent
                 images={post.url}
                 content={post.content}
                 id={post.id}
+                userid ={post.userid}
                 postid={post.postid}
               />
             </div>

@@ -78,7 +78,7 @@
 
 .my-message-chat-footer {
     border: 0.5px solid lightgrey;
-    height: 5vh;
+    height: 50px;
     width: 470px;
     margin-left: 15px;
     border-radius: 100px;
@@ -86,7 +86,7 @@
 }
 
 .my-message-chat-input {
-    width: 23vw;
+    width: 30vw;
     height: 3vh;
     margin-top: 1vh;
     font-size: 18px;
@@ -148,6 +148,8 @@
     width: 30px;
     height: 30px;
     margin-top: 15px;
+    margin-right:20px;
+    /* float:right; */
 }
 
 .my-message-chat-image {
