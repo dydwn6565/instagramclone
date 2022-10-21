@@ -26,24 +26,25 @@ function Chat({ setBlurBackground }) {
   const location = useLocation();
   const ENDPOINT = "localhost:8080";
   const hiddenFileInput = useRef(null);
-
-  // const username = "yong";
+  const [chatRoom,setChatRoom] = useState();
+  
 
   useEffect(() => {
     socket = io(ENDPOINT);
     const data = location.state;
 
-    const { roomtableid, randomRoomNumber, clickedUserList, newChat } = data;
+    const { roomtableid, randomRoomNumber,chatRoom, clickedUserList, newChat } = data;
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-    
+    console.log(randomRoomNumber)
     setLoginUserInfo(userInfo)
     setRoom(randomRoomNumber);
     setNameList(clickedUserList);
-
-    // setCurrentSocketId(socketId);
+    setChatRoom(chatRoom)
+    
+    
 
     if (newChat) {
-      // console.log("line46" + socket.id);
+      
       const userid = userInfo?.id;
       socket.emit(
         "join",
@@ -51,7 +52,7 @@ function Chat({ setBlurBackground }) {
         ({ error }) => {}
       );
     } else {
-      // console.log(socketId);
+      
 
       socket.emit("rejoin", { roomtableid, randomRoomNumber });
     }
@@ -121,7 +122,7 @@ function Chat({ setBlurBackground }) {
         });
     }
   };
-
+  console.log(messages);
   return (
     <div>
       {message && emojiPicker && chosenEmoji && (
@@ -142,12 +143,14 @@ function Chat({ setBlurBackground }) {
           <HiOutlinePencilAlt className="my-chat-message-icon" />
           <div className="my-chat-message-page">
             <div className="my-chat-message">
-              <Avatar className="my-chat-message-avatar" />
+              <Avatar
+                className="my-chat-message-avatar"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRqRyIiwYCq4s-fZi1zdmyfSuIPUvg9EyZ_Q&usqp=CAU"
+              />
               <div>
-                {nameList.map((user) => (
-                  <span key={user.id}>{user}</span>
+                {chatRoom?.map((user) => (
+                  <span key={user.id}>{user.name}</span>
                 ))}
-                <div>1 1week</div>
               </div>
             </div>
           </div>
@@ -155,23 +158,28 @@ function Chat({ setBlurBackground }) {
         <div>
           <div className="my-message-message-chat-content">
             <div className="my-message-chat-head">
-              <Avatar className="my-message-chat-head-avatar" />
-              {console.log(nameList)}
-              {nameList.map((user) => (
+              <Avatar
+                className="my-message-chat-head-avatar"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRqRyIiwYCq4s-fZi1zdmyfSuIPUvg9EyZ_Q&usqp=CAU"
+              />
+
+              {chatRoom?.map((user) => (
                 <>
                   <div key={user.id} className="my-message-chat-head-id">
-                    <span key={user.id}>{user}</span>
+                    <span key={user.id}>{user.name}</span>
                   </div>
                 </>
               ))}
             </div>
             <FiInfo className="info-icon" />
-            <div className="my-message-chat-container">
-              {console.log(loginUserInfo)}
+            <div
+              className="my-message-chat-container"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRqRyIiwYCq4s-fZi1zdmyfSuIPUvg9EyZ_Q&usqp=CAU"
+            >
               {messages &&
                 messages.map((item) => (
                   <>
-                    {item.userid === loginUserInfo?.id ? (
+                    {item.id === loginUserInfo?.id ? (
                       <div className="my-message-chat-send">
                         <div>
                           <div className="my-message-chat-message">
@@ -191,13 +199,13 @@ function Chat({ setBlurBackground }) {
                             )}
                           </div>
                         </div>
-                        <Avatar />
+                        <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiGcFYBKGruads8sUVAfUBlX8orSdEwuSSTg&usqp=CAU" />
                       </div>
                     ) : (
                       <div className="my-message-chat-receive">
-                        <Avatar />
+                        <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRqRyIiwYCq4s-fZi1zdmyfSuIPUvg9EyZ_Q&usqp=CAU" />
                         <div>
-                          <div>{item.username}</div>
+                          <div>{item.name}</div>
                           {item.text.split(",")[0] ===
                           "data:image/jpeg;base64" ? (
                             <img
@@ -233,12 +241,12 @@ function Chat({ setBlurBackground }) {
                 onChange={handleChange}
                 accept="image/png, image/jpg, image/gif, image/jpeg"
               />
-              <div>
+              {/* <div>
                 <AiOutlinePicture
                   onClick={handleClick}
                   className="image-picture-icon"
                 />
-              </div>
+              </div> */}
             </div>
             <div className="emoji-picker-position">
               {emojiPicker && <Picker onEmojiClick={onEmojiClick} />}

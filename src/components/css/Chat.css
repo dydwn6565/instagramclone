@@ -46,13 +46,14 @@
 }
 
 .my-chat-message-avatar {
-    margin-right:10px;
-}.my-chat-message {
+    margin-right: 10px;
+}
+
+.my-chat-message {
     display: flex;
     align-items: center;
     padding: 10px;
 }
-
 
 .my-message-chat-head {
     height: 70px;
@@ -98,15 +99,15 @@
 }
 
 .emoji-picker {
-    width: 2vw;
-    height: 2vh;
-    margin-left: 1vw;
-    margin-top: 1.8vh;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    margin-top: 18px;
 }
 
 .emoji-picker-position {
     margin-top: -35vh;
-    margin-left: 1.5vw;
+    margin-left: 15px;
 }
 
 .my-message-chat-receive {
@@ -121,10 +122,9 @@
 
 .my-message-chat-send {
     display: flex;
-    margin-left: 23vw;
     align-items: center;
     margin-top: 1vh;
-    float: right;
+    justify-content: end;
     padding: 2%;
 }
 
@@ -135,9 +135,10 @@
 }
 
 .my-message-chat-container {
-    /* border: 1px solid black; */
+    
     height: 700px;
     overflow: auto;
+    position: relative;
 }
 
 .my-message-chat-footer>input[type="file"] {
@@ -148,7 +149,7 @@
     width: 30px;
     height: 30px;
     margin-top: 15px;
-    margin-right:20px;
+    margin-right: 20px;
     /* float:right; */
 }
 
