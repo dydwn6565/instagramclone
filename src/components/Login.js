@@ -3,14 +3,11 @@ import React, { useState, useRef } from "react";
 import "./css/Login.css";
 import useInput from "../hooks/use-input.js";
 import LoginImage from "./LoginImage";
-import { useDispatch } from "react-redux";
-import { userActions } from "../store/index";
 
-import { Container, Row, Col } from "react-grid-system";
 import { useEffect } from "react";
 
 function Login() {
-  const dispatch = useDispatch();
+  
   const [passwordShown, setPasswordShown] = useState(true);
   const [userLocation, setUserLocation] = useState({});
   const linkToMain = useRef();
@@ -64,12 +61,15 @@ function Login() {
     try {
       const login = await fetch("https://instagramserver.vercel.app/login", {
         method: "POST",
+        
         body: JSON.stringify({
           userid: enteredUserId,
           password: enteredPassword,
         }),
         headers: {
+          "Access-Control-Allow-Origin": "*",
           "Content-type": "application/json; charset=UTF-8",
+          
         },
       });
       if (login.status === 200) {
