@@ -62,7 +62,7 @@ function Login() {
       return;
     }
     try {
-      const login = await fetch("http://localhost:8080/login", {
+      const login = await fetch("https://instagramserver.vercel.app/login", {
         method: "POST",
         body: JSON.stringify({
           userid: enteredUserId,
