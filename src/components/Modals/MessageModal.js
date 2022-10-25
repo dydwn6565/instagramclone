@@ -91,13 +91,16 @@ const MessageModal = ({ title, message, onConfirm }) => {
     formData.append("userid", 2);
     console.log(formData)
     
-    const ImageData = await fetch("http://localhost:8080/post", {
-      method: "POST",
-      body: formData,
-      // headers: {
-      //   "Content-Type": "multipart/form-data",
-      // },
-    });
+    const ImageData = await fetch(
+      "https://instagramserver1.herokuapp.com/post",
+      {
+        method: "POST",
+        body: formData,
+        // headers: {
+        //   "Content-Type": "multipart/form-data",
+        // },
+      }
+    );
     clicktoMain.current.click();
     console.log(ImageData.status);
   };

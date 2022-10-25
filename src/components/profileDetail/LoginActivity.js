@@ -19,7 +19,7 @@ function LoginActivity() {
   useEffect(() => {
     const getLoginLocation = async () => {
       const userLocationJson = await fetch(
-        "http://localhost:8080/get/user/activity",
+        "https://instagramserver1.herokuapp.com/get/user/activity",
         {
           method: "GET",
         }

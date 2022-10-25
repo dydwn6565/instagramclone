@@ -8,7 +8,7 @@ function CommentHandler({postid,userid}) {
   const addComment = () => {
     console.log(comment);
     try {
-      fetch("http://localhost:8080/add/postcomment", {
+      fetch("https://instagramserver1.herokuapp.com/add/postcomment", {
         method: "POST",
         body: JSON.stringify({
           comment: comment,

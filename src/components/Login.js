@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 import "./css/Login.css";
 import useInput from "../hooks/use-input.js";
 import LoginImage from "./LoginImage";
-import axios from "axios"
+
 import { useEffect } from "react";
 
 function Login() {
@@ -87,7 +87,7 @@ function Login() {
         localStorage.setItem("refreshToken", token.refreshToken);
         console.log(enteredUserId)
         const getUserInfo = await fetch(
-          `http://localhost:8080/usersByUserId/${enteredUserId}`,
+          `https://instagramserver1.herokuapp.com/usersByUserId/${enteredUserId}`,
           {
             method: "GET",
           }
@@ -122,7 +122,7 @@ function Login() {
 
   const insertUserLocation = async (userId) => {
     const userLocationResult = await fetch(
-      "http://localhost:8080/insert/login/activity",
+      "https://instagramserver1.herokuapp.com/insert/login/activity",
       {
         method: "POST",
         body: JSON.stringify({

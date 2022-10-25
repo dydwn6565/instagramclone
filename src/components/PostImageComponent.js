@@ -21,7 +21,7 @@ function PostImageComponent({ images, content,userid, id, postid }) {
   useEffect(() => {
     const getPostComment = async () => {
       const fetchedData = await fetch(
-        `http://localhost:8080/get/postcomment/${postid}`,
+        `https://instagramserver1.herokuapp.com/get/postcomment/${postid}`,
         {
           method: "GET",
         }
@@ -39,7 +39,7 @@ function PostImageComponent({ images, content,userid, id, postid }) {
     console.log("hit")
     const getPostUser = async () => {
        const fetchedData = await fetch(
-         `http://localhost:8080/users/${id}`,
+         `https://instagramserver1.herokuapp.com/users/${id}`,
          {
            method: "GET",
          }
@@ -66,7 +66,7 @@ function PostImageComponent({ images, content,userid, id, postid }) {
   const addlikeButtonhandler = () => {
     setLike((prev) => !prev);
     try {
-      fetch("http://localhost:8080/add/postlike", {
+      fetch("https://instagramserver1.herokuapp.com/add/postlike", {
         method: "POST",
         body: JSON.stringify({
           userid: 3,
@@ -82,7 +82,7 @@ function PostImageComponent({ images, content,userid, id, postid }) {
   const deletelikeButtonhandler = () => {
     setLike((prev) => !prev);
     try {
-      fetch("http://localhost:8080/delete/postlike", {
+      fetch("https://instagramserver1.herokuapp.com/delete/postlike", {
         method: "DELETE",
         body: JSON.stringify({
           userid: 3,

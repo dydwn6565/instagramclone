@@ -11,12 +11,15 @@ function StoriesActivity() {
   const dispatch = useDispatch  ();
   useEffect(() => {
     const getStories = async () => {
-      const storiesData = await fetch("http://localhost:8080/stories", {
-        method: "GET",
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      });
+      const storiesData = await fetch(
+        "https://instagramserver1.herokuapp.com/stories",
+        {
+          method: "GET",
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }
+      );
       if (storiesData.status === 201) {
         const storiesJson = await storiesData.json();
 

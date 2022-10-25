@@ -27,7 +27,7 @@ function ManageContactNumber() {
           <div className="manage-contact-number-main-contact-title">
             <span>Synchronized contact number 0 </span>{" "}
             <a
-              href="http://localhost:3000"
+              href="https://instagramserver1.herokuapp.com"
               className="manage-contact-number-delete-bt"
             >
               Delete

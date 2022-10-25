@@ -18,7 +18,7 @@ function MyMessageModal({ messageModalHandler }) {
   const [searchedUser, setSearchedUser] = useState("");
 
   
-  const ENDPOINT = "localhost:8080";
+  const ENDPOINT = "https://instagramserver1.herokuapp.com";
   const linkToChat = useRef(null);
   const ref = useRef(null);
   const randomRoomNumber = uuidv4();
@@ -26,13 +26,16 @@ function MyMessageModal({ messageModalHandler }) {
     socket = io(ENDPOINT);
     const getUserList = async () => {
       try {
-        const userListData = await fetch("http://localhost:8080/users", {
-          method: "Get",
-          headers: {
-            "Content-type": "application/json; charset=UTF-8",
-            "Access-Control-Allow-Origin": "*",
-          },
-        });
+        const userListData = await fetch(
+          "https://instagramserver1.herokuapp.com/users",
+          {
+            method: "Get",
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+              "Access-Control-Allow-Origin": "*",
+            },
+          }
+        );
 
         if (userListData.status === 201) {
           const userListJson = await userListData.json();

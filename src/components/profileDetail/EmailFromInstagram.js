@@ -35,7 +35,9 @@ function EmailFromInstagram() {
                 Security and login emails from Instagram over the last 14 days
                 are shown here. Use this list to verify that the email you
                 received was actually sent from Instagram.
-                <a href="http://localhost:3000/findmore">Find out more.</a>
+                <a href="https://instagramserver1.herokuapp.com/findmore">
+                  Find out more.
+                </a>
               </div>
 
               <hr />
@@ -55,7 +57,9 @@ function EmailFromInstagram() {
                 Email from Instagram in the last 14 days, including security and
                 login, will be displayed here. Use this list to verify that the
                 email you received was actually sent from Instagram.{" "}
-                <a href="http://localhost:3000/findoutmore">Find out more.</a>
+                <a href="https://instagramserver1.herokuapp.com/findoutmore">
+                  Find out more.
+                </a>
               </div>
               <hr />
               <div className="email-from-instagram-main-content-login">
@@ -71,9 +75,8 @@ function EmailFromInstagram() {
           )}
         </div>
       </div>
-      
-        <ProfileFooter position={"account"} />
-      
+
+      <ProfileFooter position={"account"} />
     </div>
   );
 }

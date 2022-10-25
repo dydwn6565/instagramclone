@@ -24,7 +24,7 @@ function Chat({ setBlurBackground }) {
   const [emojiPicker, setEmojiPicker] = useState(false);
   const [loginUserInfo, setLoginUserInfo] = useState();
   const location = useLocation();
-  const ENDPOINT = "localhost:8080";
+  const ENDPOINT = "https://instagramserver1.herokuapp.com";
   const hiddenFileInput = useRef(null);
   const [chatRoom,setChatRoom] = useState();
   

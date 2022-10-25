@@ -57,7 +57,7 @@ function MyMessage({ setBlurBackground }) {
     try {
       const chatRoomList = async () => {
         const roomListData = await fetch(
-          `http://localhost:8080/chat/getUserRoom/${userid.id}`,
+          `https://instagramserver1.herokuapp.com/chat/getUserRoom/${userid.id}`,
           {
             method: "GET",
           }

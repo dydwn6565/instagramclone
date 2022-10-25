@@ -87,6 +87,7 @@ const createUser=async ()=>{
       method: "POST",
       body: dataForm,
     });
+    window.location.href="/login"
 }
 
   return (

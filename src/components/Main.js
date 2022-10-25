@@ -16,7 +16,7 @@ function Main({ setBlurBackground }) {
     // console.log(accessToken);
     if (accessToken) {
       const userValidationCheck = async () => {
-        const token = await fetch("http://localhost:8080", {
+        const token = await fetch("https://instagramserver1.herokuapp.com", {
           method: "POST",
 
           headers: {
@@ -28,15 +28,18 @@ function Main({ setBlurBackground }) {
         if (data.message === "jwt expired") {
           const renewToken = async () => {
             const refreshToken = localStorage.getItem("refreshToken");
-            const refreshedToken = await fetch("http://localhost:8080/token", {
-              method: "POST",
-              headers: {
-                "Content-type": "application/json; charset=UTF-8",
-              },
-              body: JSON.stringify({
-                token: refreshToken,
-              }),
-            });
+            const refreshedToken = await fetch(
+              "https://instagramserver1.herokuapp.com/token",
+              {
+                method: "POST",
+                headers: {
+                  "Content-type": "application/json; charset=UTF-8",
+                },
+                body: JSON.stringify({
+                  token: refreshToken,
+                }),
+              }
+            );
             const refreshedData = await refreshedToken.json();
             localStorage.setItem("accessToken", refreshedData.accessToken);
             console.log(refreshedData);
@@ -53,9 +56,12 @@ function Main({ setBlurBackground }) {
   useEffect(() => {
     const getPosts = async () => {
       try {
-        const postsData = await fetch("http://localhost:8080/retriev/posts", {
-          method: "GET",
-        });
+        const postsData = await fetch(
+          "https://instagramserver1.herokuapp.com/retriev/posts",
+          {
+            method: "GET",
+          }
+        );
         if (postsData.status === 201) {
           const postsJson = await postsData.json();
 

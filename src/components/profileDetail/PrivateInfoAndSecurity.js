@@ -97,7 +97,7 @@ function PrivateInfoAndSecurity() {
               viewing the activity status of other accounts.
               <a
                 alt="text"
-                href="http://localhost:3000/learnmore"
+                href="https://instagramserver1.herokuapp.com/learnmore"
                 className="private-info-and-security-main-learn-more"
               >
                 Learn More
@@ -128,7 +128,7 @@ function PrivateInfoAndSecurity() {
               <a
                 className="private-info-and-security-main-learn-more"
                 alr="text"
-                href="http://localhost:3000/fixreply"
+                href="https://instagramserver1.herokuapp.com/fixreply"
               >
                 {" "}
                 Fix Reply setting
@@ -152,7 +152,7 @@ function PrivateInfoAndSecurity() {
               photos.{" "}
               <a
                 className="private-info-and-security-main-learn-more"
-                href="http://localhost:3000/learnmore"
+                href="https://instagramserver1.herokuapp.com/learnmore"
               >
                 Learn more
               </a>
@@ -166,7 +166,7 @@ function PrivateInfoAndSecurity() {
               <a
                 className="private-info-and-security-main-learn-more"
                 alt="text"
-                href="http://localhost:3000/secondauth"
+                href="https://instagramserver1.herokuapp.com/secondauth"
               >
                 Setting up second step authentication
               </a>
@@ -181,7 +181,7 @@ function PrivateInfoAndSecurity() {
               <a
                 className="private-info-and-security-main-learn-more"
                 alt="text"
-                href="http://localhost:3000/download"
+                href="https://instagramserver1.herokuapp.com/download"
               >
                 Download request
               </a>
@@ -195,7 +195,7 @@ function PrivateInfoAndSecurity() {
               <a
                 className="private-info-and-security-main-learn-more"
                 alt="text"
-                href="http://localhost:3000/support"
+                href="https://instagramserver1.herokuapp.com/support"
               >
                 Support
               </a>
@@ -280,7 +280,7 @@ function PrivateInfoAndSecurity() {
               <a
                 className="private-info-and-security-main-learn-more"
                 alt="text"
-                href="http://www.localhost:3000/learnmore"
+                href="https://instagramserver1.herokuapp.com/learnmore"
               >
                 Learn More
               </a>

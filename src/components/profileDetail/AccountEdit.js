@@ -42,7 +42,7 @@ function AccountEdit() {
               Mostly, you can change your name ivan4334 for 14 days
               <a
                 className="account-edit-user-name-more-info"
-                href="localhost:3000"
+                href="https://instagramserver1.herokuapp.com"
               >
                 &nbsp;More
               </a>
@@ -97,9 +97,7 @@ function AccountEdit() {
           </div>
         </div>
 
-        
-          <ProfileFooter position={"account"} />
-        
+        <ProfileFooter position={"account"} />
       </div>
     </>
   );

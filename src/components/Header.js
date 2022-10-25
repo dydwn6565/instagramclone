@@ -25,13 +25,16 @@ function Header() {
 
   useEffect(() => {
     const getUsers = async () => {
-      const userData = await fetch("http://localhost:8080/users", {
-        method: "Get",
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-          "Access-Control-Allow-Origin": "*",
-        },
-      });
+      const userData = await fetch(
+        "https://instagramserver1.herokuapp.com/users",
+        {
+          method: "Get",
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
+      );
       const jsonData = await userData.json();
       setUserList(jsonData);
     };
