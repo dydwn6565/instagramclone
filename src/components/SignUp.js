@@ -83,7 +83,7 @@ const createUser=async ()=>{
     dataForm.append("username", enteredUserName);
     
     
-    await fetch("http://localhost:8080/users", {
+    await fetch("https://instagramserver1.herokuapp.com/users", {
       method: "POST",
       body: dataForm,
     });

@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 import "./css/Login.css";
 import useInput from "../hooks/use-input.js";
 import LoginImage from "./LoginImage";
-
+import axios from "axios"
 import { useEffect } from "react";
 
 function Login() {
@@ -59,22 +59,26 @@ function Login() {
       return;
     }
     try {
-      const login = await fetch("https://instagramserver.vercel.app/login", {
-        method: "POST",
-        
-        body: JSON.stringify({
-          userid: enteredUserId,
-          password: enteredPassword,
-        }),
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE, PUT, PATCH",
-          "Access-Control-Allow-Headers": "Access-Control-Allow-Origin, Contect-Type, x-requdsted-with, Authorization",
+      const login = await fetch(
+        "https://instagramserver1.herokuapp.com/login",
+        {
+          method: "POST",
 
-          "Content-type": "application/json; charset=UTF-8",
-          
-        },
-      });
+          body: JSON.stringify({
+            userid: enteredUserId,
+            password: enteredPassword,
+          }),
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods":
+              "POST, GET, OPTIONS, DELETE, PUT, PATCH",
+            "Access-Control-Allow-Headers":
+              "Access-Control-Allow-Origin, Contect-Type, x-requdsted-with, Authorization",
+
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }
+      );
       if (login.status === 200) {
         const token = await login.json();
         console.log(token.accessToken);
