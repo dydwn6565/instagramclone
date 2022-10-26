@@ -23,16 +23,19 @@ function Chat({ setBlurBackground }) {
   const [chosenEmoji, setChosenEmoji] = useState(null);
   const [emojiPicker, setEmojiPicker] = useState(false);
   const [loginUserInfo, setLoginUserInfo] = useState();
+  const [username,setUsername] = useState();
   const location = useLocation();
-  const ENDPOINT = "https://instagramserver1.herokuapp.com";
+  const ENDPOINT = "http://localhost:8080";
   const hiddenFileInput = useRef(null);
   const [chatRoom,setChatRoom] = useState();
   
 
   useEffect(() => {
     socket = io(ENDPOINT);
+    console.log(socket)
     const data = location.state;
-
+    const username = JSON.parse(localStorage.getItem("userInfo"));
+    setUsername(username.username)
     const { roomtableid, randomRoomNumber,chatRoom, clickedUserList, newChat } = data;
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     console.log(randomRoomNumber)
@@ -84,6 +87,7 @@ function Chat({ setBlurBackground }) {
     const userid = loginUserInfo?.id;
       console.log("line 84 " +userid)
       console.log("line 84 " + room);
+      console.log(message)
     if (message) {
       socket.emit("sendMessage", { room, userid, message }, () =>
         setMessage("")
@@ -136,7 +140,7 @@ function Chat({ setBlurBackground }) {
         <div>
           <div className="my-chat-id">
             <div className="my-chat-text">
-              <strong>ivan4334</strong>{" "}
+              <strong>{username}</strong>{" "}
               <BsChevronDown className="down-arrow-icon" />
             </div>
           </div>
