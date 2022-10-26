@@ -6,12 +6,10 @@ import { BsDot } from "react-icons/bs";
 function MessageModalSecondPage({ imageArray ,currentPage,movePrevImage,extendImageModalHandler,moveNextImage}) {
   return (
     <div>
-      {imageArray[currentPage] !==undefined && (
+      {imageArray[currentPage] !== undefined && (
         <>
           <div className="preview-image-container">
-            <div>
-              
-            </div>
+            <div></div>
             <IoIosArrowDropleftCircle
               className={
                 currentPage !== 0
@@ -24,7 +22,6 @@ function MessageModalSecondPage({ imageArray ,currentPage,movePrevImage,extendIm
               src={imageArray[currentPage].split("uploadedCurrentDate")[0]}
               alt="uploadedImage"
               className="preview-image"
-              
             />
             <div className="copy-out-line-background">
               <IoCopyOutline
@@ -44,9 +41,15 @@ function MessageModalSecondPage({ imageArray ,currentPage,movePrevImage,extendIm
           <div className="preview-image-dot-icons-container">
             {imageArray.map((dot, index) =>
               index === currentPage ? (
-                <BsDot className="preview-image-dot-icon blue" />
+                <BsDot
+                  key={dot + index}
+                  className="preview-image-dot-icon blue"
+                />
               ) : (
-                <BsDot className="preview-image-dot-icon white" />
+                <BsDot
+                  key={dot + index}
+                  className="preview-image-dot-icon white"
+                />
               )
             )}
           </div>

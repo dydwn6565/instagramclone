@@ -30,9 +30,15 @@ function Header() {
         {
           method: "Get",
           headers: {
-            "Content-type": "application/json; charset=UTF-8",
             "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods":
+              "POST, GET, OPTIONS, DELETE, PUT, PATCH",
+            "Access-Control-Allow-Headers":
+              "Access-Control-Allow-Origin, Contect-Type, x-requdsted-with, Authorization",
+
+            "Content-type": "application/json; charset=UTF-8",
           },
+          
         }
       );
       const jsonData = await userData.json();

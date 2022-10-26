@@ -77,6 +77,7 @@ function Login() {
 
             "Content-type": "application/json; charset=UTF-8",
           },
+          
         }
       );
       if (login.status === 200) {
@@ -130,8 +131,15 @@ function Login() {
           userId,
         }),
         headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods":
+            "POST, GET, OPTIONS, DELETE, PUT, PATCH",
+          "Access-Control-Allow-Headers":
+            "Access-Control-Allow-Origin, Contect-Type, x-requdsted-with, Authorization",
+
           "Content-type": "application/json; charset=UTF-8",
         },
+        
       }
     );
     if (userLocationResult.status === 201) {

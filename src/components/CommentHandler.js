@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
-function CommentHandler({postid,userid}) {
-    const [comment, setComment] = useState("");
-    const commentHandler = (e) => {
-      setComment(e);
-    };
-  const addComment = () => {
+function CommentHandler({ postid, userid, setCommentUpdated }) {
+  const [comment, setComment] = useState("");
+  const commentHandler = (e) => {
+    setComment(e);
+  };
+  const addComment = async () => {
     console.log(comment);
     try {
-      fetch("https://instagramserver1.herokuapp.com/add/postcomment", {
+      await fetch("https://instagramserver1.herokuapp.com/add/postcomment", {
         method: "POST",
         body: JSON.stringify({
           comment: comment,
@@ -16,9 +16,17 @@ function CommentHandler({postid,userid}) {
           postid: postid,
         }),
         headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods":
+            "POST, GET, OPTIONS, DELETE, PUT, PATCH",
+          "Access-Control-Allow-Headers":
+            "Access-Control-Allow-Origin, Contect-Type, x-requdsted-with, Authorization",
+
           "Content-type": "application/json; charset=UTF-8",
         },
       });
+      setCommentUpdated("updated");
+      setComment("");
     } catch (error) {
       alert(error);
     }

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import { useSelector } from "react-redux";
 import "./css/Main.css";
 
 import PostImageComponent from "./PostImageComponent";
@@ -13,7 +12,7 @@ function Main({ setBlurBackground }) {
   useEffect(() => {
     const accessToken = localStorage?.getItem("accessToken");
 
-    // console.log(accessToken);
+    
     if (accessToken) {
       const userValidationCheck = async () => {
         const token = await fetch("https://instagramserver1.herokuapp.com", {
@@ -57,14 +56,27 @@ function Main({ setBlurBackground }) {
     const getPosts = async () => {
       try {
         const postsData = await fetch(
-          "https://instagramserver1.herokuapp.com/retriev/posts",
+          // "https://instagramserver1.herokuapp.com/retriev/posts",
+          "http://localhost:8080/retrive/posts",
           {
             method: "GET",
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods":
+                "POST, GET, OPTIONS, DELETE, PUT, PATCH",
+              "Access-Control-Allow-Headers":
+                "Access-Control-Allow-Origin, Contect-Type, x-requdsted-with, Authorization",
+
+              "Content-type": "application/json; charset=UTF-8",
+            },
+            
           }
         );
+        
         if (postsData.status === 201) {
+          
           const postsJson = await postsData.json();
-
+          
           setPosts(postsJson);
         }
       } catch (error) {
@@ -73,23 +85,19 @@ function Main({ setBlurBackground }) {
     };
     getPosts();
   }, []);
-
   
-
-
   return (
     <>
-      
-      {posts &&
-        posts.map((post) => (
+      {
+        posts?.map((post) => (
           <>
-          {console.log(post)}
+            {console.log(post)}
             <div className="main-image-container">
               <PostImageComponent
-                images={post.url}
+                images={post.filepath}
                 content={post.content}
                 id={post.id}
-                userid ={post.userid}
+                userid={post.userid}
                 postid={post.postid}
               />
             </div>

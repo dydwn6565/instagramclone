@@ -86,6 +86,15 @@ const createUser=async ()=>{
     await fetch("https://instagramserver1.herokuapp.com/users", {
       method: "POST",
       body: dataForm,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods":
+          "POST, GET, OPTIONS, DELETE, PUT, PATCH",
+        "Access-Control-Allow-Headers":
+          "Access-Control-Allow-Origin, Contect-Type, x-requdsted-with, Authorization",
+
+        "Content-type": "application/json; charset=UTF-8",
+      },
     });
     window.location.href="/login"
 }

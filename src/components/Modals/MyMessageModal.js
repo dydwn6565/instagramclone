@@ -18,7 +18,7 @@ function MyMessageModal({ messageModalHandler }) {
   const [searchedUser, setSearchedUser] = useState("");
 
   
-  const ENDPOINT = "https://instagramserver1.herokuapp.com";
+  const ENDPOINT = "http://localhost:8080";
   const linkToChat = useRef(null);
   const ref = useRef(null);
   const randomRoomNumber = uuidv4();
@@ -31,9 +31,15 @@ function MyMessageModal({ messageModalHandler }) {
           {
             method: "Get",
             headers: {
-              "Content-type": "application/json; charset=UTF-8",
               "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods":
+                "POST, GET, OPTIONS, DELETE, PUT, PATCH",
+              "Access-Control-Allow-Headers":
+                "Access-Control-Allow-Origin, Contect-Type, x-requdsted-with, Authorization",
+
+              "Content-type": "application/json; charset=UTF-8",
             },
+            
           }
         );
 

@@ -16,8 +16,15 @@ function StoriesActivity() {
         {
           method: "GET",
           headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods":
+              "POST, GET, OPTIONS, DELETE, PUT, PATCH",
+            "Access-Control-Allow-Headers":
+              "Access-Control-Allow-Origin, Contect-Type, x-requdsted-with, Authorization",
+
             "Content-type": "application/json; charset=UTF-8",
           },
+          
         }
       );
       if (storiesData.status === 201) {

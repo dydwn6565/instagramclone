@@ -17,9 +17,10 @@ function PostImageComponent({ images, content,userid, id, postid }) {
   const [mainPageModal, setMainPageModal] = useState(false);
   const [postUser,setPostUser]= useState();
   const [like, setLike] = useState(true);
- 
+  const [commentUpdated,setCommentUpdated] = useState();
   useEffect(() => {
     const getPostComment = async () => {
+      console.log(commentUpdated)
       const fetchedData = await fetch(
         `https://instagramserver1.herokuapp.com/get/postcomment/${postid}`,
         {
@@ -28,12 +29,12 @@ function PostImageComponent({ images, content,userid, id, postid }) {
       );
       if (fetchedData.status === 201) {
         const commentsList = await fetchedData.json();
-        
+
         setCommentList(commentsList);
       }
     };
     getPostComment();
-  }, []);
+  }, [commentUpdated]);
 
   useEffect(()=>{
     console.log("hit")
@@ -89,8 +90,15 @@ function PostImageComponent({ images, content,userid, id, postid }) {
           postid: postid,
         }),
         headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods":
+            "POST, GET, OPTIONS, DELETE, PUT, PATCH",
+          "Access-Control-Allow-Headers":
+            "Access-Control-Allow-Origin, Contect-Type, x-requdsted-with, Authorization",
+
           "Content-type": "application/json; charset=UTF-8",
         },
+        
       });
     } catch (error) {}
   };
@@ -136,7 +144,7 @@ function PostImageComponent({ images, content,userid, id, postid }) {
         </div>
         <hr />
 
-        <CommentHandler postid={postid} />
+        <CommentHandler postid={postid} setCommentUpdated={setCommentUpdated} />
 
         {extendCommentModal && (
           <ExtendedMainModal

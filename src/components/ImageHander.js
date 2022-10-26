@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { createRef, useEffect, useRef, useState } from 'react'
 import {
   IoIosArrowDropleftCircle,
   IoIosArrowDroprightCircle,
@@ -7,23 +7,37 @@ import { BsDot } from "react-icons/bs";
 import "./css/ImageHander.css"
 function ImageHander({ images,extendedIconsSize }) {
     const [imageIndex, setImageIndex] = useState(0);
-    const lastIndex = images.length - 1;
+    const [imageHeight,setImageHeight] = useState();
+    const imageRef= createRef();
+    const lastIndex = images?.length - 1;
       const moveToNextpage = () => {
         setImageIndex((prev) => prev + 1);
       };
       const moveToPrevpage = () => {
         setImageIndex((prev) => prev - 1);
       };
+      console.log(images)
 
+      useEffect(() => {
+        const clientHeight = imageRef.current.clientHeight;
+        setImageHeight(clientHeight);
+        console.log(clientHeight);
+      }, [imageIndex]);
   return (
     <div>
       <div>
         <div className="main-image-and-icons">
           <img
+            src={images[imageIndex]}
+            alt=""
+            className="main-image"
+            ref={imageRef}
+          />
+          {/* <img
             src={"data:image/png;base64," + images[imageIndex]}
             alt="mong"
             className="main-image"
-          />
+          /> */}
         </div>
 
         <div className="image-dot-container">
@@ -34,6 +48,7 @@ function ImageHander({ images,extendedIconsSize }) {
                   ? "main-extended-page-image-left-icon"
                   : "inactive-main-page-image-left-icon"
               }
+              style={{ marginTop: -imageHeight / 2 }}
               onClick={moveToPrevpage}
             />
           ) : (
@@ -43,6 +58,7 @@ function ImageHander({ images,extendedIconsSize }) {
                   ? "main-page-image-left-icon"
                   : "inactive-main-page-image-left-icon"
               }
+              style={{ marginTop: -imageHeight / 2 }}
               onClick={moveToPrevpage}
             />
           )}
@@ -65,6 +81,7 @@ function ImageHander({ images,extendedIconsSize }) {
                   ? "inactive-main-image-right-icon"
                   : "main-extended-page-image-right-icon"
               }
+              style={{ marginTop: -imageHeight / 2 }}
               onClick={moveToNextpage}
             />
           ) : (
@@ -74,6 +91,7 @@ function ImageHander({ images,extendedIconsSize }) {
                   ? "inactive-main-image-right-icon"
                   : "main-page-image-right-icon"
               }
+              style={{ marginTop: -imageHeight / 2 }}
               onClick={moveToNextpage}
             />
           )}

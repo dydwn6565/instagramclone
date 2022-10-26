@@ -11,10 +11,10 @@ import { Avatar } from "@mui/material";
 import MyMessageModal from "./Modals/MyMessageModal";
 
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+
 function MyMessage({ setBlurBackground }) {
   const [sendMessage, setSendMessage] = useState(false);
-
+  const [username,setUsername] = useState();
   const [roomList, setRoomList] = useState([]);
   const [filteredRoomList,setFilteredRoomList] =useState();
 // const userids = useSelector((state) => state.user);
@@ -60,6 +60,16 @@ function MyMessage({ setBlurBackground }) {
           `https://instagramserver1.herokuapp.com/chat/getUserRoom/${userid.id}`,
           {
             method: "GET",
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods":
+                "POST, GET, OPTIONS, DELETE, PUT, PATCH",
+              "Access-Control-Allow-Headers":
+                "Access-Control-Allow-Origin, Contect-Type, x-requdsted-with, Authorization",
+
+              "Content-type": "application/json; charset=UTF-8",
+            },
+            
           }
         );
 
@@ -75,6 +85,11 @@ function MyMessage({ setBlurBackground }) {
       alert(error);
     }
   }, []);
+
+  useEffect(()=>{
+    const user = JSON.parse(localStorage.getItem("userInfo"))
+    setUsername(user.username);
+  },[])
 // console.log(userids);
   return (
     <>
@@ -84,7 +99,7 @@ function MyMessage({ setBlurBackground }) {
           <div>
             <div className="my-message-text">
               <div>
-                <strong>ivan4334</strong>{" "}
+                <strong>{username}</strong>{" "}
                 <BsChevronDown className="down-arrow-icon" />
               </div>
               <div>

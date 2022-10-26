@@ -81,28 +81,42 @@ const MessageModal = ({ title, message, onConfirm }) => {
     console.log(fileArray.length)
     if(fileArray.length ===undefined){
       formData.append("file",fileArray)
+      
     }else{
 
       fileArray.map((file, index) => formData.append("file", file));
+      console.log("hit")
     }
-
+    
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    console.log(location);
     formData.append("lat", location.lat);
     formData.append("long", location.long);
-    formData.append("userid", 2);
-    console.log(formData)
+    formData.append("userid", userInfo.id);
+    console.log(formData.getAll("userid"));
     
     const ImageData = await fetch(
       "https://instagramserver1.herokuapp.com/post",
+      // "http://localhost:8080/post",
       {
         method: "POST",
+
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods":
+            "POST, GET, OPTIONS, DELETE, PUT, PATCH",
+          "Access-Control-Allow-Headers":
+            "Access-Control-Allow-Origin, Contect-Type, x-requdsted-with, Authorization",
+
+          "Content-type": "application/json; charset=UTF-8",
+        },
         body: formData,
-        // headers: {
-        //   "Content-Type": "multipart/form-data",
-        // },
+        
       }
     );
-    clicktoMain.current.click();
     console.log(ImageData.status);
+    // clicktoMain.current.click();
+    window.location.href="/"
   };
 
   const moveToPrevPage = () => {
