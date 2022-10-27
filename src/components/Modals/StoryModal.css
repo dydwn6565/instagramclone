@@ -9,10 +9,9 @@
 }
 
 .story-modal {
-    
     border-radius: 10px;
     position: fixed;
-    top: 15vh;
+    top: 150px;
     left: 40vw;
     width: 20vw;
     height: 55vh;
@@ -46,4 +45,14 @@
     text-align: center;
     z-index: 20;
     /* background-color: white; */
+}
+
+.cross-icon {
+    color: black;
+    width: 30px;
+    height: 30px;
+    float:right;
+    padding:20px;
+    cursor: pointer;
+    z-index: 999;
 }

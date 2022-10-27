@@ -17,10 +17,10 @@ function PostImageComponent({ images, content,userid, id, postid }) {
   const [mainPageModal, setMainPageModal] = useState(false);
   const [postUser,setPostUser]= useState();
   const [like, setLike] = useState(true);
-  const [commentUpdated,setCommentUpdated] = useState();
+  const [commentUpdated,setCommentUpdated] = useState("");
   useEffect(() => {
     const getPostComment = async () => {
-      console.log(commentUpdated)
+      
       const fetchedData = await fetch(
         `https://instagramserver1.herokuapp.com/get/postcomment/${postid}`,
         {
@@ -40,7 +40,8 @@ function PostImageComponent({ images, content,userid, id, postid }) {
     console.log("hit")
     const getPostUser = async () => {
        const fetchedData = await fetch(
-         `https://instagramserver1.herokuapp.com/users/${id}`,
+         `https://instagramserver1.herokuapp.com/users/${userid}`,
+         //  `http://localhost:8080/users/${id}`,
          {
            method: "GET",
          }
@@ -102,10 +103,10 @@ function PostImageComponent({ images, content,userid, id, postid }) {
       });
     } catch (error) {}
   };
-  console.log(id)
+  console.log(userid);
   return (
     <>
-      <div key={id} className="main">
+      <div className="main">
         <div className="main-title-container">
           <div className="main-title">
             <div className="main-avatar-container">
@@ -144,7 +145,7 @@ function PostImageComponent({ images, content,userid, id, postid }) {
         </div>
         <hr />
 
-        <CommentHandler postid={postid} setCommentUpdated={setCommentUpdated} />
+        <CommentHandler postid={postid} />
 
         {extendCommentModal && (
           <ExtendedMainModal
@@ -157,6 +158,7 @@ function PostImageComponent({ images, content,userid, id, postid }) {
             postid={postid}
             postUser={postUser}
             commentList={commentList}
+            setCommentUpdated={setCommentUpdated}
           />
         )}
       </div>

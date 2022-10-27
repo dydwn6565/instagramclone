@@ -20,18 +20,16 @@ function ExtendedMainModal({
   postid,
   commentList,
   postUser,
-}) 
-
-{
+  setCommentUpdated
+}) {
   const [userInformation, setUserInformation] = useState();
-  useEffect(()=>{
-    if(localStorage.getItem("userInfo")){
-
-      const userInfo = localStorage.getItem("userInfo")
-      setUserInformation(JSON.parse(userInfo))
+  useEffect(() => {
+    if (localStorage.getItem("userInfo")) {
+      const userInfo = localStorage.getItem("userInfo");
+      setUserInformation(JSON.parse(userInfo));
     }
-  },[])
-  // console.log(userInformation)
+  }, []);
+  console.log(commentList);
   return (
     <div>
       <div className="extended-main-modal-backdrop" onClick={extendComment} />
@@ -43,14 +41,13 @@ function ExtendedMainModal({
 
           <div className="extended-main-modal-info">
             <div className="extended-main-modal-title">
-              <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiGcFYBKGruads8sUVAfUBlX8orSdEwuSSTg&usqp=CAU" />
-              <div className="extended-main-modal-title-name">
-                {postUser.username}
-              </div>
-              <div className="extended-main-modal-title">
+              <div className="extended-main-modal-title-inside">
+                <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiGcFYBKGruads8sUVAfUBlX8orSdEwuSSTg&usqp=CAU" />
+                {postUser?.username}
                 <BsDot />
                 Following
               </div>
+
               <MoreHorizOutlinedIcon className="extended-main-modal-dotdotdot-icon" />
             </div>
             <div className="hr"></div>
@@ -58,7 +55,7 @@ function ExtendedMainModal({
               <div className="extended-main-modal-info-content">
                 <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiGcFYBKGruads8sUVAfUBlX8orSdEwuSSTg&usqp=CAU" />
                 <div>
-                  <span> {postUser.username}</span>
+                  <span> {postUser?.username}</span>
                   <span className="extended-main-modal-info-content-content">
                     {content}
                   </span>
@@ -69,12 +66,15 @@ function ExtendedMainModal({
                 <div className="extended-main-modal-info-content-comment">
                   {commentList.map((comment, index) => (
                     <>
-                      <div key={comment+index }className="extended-main-modal-info-content-comment-inside">
+                      <div
+                        key={comment + index}
+                        className="extended-main-modal-info-content-comment-inside"
+                      >
                         <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRqRyIiwYCq4s-fZi1zdmyfSuIPUvg9EyZ_Q&usqp=CAU" />
                         <div>
                           <span
                             className="extended-main-modal-info-content-comment-inside-id "
-                            key={comment.userid + index}
+                            key={comment.comment + index+comment.username}
                           >
                             {comment.username}
                           </span>
@@ -106,9 +106,11 @@ function ExtendedMainModal({
               </div>
               <div className="hr"></div>
 
-              <div className="extended-main-modal-info-comment">
-                <CommentHandler postid={postid} userid={userInformation?.id} />
-              </div>
+              <CommentHandler
+                postid={postid}
+                userid={userInformation?.id}
+                setCommentUpdated={setCommentUpdated}
+              />
             </div>
           </div>
         </div>

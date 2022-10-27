@@ -2,13 +2,15 @@ import React, { useState } from 'react'
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 function CommentHandler({ postid, userid, setCommentUpdated }) {
   const [comment, setComment] = useState("");
-  const commentHandler = (e) => {
+  const commentHandlers = (e) => {
     setComment(e);
   };
   const addComment = async () => {
     console.log(comment);
+    setComment((prevValue) => (prevValue = ""));
     try {
-      await fetch("https://instagramserver1.herokuapp.com/add/postcomment", {
+      const postComment = await fetch("https://instagramserver1.herokuapp.com/add/postcomment", {
+      // const postComment = await fetch("http://localhost:8080/add/postcomment", {
         method: "POST",
         body: JSON.stringify({
           comment: comment,
@@ -25,21 +27,29 @@ function CommentHandler({ postid, userid, setCommentUpdated }) {
           "Content-type": "application/json; charset=UTF-8",
         },
       });
-      setCommentUpdated("updated");
-      setComment("");
+
+      console.log(postComment);
+      if (postComment.status === 201) {
+        setCommentUpdated("updated")
+      }
     } catch (error) {
       alert(error);
     }
   };
+
   return (
     <div className="main-page-comment">
-      <SentimentSatisfiedAltIcon />
-      <input
-        type="text"
-        placeholder="commnets"
-        className="main-page-comment"
-        onChange={(e) => commentHandler(e.target.value)}
-      />
+      <div className="main-page-comment-inside">
+        <SentimentSatisfiedAltIcon />
+        <input
+          value={comment}
+          type="text"
+          placeholder="commnets"
+          className="main-page-comment"
+          onChange={(e) => commentHandlers(e.target.value)}
+        />
+      </div>
+
       {comment === "" ? (
         <div className={"comment-button-inactive"} disabled>
           Post

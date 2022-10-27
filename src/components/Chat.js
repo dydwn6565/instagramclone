@@ -126,7 +126,7 @@ function Chat({ setBlurBackground }) {
         });
     }
   };
-  console.log(messages);
+  console.log(chatRoom);
   return (
     <div>
       {message && emojiPicker && chosenEmoji && (
@@ -199,7 +199,7 @@ function Chat({ setBlurBackground }) {
                                 className="my-message-chat-image"
                               />
                             ) : (
-                              <div>{item.text}</div>
+                              <div className="my-message-chat-message-text-container">{item.text}</div>
                             )}
                           </div>
                         </div>

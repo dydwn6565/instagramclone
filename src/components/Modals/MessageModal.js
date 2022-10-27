@@ -93,7 +93,7 @@ const MessageModal = ({ title, message, onConfirm }) => {
     formData.append("lat", location.lat);
     formData.append("long", location.long);
     formData.append("userid", userInfo.id);
-    console.log(formData.getAll("userid"));
+    console.log(formData);
     
     const ImageData = await fetch(
       "https://instagramserver1.herokuapp.com/post",
@@ -108,7 +108,7 @@ const MessageModal = ({ title, message, onConfirm }) => {
           "Access-Control-Allow-Headers":
             "Access-Control-Allow-Origin, Contect-Type, x-requdsted-with, Authorization",
 
-          "Content-type": "application/json; charset=UTF-8",
+          // "Content-type": "application/json; charset=UTF-8",
         },
         body: formData,
         

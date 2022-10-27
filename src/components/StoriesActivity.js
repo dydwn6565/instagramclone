@@ -4,6 +4,7 @@ import Avatar from "@mui/material/Avatar";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { storyActions } from "../store/index";
+
 function StoriesActivity() {
   
   const [storiesIndexs, setStoriesIndexs] = useState([]);
@@ -118,14 +119,14 @@ function StoriesActivity() {
   const deleteProfileimageKey =(story) =>{
     return  Object.keys(story).filter((k) => k !== "profileimage").reduce((acc,key)=>((acc[key]=story[key]),acc),{});
   }
+  
   return (
     <div className="stories">
       <div className="stories-block">
         <div className="stories-avatar-list">
           {stories &&
-            stories.map((story) => (
-              <div className="stories-avatar" key={story.userid}>
-                
+            stories.map((story,index) => (
+              <div className="stories-avatar" key={story.id}>
                 <Link
                   state={{ story: story }}
                   key={story.id}
@@ -144,6 +145,7 @@ function StoriesActivity() {
             ))}
         </div>
       </div>
+     
     </div>
   );
 }

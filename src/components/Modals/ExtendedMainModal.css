@@ -9,11 +9,12 @@
 }
 
 .extended-main-modal-main {
+    
     background: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0.0.26);
     border-radius: 10px;
     position: fixed;
-    top: 100px;
+    top: 200px;
     height: 700px;
     z-index: 100;
     overflow: hidden;
@@ -36,9 +37,18 @@
 .extended-main-modal-title {
     display: flex;
     align-items: center;
-    width: 250px;
-    padding: 10px;
+    justify-content: space-between;
+    min-width: 250px;
+    padding: 13px;
 }
+
+.extended-main-modal-title-inside {
+        display:flex;
+        align-items: center;
+
+}
+
+
 
 .hr {
     border-bottom: 0.5px solid lightgrey;
@@ -48,9 +58,10 @@
 
 .extended-main-modal-container {
     height: 450px;
-    
     overflow: auto;
-}.extended-main-modal-info-content-container {
+}
+
+.extended-main-modal-info-content-container {
     display: flex;
     margin-top: 2%;
 }
@@ -58,7 +69,8 @@
 .extended-main-modal-info-content {
     display: flex;
     align-items: center;
-    width: 580px;
+    min-width: 400px;
+    width: 30vw;
 }
 
 .extended-main-modal-info-content-comment-inside {
@@ -89,7 +101,6 @@
 
 .extended-main-modal-info-content-comment {
     margin-left: 2%;
-
 }
 
 .date {
@@ -106,7 +117,7 @@
 }
 
 .extended-main-modal-info-bottom {
-    position: absolute;
+    
     bottom: 0;
-    width: 580px
+    /* width: 560px; */
 }

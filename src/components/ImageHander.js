@@ -16,7 +16,7 @@ function ImageHander({ images,extendedIconsSize }) {
       const moveToPrevpage = () => {
         setImageIndex((prev) => prev - 1);
       };
-      console.log(images)
+      
 
       useEffect(() => {
         const clientHeight = imageRef.current.clientHeight;
@@ -33,6 +33,7 @@ function ImageHander({ images,extendedIconsSize }) {
             className="main-image"
             ref={imageRef}
           />
+          {/* localstorage */}
           {/* <img
             src={"data:image/png;base64," + images[imageIndex]}
             alt="mong"
@@ -48,7 +49,7 @@ function ImageHander({ images,extendedIconsSize }) {
                   ? "main-extended-page-image-left-icon"
                   : "inactive-main-page-image-left-icon"
               }
-              style={{ marginTop: -imageHeight / 2 }}
+              style={{ marginTop: -(imageHeight+100 )/ 2 }}
               onClick={moveToPrevpage}
             />
           ) : (
@@ -81,7 +82,7 @@ function ImageHander({ images,extendedIconsSize }) {
                   ? "inactive-main-image-right-icon"
                   : "main-extended-page-image-right-icon"
               }
-              style={{ marginTop: -imageHeight / 2 }}
+              style={{ marginTop: -(imageHeight+100) / 2 }}
               onClick={moveToNextpage}
             />
           ) : (

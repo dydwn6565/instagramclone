@@ -28,7 +28,7 @@ function AddImageModal({
         setRenderedImage((current) => [...current, image]);
       }
     } else {
-      console.log("hit else");
+      
       for (let i = smallImageCurrentPage; i < smallImageCurrentPage + 4; i++) {
         setRenderedImage((current) => [...current, imageArray[i]]);
       }
@@ -71,10 +71,7 @@ function AddImageModal({
         onClick={extendImageModalHandler}
       ></div>
 
-      <div
-        className="extended-image-modal"
-        
-      >
+      <div className="extended-image-modal">
         <IoIosArrowDropleftCircle
           className={
             smallImageCurrentPage !== 0
@@ -86,16 +83,17 @@ function AddImageModal({
         {imageArray.length < 4 ? (
           imageArray.map((img, index) => (
             <>
-              <img
-                src={img.split("uploadedCurrentDate")[0]}
-                key={img}
-                alt="smallImage"
-                className={
-                  smallImageCurrentPage === index
-                    ? "extended-small-image selected-image"
-                    : "extended-small-image"
-                }
-              />
+              <div key={img + index}>
+                <img
+                  src={img.split("uploadedCurrentDate")[0]}
+                  alt="smallImage"
+                  className={
+                    smallImageCurrentPage === index
+                      ? "extended-small-image selected-image"
+                      : "extended-small-image"
+                  }
+                />
+              </div>
 
               <BsXCircle
                 className="extended-small-image-cross-icon"
