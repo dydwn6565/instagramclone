@@ -18,7 +18,7 @@ function MyMessageModal({ messageModalHandler }) {
   const [searchedUser, setSearchedUser] = useState("");
 
   
-  const ENDPOINT = "http://localhost:8080";
+  const ENDPOINT = "https://instagramserver1.herokuapp.com";
   const linkToChat = useRef(null);
   const ref = useRef(null);
   const randomRoomNumber = uuidv4();

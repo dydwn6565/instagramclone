@@ -56,7 +56,7 @@ function Main({ setBlurBackground }) {
     const getPosts = async () => {
       try {
         const postsData = await fetch(
-          "https://instagramserver1.herokuapp.com/retriev/posts",
+          "https://instagramserver1.herokuapp.com/retrive/posts",
           // "http://localhost:8080/retrive/posts",
           {
             method: "GET",
