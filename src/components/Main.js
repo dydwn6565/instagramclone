@@ -69,7 +69,6 @@ function Main({ setBlurBackground }) {
 
               "Content-type": "application/json; charset=UTF-8",
             },
-            
           }
         );
         
