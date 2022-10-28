@@ -10,8 +10,6 @@ function AccountEditSide({specialSize}) {
     setSelectedIndex(index);
   };
 
-  
-
   return (
     <>
       <div className="account-edit-side">

@@ -1,8 +1,7 @@
 .push-alarm-detail {
     display: flex;
-    
 }
 
 .push-alarm-detail>span {
-    margin-left:200px;
+    margin-left: 200px;
 }

@@ -1,14 +1,10 @@
-.side-profile
- {
+.side-profile {
     width: 300px;
-    
-    
     margin-top: 2rem;
-    
 }
 
-.side-footer{
+.side-footer {
     font-size: 12px;
-    width:200px;
+    width: 200px;
     color: lightgray;
 }

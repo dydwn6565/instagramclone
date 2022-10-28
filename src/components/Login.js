@@ -17,7 +17,6 @@ function Login() {
     hasError: userIdInputHasError,
     valueChangeHandler: userIdChangedHandler,
     inputBlurHandler: userIdBlurHandler,
-    // reset: resetUserIdInput,
   } = useInput((value) => value.trim() !== "");
 
   const {
@@ -26,7 +25,6 @@ function Login() {
     hasError: passwordInputHasError,
     valueChangeHandler: passwordChangeHandler,
     inputBlurHandler: passwordBlurHandler,
-    // reset: resetPasswordInput,
   } = useInput((value) => value.length > 5);
 
   let formIsValid = false;
@@ -34,11 +32,6 @@ function Login() {
   if (userIdIsValid && enteredPasswordIsValid) {
     formIsValid = true;
   }
-  // const userIdIsValid = enteredUserId.trim() !== "";
-  // const userInputIsInvalid = !userIdIsValid && userIdTouched;
-
-  // const passwordIsValid = password.trim() !== "";
-  // const passwordInputIsInvalid = !userIdIsValid && userIdTouched;
 
   useEffect(() => {
     const getLatAndLong = () => {
@@ -94,19 +87,7 @@ function Login() {
           }
         );
         const jsonUser = await getUserInfo.json();
-        console.log(getUserInfo);
-
-        // const userid = jsonUser.userid;
-        // const name = jsonUser.name;
-        // const username = jsonUser.username;
-
-        // dispatch(
-        //   userActions.updateUser({
-        //     userid: userid,
-        //     name: name,
-        //     username: username,
-        //   })
-        // );
+ 
         const userInfo = {id:jsonUser.id, userid:jsonUser.userid, username:jsonUser.username,name:jsonUser.name}
           localStorage.setItem("userInfo", JSON.stringify(userInfo));
         insertUserLocation(jsonUser.id);
@@ -147,7 +128,6 @@ function Login() {
     }
     
   };
-
 
   return (
     <>

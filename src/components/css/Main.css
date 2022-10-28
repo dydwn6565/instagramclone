@@ -1,16 +1,7 @@
-
-
-
 .main-image-container {
-    
     justify-content: center;
-    
     display: flex;
 }
-
-
-
-
 
 .main-modal-hr {
     border: 1px solid lightgray;
@@ -21,6 +12,5 @@
 }
 
 .main-page-comment:focus {
-    
     outline-color: white;
 }

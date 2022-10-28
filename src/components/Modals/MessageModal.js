@@ -115,7 +115,6 @@ const MessageModal = ({ title, message, onConfirm }) => {
       }
     );
     console.log(ImageData.status);
-    // clicktoMain.current.click();
     window.location.href="/"
   };
 
@@ -142,8 +141,6 @@ const MessageModal = ({ title, message, onConfirm }) => {
   return (
     <div>
       
-      
-      {/* {page === 0 && <div ref={resetImages} onClick={resetArrayes}></div>} */}
       <div className="modal-backdrop" onClick={onConfirm} />
       <Link ref={clicktoMain} to="/" />
       {(page === 0 || page === 1) && (

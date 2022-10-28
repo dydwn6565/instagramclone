@@ -47,9 +47,6 @@
     height: 30px;
     position: absolute;
     margin-left: -450px;
-    /* left: 0;
-    top: 0; */
-    /* margin-top: 30%; */
     cursor: pointer;
     color: white
 }
@@ -58,13 +55,7 @@
     width: 30px;
     height: 30px;
     position: absolute;
-    /* display:flex; */
-    /* flex-direction: column;
-    justify-content: center;
-    align-items: center; */
     margin-left: 250px;
-    /* margin-top: -220px; */
-    /* right:0; */
     cursor: pointer;
     color: white;
 }
@@ -73,11 +64,7 @@
     width: 30px;
     height: 30px;
     position: absolute;
-    /* right: 0; */
     margin-left: 450px;
-    /* top: 0; */
-    /* margin-top: 30%; */
-    /* margin-right: 600px; */
     cursor: pointer;
     color: white;
     z-index: 120;
@@ -101,9 +88,7 @@
 }
 
 .main-page-icons-container {
-    /* width: 86%; */
     min-width: 150px;
-    /* align-items: center; */
 }
 
 .main-page-icons {

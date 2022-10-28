@@ -128,8 +128,7 @@ function MyMessageModal({ messageModalHandler }) {
   };
 
   return (
-    <>
-      
+    <> 
       <div
         className="my-message-modal-backdrop"
         onClick={messageModalHandler}

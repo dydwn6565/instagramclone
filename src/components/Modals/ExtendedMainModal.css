@@ -9,7 +9,6 @@
 }
 
 .extended-main-modal-main {
-    
     background: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0.0.26);
     border-radius: 10px;
@@ -43,12 +42,9 @@
 }
 
 .extended-main-modal-title-inside {
-        display:flex;
-        align-items: center;
-
+    display: flex;
+    align-items: center;
 }
-
-
 
 .hr {
     border-bottom: 0.5px solid lightgrey;
@@ -117,7 +113,6 @@
 }
 
 .extended-main-modal-info-bottom {
-    
     bottom: 0;
     /* width: 560px; */
 }

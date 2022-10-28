@@ -91,7 +91,6 @@ function MyMessage({ setBlurBackground }) {
     const user = JSON.parse(localStorage.getItem("userInfo"))
     setUsername(user.username);
   },[])
-// console.log(userids);
   return (
     <>
       <Header setBlurBackground={setBlurBackground} />
@@ -122,9 +121,7 @@ function MyMessage({ setBlurBackground }) {
                         <Link
                           style={{ textDecoration: "none" }}
                           state={{
-                            // roomtableid: chatRoom.id,
                             randomRoomNumber: chatRoom[0].roomnumber,
-                            // clickedUserList: [chatRoom.username],
                             chatRoom :chatRoom,
                             newChat: false,
                           }}

@@ -87,7 +87,6 @@
 }
 
 .app-store-button {
-    /* transform: scale(0.2); */
     width: 150px;
     height: 50px;
 }
@@ -107,7 +106,6 @@
 .login-download-app {
     margin-top: 20px;
     text-align: center;
-    /* margin-right: -250px; */
 }
 
 .login-images {

@@ -101,10 +101,9 @@
         font-size: 12px;
     }
     .my-message-user-info-container {
-        
-        margin-top:5px;
+        margin-top: 5px;
     }
-    .my-message-search-container{
-            min-width: 178px;
+    .my-message-search-container {
+        min-width: 178px;
     }
 }

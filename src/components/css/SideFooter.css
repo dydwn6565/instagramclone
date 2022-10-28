@@ -1,9 +1,6 @@
 .side-footer-first-line>span,
 .side-footer-second-line>span {
-    /* display: flex; */
     margin-right: 1rem;
-    /* align-items: center; */
-    /* justify-content: space-evenly; */
 }
 
 .side-footer-second-line{

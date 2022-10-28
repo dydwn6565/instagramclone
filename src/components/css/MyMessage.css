@@ -8,17 +8,17 @@
 }
 
 .my-message-username {
-    margin-left:8px;
+    margin-left: 8px;
     color: black;
-    
 }
-
 
 .my-message-id {
     display: flex;
     justify-content: center;
     align-items: center;
-}.my-message-text {
+}
+
+.my-message-text {
     width: 250px;
     min-width: 250px;
     height: 70px;
@@ -68,7 +68,6 @@
 }
 
 .my-message-message-content {
-    
     display: flex;
     align-items: center;
     justify-content: space-between;

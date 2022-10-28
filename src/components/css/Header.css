@@ -99,18 +99,7 @@
 }
 
 
-/* 
-.diamond {
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    background-color: black;
-    z-index: 2;
-    transform: rotate(45deg);
-    margin-left: 7vw;
-    margin-top: 180px;
-    
-} */
+
 
 @media screen and (max-width: 650px) {
     .header-search-bar {

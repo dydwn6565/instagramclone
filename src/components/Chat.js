@@ -10,7 +10,6 @@ import io from "socket.io-client";
 import { FiInfo } from "react-icons/fi";
 import Picker from "emoji-picker-react";
 import { BsEmojiSmile } from "react-icons/bs";
-import { AiOutlinePicture } from "react-icons/ai";
 import "./css/Chat.css";
 import { generateBase64FromImage } from "./Utils/Image";
 let socket;
@@ -66,8 +65,6 @@ function Chat({ setBlurBackground }) {
     // socket.off();
     // };
 
-    // }
-    // chatRoomAndUserList();
   }, [ENDPOINT, location]);
 
   useEffect(() => {
@@ -117,9 +114,8 @@ function Chat({ setBlurBackground }) {
     if (fileUploaded) {
       generateBase64FromImage(fileUploaded)
         .then((b64) => {
-          // let message= b64;
+          
           socket.emit("sendImage", { room, userid, b64 }, () => setMessage(""));
-          // setMessage((current) => [...current, b64]);
         })
         .catch((e) => {
           console.log(e);
