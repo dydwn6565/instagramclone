@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./InstagStory.css";
+
 import mapboxgl from "mapbox-gl";
 
 mapboxgl.accessToken =
