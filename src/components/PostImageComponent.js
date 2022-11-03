@@ -37,7 +37,7 @@ function PostImageComponent({ images, content,userid, id, postid }) {
   }, [commentUpdated]);
 
   useEffect(()=>{
-    console.log("hit")
+    
     const getPostUser = async () => {
        const fetchedData = await fetch(
          `https://instagramserver1.herokuapp.com/users/${userid}`,
@@ -103,7 +103,7 @@ function PostImageComponent({ images, content,userid, id, postid }) {
       });
     } catch (error) {}
   };
-  console.log(userid);
+  
   return (
     <>
       <div className="main">

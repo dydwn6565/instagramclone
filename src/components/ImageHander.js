@@ -7,7 +7,7 @@ import { BsDot } from "react-icons/bs";
 import "./css/ImageHander.css"
 function ImageHander({ images,extendedIconsSize }) {
     const [imageIndex, setImageIndex] = useState(0);
-    const [imageHeight,setImageHeight] = useState();
+    const [imageHeight,setImageHeight] = useState(400);
     const imageRef= createRef();
     const lastIndex = images?.length - 1;
       const moveToNextpage = () => {
@@ -19,10 +19,17 @@ function ImageHander({ images,extendedIconsSize }) {
       
 
       useEffect(() => {
-        const clientHeight = imageRef.current.clientHeight;
-        setImageHeight(clientHeight);
-        console.log(clientHeight);
+        // setTimeout(()=>{
+          // if(imageRef.current){
+
+            const clientHeight = imageRef.current?.clientHeight;
+            setImageHeight(clientHeight);
+          // }
+        // },100)
+        
+        
       }, [imageIndex]);
+      console.log(imageHeight)
   return (
     <div>
       <div>
@@ -33,13 +40,12 @@ function ImageHander({ images,extendedIconsSize }) {
             className="main-image"
             ref={imageRef}
           />
-          {/* localstorage */}
+          {/* localhost */}
           {/* <img
             src={"data:image/png;base64," + images[imageIndex]}
             alt="mong"
             className="main-image"
           /> */}
-        </div>
 
         <div className="image-dot-container">
           {extendedIconsSize === true ? (
@@ -76,6 +82,8 @@ function ImageHander({ images,extendedIconsSize }) {
             ))}
 
           {extendedIconsSize === true ? (
+            
+            
             <IoIosArrowDroprightCircle
               className={
                 imageIndex === lastIndex
@@ -85,7 +93,9 @@ function ImageHander({ images,extendedIconsSize }) {
               style={{ marginTop: -(imageHeight+100) / 2 }}
               onClick={moveToNextpage}
             />
+            
           ) : (
+            // <div className="main-page-image-right-icon-container">
             <IoIosArrowDroprightCircle
               className={
                 imageIndex === lastIndex
@@ -95,8 +105,12 @@ function ImageHander({ images,extendedIconsSize }) {
               style={{ marginTop: -imageHeight / 2 }}
               onClick={moveToNextpage}
             />
+            // </div>
           )}
         </div>
+        </div>
+
+        
       </div>
     </div>
   );

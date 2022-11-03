@@ -55,10 +55,27 @@
     width: 30px;
     height: 30px;
     position: absolute;
+
     margin-left: 250px;
+    
     cursor: pointer;
     color: white;
 }
+
+/* .main-page-image-right-icon-container{
+    position:absolute;
+    display: flex;
+    border:1px solid white;
+    width: 30px;
+    height: 50%;
+    border:1px solid red;
+} */
+
+/* .main-image-and-icons{
+    width:100%;
+    height: 100%;
+    border:3px solid blue;
+} */
 
 .main-extended-page-image-right-icon {
     width: 30px;
@@ -67,7 +84,7 @@
     margin-left: 450px;
     cursor: pointer;
     color: white;
-    z-index: 120;
+    /* z-index: 120; */
 }
 
 .inactive-main-image-right-icon,
@@ -85,6 +102,7 @@
 .image-dot-container {
     display: flex;
     justify-content: center;
+    
 }
 
 .main-page-icons-container {

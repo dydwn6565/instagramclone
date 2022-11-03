@@ -23,7 +23,7 @@ function Main({ setBlurBackground }) {
           },
         });
         const data = await token.json();
-        console.log(data.message);
+        
         if (data.message === "jwt expired") {
           const renewToken = async () => {
             const refreshToken = localStorage.getItem("refreshToken");
@@ -58,7 +58,7 @@ function Main({ setBlurBackground }) {
         const postsData = await fetch(
           "https://instagramserver1.herokuapp.com/retrive/posts",
           // "http://localhost:8080/retrive/posts",
-          {
+          {   
             method: "GET",
             headers: {
               "Access-Control-Allow-Origin": "*",
@@ -88,10 +88,10 @@ function Main({ setBlurBackground }) {
   return (
     <>
       {
-        posts?.map((post) => (
+        posts?.map((post,index) => (
           <>
-            {console.log(post)}
-            <div className="main-image-container">
+            {/* {console.log(post.created_at)} */}
+            <div className="main-image-container" key={post.created_at}>
               <PostImageComponent
                 images={post.filepath}
                 content={post.content}

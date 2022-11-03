@@ -126,10 +126,11 @@ function StoriesActivity() {
         <div className="stories-avatar-list">
           {stories &&
             stories.map((story,index) => (
-              <div className="stories-avatar" key={story.id}>
+              <div className="stories-avatar" key={story[0].url}>
+                
                 <Link
                   state={{ story: story }}
-                  key={story.id}
+               
                   to={`/story/${story[0].userid}`}
                 >
                   <Avatar

@@ -29,7 +29,7 @@ function ExtendedMainModal({
       setUserInformation(JSON.parse(userInfo));
     }
   }, []);
-  console.log(commentList);
+  
   return (
     <div>
       <div className="extended-main-modal-backdrop" onClick={extendComment} />
