@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 function MyMessage({ setBlurBackground }) {
   const [sendMessage, setSendMessage] = useState(false);
   const [username,setUsername] = useState();
+  const [userInfo,setUserInfo] = useState();
   const [roomList, setRoomList] = useState([]);
   const [filteredRoomList,setFilteredRoomList] =useState();
 // const userids = useSelector((state) => state.user);
@@ -33,13 +34,16 @@ function MyMessage({ setBlurBackground }) {
             rooomList.push(userInfo.roomnumber);
           };  
         })
+        // console.log(roomList)
         rooomList.map((roomnumber) => {
           const filteredByRoomnumber = roomJson.filter((userInfo) => {
             return userInfo.roomnumber === roomnumber;
           });
           filteredArray.push(filteredByRoomnumber)
-          console.log(filteredByRoomnumber);
+          // console.log(filteredByRoomnumber);
         });
+        console.log(filteredArray)
+        // console.log(filteredArray)
         setFilteredRoomList(filteredArray)
         // console.log(filteredArray);
         // if(!subArray.includes());
@@ -52,12 +56,13 @@ function MyMessage({ setBlurBackground }) {
 
   useEffect(() => {
     
-    const userid = JSON.parse(localStorage.getItem("userInfo"))
-    console.log(userid.id);
+    const user = JSON.parse(localStorage.getItem("userInfo"))
+    setUserInfo(user)
+    console.log(user);
     try {
       const chatRoomList = async () => {
         const roomListData = await fetch(
-          `https://instagramserver1.herokuapp.com/chat/getUserRoom/${userid.id}`,
+          `https://instagramserver1.herokuapp.com/chat/getUserRoom/${user.id}`,
           // `http://localhost:8080/chat/getUserRoom/${userid.id}`,
           {
             method: "GET",
@@ -77,8 +82,8 @@ function MyMessage({ setBlurBackground }) {
         if (roomListData.status === 201) {
           const roomJson = await roomListData.json();
           sortByRoomnumber(roomJson)
-          console.log(roomJson);
-          setRoomList(roomJson);
+          // console.log(roomJson);
+          // setRoomList(roomJson);
         }
       };
       chatRoomList();
@@ -130,7 +135,8 @@ function MyMessage({ setBlurBackground }) {
                           <div className="my-message-username">
                             {chatRoom.map(chat =>(
                               <>
-                                <span>{chat.name  } </span>
+                              {chat.name !== userInfo.name &&<span>{chat.name  } </span>}
+                                
                               </>
                             ))}
                           </div>

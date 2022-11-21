@@ -23,6 +23,7 @@ function Chat({ setBlurBackground }) {
   const [emojiPicker, setEmojiPicker] = useState(false);
   const [loginUserInfo, setLoginUserInfo] = useState();
   const [username, setUsername] = useState();
+  const [userInfo,setUserInfo] =useState();
   const location = useLocation();
   const ENDPOINT = "https://instagramserver1.herokuapp.com";
   const hiddenFileInput = useRef(null);
@@ -30,10 +31,12 @@ function Chat({ setBlurBackground }) {
 
   useEffect(() => {
     socket = io(ENDPOINT);
-    console.log(socket);
+    // console.log(socket);
     const data = location.state;
     const username = JSON.parse(localStorage.getItem("userInfo"));
     setUsername(username.username);
+    setUserInfo(username)
+    console.log(username)
     const {
       roomtableid,
       randomRoomNumber,
@@ -149,7 +152,8 @@ function Chat({ setBlurBackground }) {
               />
               <div>
                 {chatRoom?.map((user) => (
-                  <span key={user.id}>{user.name}</span>
+                  user.name !==userInfo.name && <span key={user.id}>{user.name}</span>
+                  
                 ))}
               </div>
             </div>
@@ -162,11 +166,12 @@ function Chat({ setBlurBackground }) {
                 className="my-message-chat-head-avatar"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRqRyIiwYCq4s-fZi1zdmyfSuIPUvg9EyZ_Q&usqp=CAU"
               />
-
+              
               {chatRoom?.map((user) => (
                 <>
                   <div key={user.id} className="my-message-chat-head-id">
-                    <span key={user.id}>{user.name}</span>
+                    {user.name !==userInfo.name &&<span key={user.id}>{user.name}</span>}
+                    
                   </div>
                 </>
               ))}
