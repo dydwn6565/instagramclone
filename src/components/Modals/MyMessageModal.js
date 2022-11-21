@@ -54,7 +54,7 @@ function MyMessageModal({ messageModalHandler }) {
     };
 
     const addCheckedInAPI = (userList) => {
-      console.log(userList);
+      
       const addedChecked = userList.users.map((user) => {
         return { ...user, checked: false };
       });
@@ -101,8 +101,7 @@ function MyMessageModal({ messageModalHandler }) {
   };
 
   const deleteReceiver = (id) => {
-    console.log(id);
-    console.log(clickedUserList);
+    
     const deletedOneUser = clickedUserList.filter((user) => {
       return user !== id;
     });
@@ -117,7 +116,7 @@ function MyMessageModal({ messageModalHandler }) {
         return user;
       }
     });
-    console.log(updatedFilteredList);
+    
     setFilteredUserList(updatedFilteredList);
   };
 
@@ -167,7 +166,7 @@ function MyMessageModal({ messageModalHandler }) {
           <div className="my-message-receiver">
             {clickedUserList.map((clickedUser) => (
               <>
-                {console.log(clickedUser)}
+                
                 <div className="my-message-receiver-name">
                   <div>{clickedUser}</div>
                   <MdClose

@@ -6,7 +6,7 @@ function CommentHandler({ postid, userid, setCommentUpdated }) {
     setComment(e);
   };
   const addComment = async () => {
-    console.log(comment);
+    
     setComment((prevValue) => (prevValue = ""));
     try {
       const postComment = await fetch("https://instagramserver1.herokuapp.com/add/postcomment", {
@@ -28,7 +28,7 @@ function CommentHandler({ postid, userid, setCommentUpdated }) {
         },
       });
 
-      console.log(postComment);
+      
       if (postComment.status === 201) {
         setCommentUpdated("updated")
       }

@@ -27,7 +27,7 @@ function StoryModal() {
    
       const findIndex = filteredStories.findIndex(
         (story) =>
-          // console.log(story)
+          
           story[0] !== undefined
       );
       setCurrentIndex(findIndex);
@@ -100,7 +100,7 @@ function StoryModal() {
   const checkVideo =(url)=>{
     const videoFileExtension = [".mp4",".mov",".wmv",".avi",".avchd"]
     let videoIsTrue = false;
-    console.log(url)
+    
     videoFileExtension.map((extenstion)=>{
       
       const containExtenstion = url.includes(extenstion);

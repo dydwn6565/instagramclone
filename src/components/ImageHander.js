@@ -19,17 +19,12 @@ function ImageHander({ images,extendedIconsSize }) {
       
 
       useEffect(() => {
-        // setTimeout(()=>{
-          // if(imageRef.current){
-
+   
             const clientHeight = imageRef.current?.clientHeight;
             setImageHeight(clientHeight);
-          // }
-        // },100)
-        
         
       }, [imageIndex]);
-      console.log(imageHeight)
+      
   return (
     <div>
       <div>

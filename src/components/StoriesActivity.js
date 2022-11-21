@@ -108,7 +108,7 @@ function StoriesActivity() {
         headerAddedArray.push(newObject);
       } else {
         const result = deleteProfileimageKey(story)
-        // console.log(result)
+        
         headerAddedArray.push({ ...result, profileImage: story.profileimage });
       }
     });

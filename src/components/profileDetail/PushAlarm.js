@@ -72,7 +72,7 @@ const triggerEvent =() =>{
 }
 
 const setEventType =(title) =>{
-  console.log(title)
+  
   setSelectedAlarm(title);
 }
 
@@ -251,7 +251,7 @@ const setEventType =(title) =>{
                   control={<IOSSwitch sx={{ m: 1 }} />}
                 />
               </div>
-              {console.log(selectedAlarm)}
+              
               <div
                 onClick={() => {
                   triggerEvent();

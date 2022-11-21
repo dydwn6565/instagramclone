@@ -78,22 +78,22 @@ const MessageModal = ({ title, message, onConfirm }) => {
     const formData = new FormData();
     formData.append("title", "test");
     formData.append("content", content);
-    console.log(fileArray.length)
+    
     if(fileArray.length ===undefined){
       formData.append("file",fileArray)
       
     }else{
 
       fileArray.map((file, index) => formData.append("file", file));
-      console.log("hit")
+      
     }
     
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-    console.log(location);
+    
     formData.append("lat", location.lat);
     formData.append("long", location.long);
     formData.append("userid", userInfo.id);
-    console.log(formData);
+    
     
     const ImageData = await fetch(
       "https://instagramserver1.herokuapp.com/post",
@@ -114,7 +114,7 @@ const MessageModal = ({ title, message, onConfirm }) => {
         
       }
     );
-    console.log(ImageData.status);
+    
     window.location.href="/"
   };
 
@@ -123,7 +123,7 @@ const MessageModal = ({ title, message, onConfirm }) => {
     if(page ===1){
       resetArrayes();
     }
-   console.log(page)
+   
   };
 
   const movePrevImage = () => {

@@ -41,7 +41,7 @@ function Main({ setBlurBackground }) {
             );
             const refreshedData = await refreshedToken.json();
             localStorage.setItem("accessToken", refreshedData.accessToken);
-            console.log(refreshedData);
+            
           };
           renewToken();
         }
@@ -90,7 +90,7 @@ function Main({ setBlurBackground }) {
       {
         posts?.map((post,index) => (
           <>
-            {/* {console.log(post.created_at)} */}
+            
             <div className="main-image-container" key={post.created_at}>
               <PostImageComponent
                 images={post.filepath}

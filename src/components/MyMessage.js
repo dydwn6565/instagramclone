@@ -18,8 +18,7 @@ function MyMessage({ setBlurBackground }) {
   const [userInfo,setUserInfo] = useState();
   const [roomList, setRoomList] = useState([]);
   const [filteredRoomList,setFilteredRoomList] =useState();
-// const userids = useSelector((state) => state.user);
-  // const userid = 2;
+
   const messageModalHandler = () => {
     setSendMessage((prevState) => !prevState);
   };
@@ -27,31 +26,24 @@ function MyMessage({ setBlurBackground }) {
   const sortByRoomnumber = (roomJson)=>{
       const filteredArray = [];
       const rooomList =[];
+       
       
-      // while (roomJson) {
         roomJson.map((userInfo)=>{
           if (!rooomList.includes(userInfo.roomnumber)) {
             rooomList.push(userInfo.roomnumber);
           };  
         })
-        // console.log(roomList)
+        
         rooomList.map((roomnumber) => {
           const filteredByRoomnumber = roomJson.filter((userInfo) => {
             return userInfo.roomnumber === roomnumber;
           });
           filteredArray.push(filteredByRoomnumber)
-          // console.log(filteredByRoomnumber);
+          
         });
-        console.log(filteredArray)
-        // console.log(filteredArray)
-        setFilteredRoomList(filteredArray)
-        // console.log(filteredArray);
-        // if(!subArray.includes());
-        // delete roomJson[0]
-        //  roomJson = roomJson.filter((e) => {return e !== undefined || e !==null});
-        // console.log(roomJson )
-        // console.log(subArray)
-      // }
+        
+      setFilteredRoomList(filteredArray)
+        
   }
 
   useEffect(() => {
@@ -82,8 +74,7 @@ function MyMessage({ setBlurBackground }) {
         if (roomListData.status === 201) {
           const roomJson = await roomListData.json();
           sortByRoomnumber(roomJson)
-          // console.log(roomJson);
-          // setRoomList(roomJson);
+          
         }
       };
       chatRoomList();

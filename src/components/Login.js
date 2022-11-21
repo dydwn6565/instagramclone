@@ -75,11 +75,11 @@ function Login() {
       );
       if (login.status === 200) {
         const token = await login.json();
-        console.log(token.accessToken);
+        
 
         localStorage.setItem("accessToken", token.accessToken);
         localStorage.setItem("refreshToken", token.refreshToken);
-        console.log(enteredUserId)
+        
         const getUserInfo = await fetch(
           `https://instagramserver1.herokuapp.com/usersByUserId/${enteredUserId}`,
           {

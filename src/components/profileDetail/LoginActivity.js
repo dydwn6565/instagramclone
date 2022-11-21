@@ -27,7 +27,7 @@ function LoginActivity() {
       if (userLocationJson.status === 201) {
         const userLocation = await userLocationJson.json();
 
-        console.log(userLocation.loginActivity[0].long);
+        
         setLatAndLong(userLocation.loginActivity);
 
         if (map.current) return; // initialize map only once

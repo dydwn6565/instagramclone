@@ -31,12 +31,12 @@ function Chat({ setBlurBackground }) {
 
   useEffect(() => {
     socket = io(ENDPOINT);
-    // console.log(socket);
+    
     const data = location.state;
     const username = JSON.parse(localStorage.getItem("userInfo"));
     setUsername(username.username);
     setUserInfo(username)
-    console.log(username)
+    
     const {
       roomtableid,
       randomRoomNumber,
@@ -45,7 +45,7 @@ function Chat({ setBlurBackground }) {
       newChat,
     } = data;
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-    console.log(randomRoomNumber);
+    
     setLoginUserInfo(userInfo);
     setRoom(randomRoomNumber);
     setNameList(clickedUserList);
@@ -85,9 +85,7 @@ function Chat({ setBlurBackground }) {
   const sendMessage = (event) => {
     event.preventDefault();
     const userid = loginUserInfo?.id;
-    console.log("line 84 " + userid);
-    console.log("line 84 " + room);
-    console.log(message);
+    
     if (message) {
       socket.emit("sendMessage", { room, userid, message }, () =>
         setMessage("")
@@ -125,7 +123,7 @@ function Chat({ setBlurBackground }) {
         });
     }
   };
-  console.log(chatRoom);
+  
   return (
     <div>
       {message && emojiPicker && chosenEmoji && (
