@@ -12,11 +12,11 @@
     width: 40vw;
     min-width: 500px;
     border-radius: 10px;
-    height: 800px;
+    height: 700px;
     z-index: 15;
     position: absolute;
     background-color: white;
-    top: 50%;
+    top: 450px;
     left: 50%;
     transform: translate(-50%, -50%);
 }

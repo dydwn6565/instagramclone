@@ -209,21 +209,7 @@ function MyMessageModal({ messageModalHandler }) {
               </div>
             ))}
         </div>
-        <div className="my-message-recommend">
-          <h5>Recommend</h5>
-          <div className="my-message-recommend-list">
-            <Avatar></Avatar>
-            <div className="my-message-recommend-id">
-              <div>dydwn6565</div>
-              <div>Yongju Lee</div>
-            </div>
-            <input
-              type="radio"
-              className="my-message-recommend-id-radio"
-              // onChange={(e) => radioButtonHandler(e.target.value)}
-            />
-          </div>
-        </div>
+        
       </Card>
 
     </>
