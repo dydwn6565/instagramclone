@@ -5,7 +5,7 @@ import AccountEditSide from "./AccountEditSide";
 import Header from "../Header";
 import "./PrivateInfoAndSecurity.css";
 import EmailAlarmComponent from "./EmailAlarmComponent";
-import ProfileFooter from "../profilePage/ProfileFooter";
+// import ProfileFooter from "../profilePage/ProfileFooter";
 
 function PrivateInfoAndSecurity() {
   const IOSSwitch = styled((props) => (
@@ -289,7 +289,7 @@ function PrivateInfoAndSecurity() {
         </div>
       </div>
 
-      <ProfileFooter position={"account-private"} />
+      {/* <ProfileFooter position={"account-private"} /> */}
     </div>
   );
 }

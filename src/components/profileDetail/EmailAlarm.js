@@ -5,7 +5,7 @@ import "./EmailAlarm.css"
 import EmailAlarmComponent from "./EmailAlarmComponent";
 
 import Header from "../Header";
-import ProfileFooter from "../profilePage/ProfileFooter";
+// import ProfileFooter from "../profilePage/ProfileFooter";
 
 function EmailAlarm() {
   return (
@@ -39,7 +39,7 @@ function EmailAlarm() {
         </div>
       </div>
 
-      <ProfileFooter position={"account"} />
+      {/* <ProfileFooter position={"account"} /> */}
     </div>
   );
 }

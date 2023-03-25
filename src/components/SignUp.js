@@ -103,17 +103,9 @@ const createUser=async ()=>{
     <div className="sign-up">
       <div className="sign-up-container">
         <div>
-          <h1> Instagram</h1>
+          <h1> Sign Up</h1>
         </div>
-        <div>
-          <strong>
-            Please sign up if you want to see your friends pitcure and videos
-          </strong>
-        </div>
-        <button className="login-with-facebook-button">
-          Login with Facebook
-        </button>
-        <div className="hr"></div>
+      
 
         <input
           type="text"
@@ -174,15 +166,6 @@ const createUser=async ()=>{
           <BiCheckCircle className="x-circle" />
         )}
 
-        <div className="sign-up-term">
-          The person using the service may have uploaded your contact
-          information to Instagram <a href="/learn/more">Learn more</a>
-        </div>
-        <div className="sign-up-term">
-          By signing up, you agree to the terms and conditions, the privacy
-          policy, and the cookie policy
-        </div>
-
         {formIsValid ? (
           <button className="sign-up-bt" onClick={formSubmissionHandler}>
             Sign up
@@ -190,23 +173,9 @@ const createUser=async ()=>{
         ) : (
           <button className="sign-up-bt disabled">Sign up</button>
         )}
-      </div>
-      <div className="sign-up-login">
-        Do you have an account?{" "}
-          <Link to="/login">Login</Link>
-      </div>
-      <div className="sign-up-please-download-title">Please download app</div>
-      <div className="login-images">
-        <img
-          className="app-store-button"
-          src="https://i.stack.imgur.com/xHgSL.png"
-          alt=""
-        />
-        <img
-          className="google-store-button"
-          src="https://texttofloss.com/wp-content/uploads/2021/01/Google-Play-Store-Button.png"
-          alt=""
-        />
+        <div className="sign-up-login">
+          Do you have an account? <Link to="/login">Login</Link>
+        </div>
       </div>
     </div>
   );

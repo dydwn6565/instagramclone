@@ -3,7 +3,7 @@ import AccountEditSide from './AccountEditSide'
 import Header from '../Header'
 import "./AppandWebSite.css"
 
-import ProfileFooter from '../profilePage/ProfileFooter';
+// import ProfileFooter from '../profilePage/ProfileFooter';
 function AppandWebSite() {
 
     const [selectedItem, setSelectedItem] = useState("active");
@@ -136,7 +136,7 @@ function AppandWebSite() {
         </div>
       </div>
 
-      <ProfileFooter position={"account"} />
+      {/* <ProfileFooter position={"account"} /> */}
     </div>
   );
 }

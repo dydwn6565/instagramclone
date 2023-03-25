@@ -4,7 +4,7 @@ import AccountEditSide from "./AccountEditSide";
 import "./AccountEdit.css"
 import Header from '../Header';
 import { Avatar } from '@mui/material';
-import ProfileFooter from '../profilePage/ProfileFooter';
+// import ProfileFooter from '../profilePage/ProfileFooter';
 function AccountEdit() {
 
   return (
@@ -97,7 +97,7 @@ function AccountEdit() {
           </div>
         </div>
 
-        <ProfileFooter position={"account"} />
+        {/* <ProfileFooter position={"account"} /> */}
       </div>
     </>
   );

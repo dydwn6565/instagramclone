@@ -19,6 +19,7 @@
 
 .main-horiz-oulined-icon {
     margin-right: 1rem;
+    cursor: pointer;
 }
 
 .main-avatar {
@@ -129,12 +130,15 @@
 
 .main-page-comment {
     padding: 1%;
+    
     display: flex;
     justify-content: space-between;
+    
 }
 
 .main-page-comment-inside {
     display: flex;
+    margin-bottom: 5px;
 }
 
 .see-comments {

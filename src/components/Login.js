@@ -33,6 +33,9 @@ function Login() {
     formIsValid = true;
   }
 
+  const  autoFilloutFoam =() =>{
+
+  }
   useEffect(() => {
     const getLatAndLong = () => {
       navigator.geolocation.getCurrentPosition(function (position) {
@@ -132,82 +135,60 @@ function Login() {
   return (
     <>
       <div className="login-outside-container">
-
-            <LoginImage />
-            <div className="login-container">
-              <div className="login">
-                <div className="login-title">Instagram</div>
-                <form onSubmit={formSubmissionHandler} className="login-form">
-                  <input
-                    type="text"
-                    onChange={userIdChangedHandler}
-                    onBlur={userIdBlurHandler}
-                    value={enteredUserId}
-                  />
-                  {userIdInputHasError && (
-                    <p className="error-text">Please check your id</p>
-                  )}
-                  <input
-                    type={passwordShown ? "password" : "text"}
-                    onChange={passwordChangeHandler}
-                    onBlur={passwordBlurHandler}
-                    value={enteredPassword}
-                  />
-                  <div className="login-show-password">
-                    <strong
-                      onClick={() =>
-                        setPasswordShown((prevState) => !prevState)
-                      }
-                    >
-                      {" "}
-                      show password
-                    </strong>
-                  </div>
-                  {passwordInputHasError && (
-                    <p className="error-text">Please check your password</p>
-                  )}
-                  <button className="login-button">Login</button>
-                </form>
-                <p className="hr-row">
-                  {" "}
-                  ----------------------or---------------------
-                </p>
-
-                <div className="login-with-facebook">Login with Facebook</div>
-                <div className="forget-login">
-                  <Link to="/accounts/password/reset">
+        {/* <LoginImage /> */}
+        <div className="login-container">
+          <div className="login">
+            <div className="login-title">Log-In</div>
+            <form onSubmit={formSubmissionHandler} className="login-form">
+              <input
+                type="text"
+                placeholder="UserId"
+                onChange={userIdChangedHandler}
+                onBlur={userIdBlurHandler}
+                value={enteredUserId}
+              />
+              {userIdInputHasError && (
+                <p className="error-text">Please check your id</p>
+              )}
+              <input
+                type={passwordShown ? "password" : "text"}
+                placeholder="Password"
+                onChange={passwordChangeHandler}
+                onBlur={passwordBlurHandler}
+                value={enteredPassword}
+              />
+              <div className="login-show-password">
+                <div />
+                <div>
+                  <strong
+                    onClick={() => setPasswordShown((prevState) => !prevState)}
+                  >
                     {" "}
-                    Did you forget your password
-                  </Link>
+                    show password
+                  </strong>
                 </div>
               </div>
+              {passwordInputHasError && (
+                <p className="error-text">Please check your password</p>
+              )}
+              <button className="login-button">Login</button>
+            </form>
+          </div>
+          <div className="loginInfo">
+            <div>UserId = 1234567890</div>
+            <div>password = 123456</div>
+          </div>
 
-              <div className="login-no-account">
-                Don't you have account ?
-                <Link to="/accounts/emailsignup">SignUp</Link>
-              </div>
+          <div className="login-no-account">
+            <span> Don't you have account ? </span>
 
-              <div className="login-download-app">
-                Please download application
-              </div>
-              <div className="login-images">
-                <img
-                  className="app-store-button"
-                  src="https://i.stack.imgur.com/xHgSL.png"
-                  alt=""
-                />
-                <img
-                  className="google-store-button"
-                  src="https://texttofloss.com/wp-content/uploads/2021/01/Google-Play-Store-Button.png"
-                  alt=""
-                />
-              </div>
-            </div>
-            <Link ref={linkToMain} to="/" hidden>
-              s
-            </Link>
+            <Link to="/accounts/emailsignup">&nbsp; SignUp</Link>
+          </div>
         </div>
-          
+        <Link ref={linkToMain} to="/" hidden>
+          s
+        </Link>
+      </div>
     </>
   );
 }

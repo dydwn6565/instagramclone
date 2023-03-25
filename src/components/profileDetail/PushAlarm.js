@@ -5,7 +5,7 @@ import Header from "../Header";
 import "./PushAlarm.css";
 import { FormControlLabel,Switch } from "@mui/material";
 import PushAlarmDetail from "./PushAlarmDetail";
-import ProfileFooter from "../profilePage/ProfileFooter";
+// import ProfileFooter from "../profilePage/ProfileFooter";
 function PushAlarm() {
 
   const [openPushAlarm, setOpenPushAlarm] = useState(true);
@@ -305,7 +305,7 @@ const setEventType =(title) =>{
         </div>
       </div>
 
-      <ProfileFooter position={"account"} />
+      {/* <ProfileFooter position={"account"} /> */}
     </div>
   );
 }

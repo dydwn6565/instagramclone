@@ -48,7 +48,7 @@ function ExtendedMainModal({
                 Following
               </div>
 
-              <MoreHorizOutlinedIcon className="extended-main-modal-dotdotdot-icon" />
+              {/* <MoreHorizOutlinedIcon className="extended-main-modal-dotdotdot-icon" /> */}
             </div>
             <div className="hr"></div>
             <div className="extended-main-modal-container">

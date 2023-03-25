@@ -3,7 +3,7 @@ import Header from "../Header";
 import AccountEditSide from "./AccountEditSide";
 import "./ChangePassword.css";
 import { Avatar } from "@mui/material";
-import ProfileFooter from "../profilePage/ProfileFooter";
+// import ProfileFooter from "../profilePage/ProfileFooter";
 function ChangePassword() {
   return (
     <div>
@@ -40,7 +40,7 @@ function ChangePassword() {
         </div>
       </div>
       
-        <ProfileFooter position={"account"} />
+        {/* <ProfileFooter position={"account"} /> */}
       
     </div>
   );

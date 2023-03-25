@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 .link-text-no-decoration {
     text-decoration: none;
-    color: black
+    color: black;
+    cursor:pointer;
 }
 
 .header {
@@ -59,23 +60,26 @@
     align-items: center;
     justify-content: space-evenly;
     margin-left: 5%;
+    
 }
 
+
 .favorite-icon,
-.head-avatar {
+.head-avatar,.postingInstagramIcon,.homeIcon,
+.myMessage,
+.explore {
     cursor: pointer;
+}
+.favorite-icon {
+    fill: white;
 }
 
 .search-icon {
     position: absolute !important;
     margin-top: -6px;
+    
 }
 
-.homeIcon,
-.myMessage,
-.explore {
-    cursor: pointer;
-}
 
 .searched-users-list {
     position: absolute;

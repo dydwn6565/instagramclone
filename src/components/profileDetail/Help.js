@@ -4,7 +4,7 @@ import Header from "../Header";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 import "./Help.css";
-import ProfileFooter from "../profilePage/ProfileFooter";
+// import ProfileFooter from "../profilePage/ProfileFooter";
 function Help() {
   return (
     <div>
@@ -31,7 +31,7 @@ function Help() {
         </div>
       </div>
 
-      <ProfileFooter position={"account"} />
+      {/* <ProfileFooter position={"account"} /> */}
     </div>
   );
 }

@@ -20,9 +20,9 @@ function Icons({ like, addlikeButtonhandler, deletelikeButtonhandler }) {
           onClick={deletelikeButtonhandler}
         />
       )}
-      <ChatBubbleOutlineSharpIcon className="main-page-icons" />
+      {/* <ChatBubbleOutlineSharpIcon className="main-page-icons" />
       <SendSharpIcon className="main-page-icons" />
-      <BookmarkBorderIcon className="main-page-bookmark-icon" />
+      <BookmarkBorderIcon className="main-page-bookmark-icon" /> */}
     </div>
   );
 }

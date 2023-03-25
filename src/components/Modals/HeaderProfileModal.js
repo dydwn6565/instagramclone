@@ -31,7 +31,7 @@ function HeaderProfileModal({ headerModalHandler, redirectToProfile }) {
               </span>
           </div>
         
-        <div>
+        {/* <div>
           <VscBookmark />
           <span>Saved</span>
         </div>
@@ -43,7 +43,7 @@ function HeaderProfileModal({ headerModalHandler, redirectToProfile }) {
         <div>
           <TbExchange className="exchange-icon" />
           <span>Change account</span>
-        </div>
+        </div> */}
         <div className="hr"></div>
         <div onClick={logoutActivity}>Logout</div>
       </div>

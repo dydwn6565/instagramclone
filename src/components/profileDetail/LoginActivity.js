@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 
 import Header from "../Header";
-import ProfileFooter from "../profilePage/ProfileFooter";
+// import ProfileFooter from "../profilePage/ProfileFooter";
 import AccountEditSide from "./AccountEditSide";
 import "./LoginActivity.css";
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
@@ -65,7 +65,7 @@ function LoginActivity() {
         </div>
       </div>
 
-      <ProfileFooter position={"account"} />
+      {/* <ProfileFooter position={"account"} /> */}
     </div>
   );
 }

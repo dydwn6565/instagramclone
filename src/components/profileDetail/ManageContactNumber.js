@@ -2,7 +2,7 @@ import React from "react";
 import AccountEditSide from "./AccountEditSide";
 import Header from "../Header";
 import "./ManageContactNumber.css";
-import ProfileFooter from "../profilePage/ProfileFooter";
+// import ProfileFooter from "../profilePage/ProfileFooter";
 function ManageContactNumber() {
   return (
     <div>
@@ -44,7 +44,7 @@ function ManageContactNumber() {
         </div>
       </div>
 
-      <ProfileFooter position={"account"} />
+      {/* <ProfileFooter position={"account"} /> */}
     </div>
   );
 }

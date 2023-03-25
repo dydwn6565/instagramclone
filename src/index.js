@@ -80,14 +80,7 @@ root.render(
         <Route path="/settings/help" element={<Help />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/accounts/emailsignup" element={<SignUp />}></Route>
-        <Route
-          path="/accounts/password/reset"
-          element={<ResetPassword />}
-        ></Route>
-        <Route
-          path="/accounts/password/reset"
-          element={<ResetPassword />}
-        ></Route>
+      
       </Routes>
     </BrowserRouter>
   </Provider>

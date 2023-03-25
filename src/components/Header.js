@@ -130,16 +130,18 @@ function Header() {
           <Link to="/myMessage">
             <SendOutlinedIcon className="myMessage" />
           </Link>
+                <div>
 
-          <AddBoxOutlinedIcon onClick={createNewPost} />
+          <AddBoxOutlinedIcon className="postingInstagramIcon" onClick={createNewPost} />
+                </div>
 
           <Link to="/explore">
             <ExploreOutlinedIcon className="explore" />
           </Link>
-          <div className="favorite-icon">
+          {/* <div className="favorite-icon">
             <FavoriteBorderOutlinedIcon onClick={postActivity} />
             {openHeart && <LikeActivity postActivity={postActivity} />}
-          </div>
+          </div> */}
 
           <div>
             <Avatar

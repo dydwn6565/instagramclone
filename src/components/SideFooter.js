@@ -18,7 +18,7 @@ function SideFooter() {
         <span>Location</span>
         <span>Language</span>
       </div>
-      <div>© 2022 INSTAGRAM FROM META</div>
+      
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import "./PushAlarmDetail.css"
 import EmailAlarmComponent from './EmailAlarmComponent';
-import ProfileFooter from '../profilePage/ProfileFooter';
+// import ProfileFooter from '../profilePage/ProfileFooter';
 function PushAlarmDetail({
   title,
   componentInfo,
@@ -23,7 +23,7 @@ function PushAlarmDetail({
         />
       ))}
       <div className="resize-footer">
-        <ProfileFooter />
+        {/* <ProfileFooter /> */}
       </div>
     </div>
   );

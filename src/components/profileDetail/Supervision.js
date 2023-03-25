@@ -3,7 +3,7 @@ import AccountEditSide from './AccountEditSide'
 import Header from '../Header'
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import "./Supervision.css"
-import ProfileFooter from '../profilePage/ProfileFooter';
+// import ProfileFooter from '../profilePage/ProfileFooter';
 
 function Supervision() {
   return (
@@ -33,7 +33,7 @@ function Supervision() {
         </div>
       </div>
 
-      <ProfileFooter position={"account"} />
+      {/* <ProfileFooter position={"account"} /> */}
     </div>
   );
 }

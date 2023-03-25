@@ -114,5 +114,6 @@
 
 .extended-main-modal-info-bottom {
     bottom: 0;
-    /* width: 560px; */
+    margin-top:30px;
+    
 }

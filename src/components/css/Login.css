@@ -1,119 +1,128 @@
 .login-page-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.login {
-    border: 1px solid lightgrey;
+.loginInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+.loginInfo >div{
+  margin-bottom: 10px;
 }
 
 .login-outside-container {
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 720px;
-}.login-container {
-    width: 350px;
-    margin-left:100px;
-    margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 720px;
+}
+
+.login-container {
+  width: 520px;
+    border:none;
+  margin-top: 50px;
+  border-radius: 5px;
+  background-color: #ffdb58;
 }
 
 .login-title {
-    font-size: 50px;
-    margin: 50px 0 20px 0;
+  font-size: 50px;
+  margin: 50px 0 20px 0;
+  cursor:pointer;
 }
 
 .login-form {
-    display: flex;
-    flex-direction: column;
-    margin: 40px 0 40px 0;
+  display: flex;
+  flex-direction: column;
+  margin: 40px 0 20px 0;
 }
 
 .login-show-password {
-    margin-left: 150px;
-    margin-top: -30px;
-    margin-bottom: 6px;
-    font-size: 14px;
-    cursor: pointer;
+  display: flex;
+  cursor: pointer;
 }
 
-.login-form>input,
-.login-form>button {
-    width: 270px;
-    height: 30px;
-    margin: 15px 0 0 0;
-    border: 0.5px solid lightgrey;
+.login-form > input,
+.login-form > button {
+  width: 270px;
+  height: 30px;
+  margin: 30px 0 20px 0;
+  border:none;
 }
 
 .login-button {
-    border: none !important;
-    background-color: #10d0ff;
-    color: white;
-    border-radius: 3px;
+  border: none !important;
+  background-color: #10d0ff;
+  color: white;
+  border-radius: 3px;
+  cursor:pointer;
 }
 
 .login-with-facebook {
-    margin: 20px 0 20px 0;
+  margin: 20px 0 20px 0;
 }
 
 .login {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .forget-login {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
-.forget-login>a,
-.login-no-account>a {
-    text-decoration: none;
+.forget-login > a,
+.login-no-account > a {
+  text-decoration: none;
 }
 
 .login-no-account {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 350px;
-    height: 80px;
-    margin: auto;
-    border: 1px solid lightgrey;
-    text-align: center;
-    margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 350px;
+  height: 80px;
+  margin: auto;
+  
+  text-align: center;
+  margin-top: 10px;
 }
 
 .app-store-button {
-    width: 150px;
-    height: 50px;
+  width: 150px;
+  height: 50px;
 }
 
 .google-store-button {
-    margin: 0 0 200px 0;
-    width: 150px;
-    height: 50px;
-    border-right: white;
+  margin: 0 0 200px 0;
+  width: 150px;
+  height: 50px;
+  border-right: white;
 }
 
 .login-donwlaod-app-container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .login-download-app {
-    margin-top: 20px;
-    text-align: center;
+  margin-top: 20px;
+  text-align: center;
 }
 
 .login-images {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .hr-row {
-    border-top: 0.5px solid lightgrey;
+  border-top: 0.5px solid lightgrey;
 }
