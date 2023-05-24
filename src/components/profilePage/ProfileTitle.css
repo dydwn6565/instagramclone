@@ -62,5 +62,6 @@
     }
     .profile-title{
         min-width: 450px;
+        margin-left:100px;
     }
 }

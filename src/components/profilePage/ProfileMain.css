@@ -23,7 +23,7 @@
 
 .profile-middle-line {
     border: 0.5px solid lightgrey;
-    width: 800px;
+    /* width: 800px; */
     margin: auto;
 }
 
@@ -34,5 +34,6 @@
 @media screen and (max-width: 670px) {
     .profile-main{
         min-width: 430px;
+        margin-left:100px;
     }
 }

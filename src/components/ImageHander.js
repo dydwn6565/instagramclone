@@ -97,7 +97,7 @@ function ImageHander({ images,extendedIconsSize }) {
                   ? "inactive-main-image-right-icon"
                   : "main-page-image-right-icon"
               }
-              style={{ marginTop: -imageHeight / 2 }}
+              // style={{ marginTop: -imageHeight / 2 }}
               onClick={moveToNextpage}
             />
             // </div>
