@@ -1,112 +1,131 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
 .link-text-no-decoration {
-    text-decoration: none;
-    color: black;
-    cursor:pointer;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  margin-left: 15px;
 }
 
 .header {
-    display: flex;
-    padding: 1%;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    border-bottom: 0.5px lightgrey solid;
-    min-width: 670px;
-    position: sticky;
-    top: 0;
-    background-color: white;
-    z-index: 100;
+  display: flex;
+  padding: 1%;
+  align-items: center;
+  justify-content: center;
+
+  border-bottom: 0.5px lightgrey solid;
+  /* min-width: 670px; */
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 100;
 }
 
 .header-search-bar {
-    width: 250px;
-    height: 35px;
-    border-radius: 8px;
-    background-color: rgb(234, 230, 230);
-    border: none
+  width: 250px;
+  height: 35px;
+  border-radius: 8px;
+  background-color: rgb(234, 230, 230);
+  border: none;
 }
 
 .header-search-bar:focus {
-    outline-color: rgb(234, 230, 230);
-    background-color: rgb(234, 230, 230);
-    border: none;
+  outline-color: rgb(234, 230, 230);
+  background-color: rgb(234, 230, 230);
+  border: none;
 }
 
 .header-search-bar-input {
-    margin-left: 20px;
-    border: none;
-    background-color: rgb(234, 230, 230);
+  margin-left: 20px;
+  border: none;
+  background-color: rgb(234, 230, 230);
 }
 
 .header-search-bar-input:focus {
-    outline: none;
+  outline: none;
 }
 
 .header-search-bar {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .instagram-title {
-    font-family: 'Dancing Script', cursive;
-    font-size: 155%;
-    margin-right: 13%;
+  font-family: "Dancing Script", cursive;
+  font-size: 155%;
+  margin-right: 13%;
 }
 
 .icon-list {
-    width: 340px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    margin-left: 5%;
-    
+  width: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-left: 5%;
 }
-
 
 .favorite-icon,
-.head-avatar,.postingInstagramIcon,.homeIcon,
+.head-avatar,
+.postingInstagramIcon,
+.homeIcon,
 .myMessage,
 .explore {
-    cursor: pointer;
+  cursor: pointer;
 }
 .favorite-icon {
-    fill: white;
+  fill: white;
 }
 
 .search-icon {
-    position: absolute !important;
-    margin-top: -6px;
-    
+  position: absolute !important;
+  margin-top: -6px;
 }
 
-
 .searched-users-list {
-    position: absolute;
-    margin-left: -75px;
-    margin-top: 10px;
-    width: 400px;
-    min-height: 150px;
-    z-index: 1;
-    border: 0.5px lightgrey solid;
-    background-color: white;
+  position: absolute;
+  margin-left: -75px;
+  margin-top: 10px;
+  width: 400px;
+  min-height: 150px;
+  z-index: 1;
+  border: 0.5px lightgrey solid;
+  background-color: white;
 }
 
 .searched-users-id-and-username {
-    padding: 5px;
+  padding: 5px;
 }
 
 .searched-user-container {
-    padding: 10px;
-    display: flex;
-    align-items: center;
+  padding: 10px;
+  display: flex;
+  align-items: center;
 }
 
-
-
-
 @media screen and (max-width: 650px) {
-    .header-search-bar {
-        display: none;
-    }
+  .header {
+    /* margin-left: 3vw; */
+  }
+  .header-search-bar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .header {
+    margin-left: unset;
+  }
+  .instagram-title{
+    font-size:4.5vw;
+  }
+  .favorite-icon,
+  .head-avatar,
+  .postingInstagramIcon,
+  .homeIcon,
+  .myMessage,
+  .explore {
+      transform: scale(0.8);
+  }
+  .icon-list{
+    margin-left:unset;
+  }
 }
