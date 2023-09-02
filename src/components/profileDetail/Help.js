@@ -2,9 +2,8 @@ import React from "react";
 import AccountEditSide from "./AccountEditSide";
 import Header from "../Header";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-
 import "./Help.css";
-// import ProfileFooter from "../profilePage/ProfileFooter";
+
 function Help() {
   return (
     <div>

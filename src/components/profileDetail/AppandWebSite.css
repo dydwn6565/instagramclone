@@ -1,60 +1,76 @@
 .app-and-website-container {
-    display: flex;
-    width: 1000px;
-    height: 800px;
-    border: 0.5px solid lightgrey;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
+  display: flex;
+  /* justify-content: center; */
+  width: 1000px;
+  height: 800px;
+  border: 0.5px solid lightgrey;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
 }
 
 .app-and-website {
-    width: 800px;
-    margin-left: -80px;
+  /* width: 800px; */
+  margin-left: 60px;
 }
 
 .app-and-website-title {
-    display: flex;
-    margin-top: 50px;
-    margin-bottom: 30px;
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
 
-.app-and-website-buttons>button {
-    background-color: white;
-    border: 0.5px solid black;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    font-size: 20px;
-    width: 170px;
+.app-and-website-buttons > button {
+  background-color: white;
+  border: 0.5px solid black;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-size: 20px;
+  width: 170px;
 }
 
 .app-and-website-contents {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .app-and-website-extra-info {
-    margin-top: 10px;
-    color: lightgrey;
+  margin-top: 10px;
+  color: lightgrey;
 }
 
 .app-and-website-inactive {
-    color: lightgrey;
-    border-bottom: 0.5px solid lightgrey !important;
+  color: lightgrey;
+  border-bottom: 0.5px solid lightgrey !important;
 }
 
 @media screen and (max-width: 1000px) {
-    .app-and-website-container {
-        top: unset;
-        left: unset;
-        transform: unset;
-        width: 98%;
-        margin-top: 100px;
-        min-width: 550px;
-        margin-left: 10px;
-        justify-content: center;
-    }
-    .app-and-website {
-        margin-left: 10px;
-    }
+  .app-and-website-container {
+    top: unset;
+    left: unset;
+    transform: unset;
+    width: 98%;
+    margin-top: 100px;
+
+    margin-left: 10px;
+    justify-content: center;
+  }
+  .app-and-website {
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .app-and-website-buttons > button,
+  .app-and-website-contents,
+  .app-and-website-title {
+    font-size: 2vw;
+    width: unset;
+  }
+}
+
+@media screen and (max-width: 565px) {
+  .app-and-website-container {
+    margin-left: unset;
+  }
 }

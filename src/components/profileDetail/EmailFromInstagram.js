@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-
 import AccountEditSide from "./AccountEditSide";
 import Header from "../Header";
 import "./EmailFromInstagram.css";
-// import ProfileFooter from "../profilePage/ProfileFooter";
 function EmailFromInstagram() {
   const [selectedItem, setSelectedItem] = useState("secure");
   return (
@@ -11,6 +9,7 @@ function EmailFromInstagram() {
       <Header />
       <div className="email-from-instagram">
         <AccountEditSide />
+
         <div className="email-from-instagram-main">
           <div className="email-from-instagram-main-title">
             E-mail from Instagram{" "}

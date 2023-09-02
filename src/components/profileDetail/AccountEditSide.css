@@ -1,8 +1,8 @@
 .account-edit-side {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 200px;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* margin-right: 200px; */
     border-right: 0.5px solid lightgrey;
 }
 
@@ -25,3 +25,9 @@
     align-items: center;
 
 }
+
+   @media screen and (max-width: 730px) {
+.account-edit-side{
+    display: none;
+}
+   }

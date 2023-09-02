@@ -13,7 +13,7 @@ function AccountEditSide({specialSize}) {
   return (
     <>
       <div className="account-edit-side">
-        <Box sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
+        <Box>
           <List component="nav" aria-label="secondary mailbox folder">
             <Link to="/accounts/edit" className="link-text-no-decoration">
               <ListItemButton
@@ -164,7 +164,7 @@ function AccountEditSide({specialSize}) {
             <div className={specialSize}> </div>
             <div className="hr" />
             <div className="meta-info-page">
-              <div className="meta-icon-with-meta-text">
+              {/* <div className="meta-icon-with-meta-text">
                 <img
                   alt="meta-icon"
                   src="https://cdn.dribbble.com/users/2973/screenshots/16757947/media/c56c56d24f8c591ff753faa15ea4a033.png?compress=1&resize=64x48"
@@ -176,7 +176,7 @@ function AccountEditSide({specialSize}) {
                 Manage setting for environments connected between Instagram,
                 Facebook apps, and Messenger, such as sharing stories and posts,
                 and loggin in.
-              </div>
+              </div> */}
             </div>
           </List>
         </Box>

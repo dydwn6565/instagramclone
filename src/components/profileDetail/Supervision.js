@@ -1,9 +1,8 @@
-import React from 'react'
-import AccountEditSide from './AccountEditSide'
-import Header from '../Header'
+import React from "react";
+import AccountEditSide from "./AccountEditSide";
+import Header from "../Header";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import "./Supervision.css"
-// import ProfileFooter from '../profilePage/ProfileFooter';
+import "./Supervision.css";
 
 function Supervision() {
   return (
@@ -38,4 +37,4 @@ function Supervision() {
   );
 }
 
-export default Supervision
+export default Supervision;

@@ -10,8 +10,7 @@
 }
 
 .manage-contact-number-main {
-    width: 800px;
-    margin-left: -120px;
+    margin-left: 20px;
     padding: 2%;
 }
 
@@ -50,11 +49,19 @@
     .manage-contact-number {
         width: 98%;
         margin-top: 100px;
-        min-width: 550px;
         margin-left: 10px;
         justify-content: center;
     }
     .manage-contact-number-main {
         margin-left: 10px;
     }
+}
+
+@media screen and (max-width: 750px) {
+.manage-contact-number-main{
+    font-size:2vw;
+}
+.manage-contact-number{
+    margin-left:unset;
+}
 }

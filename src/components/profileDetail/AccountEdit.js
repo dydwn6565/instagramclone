@@ -78,7 +78,7 @@ function AccountEdit() {
               <div className="account-edit-gender">Gender</div>
               <input type="text" />
             </div>
-            <div className="account-edit-name">
+            {/* <div className="account-edit-name">
               <div className="account-edit-recommend">
                 Recommend similar accounts
               </div>
@@ -87,7 +87,7 @@ function AccountEdit() {
                 <div>Include your account when</div>
                 <div>recommending similar accounts to follow</div>
               </div>
-            </div>
+            </div> */}
             <div className="account-edit-name">
               <button className="account-edit-sumbit-button">submit</button>
               <div className="account-edit-inactive-button">

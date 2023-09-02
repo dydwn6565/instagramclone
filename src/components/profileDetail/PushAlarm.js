@@ -1,17 +1,16 @@
-import {React, useState} from "react";
+import { React, useState } from "react";
 import { styled } from "@mui/material/styles";
 import AccountEditSide from "./AccountEditSide";
 import Header from "../Header";
 import "./PushAlarm.css";
-import { FormControlLabel,Switch } from "@mui/material";
+import { FormControlLabel, Switch } from "@mui/material";
 import PushAlarmDetail from "./PushAlarmDetail";
 // import ProfileFooter from "../profilePage/ProfileFooter";
 function PushAlarm() {
-
   const [openPushAlarm, setOpenPushAlarm] = useState(true);
   const [selectedAlarm, setSelectedAlarm] = useState("Live");
   const IOSSwitch = styled((props) => (
-    <Switch 
+    <Switch
       focusVisibleClassName=".Mui-focusVisible"
       disableRipple
       {...props}
@@ -66,15 +65,13 @@ function PushAlarm() {
     },
   }));
 
+  const triggerEvent = () => {
+    setOpenPushAlarm((prevState) => !prevState);
+  };
 
-const triggerEvent =() =>{
-  setOpenPushAlarm(prevState =>!prevState)
-}
-
-const setEventType =(title) =>{
-  
-  setSelectedAlarm(title);
-}
+  const setEventType = (title) => {
+    setSelectedAlarm(title);
+  };
 
   return (
     <div>
@@ -251,7 +248,7 @@ const setEventType =(title) =>{
                   control={<IOSSwitch sx={{ m: 1 }} />}
                 />
               </div>
-              
+
               <div
                 onClick={() => {
                   triggerEvent();

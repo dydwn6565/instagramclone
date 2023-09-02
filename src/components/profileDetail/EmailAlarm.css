@@ -1,35 +1,34 @@
 .email-alarm {
-    display: flex;
-    width: 1000px;
-    height: 800px;
-    border: 0.5px solid lightgrey;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
+  display: flex;
+  height: 800px;
+  border: 0.5px solid lightgrey;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
 }
 
 .email-alarm-main {
-    width: 800px;
-    margin-left: -80px;
+  width: 800px;
+  margin-left: 80px;
 }
 
 .email-alarm-extra-info {
-    font-size: 10px;
-    color: lightgrey;
-    margin-top: 10px;
-    margin-left: 2px;
+  font-size: 10px;
+  color: lightgrey;
+  margin-top: 10px;
+  margin-left: 2px;
 }
 
 @media screen and (max-width: 1000px) {
-    .email-alarm {
-        width: 98%;
-        margin-top: 100px;
-        min-width: 550px;
-        margin-left: 10px;
-        justify-content: center;
-    }
-    .email-alarm-main {
-        margin-left: 10px;
-    }
+  .email-alarm {
+    width: 98%;
+    margin-top: 100px;
+    min-width: 550px;
+    margin-left: 10px;
+    justify-content: center;
+  }
+  .email-alarm-main {
+    margin-left: 10px;
+  }
 }

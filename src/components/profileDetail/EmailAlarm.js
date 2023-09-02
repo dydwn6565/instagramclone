@@ -1,11 +1,8 @@
 import React from "react";
-
 import AccountEditSide from "./AccountEditSide";
-import "./EmailAlarm.css"
+import "./EmailAlarm.css";
 import EmailAlarmComponent from "./EmailAlarmComponent";
-
 import Header from "../Header";
-// import ProfileFooter from "../profilePage/ProfileFooter";
 
 function EmailAlarm() {
   return (

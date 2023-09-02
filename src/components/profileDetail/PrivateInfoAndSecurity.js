@@ -195,7 +195,8 @@ function PrivateInfoAndSecurity() {
               <a
                 className="private-info-and-security-main-learn-more"
                 alt="text"
-                href="https://instagramserver1.herokuapp.com/support"
+                // href="https://instagramserver1.herokuapp.com/support"
+                href="http://localhost:8080/support"
               >
                 Support
               </a>
@@ -226,6 +227,7 @@ function PrivateInfoAndSecurity() {
               </div>
               <FormControlLabel
                 control={<IOSSwitch sx={{ m: 1 }} defaultChecked />}
+                className="private-info-and-security-icon"
               />
             </div>
             <div className="hr"></div>

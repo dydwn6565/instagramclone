@@ -1,72 +1,95 @@
 .email-from-instagram {
-    display: flex;
-    width: 1000px;
-    height: 800px;
-    border: 0.5px solid lightgrey;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
+  display: flex;
+  width: 1000px;
+  height: 800px;
+  border: 0.5px solid lightgrey;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
 }
 
 .email-from-instagram-main {
-    width: 800px;
-    margin-left: -120px;
-    padding: 2%;
+  margin-left: 20px;
+  padding: 2%;
 }
 
 .email-from-instagram-main-title {
-    margin: 20px 0 20px 0;
-    font-size: 20px;
+  margin: 20px 0 20px 0;
+  font-size: 20px;
 }
 
-.email-from-instagram-main-buttons>button {
-    background-color: white;
-    border: 0.5px solid black;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    font-size: 20px;
-    width: 250px;
-    margin-bottom: 30px;
+.email-from-instagram-main-buttons > button {
+  background-color: white;
+  border: 0.5px solid black;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-size: 20px;
+  width: 250px;
+  margin-bottom: 30px;
 }
 
 .email-from-instagram-main-content {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
-.email-from-instagram-main-content>a {
-    text-decoration: none;
-    margin-left: 10px;
+.email-from-instagram-main-content > a {
+  text-decoration: none;
+  margin-left: 10px;
 }
 
 .email-from-instagram-main-content-login {
-    font-weight: bold;
-    font-size: 14px;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .email-from-instagram-main-content-login-time {
-    font-size: 13px;
+  font-size: 13px;
 }
 
 .email-from-instagram-main-content-email-from {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .inactive {
-    color: lightgrey;
-    border-bottom: 0.5px solid lightgrey !important;
+  color: lightgrey;
+  border-bottom: 0.5px solid lightgrey !important;
 }
 
 @media screen and (max-width: 1000px) {
-    .email-from-instagram {
-        width: 98%;
-        margin-top: 100px;
-        min-width: 550px;
-        margin-left: 10px;
-        justify-content: center;
-    }
-    .email-from-instagram-main {
-        margin-left: 10px;
-    }
+  .email-from-instagram {
+    width: 98%;
+    margin-top: 100px;
+    margin-left: 10px;
+    justify-content: center;
+  }
+  .email-from-instagram-main {
+    margin-left: 10px;
+    font-size: 1.5vw;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .email-from-instagram {
+    width: 98%;
+    margin-top: 100px;
+
+    margin-left: 10px;
+    justify-content: center;
+  }
+
+  .email-from-instagram-main {
+    margin-left: 10px;
+    font-size: 1.5vw;
+  }
+  .email-from-instagram-main-buttons > button {
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .email-from-instagram {
+    margin-left: unset;
+  }
 }
