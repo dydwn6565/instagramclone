@@ -1,76 +1,102 @@
 .sign-up-container {
-    width: 520px;
-    
-    margin-top: 50px;
-    border-radius: 5px;
-    background-color:#FFDB58 ;
+  width: 520px;
+
+  margin-top: 50px;
+  border-radius: 5px;
+  background-color: #ffdb58;
 }
 
 .sign-up {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
-.sign-up-container>input {
-    width: 330px;
-    height: 40px;
-    border:none;
-    
-    margin: 30px 0px 30px 0px;
-    background-color: #fafafa;
-    
-    color: grey;
+.sign-up-container > input {
+  width: 330px;
+  height: 40px;
+  border: none;
+
+  margin: 30px 0px 30px 0px;
+  background-color: #fafafa;
+
+  color: grey;
 }
 
 .sign-up-term {
-    font-size: 25px;
-    width: 230px;
-    margin-left: 40px;
-    padding: 12px;
+  font-size: 25px;
+  width: 230px;
+  margin-left: 40px;
+  padding: 12px;
 }
 
-
-
 .sign-up-bt {
-    background-color: #10d0ff;
-    border: none;
-    cursor: pointer;
-    color: white;
-    border-radius: 3px;
-    width: 330px;
-    height: 40px;
-    margin: 15px 0 15px 0;
+  background-color: #10d0ff;
+  border: none;
+  cursor: pointer;
+  color: white;
+  border-radius: 3px;
+  width: 330px;
+  height: 40px;
+  margin: 15px 0 15px 0;
 }
 
 .disabled {
-    background-color: #54c1f1;
-    cursor: default;
+  background-color: #54c1f1;
+  cursor: default;
 }
 
 .sign-up-login {
-    width: 330px;
-    
-    margin: 30px 0px 30px 100px;
-    
-    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
 }
 
-.sign-up-login>a {
-    text-decoration: none;
+.sign-up-login > a {
+  text-decoration: none;
 }
 
 .sign-up-please-download-title {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .x-circle {
-    margin-left: -20px;
-    margin-bottom: -5px;
+  margin-left: -20px;
+  margin-bottom: -5px;
 }
 
 .red {
-    color: red;
+  color: red;
+}
+
+@media screen and (max-width: 620px) {
+  .sign-up-container {
+    width: 90vw;
+  }
+  .sign-up-container > input,
+  .sign-up-bt {
+    width: 50vw;
+  }
+  .sign-up-login {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .sign-up-container {
+    width: 90vw;
+  }
+
+  .sign-up-container > input,
+  .sign-up-bt {
+    width: 50vw;
+  }
+
+  
+  .error-message {
+    font-size: 3vw;
+  }
 }

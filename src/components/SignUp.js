@@ -108,7 +108,6 @@ const createUser=async ()=>{
         <div>
           <h1> Sign Up</h1>
         </div>
-      
 
         <input
           type="text"
@@ -120,7 +119,7 @@ const createUser=async ()=>{
         {UserIdInputHasError ? (
           <>
             <BsXCircle className="x-circle red" />
-            <div>Please type 10 numbers or email</div>
+            <div className="error-message">Please type 10 numbers or email</div>
           </>
         ) : (
           <BiCheckCircle className="x-circle" />
@@ -135,7 +134,7 @@ const createUser=async ()=>{
         {enteredNameHasError ? (
           <>
             <BsXCircle className="x-circle red" />
-            <div>Please check name</div>
+            <div className="error-message">Please check name</div>
           </>
         ) : (
           <BiCheckCircle className="x-circle" />
@@ -150,7 +149,7 @@ const createUser=async ()=>{
         {enteredUserNameHasError ? (
           <>
             <BsXCircle className="x-circle red" />
-            <div>Please check your name</div>
+            <div className="error-message">Please check your name</div>
           </>
         ) : (
           <BiCheckCircle className="x-circle" />

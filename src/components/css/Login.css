@@ -126,3 +126,27 @@
 .hr-row {
   border-top: 0.5px solid lightgrey;
 }
+
+
+@media screen and (max-width: 690px) {
+.login-outside-container{
+  min-width: unset;
+}
+.login-container{
+  width: 80vw;
+}
+.login-form>input,
+.login-form>button{
+  width: 40vw;
+}
+.login-form{
+  margin:unset;
+}
+.login-no-account{
+  width: 40vw;
+  font-size: 2.6vw;
+}
+.error-text{
+  font-size:3vw;
+}
+}
