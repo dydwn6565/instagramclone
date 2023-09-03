@@ -16,12 +16,13 @@ function Main({ setBlurBackground }) {
     if (accessToken) {
       const userValidationCheck = async () => {
         const token = await fetch("https://instagramserver1.herokuapp.com", {
-          method: "POST",
+          // const token = await fetch("http://localhost:8080", {
+            method: "POST",
 
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        });
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          });
         const data = await token.json();
         
         if (data.message === "jwt expired") {
@@ -29,6 +30,7 @@ function Main({ setBlurBackground }) {
             const refreshToken = localStorage.getItem("refreshToken");
             const refreshedToken = await fetch(
               "https://instagramserver1.herokuapp.com/token",
+              // "http://localhost:8080/token",
               {
                 method: "POST",
                 headers: {

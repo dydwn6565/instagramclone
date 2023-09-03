@@ -85,19 +85,19 @@ function ImageHander({ images,extendedIconsSize }) {
                   ? "inactive-main-image-right-icon"
                   : "main-extended-page-image-right-icon"
               }
-              style={{ marginTop: -(imageHeight+100) / 2 }}
+              // style={{ marginTop: -(imageHeight+100) / 2 }}
               onClick={moveToNextpage}
             />
             
           ) : (
-            // <div className="main-page-image-right-icon-container">
+            
             <IoIosArrowDroprightCircle
               className={
                 imageIndex === lastIndex
                   ? "inactive-main-image-right-icon"
                   : "main-page-image-right-icon"
               }
-              // style={{ marginTop: -imageHeight / 2 }}
+              
               onClick={moveToNextpage}
             />
             // </div>

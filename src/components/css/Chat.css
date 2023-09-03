@@ -17,6 +17,10 @@
     border: 0.5px solid lightgrey;
 }
 
+.chat-side-container{
+
+}
+
 .my-chat-id {
     display: flex;
     justify-content: center;
@@ -155,4 +159,25 @@
 .my-message-chat-image {
     width: 10vw;
     height: 15vh;
+}
+
+
+
+@media screen and (max-width: 850px) {
+    .chat-side-container {
+        display: none;
+    }
+        .my-message-message-chat-content{
+            /* width: 90vw; */
+    }
+    .chat{
+        display:inline;
+        
+    }
+        .my-message-message-chat-content{
+            width: unset;
+        }
+                .my-message-chat-footer{
+                    width: unset;
+                }
 }

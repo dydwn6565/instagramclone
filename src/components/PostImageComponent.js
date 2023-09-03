@@ -23,6 +23,9 @@ function PostImageComponent({ images, content,userid, id, postid }) {
       
       const fetchedData = await fetch(
         `https://instagramserver1.herokuapp.com/get/postcomment/${postid}`,
+        // `http://localhost:8080/get/postcomment/${postid}`,
+
+        
         {
           method: "GET",
         }
@@ -41,7 +44,7 @@ function PostImageComponent({ images, content,userid, id, postid }) {
     const getPostUser = async () => {
        const fetchedData = await fetch(
          `https://instagramserver1.herokuapp.com/users/${userid}`,
-         //  `http://localhost:8080/users/${id}`,
+          // `http://localhost:8080/users/${userid}`,
          {
            method: "GET",
          }
@@ -69,6 +72,7 @@ function PostImageComponent({ images, content,userid, id, postid }) {
     setLike((prev) => !prev);
     try {
       fetch("https://instagramserver1.herokuapp.com/add/postlike", {
+        // fetch("http://localhost:8080/add/postlike", {
         method: "POST",
         body: JSON.stringify({
           userid: 3,
@@ -85,6 +89,7 @@ function PostImageComponent({ images, content,userid, id, postid }) {
     setLike((prev) => !prev);
     try {
       fetch("https://instagramserver1.herokuapp.com/delete/postlike", {
+        // fetch("tp://localhost:8080/delete/postlike", {
         method: "DELETE",
         body: JSON.stringify({
           userid: 3,

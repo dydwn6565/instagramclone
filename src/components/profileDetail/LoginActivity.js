@@ -1,8 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-
-
 import Header from "../Header";
-// import ProfileFooter from "../profilePage/ProfileFooter";
 import AccountEditSide from "./AccountEditSide";
 import "./LoginActivity.css";
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
@@ -20,6 +17,8 @@ function LoginActivity() {
     const getLoginLocation = async () => {
       const userLocationJson = await fetch(
         "https://instagramserver1.herokuapp.com/get/user/activity",
+        // "http://localhost:8080/get/user/activity",
+        
         {
           method: "GET",
         }
@@ -41,17 +40,14 @@ function LoginActivity() {
           ],
           zoom: 11,
         });
-          // new mapboxgl.Marker()
-          //   .setLngLat([
-          //     userLocation.loginActivity[0].long,
-          //     userLocation.loginActivity[0].lat,
-          //   ])
-          //   .addTo(map.current);
+      
       }
     };
     getLoginLocation();
   }, []);
-
+  useEffect(()=>{
+    
+  })
   return (
     <div>
       <Header />

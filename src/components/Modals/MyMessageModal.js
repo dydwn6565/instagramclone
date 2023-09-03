@@ -28,6 +28,7 @@ function MyMessageModal({ messageModalHandler }) {
       try {
         const userListData = await fetch(
           "https://instagramserver1.herokuapp.com/users",
+          // "http://localhost:8080/users",
           {
             method: "Get",
             headers: {
@@ -39,7 +40,6 @@ function MyMessageModal({ messageModalHandler }) {
 
               "Content-type": "application/json; charset=UTF-8",
             },
-            
           }
         );
 

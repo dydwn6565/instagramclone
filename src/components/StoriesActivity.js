@@ -14,6 +14,7 @@ function StoriesActivity() {
     const getStories = async () => {
       const storiesData = await fetch(
         "https://instagramserver1.herokuapp.com/stories",
+        // "http://localhost:8080/stories",
         {
           method: "GET",
           headers: {

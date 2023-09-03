@@ -26,6 +26,7 @@ function Chat({ setBlurBackground }) {
   const [userInfo,setUserInfo] =useState();
   const location = useLocation();
   const ENDPOINT = "https://instagramserver1.herokuapp.com";
+  // const ENDPOINT = "http://localhost:8080";
   const hiddenFileInput = useRef(null);
   const [chatRoom, setChatRoom] = useState();
 
@@ -134,7 +135,7 @@ function Chat({ setBlurBackground }) {
       <Header setBlurBackground={setBlurBackground} />
 
       <div className="chat">
-        <div>
+        <div className="chat-side-container">
           <div className="my-chat-id">
             <div className="my-chat-text">
               <strong>{username}</strong>{" "}

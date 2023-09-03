@@ -13,7 +13,7 @@
   justify-content: center;
 
   border-bottom: 0.5px lightgrey solid;
-  /* min-width: 670px; */
+
   position: sticky;
   top: 0;
   background-color: white;
@@ -102,9 +102,6 @@
 }
 
 @media screen and (max-width: 650px) {
-  .header {
-    /* margin-left: 3vw; */
-  }
   .header-search-bar {
     display: none;
   }
@@ -114,8 +111,8 @@
   .header {
     margin-left: unset;
   }
-  .instagram-title{
-    font-size:4.5vw;
+  .instagram-title {
+    font-size: 4.5vw;
   }
   .favorite-icon,
   .head-avatar,
@@ -123,9 +120,9 @@
   .homeIcon,
   .myMessage,
   .explore {
-      transform: scale(0.8);
+    transform: scale(0.8);
   }
-  .icon-list{
-    margin-left:unset;
+  .icon-list {
+    margin-left: unset;
   }
 }

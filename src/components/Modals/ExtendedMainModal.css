@@ -14,7 +14,8 @@
   border-radius: 10px;
   position: fixed;
   top: 200px;
-  height: 700px;
+  height: 730px;
+  max-width:1100px;
   z-index: 100;
   overflow: hidden;
   display: flex;
@@ -69,7 +70,7 @@
   display: flex;
   align-items: center;
 
-  width: 50vw;
+  /* width: 50vw; */
 }
 
 .extended-main-modal-info-content-comment-inside {
@@ -117,7 +118,7 @@
 
 .extended-main-modal-info-bottom {
   bottom: 0;
-  margin-top: 30px;
+  margin-top: 48px;
 }
 
 @media screen and (max-width: 1042px) {
@@ -125,7 +126,7 @@
     display: none;
   }
   .extended-main-modal-info-bottom {
-    margin-top: unset;
+    margin-top: -10px;
   }
   .extended-main-modal-main{
     height: 670px;

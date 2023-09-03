@@ -96,7 +96,7 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 450px) {
     .my-message-user-info-id {
         font-size: 12px;
     }
@@ -106,4 +106,7 @@
     .my-message-search-container {
         min-width: 178px;
     }
+        .my-message-modal-header>h2{
+            font-size: 6vw;
+        }
 }

@@ -1,75 +1,94 @@
 .extended-image-modal-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
 }
 
 .extended-image-modal {
-    position: absolute;
-    margin-top: -170px;
-    right: 0;
-    height: 120px;
-    border-radius: 10px;
-    z-index: 100;
-    margin-right: 30px;
-    background: rgba(49, 46, 46, 0.75);
-    display: flex;
+  position: absolute;
+
+  bottom: 0;
+  right: 0;
+
+  border-radius: 10px;
+  z-index: 100;
+  margin-right: 30px;
+  background: rgba(49, 46, 46, 0.75);
+  display: flex;
 }
 
 .extended-small-image {
-    width: 90px;
-    height: 100px;
-    padding: 10px;
-    opacity: 0.6;
-    cursor: pointer;
+  width: 90px;
+  height: 100px;
+  padding: 10px;
+  opacity: 0.6;
+  cursor: pointer;
 }
 
-.extended-image-modal>[type="file"] {
-    display: none;
+.extended-image-modal > [type="file"] {
+  display: none;
 }
 
 .image-plus-button {
-    width: 35px;
-    height: 35px;
-    margin-top: 10px;
-    margin-right: 10px;
-    color: white;
+  width: 35px;
+  height: 35px;
+  margin-top: 10px;
+  margin-right: 10px;
+  color: white;
 }
 
 .selected-image {
-    opacity: 10 !important;
+  opacity: 10 !important;
 }
 
 .extended-small-image-cross-icon {
-    margin-left: -30px;
-    margin-top: 10px;
-    width: 20px;
-    height: 20px;
-    z-index: 101
+  margin-left: -30px;
+  margin-top: 10px;
+  width: 20px;
+  height: 20px;
+  z-index: 101;
 }
 
 .preview-small-image-right-icon {
-    position: absolute;
-    margin-top: 45px;
-    right: 0;
-    margin-right: 45px;
-    width: 25px;
-    height: 25px;
+  position: absolute;
+  margin-top: 45px;
+  margin-right:21px;
+  right: 0;
+  top:0;
+  width: 25px;
+  height: 25px;
 }
 
 .preview-small-image-left-icon {
-    margin-left: 9px;
-    margin-top: 45px;
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    z-index: 100;
+  
+  margin-top: 45px;
+  left:0;
+  top:0;
+  position: absolute;
+  
+  width: 25px;
+  height: 25px;
+  z-index: 100;
 }
 
 .inactive-small-image-left-icon,
 .inactive-small-image-right-icon {
-    display: none;
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .extended-small-image {
+    width: 9vw;
+    height: 11vw;
+  }
+  .image-plus-button {
+    width: 5vw;
+    margin-top:1vw;
+  }
+  .preview-small-image-left-icon{
+    margin-top:5vw;
+  }
 }

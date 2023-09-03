@@ -27,6 +27,7 @@ function Header() {
     const getUsers = async () => {
       const userData = await fetch(
         "https://instagramserver1.herokuapp.com/users",
+        // "http://localhost:8080/users",
         {
           method: "Get",
           headers: {
@@ -38,7 +39,6 @@ function Header() {
 
             "Content-type": "application/json; charset=UTF-8",
           },
-          
         }
       );
       const jsonData = await userData.json();
@@ -135,9 +135,9 @@ function Header() {
           <AddBoxOutlinedIcon className="postingInstagramIcon" onClick={createNewPost} />
                 </div>
 
-          <Link to="/explore">
+          {/* <Link to="/explore">
             <ExploreOutlinedIcon className="explore" />
-          </Link>
+          </Link> */}
           {/* <div className="favorite-icon">
             <FavoriteBorderOutlinedIcon onClick={postActivity} />
             {openHeart && <LikeActivity postActivity={postActivity} />}

@@ -1,11 +1,27 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { IoCopyOutline } from "react-icons/io5";
 import { IoIosArrowDropleftCircle } from "react-icons/io";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { BsDot } from "react-icons/bs";
-function MessageModalSecondPage({ imageArray ,currentPage,movePrevImage,extendImageModalHandler,moveNextImage}) {
+function MessageModalSecondPage({
+  imageArray,
+  currentPage,
+  setPage,movePrevImage,
+  extendImageModalHandler,
+  moveNextImage,
+}) 
+
+{
+  useEffect(() => {
+    
+    if (imageArray[0] == undefined) {
+      console.log("hit");
+      setPage(0);
+    }
+  }, [imageArray]);
   return (
     <div>
+      
       {imageArray[currentPage] !== undefined && (
         <>
           <div className="preview-image-container">
@@ -55,6 +71,7 @@ function MessageModalSecondPage({ imageArray ,currentPage,movePrevImage,extendIm
           </div>
         </>
       )}
+      {(imageArray == undefined && <>{setPage(0)}</>)}
     </div>
   );
 }

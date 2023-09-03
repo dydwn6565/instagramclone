@@ -1,30 +1,44 @@
 .stories {
-    margin-top: 15px;
-    border: 0.5px solid lightgrey;
-    width: 552px;
-    margin-bottom: 15px;
-    font-size: 11px;
+  margin-top: 15px;
+  border: 0.5px solid lightgrey;
+  margin-bottom: 15px;
+  font-size: 11px;
 }
 
 .stories-block {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .stories-avatar-list {
-    display: flex;
-    align-items: center;
-    margin-left: 10px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 .storeis-last {
-    margin-right: 400px;
+  margin-right: 400px;
 }
 
 .stories-avatar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10px 20px 0px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 20px 0px 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .stories {
+    font-size: 1.5vw;
+  }
+  .stories-avatar {
+    transform: scale(0.8);
+  }
+  .stories-block {
+    justify-content: center;
+  }
+  .stories-avatar-list {
+    margin-left: unset;
+  }
 }

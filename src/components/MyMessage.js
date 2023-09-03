@@ -55,7 +55,7 @@ function MyMessage({ setBlurBackground }) {
       const chatRoomList = async () => {
         const roomListData = await fetch(
           `https://instagramserver1.herokuapp.com/chat/getUserRoom/${user.id}`,
-          // `http://localhost:8080/chat/getUserRoom/${userid.id}`,
+          // `http://localhost:8080/chat/getUserRoom/${user.id}`,
           {
             method: "GET",
             headers: {
@@ -110,7 +110,6 @@ function MyMessage({ setBlurBackground }) {
               {filteredRoomList &&
                 filteredRoomList.map((chatRoom) => (
                   <>
-                    
                     <div key={chatRoom.id} className="my-message-message">
                       <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRqRyIiwYCq4s-fZi1zdmyfSuIPUvg9EyZ_Q&usqp=CAU" />
                       <div>
@@ -118,16 +117,17 @@ function MyMessage({ setBlurBackground }) {
                           style={{ textDecoration: "none" }}
                           state={{
                             randomRoomNumber: chatRoom[0].roomnumber,
-                            chatRoom :chatRoom,
+                            chatRoom: chatRoom,
                             newChat: false,
                           }}
                           to={`/myMessage/${chatRoom[0].roomnumber}`}
                         >
                           <div className="my-message-username">
-                            {chatRoom.map(chat =>(
+                            {chatRoom.map((chat) => (
                               <>
-                              {chat.name !== userInfo.name &&<span>{chat.name  } </span>}
-                                
+                                {chat.name !== userInfo.name && (
+                                  <span>{chat.name} </span>
+                                )}
                               </>
                             ))}
                           </div>
@@ -138,24 +138,23 @@ function MyMessage({ setBlurBackground }) {
                 ))}
             </div>
           </div>
-
-          <div className="my-message-right-side">
+        </div>
+        <div className="my-message-right-side">
+          <div>
+            <GiCircle className="my-message-circle-icon" />
+            <IoPaperPlaneOutline className="my-message-paper-plain" />
+          </div>
+          <div className="my-message-right-side-my-message">
+            <h2>My message</h2>
             <div>
-              <GiCircle className="my-message-circle-icon" />
-              <IoPaperPlaneOutline className="my-message-paper-plain" />
+              Send your private picture or message to your friend or group
             </div>
-            <div>
-              <h2>My message</h2>
-              <div>
-                Send your private picture or message to your friend or group
-              </div>
-              <button
-                className="my-message-my-message-btn"
-                onClick={messageModalHandler}
-              >
-                send message
-              </button>
-            </div>
+            <button
+              className="my-message-my-message-btn"
+              onClick={messageModalHandler}
+            >
+              send message
+            </button>
           </div>
         </div>
 

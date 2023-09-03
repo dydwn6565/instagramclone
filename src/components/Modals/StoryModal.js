@@ -126,14 +126,14 @@ function StoryModal() {
             <ReactInstaStories
               stories={currentUrl}
               defaultInterval={1500}
-              width={500}
-              height={600}
+              // width={400}
+              // height={600}
               loader
-              
+              layout="responsive"
             />
           </div>
         )}
-        {prevStoryUrl &&
+        {/* {prevStoryUrl &&
           (prevVideo ? (
             <>
               <Link
@@ -190,7 +190,7 @@ function StoryModal() {
                 }}
               ></div>
             </Link>
-          ))}
+          ))} */}
         <div>
           <ImCross className="cross-icon" onClick={backToMainPage} />
         </div>

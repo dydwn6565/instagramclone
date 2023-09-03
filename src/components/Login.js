@@ -56,7 +56,10 @@ function Login() {
     }
     try {
       const login = await fetch(
-        "https://instagramserver1.herokuapp.com/login",
+        // "https://instagramserver1.herokuapp.com/login",
+        "http://localhost:8080/login",
+
+         
         {
           method: "POST",
 
@@ -84,7 +87,8 @@ function Login() {
         localStorage.setItem("refreshToken", token.refreshToken);
         
         const getUserInfo = await fetch(
-          `https://instagramserver1.herokuapp.com/usersByUserId/${enteredUserId}`,
+          // `https://instagramserver1.herokuapp.com/usersByUserId/${enteredUserId}`,
+          `http://localhost:8080/usersByUserId/${enteredUserId}`,
           {
             method: "GET",
           }
@@ -107,7 +111,10 @@ function Login() {
 
   const insertUserLocation = async (userId) => {
     const userLocationResult = await fetch(
-      "https://instagramserver1.herokuapp.com/insert/login/activity",
+      // "https://instagramserver1.herokuapp.com/insert/login/activity",
+      " http://localhost:8080/insert/login/activity",
+
+      
       {
         method: "POST",
         body: JSON.stringify({

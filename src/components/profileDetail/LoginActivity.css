@@ -1,34 +1,42 @@
 .login-activity {
-    display: flex;
-    width: 1000px;
-    height: 800px;
-    border: 0.5px solid lightgrey;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
+  display: flex;
+  width: 1000px;
+  height: 800px;
+  border: 0.5px solid lightgrey;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
 }
 
 .login-activity-main {
-    width: 800px;
-    margin-left: -150px;
-    padding: 2%;
+  margin-left: 50px;
+  padding: 2%;
 }
 
 .map-container {
-    width: 600px;
-    height: 250px;
+  width: 600px;
+  height: 250px;
 }
 
 @media screen and (max-width: 1000px) {
-    .login-activity {
-        width: 98%;
-        margin-top: 100px;
-        min-width: 750px;
-        margin-left: 10px;
-        justify-content: center;
-    }
-    .login-activity-main {
-        margin-left: 10px;
-    }
+  .login-activity {
+    width: 98%;
+    margin-top: 100px;
+
+    margin-left: 10px;
+    justify-content: center;
+  }
+  .login-activity-main {
+    margin-left: 10px;
+  }
+  .map-container {
+    width: 50vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .login-activity-main {
+    font-size: 2vw;
+  }
 }

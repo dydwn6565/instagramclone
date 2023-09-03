@@ -1,7 +1,7 @@
 .main-page-grid {
     display: flex;
     justify-content: center;
-    min-width: 670px;
+    /* min-width: 670px; */
 }
 
 

@@ -195,8 +195,8 @@ function PrivateInfoAndSecurity() {
               <a
                 className="private-info-and-security-main-learn-more"
                 alt="text"
-                // href="https://instagramserver1.herokuapp.com/support"
-                href="http://localhost:8080/support"
+                href="https://instagramserver1.herokuapp.com/support"
+                // href="http://localhost:8080/support"
               >
                 Support
               </a>
